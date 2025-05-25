@@ -1,0 +1,22 @@
+Training
+Epoch 1/1 [Train]:   0%|                                                                                                   | 0/262 [00:00<?, ?it/s]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/loss.py:610: UserWarning: Using a target size (torch.Size([8, 0, 384, 384])) that is different to the input size (torch.Size([8, 10, 384, 384])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.mse_loss(input, target, reduction=self.reduction)
+Epoch 1/1 [Train]:   0%|                                                                                                   | 0/262 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir.py", line 84, in <module>
+    loss = criterion(predicted_frames, target_frames)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/loss.py", line 610, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/functional.py", line 3884, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+                                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+RuntimeError: The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1

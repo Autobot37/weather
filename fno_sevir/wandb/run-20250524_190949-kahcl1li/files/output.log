@@ -1,0 +1,22 @@
+Training
+Epoch 1/5 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 4464/4464 [47:19<00:00,  1.57it/s, Loss=nan]
+Epoch 1/5 [Validation]:   0%|                                                                                                                         | 0/394 [00:00<?, ?it/s]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Epoch 1/5 [Validation]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 394/394 [04:50<00:00,  1.36it/s, Loss=nan]
+Epoch 1, Train Loss: nan, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan
+Epoch 2/5 [Train]:   0%|                                                                                                                             | 0/4464 [00:00<?, ?it/s]
+/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Epoch 2/5 [Validation]:   0%|                                                                                                                         | 0/394 [00:00<?, ?it/s]
+Epoch 2, Train Loss: nan, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan
+Epoch 3/5 [Train]:   0%|                                                                                                                             | 0/4464 [00:00<?, ?it/s]
+Epoch 3/5 [Validation]:   0%|                                                                                                                         | 0/394 [00:00<?, ?it/s]
+Epoch 3, Train Loss: nan, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan
+Epoch 4/5 [Train]:   0%|                                                                                                                             | 0/4464 [00:00<?, ?it/s]
+Epoch 4/5 [Validation]:   0%|                                                                                                                         | 0/394 [00:00<?, ?it/s]
+Epoch 4, Train Loss: nan, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan
+Epoch 5/5 [Train]:   0%|                                                                                                                             | 0/4464 [00:00<?, ?it/s]
+Epoch 5/5 [Validation]:   0%|                                                                                                                         | 0/394 [00:00<?, ?it/s]
+Epoch 5, Train Loss: nan, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan

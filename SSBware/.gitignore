@@ -5,3 +5,4 @@ weights/
 mean_std.npz
 __pycache__/
 *.pyc
+taming_transformers/

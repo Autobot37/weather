@@ -1,0 +1,54 @@
+2025-05-24 17:09:31,086 INFO    MainThread:10307 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_setup.py:_flush():70] Configure stats pid to 10307
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/.config/wandb/settings
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/NWM/fno_sevir/wandb/settings
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/vatsal/NWM/fno_sevir/wandb/run-20250524_170931-2jgn74rs/logs/debug.log
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/vatsal/NWM/fno_sevir/wandb/run-20250524_170931-2jgn74rs/logs/debug-internal.log
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:init():852] calling init triggers
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:init():893] starting backend
+2025-05-24 17:09:31,087 INFO    MainThread:10307 [wandb_init.py:init():897] sending inform_init request
+2025-05-24 17:09:31,094 INFO    MainThread:10307 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-24 17:09:31,094 INFO    MainThread:10307 [wandb_init.py:init():907] backend started and connected
+2025-05-24 17:09:31,096 INFO    MainThread:10307 [wandb_init.py:init():1005] updated telemetry
+2025-05-24 17:09:31,101 INFO    MainThread:10307 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-05-24 17:09:31,810 WARNING MainThread:10307 [wandb_init.py:init():1681] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/wandb_init.py", line 1677, in init
+    return wi.init(run_settings, run_config, run_printer)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/wandb_init.py", line 1055, in init
+    result = wait_with_progress(
+        run_init_handle,
+    ...<2 lines>...
+        display_progress=display_init_message,
+    )
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/mailbox/wait_with_progress.py", line 24, in wait_with_progress
+    return wait_all_with_progress(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        [handle],
+        ^^^^^^^^^
+    ...<2 lines>...
+        display_progress=display_progress,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )[0]
+    ^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/mailbox/wait_with_progress.py", line 70, in wait_all_with_progress
+    return _wait_handles(handle_list, timeout=progress_after)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/mailbox/wait_with_progress.py", line 110, in _wait_handles
+    results.append(handle.wait_or(timeout=remaining_timeout))
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/mailbox/mailbox_handle.py", line 122, in wait_or
+    return self._fn(self._handle.wait_or(timeout=timeout))
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/mailbox/response_handle.py", line 88, in wait_or
+    if not self._event.wait(timeout=timeout):
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 659, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 363, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
+2025-05-24 17:09:32,105 INFO    MsgRouterThr:10307 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 0 handles.
