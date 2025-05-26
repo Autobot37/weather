@@ -1,8 +1,0 @@
-RCTLS_05AUG2020_161736_L2B_STD.nc
-full_dataset/
-senv/
-weights/
-mean_std.npz
-__pycache__/
-*.pyc
-taming_transformers/

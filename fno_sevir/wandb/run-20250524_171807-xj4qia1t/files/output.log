@@ -1,7 +1,0 @@
-Training
-Epoch 1/1 [Train]:   0%|                                                                           | 3/8929 [00:01<1:22:20,  1.81it/s, Loss=0.0060]
-Traceback (most recent call last):
-  File "/home/vatsal/NWM/fno_sevir/fno_sevir.py", line 77, in <module>
-    avg_train_loss.append(loss.item())
-                          ~~~~~~~~~^^
-KeyboardInterrupt

@@ -25,7 +25,7 @@ def parse_args():
     # Training parameters
     parser.add_argument('--batch_size', type=int, default=8, help='Batch size for training.')
     parser.add_argument('--activation', type=str, default='relu', help='Activation function')
-    parser.add_argument('--epochs', type=int, default=5, help='Number of training epochs.')
+    parser.add_argument('--epochs', type=int, default=15, help='Number of training epochs.')
     parser.add_argument('--learning_rate', type=float, default=0.0001, help='Learning rate for optimizer.')
     
   

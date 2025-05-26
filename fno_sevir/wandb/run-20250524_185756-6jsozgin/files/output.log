@@ -1,8 +1,0 @@
-Training
-Epoch 1/1 [Train]: 100%|████████████████████████████████████████████████████████████████████████████| 196/196 [02:00<00:00,  1.62it/s, Loss=0.0206]
-Epoch 1/1 [Validation]:   0%|                                                                                              | 0/196 [00:00<?, ?it/s]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
-  _future_warning(
-Epoch 1/1 [Validation]: 100%|███████████████████████████████████████████████████████████████████████| 196/196 [02:18<00:00,  1.41it/s, Loss=0.0206]
-Saved best model at epoch 0 with val_loss: 0.0380
-Model saved, val_loss: 0.0379595320092096
-Epoch 1, Train Loss: 0.038016, Val Loss: 0.037960, SSIM: 0.9192173480987549, PSNR: 50.194496154785156, ACC: 0.0009409732883796096, RMSE :0.22678864047616296

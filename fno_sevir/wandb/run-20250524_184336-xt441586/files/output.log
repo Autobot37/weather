@@ -1,8 +1,0 @@
-Training
-Epoch 1/1 [Train]: 197it [02:01,  1.62it/s, Loss=0.0208]                                                                                           
-Epoch 1/1 [Validation]:   0%|                                                                                              | 0/196 [00:00<?, ?it/s]
-/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
-  ret = ret.dtype.type(ret / rcount)
-Epoch 1, Train Loss: 0.039387, Val Loss: nan, SSIM: nan, PSNR: nan, ACC: nan, RMSE :nan
