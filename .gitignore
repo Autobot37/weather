@@ -1,0 +1,39 @@
+# Ignore wandb folder
+wandb/
+apex/
+# Ignore Python cache and environment folders
+__pycache__/
+*_env/
+venv/
+lib/
+*.onnx
+bin/
+*.download
+*.grib
+*.egg-info/
+*.zip
+
+
+# Ignore binary and cache files
+*.pyc
+*.pkl
+*.pt
+*.pth
+
+# Ignore scientific data files
+*.nc
+*.h5
+*.npy
+*.npz
+*.ckpt
+
+# Ignore images
+*.png
+*.jpeg
+*.jpg
+*.gif
+
+# Ignore logs and reports
+*.log
+*.so
+*.pdf

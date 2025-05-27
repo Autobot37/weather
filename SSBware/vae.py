@@ -12,11 +12,11 @@ from diffusers.models.modeling_outputs import AutoencoderKLOutput
 from diffusers.models.autoencoders.vae import DecoderOutput 
 
 IMG_CHANNELS = 1
-IMG_SIZE = 512
+IMG_SIZE = 384
 LATENT_CHANNELS = 4
 BATCH_SIZE = 1
 LEARNING_RATE = 1e-4
-NUM_EPOCHS = 50 
+NUM_EPOCHS = 10 
 KL_WEIGHT = 1e-6 # Weight for the KL divergence loss term
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MODEL_SAVE_PATH = "weights"

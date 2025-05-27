@@ -11,7 +11,8 @@ from neuralop.models import FNO
 from fno_dataset import *
 from datetime import datetime
 from torchmetrics.functional import structural_similarity_index_measure as ssim
-from Prediction_metrics.Calculate_pred_met import *
+from metrics import calculate_metrics_dict
+import pandas as pd
 
 def plot(predicted_frames, target_frames , vil_colormap, vil_norm, epoch, batch_idx=0):
     num_frames = predicted_frames.shape[1]
@@ -72,6 +73,7 @@ model = model.to('cuda')
 plot_idxs = list(range(0, 1500, 50))
 
 vil_colormap, vil_norm = vil_cmap(encoded=True)
+all_rows = []
 
 with torch.no_grad():
     test_pbar = tqdm(enumerate(test_loader), total=len(test_loader))
@@ -86,8 +88,20 @@ with torch.no_grad():
         target_frames = vil_sequence[:, 10:]
         
         predicted_frames = model(input_frames)
-        
-        if batch_idx in plot_idxs:
-            plot(predicted_frames, target_frames, vil_colormap, vil_norm, 1, batch_idx)
+        if batch_idx == 0:
+            print(f"Input frames shape: {input_frames.shape}, Target frames shape: {target_frames.shape}, Predicted frames shape: {predicted_frames.shape}")
 
+        # if batch_idx in plot_idxs:
+        #     plot(predicted_frames, target_frames, vil_colormap, vil_norm, 1, batch_idx)
+
+        input_frames = input_frames.cpu().numpy()
+        target_frames = target_frames.cpu().numpy()
+        predicted_frames = predicted_frames.cpu().numpy()
+        
+        metrics_dict = calculate_metrics_dict(predicted_frames, target_frames, input_frames)
+        row_df = pd.DataFrame([metrics_dict])  # wrap dict in list → 1-row DataFrame
+        all_rows.append(row_df)
     test_loader.reset()
+
+final_df = pd.concat(all_rows, ignore_index=True)
+final_df.to_csv('fno_test_metrics.csv', index=False)
