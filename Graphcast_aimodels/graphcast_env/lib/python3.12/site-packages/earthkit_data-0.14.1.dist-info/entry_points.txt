@@ -1,0 +1,2 @@
+[xarray.backends]
+earthkit = earthkit.data.utils.xarray.engine:EarthkitBackendEntrypoint

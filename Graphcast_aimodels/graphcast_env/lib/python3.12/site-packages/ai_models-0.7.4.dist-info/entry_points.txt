@@ -1,0 +1,13 @@
+[ai_models.input]
+cds = ai_models.inputs.cds:CdsInput
+ecmwf-open-data = ai_models.inputs.opendata:OpenDataInput
+file = ai_models.inputs.file:FileInput
+mars = ai_models.inputs.mars:MarsInput
+opendata = ai_models.inputs.opendata:OpenDataInput
+
+[ai_models.output]
+file = ai_models.outputs:FileOutput
+none = ai_models.outputs:NoneOutput
+
+[console_scripts]
+ai-models = ai_models.__main__:main

@@ -1,0 +1,2 @@
+[ai_models.model]
+graphcast = ai_models_graphcast.model:model
