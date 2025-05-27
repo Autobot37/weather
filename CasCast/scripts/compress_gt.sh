@@ -19,7 +19,6 @@ do
 done
 echo $PORT
 
-# export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
 python -u latent_preprocess.py \
 --init_method 'tcp://127.0.0.1:'$PORT \
