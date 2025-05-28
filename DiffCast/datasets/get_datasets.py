@@ -150,7 +150,8 @@ def get_dataset(data_name, img_size, seq_len, **kwargs):
             output_type=np.float32,
             preprocess=True,
             rescale_method='01',
-            verbose=False
+            verbose=False,
+            split = 'train'
         )
         
         val = SEVIRTorchDataset(
@@ -169,7 +170,8 @@ def get_dataset(data_name, img_size, seq_len, **kwargs):
             output_type=np.float32,
             preprocess=True,
             rescale_method='01',
-            verbose=False
+            verbose=False,
+            split = 'valid'
         )
         
         test = SEVIRTorchDataset(
@@ -188,7 +190,8 @@ def get_dataset(data_name, img_size, seq_len, **kwargs):
             output_type=np.float32,
             preprocess=True,
             rescale_method='01',
-            verbose=False
+            verbose=False,
+            split = 'test'
         )
         
 

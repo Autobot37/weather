@@ -960,7 +960,8 @@ class SEVIRTorchDataset(TorchDataset):
                  output_type = np.float32,
                  preprocess: bool = True,
                  rescale_method: str = "01",
-                 verbose: bool = False):
+                 verbose: bool = False,
+                 split = None):
         super(SEVIRTorchDataset, self).__init__()
         self.layout = layout
         self.img_size = img_size
@@ -999,6 +1000,7 @@ class SEVIRTorchDataset(TorchDataset):
                         # trans.RandomCrop(data_config["img_size"]),
 
                     ])
+        self.split = split
     def __getitem__(self, index):
         data_dict = self.sevir_dataloader._idx_sample(index=index)
         data = data_dict["vil"]
@@ -1007,7 +1009,16 @@ class SEVIRTorchDataset(TorchDataset):
         return data
 
     def __len__(self):
-        return self.sevir_dataloader.__len__()
+        total = self.sevir_dataloader.__len__()
+        if self.split == "train":
+            return min(total, 10000)
+        elif self.split == "val":
+            return min(total, 100)
+        elif self.split == "test":
+            return min(total, 100)
+        else:
+            return total
+
 
     def collate_fn(self, data_dict_list):
         r"""

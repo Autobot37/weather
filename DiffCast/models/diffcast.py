@@ -910,6 +910,13 @@ class GaussianDiffusion(nn.Module):
         
         pre_frag = frames_in
         pre_mu = None
+        # print(T_out // T_in)
+        # print("backbone_output shape:", backbone_output.shape)
+        # print("frames_in shape:", frames_in.shape)
+        # print("tout :", T_out)
+        # T_in = frames_in.shape[1]
+        # print("T_in:", T_in)
+
         for frag_idx in tqdm(range(T_out // T_in), desc="sampling frags:", disable=(frames_in.device == 0)):
             
             mu = backbone_output[:, frag_idx * T_in : (frag_idx + 1) * T_in]
@@ -925,7 +932,8 @@ class GaussianDiffusion(nn.Module):
                 idx=torch.full((B,), frag_idx, device = device, dtype = torch.long), 
                 return_all_timesteps = return_all_timesteps
                 )
-
+            # print(y.shape, mu.shape)
+            # print('#'*100)
             frag_pred = y + mu
             
             frames_pred.append(
@@ -946,20 +954,185 @@ class GaussianDiffusion(nn.Module):
         return frames_pred, backbone_output, ys
     
 
-    def predict(self, frames_in,  compute_loss=False, **kwargs):
-        T_out = default(kwargs.get('T_out'), 20)
-        pred, mu, y = self.sample(frames_in=frames_in, T_out=T_out)
+    def predict(self, frames_in, frames_gt = None, compute_loss=False, **kwargs):
+        T_out = default(kwargs.get('T_out'), 10)
+        # pred, mu, y = self.sample(frames_in=frames_in, T_out=T_out)
+        pred = None
         if compute_loss:
-            raise NotImplementedError("We are sorry that we do not support training process for now because of business limitation ")
-        return pred, None
+            # raise NotImplementedError("We are sorry that we do not support training process for now because of business limitation ")
+            loss = self._predict(frames_in, frames_gt)
+        else:
+            pred, mu, y = self.sample(frames_in=frames_in, T_out=T_out)
+            loss = None
+
+        return pred, loss
+
+    def default(val, d):
+        if val is not None:
+            return val
+        return d() if callable(d) else d
 
 
+    def q_sample(self, x_start, t, noise=None):
+        """
+        Forward diffusion process: q(x_t | x_0)
+        Noise x_start at timestep t.
+        """
+        noise = default(noise, lambda: torch.randn_like(x_start))
+        return (
+            extract(self.sqrt_alphas_cumprod, t, x_start.shape) * x_start +
+            extract(self.sqrt_one_minus_alphas_cumprod, t, noise.shape) * noise
+        )
+
+    def _predict(self, frames_in, frames_gt, loss_type='l2', backbone_alpha_loss_weight=0.5):
+        """
+        Calculates losses for training.
+        frames_in: Observed input frames (B, T_in_obs, C, H, W)
+        frames_gt: Ground truth future frames (B, T_out_gt, C, H, W)
+        T_in_obs: Length of the input sequence (e.g., 5)
+        T_out_gt: Length of the ground truth sequence to predict (e.g., 20)
+        loss_type: Type of loss for denoising ('l1' or 'l2')
+        backbone_alpha_loss_weight: The 'alpha' in L = alpha * Le + (1-alpha) * Lp from paper Eq(12)
+                                   Here, it's used to denote the weight for Le.
+                                   So, combined_loss = backbone_alpha_loss_weight * Le + (1 - backbone_alpha_loss_weight) * Lp
+        """
+        T_out_gt = frames_gt.shape[1] 
+        b_size, _, c_dim, h_dim, w_dim = frames_in.shape
+        device = frames_in.device
+
+        # 1. Normalize inputs and ground truth
+        frames_in_norm = self.normalize(frames_in)
+        frames_gt_norm = self.normalize(frames_gt)
+
+        # 2. Backbone Prediction (P_theta1(x_obs) -> mu)
+        # The backbone predicts mu for the entire future period (T_out_gt) based on observed frames (frames_in_norm).
+        # It also needs to provide mu corresponding to the T_in_obs period for ContextNet.
+        
+        # Predict mu for the ground truth period (used for Lp and target residual calculation)
+        # Assumes backbone_net.predict can take T_out to specify length of mu
+        mu_for_gt_period_norm, _ = self.backbone_net.predict(frames_in_norm)
+        
+        # Predict mu for the input/observed period (used for ContextNet)
+        # This could be from the same call if the backbone predicts a longer sequence,
+        # or a separate call if it predicts based on T_out.
+        # For simplicity, let's assume a call that gives mu for the input period.
+        # A more unified way:
+        # mu_total_sequence, _ = self.backbone_net.predict(frames_in_norm, T_out=T_in_obs + T_out_gt)
+        # mu_for_in_period_norm = mu_total_sequence[:, :T_in_obs]
+        # mu_for_gt_period_norm = mu_total_sequence[:, T_in_obs : T_in_obs + T_out_gt]
+        # This depends on your backbone_net's design. Using separate predict calls for clarity here:
+        # mu_for_in_period_norm, _ = self.backbone_net.predict(frames_in_norm)
+
+
+        # 3. Calculate Deterministic Loss (Lp) for the backbone
+        # Lp = E[||mu - y||^2], where y is frames_gt_norm
+        deterministic_loss_lp = F.mse_loss(mu_for_gt_period_norm, frames_gt_norm)
+
+        # 4. Calculate Target Residuals (r = y - mu) for the ground truth period
+        target_residuals_all_gt_norm = frames_gt_norm - mu_for_gt_period_norm  # Shape: (B, T_out_gt, C, H, W)
+
+        # 5. Get Context from ContextNet (G_theta3)
+        # ContextNet G_theta3 uses the backbone's prediction mu corresponding to the input x_obs.
+        # Input to scan_ctx: torch.cat((frames_in_norm, mu_for_in_period_norm), dim=1) based on your ContextNet structure
+        global_ctx, local_ctx = self.ctx_net.scan_ctx(
+             torch.cat((frames_in_norm, mu_for_gt_period_norm), dim=1) # Adjust if ContextNet expects only mu_for_in_period_norm
+        )
+
+        # 6. Iterate over Segments for Autoregressive Denoising Loss (Le)
+        K_segment_length = self.model.out_dim  # U-Net predicts residuals in segments of length K
+        num_segments_to_train = T_out_gt // K_segment_length
+        
+        if num_segments_to_train == 0:
+            # If T_out_gt is shorter than one segment, no denoising loss can be computed this way.
+            # You might want to handle this by padding or ensuring T_out_gt >= K.
+            avg_denoising_loss_le = torch.tensor(0.0, device=device, requires_grad=True)
+        else:
+            total_denoising_loss_le_accumulator = torch.tensor(0.0, device=device)
+            
+            # Condition r_{i-1} for the U-Net. For the first segment (i=1), r_0 is zero.
+            # This is the GROUND TRUTH residual of the previous segment.
+            previous_gt_residual_segment_condition = torch.zeros((b_size, K_segment_length, c_dim, h_dim, w_dim), device=device)
+
+            for frag_idx in range(num_segments_to_train):
+                # Get the current segment of ground truth residuals (this is x_start for diffusion)
+                current_gt_residual_segment = target_residuals_all_gt_norm[:, 
+                                                frag_idx * K_segment_length : (frag_idx + 1) * K_segment_length]
+                
+                # Sample random timesteps t for the batch
+                t_sample_timesteps = torch.randint(0, self.num_timesteps, (b_size,), device=device).long()
+                
+                # Sample random noise epsilon
+                noise_epsilon = torch.randn_like(current_gt_residual_segment, device=device)
+                
+                # Create noisy target residual r_t (Forward diffusion: q(r_t | r_0))
+                # Here, x_start for q_sample is current_gt_residual_segment (clean r_0 for this segment)
+                noisy_residual_segment_input_to_unet = self.q_sample(
+                    x_start=current_gt_residual_segment, t=t_sample_timesteps, noise=noise_epsilon
+                )
+                
+                # U-Net conditioning: previous ground truth residual segment (r_{i-1})
+                unet_condition_previous_residual = previous_gt_residual_segment_condition
+
+                # Get U-Net's prediction (e.g., predicted noise epsilon_theta)
+                # The U-Net's `x` input is `noisy_residual_segment_input_to_unet` (this is r_i^t)
+                # The U-Net's `cond` input is `unet_condition_previous_residual` (this is r_{i-1})
+                predicted_model_output_from_unet = self.model(
+                    noisy_residual_segment_input_to_unet,   # r_i^t
+                    t_sample_timesteps,                     # t
+                    cond=unet_condition_previous_residual,  # r_{i-1}
+                    ctx=global_ctx if frag_idx > 0 else local_ctx, # Context from G_theta3(P_theta1(x_obs))
+                    idx=torch.full((b_size,), frag_idx, device=device, dtype=torch.long) # Segment index j
+                )
+                
+                # Determine the target for the U-Net's loss based on self.objective
+                if self.objective == 'pred_noise':
+                    target_for_unet_loss = noise_epsilon
+                elif self.objective == 'pred_x0': # Predict the clean residual segment r_i^0
+                    target_for_unet_loss = current_gt_residual_segment
+                elif self.objective == 'pred_v':  # Predict v for the current residual segment
+                    target_for_unet_loss = self.predict_v(
+                        x_start=current_gt_residual_segment, t=t_sample_timesteps, noise=noise_epsilon
+                    )
+                else:
+                    raise ValueError(f"Unknown objective {self.objective}")
+
+                # Calculate loss for the current segment (e.g., MSE)
+                if loss_type == 'l1':
+                    loss_this_segment_unweighted = F.l1_loss(predicted_model_output_from_unet, target_for_unet_loss, reduction='none')
+                elif loss_type == 'l2':
+                    loss_this_segment_unweighted = F.mse_loss(predicted_model_output_from_unet, target_for_unet_loss, reduction='none')
+                else:
+                    raise NotImplementedError(f"Loss type {loss_type} not implemented.")
+                
+                # Reduce loss per batch element (mean over spatial, channel, and K_segment_length dimensions)
+                loss_this_segment_unweighted = reduce(loss_this_segment_unweighted, 'b ... -> b', 'mean')
+                
+                # Apply SNR-based loss weighting (self.loss_weight is precomputed based on timesteps)
+                weighted_loss_this_segment = loss_this_segment_unweighted * extract(self.loss_weight, t_sample_timesteps, loss_this_segment_unweighted.shape)
+                
+                total_denoising_loss_le_accumulator = total_denoising_loss_le_accumulator + weighted_loss_this_segment.mean() # Mean over batch
+                
+                # Update the condition for the next segment: r_i becomes r_{i-1}
+                # Use detach() as we typically don't backpropagate through the conditioning target from previous step.
+                previous_gt_residual_segment_condition = current_gt_residual_segment.detach()
+
+            avg_denoising_loss_le = total_denoising_loss_le_accumulator / num_segments_to_train
+        
+        # Combined loss L = weight_le * Le + weight_lp * Lp
+        # The paper uses 'alpha' for Le's weight. Let's rename backbone_alpha_loss_weight to le_loss_weight.
+        le_loss_weight = backbone_alpha_loss_weight 
+        lp_loss_weight = 1.0 - le_loss_weight
+
+        combined_loss = le_loss_weight * avg_denoising_loss_le + lp_loss_weight * deterministic_loss_lp
+        
+        return combined_loss
+    
 def get_model(
     img_channels=1,
     dim = 64,
     dim_mults = (1,2,4,8),
-    T_in = 5, 
-    T_out = 20,
+    T_in = 10, 
+    T_out = 10,
     timesteps = 1000,           # number of steps
     sampling_timesteps = 250,    # number of sampling timesteps (using ddim for faster inference [see citation for ddim paper])
     **kwargs
@@ -986,8 +1159,22 @@ def get_model(
     
     return diffusion
 
-def main();
-    pass
+def main():
+    diff_model = get_model()
+    from models.simvp import get_model as gm
+    kwargs = {
+        "in_shape": (1, 64, 64),
+        "T_in": 5,
+        "T_out": 20,
+    }
+
+    backbone_net = gm(**kwargs)
+    diff_model.load_backbone(backbone_net)
+
+    inp = torch.randn(2, 5, 1, 64, 64)
+    gt = torch.randn(2, 20, 1, 64, 64)
+    loss = diff_model._predict(inp, gt, T_in_obs=5, T_out_gt=20, loss_type='l2', backbone_alpha_loss_weight=0.5)
+    print(f"Loss: {loss.item()}")
 
 if __name__ == "__main__":
     main()

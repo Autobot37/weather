@@ -46,9 +46,9 @@ def create_parser():
     parser.add_argument("--dataset",        type=str,   default='sevir',        help="dataset name")
     parser.add_argument("--img_size",       type=int,   default=384,            help="image size")
     parser.add_argument("--img_channel",    type=int,   default=1,              help="channel of image")
-    parser.add_argument("--seq_len",        type=int,   default=24,             help="sequence length sampled from dataset")
-    parser.add_argument("--frames_in",      type=int,   default=12,              help="number of frames to input")
-    parser.add_argument("--frames_out",     type=int,   default=12,             help="number of frames to output")    
+    parser.add_argument("--seq_len",        type=int,   default=20,             help="sequence length sampled from dataset")
+    parser.add_argument("--frames_in",      type=int,   default=10,              help="number of frames to input")
+    parser.add_argument("--frames_out",     type=int,   default=10,             help="number of frames to output")    
     parser.add_argument("--num_workers",    type=int,   default=2,              help="number of workers for data loader")
     
     # --------------- Optimizer ---------------
@@ -63,9 +63,9 @@ def create_parser():
     parser.add_argument("--grad_acc_step",  type=int,   default=1,               help="gradient accumulation step")
     
     # --------------- Training ---------------
-    parser.add_argument("--batch_size",     type=int,   default=1,              help="batch size")
-    parser.add_argument("--epochs",         type=int,   default=2,              help="number of epochs")
-    parser.add_argument("--training_steps", type=int,   default=20000,          help="number of training steps")
+    parser.add_argument("--batch_size",     type=int,   default=4,              help="batch size")
+    parser.add_argument("--epochs",         type=int,   default=1,              help="number of epochs")
+    parser.add_argument("--training_steps", type=int,   default=20,          help="number of training steps")
     parser.add_argument("--early_stop",     type=int,   default=10,              help="early stopping steps")
     parser.add_argument("--ckpt_milestone", type=str,   default=None,            help="resumed checkpoint milestone")
     
@@ -255,24 +255,12 @@ class Runner(object):
                 "in_shape": (self.args.img_channel, self.args.img_size, self.args.img_size),
                 "T_in": self.args.frames_in,
                 "T_out": self.args.frames_out,
-                "device": self.device
             }
             model = get_model(**kwargs)
         
-        elif self.args.backbone == 'diffcast':
-            from models.diffcast import get_model
-            kwargs = {
-                'img_channels' : self.args.img_channel,
-                'dim' : 64,
-                'dim_mults' : (1,2,4,8),
-                'T_in': self.args.frames_in,
-                'T_out': self.args.frames_out,
-                'sampling_timesteps': 250,
-            }
-            model = get_model(**kwargs)
-            from models.earth_former import get_model
-            earthformer = get_model()
-            model.load_backbone(earthformer)
+        elif self.args.backbone == 'fno':
+            from models.fno import FNOModel
+            model = FNOModel(in_channels=self.args.frames_in, out_channels=self.args.frames_out)
             
         else:
             raise NotImplementedError
@@ -285,7 +273,7 @@ class Runner(object):
                 'dim_mults' : (1,2,4,8),
                 'T_in': self.args.frames_in,
                 'T_out': self.args.frames_out,
-                'sampling_timesteps': 250,
+                'sampling_timesteps' : 250,
             }
             diff_model = get_model(**kwargs)
             diff_model.load_backbone(model)
@@ -512,7 +500,7 @@ class Runner(object):
         # init sampling method
         self.model.eval()
         # init test dir config
-        cnt = 0
+        # cnt = 0 # This will be replaced by batch_idx from enumerate
         save_dir = osp.join(self.test_path, f"sample-{milestone}") if do_test else osp.join(self.valid_path, f"sample-{milestone}")
         os.makedirs(save_dir, exist_ok=True)
         if self.is_main:
@@ -523,18 +511,19 @@ class Runner(object):
                 save_path=save_dir,
             )
         # start test loop
-        for batch in tqdm(data_loader,desc='Test Samples', disable=not self.is_main):
+        for batch_idx, batch in enumerate(tqdm(data_loader,desc='Test Samples', disable=not self.is_main)):
             # sample
             radar_ori, radar_recon= self._sample_batch(batch)
             # evaluate result and save
-            eval.evaluate(radar_ori, radar_recon)
-            if self.is_main:
-                for i in range(radar_ori.shape[0]):
-                    self.visiual_save_fn(radar_recon[i], radar_ori[i], osp.join(save_dir, f"{cnt}-{i}/vil"),data_type='vil')
+            if self.is_main: # Evaluator and visiual_save_fn should only run on main process
+                eval.evaluate(radar_ori, radar_recon)
+                for i in range(radar_ori.shape[0]): # Iterate over samples in the batch
+                    # Use batch_idx to ensure unique paths for samples from different batches
+                    self.visiual_save_fn(radar_recon[i], radar_ori[i], osp.join(save_dir, f"{batch_idx}-{i}/vil"),data_type='vil')
 
             self.accelerator.wait_for_everyone()
-            # cnt += 1
-            # if cnt > 10:
+            # cnt += 1 # Not needed if using batch_idx
+            # if cnt > 10: # If you want to limit the number of batches processed for testing
             #     break
         # test done
         if self.is_main:
@@ -558,6 +547,7 @@ class Runner(object):
         for m in range(0, len(milestones), 1):
             self.load(milestones[m])
             self.test_samples(milestones[m], do_test=True)
+            break
             
 def main():
     args = create_parser()
