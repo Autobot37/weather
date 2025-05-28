@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import os.path as osp
 import math
 import time
@@ -26,7 +26,7 @@ from utils.metrics import Evaluator
 from utils.tools import print_log, cycle, show_img_info
 
 # Apply your own wandb api key to log online
-os.environ["WANDB_API_KEY"] = "YOUR_WANDB"
+os.environ["WANDB_API_KEY"] = "ebdff79c224117070aea32ad36c6031428ab5f04"
 # os.environ["WANDB_SILENT"] = "true"
 os.environ["ACCELERATE_DEBUG_MODE"] = "1"
 
@@ -44,12 +44,12 @@ def create_parser():
 
     # --------------- Dataset ---------------
     parser.add_argument("--dataset",        type=str,   default='sevir',        help="dataset name")
-    parser.add_argument("--img_size",       type=int,   default=128,            help="image size")
+    parser.add_argument("--img_size",       type=int,   default=384,            help="image size")
     parser.add_argument("--img_channel",    type=int,   default=1,              help="channel of image")
-    parser.add_argument("--seq_len",        type=int,   default=25,             help="sequence length sampled from dataset")
-    parser.add_argument("--frames_in",      type=int,   default=5,              help="number of frames to input")
-    parser.add_argument("--frames_out",     type=int,   default=20,             help="number of frames to output")    
-    parser.add_argument("--num_workers",    type=int,   default=4,              help="number of workers for data loader")
+    parser.add_argument("--seq_len",        type=int,   default=24,             help="sequence length sampled from dataset")
+    parser.add_argument("--frames_in",      type=int,   default=12,              help="number of frames to input")
+    parser.add_argument("--frames_out",     type=int,   default=12,             help="number of frames to output")    
+    parser.add_argument("--num_workers",    type=int,   default=2,              help="number of workers for data loader")
     
     # --------------- Optimizer ---------------
     parser.add_argument("--lr",             type=float, default=1e-4,            help="learning rate")
@@ -59,19 +59,19 @@ def create_parser():
     parser.add_argument("--ema_rate",       type=float, default=0.95,            help="exponential moving average rate")
     parser.add_argument("--scheduler",      type=str,   default='cosine',        help="learning rate scheduler", choices=['constant', 'linear', 'cosine'])
     parser.add_argument("--warmup_steps",   type=int,   default=1000,            help="warmup steps")
-    parser.add_argument("--mixed_precision",type=str,   default='no',            help="mixed precision training")
+    parser.add_argument("--mixed_precision",type=str,   default='bf16',            help="mixed precision training")
     parser.add_argument("--grad_acc_step",  type=int,   default=1,               help="gradient accumulation step")
     
     # --------------- Training ---------------
-    parser.add_argument("--batch_size",     type=int,   default=6,              help="batch size")
-    parser.add_argument("--epochs",         type=int,   default=20,              help="number of epochs")
-    parser.add_argument("--training_steps", type=int,   default=200000,          help="number of training steps")
+    parser.add_argument("--batch_size",     type=int,   default=1,              help="batch size")
+    parser.add_argument("--epochs",         type=int,   default=2,              help="number of epochs")
+    parser.add_argument("--training_steps", type=int,   default=20000,          help="number of training steps")
     parser.add_argument("--early_stop",     type=int,   default=10,              help="early stopping steps")
     parser.add_argument("--ckpt_milestone", type=str,   default=None,            help="resumed checkpoint milestone")
     
     # --------------- Additional Ablation Configs ---------------
     parser.add_argument("--eval",           action="store_true",                 help="evaluation mode")
-    parser.add_argument("--wandb_state",    type=str,   default='disabled',      help="wandb state config")
+    parser.add_argument("--wandb_state",    type=str,   default="online",      help="wandb state config")
 
     args = parser.parse_args()
     return args
@@ -83,7 +83,6 @@ class Runner(object):
         
         self.args = args
         self._preparation()
-        
         # Config DDP kwargs from accelerate
         project_config = ProjectConfiguration(
             project_dir=self.exp_dir,
@@ -135,7 +134,7 @@ class Runner(object):
             next(self.train_dl_cycle)
             print_log(f"Data Loading Time: {time.time() - start}", self.is_main)
             # print_log(show_img_info(sample), self.is_main)
-            
+        print(torch.cuda.is_available())
         print_log(f"gpu_nums: {torch.cuda.device_count()}, gpu_id: {torch.cuda.current_device()}")
         
         if self.args.ckpt_milestone is not None:
@@ -147,7 +146,7 @@ class Runner(object):
     
     @property
     def device(self):
-        return self.accelerator.device
+        return "cuda:0"
     
     def _preparation(self):
         # =================================
@@ -249,12 +248,37 @@ class Runner(object):
                 "device": self.device
             }
             model = get_model(**kwargs)
+
+        elif self.args.backbone == 'earthformer':
+            from models.earth_former import get_model
+            kwargs = {
+                "in_shape": (self.args.img_channel, self.args.img_size, self.args.img_size),
+                "T_in": self.args.frames_in,
+                "T_out": self.args.frames_out,
+                "device": self.device
+            }
+            model = get_model(**kwargs)
+        
+        elif self.args.backbone == 'diffcast':
+            from models.diffcast import get_model
+            kwargs = {
+                'img_channels' : self.args.img_channel,
+                'dim' : 64,
+                'dim_mults' : (1,2,4,8),
+                'T_in': self.args.frames_in,
+                'T_out': self.args.frames_out,
+                'sampling_timesteps': 250,
+            }
+            model = get_model(**kwargs)
+            from models.earth_former import get_model
+            earthformer = get_model()
+            model.load_backbone(earthformer)
             
         else:
             raise NotImplementedError
         
         if self.args.use_diff:
-            from diffcast import get_model
+            from models.diffcast import get_model
             kwargs = {
                 'img_channels' : self.args.img_channel,
                 'dim' : 64,
@@ -358,7 +382,7 @@ class Runner(object):
         # =================================        
         device = self.accelerator.device
         
-        if '.pt' in milestone:
+        if isinstance(milestone, str) and '.pt' in milestone:
             data = torch.load(milestone, map_location=device)
         else:
             data = torch.load(osp.join(self.ckpt_path, f"ckpt-{milestone}.pt"), map_location=device)

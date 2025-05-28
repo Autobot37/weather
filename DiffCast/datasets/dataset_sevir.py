@@ -940,7 +940,7 @@ class SEVIRTorchDataset(TorchDataset):
     def __init__(self,
                  dataset_dir: str,
                  seq_len: int = 25,
-                 img_size: int = 128,
+                 img_size: int = 384,
                  raw_seq_len: int = 49,
                  sample_mode: str = "sequent",
                  stride: int = 20,

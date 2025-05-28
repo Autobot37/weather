@@ -100,7 +100,7 @@ def build_model(chkpt_path):
     }
     backbone = get_model(**kwargs)
   
-    from diffcast import get_model
+    from DiffCast.models.diffcast import get_model
     kwargs = {
         'img_channels' : img_channel,
         'dim' : 64,
