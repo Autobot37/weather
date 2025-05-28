@@ -44,11 +44,11 @@ def create_parser():
 
     # --------------- Dataset ---------------
     parser.add_argument("--dataset",        type=str,   default='sevir',        help="dataset name")
-    parser.add_argument("--img_size",       type=int,   default=384,            help="image size")
+    parser.add_argument("--img_size",       type=int,   default=128,            help="image size")
     parser.add_argument("--img_channel",    type=int,   default=1,              help="channel of image")
-    parser.add_argument("--seq_len",        type=int,   default=24,             help="sequence length sampled from dataset")
-    parser.add_argument("--frames_in",      type=int,   default=12,              help="number of frames to input")
-    parser.add_argument("--frames_out",     type=int,   default=12,             help="number of frames to output")    
+    parser.add_argument("--seq_len",        type=int,   default=25,             help="sequence length sampled from dataset")
+    parser.add_argument("--frames_in",      type=int,   default=5,              help="number of frames to input")
+    parser.add_argument("--frames_out",     type=int,   default=20,             help="number of frames to output")    
     parser.add_argument("--num_workers",    type=int,   default=2,              help="number of workers for data loader")
     
     # --------------- Optimizer ---------------
