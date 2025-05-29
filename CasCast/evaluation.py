@@ -92,7 +92,7 @@ def main(args):
 
     run_dir = args.cfgdir
     print(run_dir)
-    
+    print("running on device", torch.cuda.current_device() if torch.cuda.is_available() else "CPU")
     # args.cfg = os.path.join(args.cfgdir, 'lora_eval_options.yaml')
     args.cfg = os.path.join(args.cfgdir, 'training_options.yaml')
     with open(args.cfg, 'r') as cfg_file:
@@ -123,10 +123,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--tensor_model_parallel_size', type = int,     default = 1,                                            help = 'tensor_model_parallel_size')
     parser.add_argument('--seed',           type = int,     default = 0,                                            help = 'seed')
-    parser.add_argument('--cuda',           type = int,     default = 0,                                            help = 'cuda id')
+    parser.add_argument('--cuda',           type = int,     default = 1,                                            help = 'cuda id')
     parser.add_argument('--world_size',     type = int,     default = 1,                                            help = 'Number of progress')
     parser.add_argument('--per_cpus',       type = int,     default = 1,                                            help = 'Number of perCPUs to use')
-    parser.add_argument('--batch_size',     type = int,     default = 32,                                           help = "batch size")
+    parser.add_argument('--batch_size',     type = int,     default = 1,                                           help = "batch size")
     parser.add_argument('--local_rank',                 type=int,       default=0,                                              help='local rank')
     # parser.add_argument('--predict_len',    type = int,     default = 15,                                           help = "predict len")
     parser.add_argument('--num_workers',         type = int,     default = 8,                                           help = "worker num")

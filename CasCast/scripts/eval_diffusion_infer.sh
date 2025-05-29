@@ -5,7 +5,7 @@ node_num=1
 single_gpus=`expr $gpus / $node_num`
 
 cpus=8
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=1
 # export NCCL_IB_DISABLE=1
 # export NCCL_SOCKET_IFNAME=eth0
 # export NCCL_DEBUG=INFO
@@ -16,7 +16,7 @@ PORT=$((((RANDOM<<15)|RANDOM)%49152 + 10000))
 
 echo $PORT
 
-torchrun --nproc_per_node=$gpus --master_port=$PORT evaluation.py \
+python evaluation.py \
 --per_cpus $cpus \
 --batch_size 2 \
 --num_workers 2 \

@@ -2,7 +2,7 @@ batch_size: 2
 cfg: ./experiments/cascast_diffusion/world_size1-ckpt/training_options.yaml
 cfg_weight: 2.0
 cfgdir: ./experiments/cascast_diffusion/world_size1-ckpt
-cuda: 0
+cuda: 1
 debug: false
 distributed: false
 ens_member: 1

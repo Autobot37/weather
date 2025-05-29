@@ -144,8 +144,8 @@ class CuboidSEVIRPLModule(pl.LightningModule):
     def get_dataset_config():
         oc = OmegaConf.create()
         oc.dataset_name = "sevir"
-        oc.img_height = 384
-        oc.img_width = 384
+        oc.img_height = 128
+        oc.img_width = 128
         oc.in_len = 10
         oc.out_len = 10
         oc.seq_len = 20
@@ -255,11 +255,9 @@ class CuboidSEVIRPLModule(pl.LightningModule):
             # print("frames_in shape:", frames_in.shape)
             # print("frames_gt shape:", frames_gt.shape if frames_gt is not None else None)
             frames_in = frames_in.permute(0, 1, 3, 4, 2)
-            frames_gt = frames_gt.permute(0, 1, 3, 4, 2) if frames_gt is not None else None
         out = self.torch_nn_module(frames_in)
-        if frames_gt is None:
-            out = out.permute(0, 1, 4, 2, 3)  # NTHWC to NTHW
-            out = out.contiguous()
+        out = out.permute(0, 1, 4, 2, 3)  # NTHWC to NTHW
+        out = out.contiguous()
         loss = None
         if compute_loss and frames_gt is not None:
             if frames_gt.shape != out.shape:

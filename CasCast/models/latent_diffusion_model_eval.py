@@ -213,6 +213,8 @@ class latent_diffusion_model_eval(basemodel):
             self.visualizer.save_pixel_image(pred_image=data_dict['pred'], target_img=data_dict['gt'], step=step)
         else:
             pass
+
+        self.eval_metrics()
         
         return losses
     
@@ -238,13 +240,12 @@ class latent_diffusion_model_eval(basemodel):
         for step, batch in enumerate(data_loader):
             losses = self.eval_step(batch_data=batch, step=step)
             metric_logger.update(**losses)
-
+            print("am i really here?")
             self.logger.info("#"*80)
             self.logger.info(step)
-            if step % 10 == 0 or step == total_step-1:
-                self.logger.info('  '.join(
-                [f'Step [{step + 1}](val stats)',
-                 "{meters}"]).format(
-                    meters=str(metric_logger)
-                 ))
+            self.logger.info('  '.join(
+            [f'Step [{step + 1}](val stats)',
+                "{meters}"]).format(
+                meters=str(metric_logger)
+                ))
         return None

@@ -44,7 +44,7 @@ def create_parser():
 
     # --------------- Dataset ---------------
     parser.add_argument("--dataset",        type=str,   default='sevir',        help="dataset name")
-    parser.add_argument("--img_size",       type=int,   default=384,            help="image size")
+    parser.add_argument("--img_size",       type=int,   default=128,            help="image size")
     parser.add_argument("--img_channel",    type=int,   default=1,              help="channel of image")
     parser.add_argument("--seq_len",        type=int,   default=20,             help="sequence length sampled from dataset")
     parser.add_argument("--frames_in",      type=int,   default=10,              help="number of frames to input")
@@ -63,7 +63,7 @@ def create_parser():
     parser.add_argument("--grad_acc_step",  type=int,   default=1,               help="gradient accumulation step")
     
     # --------------- Training ---------------
-    parser.add_argument("--batch_size",     type=int,   default=1,              help="batch size")
+    parser.add_argument("--batch_size",     type=int,   default=4,              help="batch size")
     parser.add_argument("--epochs",         type=int,   default=1,              help="number of epochs")
     parser.add_argument("--training_steps", type=int,   default=20,          help="number of training steps")
     parser.add_argument("--early_stop",     type=int,   default=10,              help="early stopping steps")
@@ -278,6 +278,7 @@ class Runner(object):
             diff_model = get_model(**kwargs)
             diff_model.load_backbone(model)
             model = diff_model
+
             
         self.model = model
         self.ema = EMA(self.model, beta=self.args.ema_rate, update_every=20).to(self.device)        
@@ -345,7 +346,7 @@ class Runner(object):
     
     def save(self):
         # =================================
-        # Save checkpoint state for model and ema
+        # Save checkpoint stsate for model and ema
         # =================================
         if not self.is_main:
             return
@@ -443,6 +444,13 @@ class Runner(object):
 
                 self.cur_step += 1
                 pbar.update(1)
+                
+                # test and log metrics every 10000 steps
+                if self.cur_step % 10000 == 0:
+                    print_log(f" ========= Running Test at Step {self.cur_step} ==========", self.is_main)
+                    self.save()  # Save checkpoint before testing
+                    self.test_samples(self.cur_step, do_test=False)  # Run validation test
+                    self.model.train()  # Set back to training mode
                 
                 # do santy check at begining
                 if self.cur_step == 1:

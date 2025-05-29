@@ -1011,8 +1011,8 @@ class SEVIRTorchDataset(TorchDataset):
     def __len__(self):
         total = self.sevir_dataloader.__len__()
         if self.split == "train":
-            return min(total, 10000)
-        elif self.split == "val":
+            return total
+        elif self.split == "valid":
             return min(total, 20)
         elif self.split == "test":
             return min(total, 20)

@@ -45,7 +45,7 @@ class sevir_latent(Dataset):
         return files
     
     def __len__(self):
-        return len(self.file_list)
+        return 2
 
     def _load_latent_frames(self, file, datasource):
         file_path = os.path.join(datasource, file)
