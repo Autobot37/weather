@@ -1013,9 +1013,9 @@ class SEVIRTorchDataset(TorchDataset):
         if self.split == "train":
             return min(total, 10000)
         elif self.split == "val":
-            return min(total, 100)
+            return min(total, 20)
         elif self.split == "test":
-            return min(total, 100)
+            return min(total, 20)
         else:
             return total
 
