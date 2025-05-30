@@ -34,6 +34,59 @@ def cal_SSIM(gt, pred, is_img=True):
     # ssim = cal_ssim_2(pred, gt).cpu()
     
     return ssim.item()
+def PCC(target, prediction):
+    # Convert tensors to numpy if needed
+    if torch.is_tensor(target):
+        target = target.detach().cpu().numpy()
+    if torch.is_tensor(prediction):
+        prediction = prediction.detach().cpu().numpy()
+    
+    # Flatten the images
+    target = target.ravel()
+    prediction = prediction.ravel()
+
+    # Ensure target and prediction have the same size
+    if target.shape != prediction.shape:
+        raise ValueError("Target and prediction size don't match.")
+
+    # Compute mean
+    target_mean = np.mean(target)
+    prediction_mean = np.mean(prediction)
+
+    # Compute Pearson Correlation Coefficient
+    target_centered = target - target_mean
+    prediction_centered = prediction - prediction_mean
+
+    numerator = np.sum(target_centered * prediction_centered)
+    denominator = np.sqrt(np.sum(target_centered**2)) * np.sqrt(np.sum(prediction_centered**2))
+
+    # Handle edge case where denominator is zero
+    if denominator == 0:
+        return 0  # Define PCC as 0 in case of no variance
+
+    return numerator / denominator
+
+def cal_PCC(y, y_pred):
+    seq_length = y.shape[1]
+    bs = y.shape[0]
+    y = y.cpu().numpy()
+    y_pred = y_pred.cpu().numpy()
+    pccs = []
+    for i in range(bs):
+        pcc_seq = []
+        for j in range(seq_length):
+            pcc_seq.append(PCC(y[i][j], y_pred[i][j]))
+        pcc_seq = np.array(pcc_seq)
+        # print(pcc_seq.shape)
+        mean = np.mean(pcc_seq, axis = 0)
+        pccs.append(mean)
+        # print(mean.shape)
+    
+    pccs = np.array(pccs)
+    # print(f"Pccs shape : {pccs}")
+    avg_pcc = np.mean(pccs, axis = 0)
+    # print(f"Avg Pccs shape : {avg_pcc}")
+    return avg_pcc
 
 @torch.no_grad()
 def cal_PSNR(gt, pred, is_img=True):
@@ -243,6 +296,7 @@ class SEVIRSkillScore(object):
 
 
     def calc_seq_hits_misses_fas(self, pred, target, threshold):
+        
         with torch.no_grad():
             t, p = _threshold(target, pred, threshold)
             hits = torch.sum(t * p, dim=self.hits_misses_fas_reduce_dims).int()
@@ -336,7 +390,7 @@ class SEVIRSkillScore(object):
     def compute(self):
         if self.dist_eval:
             self.synchronize_between_processes()
-        
+        print("Inside compute")
         metrics_dict = {'pod': self.pod,
                         'csi': self.csi,
                         'csi-4-avg': self.csi, 
@@ -389,7 +443,8 @@ class SEVIRSkillScore(object):
     def get_single_frame_metrics(self, target, pred, metrics=['ssim', 'psnr', ]): #'cspr', 'cspr-4-avg', 'cspr-16-avg', 'cspr-4-max', 'cspr-16-max'
         metric_funcs = {
             'ssim': cal_SSIM,
-            'psnr': cal_PSNR
+            'psnr': cal_PSNR,
+            'pcc': cal_PCC
         }
         metrics_dict = {}
         for metric in metrics:

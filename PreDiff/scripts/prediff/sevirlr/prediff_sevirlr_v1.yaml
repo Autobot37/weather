@@ -65,8 +65,8 @@ trainer:
   num_sanity_val_steps: 2
 eval:
   train_example_data_idx_list: [0, ]
-  val_example_data_idx_list: [0, 16, 32, 48, 64, 72, 96, 108, 128]
-  test_example_data_idx_list: [0, 16, 32, 48, 64, 72, 96, 108, 128]
+  val_example_data_idx_list: [0, 50, 100, 150, 200]  # Reduced from 26 to 5 samples
+  test_example_data_idx_list: [0, 25, 50, 75, 100, 125, 150, 175, 200]  # Reduced from 26 to 9 samples
   eval_example_only: true
   eval_aligned: true
   eval_unaligned: true

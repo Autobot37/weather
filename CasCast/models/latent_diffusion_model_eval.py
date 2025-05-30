@@ -10,7 +10,7 @@ import numpy as np
 import utils.misc as utils
 from tqdm.auto import tqdm
 import torch.distributed as dist
-
+import os, yaml
 import wandb
 
 from einops import rearrange
@@ -101,7 +101,7 @@ class latent_diffusion_model_eval(basemodel):
         ) 
         latents = latents * self.sample_noise_scheduler.init_noise_sigma
 
-        print("start sampling")
+    
         if cfg == 1:
             assert ensemble_member == 1
             ## iteratively denoise ##
@@ -111,16 +111,16 @@ class latent_diffusion_model_eval(basemodel):
                 noise_pred = self.model[list(self.model.keys())[0]](x=latents, timesteps=timestep, cond=cond_data)
                 ## compute the previous noisy sample x_t -> x_{t-1} ##
                 latents = self.sample_noise_scheduler.step(noise_pred, t, latents).prev_sample
-            print("end sampling")
+           
             return latents
         else:
-            print(f"guidance strength: {cfg}")
+            
             ## for classifier free sampling ##
             cond_data = torch.cat([cond_data, torch.zeros_like(cond_data)])
             avg_latents = []
             for member in range(ensemble_member):
                 member_latents = latents[member*bs:(member+1)*bs, ...]
-                for t in tqdm(self.sample_noise_scheduler.timesteps) if (self.debug or vis) else self.sample_noise_scheduler.timesteps:
+                for t in self.sample_noise_scheduler.timesteps if (self.debug or vis) else self.sample_noise_scheduler.timesteps:
                     ## predict the noise residual ##
                     timestep = torch.ones((bs*2,), device=template_data.device) * t
                     latent_model_input = torch.cat([member_latents]*2)
@@ -132,7 +132,7 @@ class latent_diffusion_model_eval(basemodel):
                     ## compute the previous noisy sample x_t -> x_{t-1} ##
                     member_latents = self.sample_noise_scheduler.step(noise_pred, t, member_latents).prev_sample
                 avg_latents.append(member_latents)
-            print('end sampling')
+            # print('endsampling')
             avg_latents = torch.stack(avg_latents, dim=1)
             return avg_latents
 
@@ -204,17 +204,29 @@ class latent_diffusion_model_eval(basemodel):
             sample_predictions.append(member_sample_prediction) 
         sample_predictions = torch.stack(sample_predictions, dim=1)
         ## evaluate other metrics ##
-        data_dict = {}
+    
+        print(batch_data.keys())
+        print(data_dict.keys())
+     
+        gt = batch_data['inputs'].to(sample_predictions.device)
         data_dict['pred'] = sample_predictions.mean(dim=1)
-        data_dict['gt'] = sample_predictions.mean(dim=1)
+        # data_dict['gt'] = sample_predictions.mean(dim=1)
+        data_dict['gt'] = gt
+
+        print("PRED SHAPE:", data_dict['pred'].shape)
+        print("GT SHAPE:", data_dict['gt'].shape)
+        
         ############
         ## save image ##
-        if self.visualizer_type == 'sevir_visualizer' and (step) % 1 == 0:
+        if hasattr(self, 'eval_metrics'):
+            self.eval_metrics.update(data_dict['pred'], data_dict['gt'])
+
+        if self.visualizer_type == 'sevir_visualizer' and (step) % 500 == 0:
             self.visualizer.save_pixel_image(pred_image=data_dict['pred'], target_img=data_dict['gt'], step=step)
         else:
             pass
 
-        self.eval_metrics()
+        # self.eval_metrics()
         
         return losses
     
@@ -237,15 +249,31 @@ class latent_diffusion_model_eval(basemodel):
 
         from megatron_utils.tensor_parallel.data import get_data_loader_length
         total_step = get_data_loader_length(test_data_loader)
-        for step, batch in enumerate(data_loader):
+        for step, batch in tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating"):
             losses = self.eval_step(batch_data=batch, step=step)
             metric_logger.update(**losses)
-            print("am i really here?")
-            self.logger.info("#"*80)
-            self.logger.info(step)
-            self.logger.info('  '.join(
-            [f'Step [{step + 1}](val stats)',
-                "{meters}"]).format(
-                meters=str(metric_logger)
-                ))
-        return None
+            # self.logger.info("#"*80)
+            # self.logger.info(step)
+            # self.logger.info('  '.join(
+            # [f'Step [{step + 1}](val stats)',
+            #     "{meters}"]).format(
+            #     meters=str(metric_logger)
+            #     ))
+            
+        if hasattr(self, 'eval_metrics'):
+            self.logger.info("="*80)
+            self.logger.info("Computing SEVIRSkillScore metrics...")
+            metrics = self.eval_metrics.compute()
+
+            for thr, thr_dict in metrics.items():
+                self.logger.info(f"Threshold: {thr}")
+                for k, v in thr_dict.items():
+                    self.logger.info(f"  {k}: {v:.4f}")
+        else:
+            self.logger.warning("No evaluation metric found in self.eval_metrics.")
+        
+        # metrics_file = os.path.join(self.exp_dir, "sevir_metrics.yaml")
+        # with open(metrics_file, 'w') as f:
+        #     yaml.dump(metrics, f)
+        # self.logger.info(f"Saved SEVIRSkillScore results to: {metrics_file}")
+        return metrics

@@ -45,7 +45,7 @@ class sevir_latent(Dataset):
         return files
     
     def __len__(self):
-        return 2
+        return 100
 
     def _load_latent_frames(self, file, datasource):
         file_path = os.path.join(datasource, file)
@@ -66,5 +66,8 @@ class sevir_latent(Dataset):
         file = self.file_list[index]
         coarse_latent_data = self._load_latent_frames(file, datasource=self.latent_deterministic_dir)
         packed_results = dict()
+        print("coarse_latent_data")
+        print(type(coarse_latent_data))
+        print(coarse_latent_data.shape)
         packed_results['inputs'] = coarse_latent_data
         return packed_results

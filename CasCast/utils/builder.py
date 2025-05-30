@@ -125,6 +125,8 @@ class ConfigBuilder(object):
             return None
         if type(dataset_params) == dict:
             dataset_type = str.lower(dataset_params.get('type', 'fourcastceph'))
+            print("dataset_type")
+            print(dataset_type)
             if dataset_type == 'sevir':
                 from datasets.sevir_used import get_sevir_dataset
                 dataset = get_sevir_dataset(split=split, **dataset_params)
@@ -222,11 +224,15 @@ class ConfigBuilder(object):
         if dataloader_params is None:
             dataloader_params = self.dataloader_params
         dataset = self.get_dataset(dataset_params, split)
+        print("Dataset class")
+        sample = dataset[0]
+        print("Sample keys:", sample.keys())
         if dataset is None:
             return None
         if sampler_params == None:
             sampler_params = self.sampler_params
         sampler = self.get_sampler(dataset, split, **sampler_params)
+        
         return DataLoader(
             dataset,
             batch_size = batch_size,

@@ -7,7 +7,7 @@ import time
 import copy
 from megatron_utils import mpu
 import numpy as np
-
+import json
 import utils.misc as utils
 import math
 import wandb
@@ -133,6 +133,7 @@ class non_ar_model(basemodel):
     
     @torch.no_grad()
     def test_final(self, test_data_loader, predict_length):
+        print("TEST IT")
         self.test_data_loader = test_data_loader
         metric_logger = utils.MetricLogger(delimiter="  ", sync=True)
         # set model to eval
@@ -171,5 +172,5 @@ class non_ar_model(basemodel):
         metric_logger.update(**losses)
         self.logger.info('final results: {meters}'.format(meters=str(metric_logger)))
         ##################################################
-        return None
+        return metrics
     

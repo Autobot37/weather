@@ -156,8 +156,7 @@ class SEVIRTorchDataset(TorchDataset):
             return data
 
     def __len__(self):
-        return 100
-
+        return self.sevir_dataloader.__len__()
 
 class SEVIRLightningDataModule(LightningDataModule):
 
