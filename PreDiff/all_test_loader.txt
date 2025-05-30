@@ -1,0 +1,68 @@
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6080/6080 [08:48<00:00, 11.50it/s]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Test metric               DataLoader 0
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+test_aligned_bias_133_epoch     5.229188919067383
+test_aligned_bias_160_epoch     5.98741340637207
+test_aligned_bias_16_epoch      4.986537456512451
+test_aligned_bias_181_epoch     5.270150184631348
+test_aligned_bias_219_epoch     4.727973461151123
+test_aligned_bias_74_epoch      4.247705936431885
+test_aligned_bias_avg_epoch     5.074828147888184
+test_aligned_csi_133_epoch     0.38745784759521484
+test_aligned_csi_160_epoch     0.24333299696445465
+ test_aligned_csi_16_epoch     0.5634046792984009
+test_aligned_csi_181_epoch     0.22610431909561157
+test_aligned_csi_219_epoch     0.11229726672172546
+ test_aligned_csi_74_epoch     0.5607535243034363
+test_aligned_csi_avg_epoch     0.3488917648792267
+  test_aligned_fvd_epoch        471.2398986816406
+  test_aligned_mae_epoch      0.060766831040382385
+  test_aligned_mse_epoch       0.01677054911851883
+test_aligned_pod_133_epoch     0.7218939661979675
+test_aligned_pod_160_epoch     0.5276495218276978
+ test_aligned_pod_16_epoch     0.9181646108627319
+test_aligned_pod_181_epoch     0.4778481125831604
+test_aligned_pod_219_epoch     0.25312355160713196
+ test_aligned_pod_74_epoch     0.8725473284721375
+test_aligned_pod_avg_epoch     0.6285378336906433
+  test_aligned_ssim_epoch      0.5687471032142639
+test_aligned_sucr_133_epoch    0.45543959736824036
+test_aligned_sucr_160_epoch    0.3111003041267395
+test_aligned_sucr_16_epoch     0.5931923985481262
+test_aligned_sucr_181_epoch    0.3002983033657074
+test_aligned_sucr_219_epoch    0.1679459661245346
+test_aligned_sucr_74_epoch     0.6107820868492126
+test_aligned_sucr_avg_epoch     0.406459778547287
+    test_bias_133_epoch         1.934584617614746
+    test_bias_160_epoch        1.7845560312271118
+    test_bias_16_epoch          2.38618803024292
+    test_bias_181_epoch        1.5534603595733643
+    test_bias_219_epoch         1.371193289756775
+    test_bias_74_epoch          2.166569948196411
+    test_bias_avg_epoch        1.8660920858383179
+    test_csi_133_epoch         0.4000591039657593
+    test_csi_160_epoch         0.27240702509880066
+     test_csi_16_epoch         0.6939912438392639
+    test_csi_181_epoch         0.27397260069847107
+    test_csi_219_epoch         0.14173229038715363
+     test_csi_74_epoch          0.637264609336853
+    test_csi_avg_epoch         0.40323781967163086
+      test_fvd_epoch            308.1043395996094
+      test_mae_epoch           0.03805878013372421
+      test_mse_epoch           0.00914596114307642
+    test_pod_133_epoch         0.5612289309501648
+    test_pod_160_epoch         0.41232410073280334
+     test_pod_16_epoch         0.8483306765556335
+    test_pod_181_epoch         0.40084388852119446
+    test_pod_219_epoch         0.2248958796262741
+     test_pod_74_epoch         0.7863368988037109
+    test_pod_avg_epoch         0.5389934182167053
+      test_ssim_epoch          0.6890395283699036
+    test_sucr_133_epoch        0.5821309685707092
+    test_sucr_160_epoch        0.4452953338623047
+    test_sucr_16_epoch         0.7922958731651306
+    test_sucr_181_epoch        0.46398046612739563
+    test_sucr_219_epoch        0.2770809531211853
+    test_sucr_74_epoch         0.7707204222679138
+    test_sucr_avg_epoch        0.5552506446838379

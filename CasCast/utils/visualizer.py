@@ -40,8 +40,6 @@ class sevir_visualizer(object):
         self.sub_dir = sub_dir
         self.save_dir = f'{self.exp_dir}/{sub_dir}'
         os.makedirs(exist_ok=True, name=self.save_dir)
-
-        # self.client = Client("~/petreloss.conf")
     
     def save_pixel_image(self, pred_image, target_img, step):
         if (get_world_size() > 1 and mpu.get_data_parallel_rank() == 0) or get_world_size() == 1:            
@@ -145,7 +143,6 @@ class sevir_visualizer(object):
         with io.BytesIO() as f:
             np.save(f, pxl_pred_imgs)
             f.seek(0)
-            # self.client.put(f'{ceph_prefix}/pred_step{step}.npy', f)
         
 
 

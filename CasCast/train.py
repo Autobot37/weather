@@ -6,7 +6,7 @@ import utils.misc as utils
 import yaml
 from utils.logger import get_logger
 from megatron_utils.tensor_parallel.data import get_data_loader_length
-
+from termcolor import colored
 
 #----------------------------------------------------------------------------
 
@@ -28,7 +28,14 @@ def subprocess_fn(args):
     logger.info('Train dataloaders build complete')
     valid_dataloader = builder.get_dataloader(split = 'valid')
     logger.info('Valid dataloaders build complete')
-    
+    test_dataloader = builder.get_dataloader(split = 'test')
+    print(colored(f'len train_dataloader: {len(test_dataloader)}', 'green'))
+
+    for loader in [test_dataloader]:
+        for sample in loader:
+            print(colored(f"input shape: {sample['inputs'].shape}", 'green'))
+            print
+            break
     ## set lr_scheduler (by epoch/step) ##
     model_params = args.cfg_params['model']['params']
     ## by step ##
@@ -60,7 +67,8 @@ def subprocess_fn(args):
         model_checkpoint = os.path.join(args.relative_checkpoint_dir, 'checkpoint_latest.pth')
     else:
         model_checkpoint = os.path.join(args.run_dir, 'checkpoint_latest.pth')
-
+        if os.path.exists(model_checkpoint):
+            print(colored(f'checkpoint_latest.pth exists, will not resume', 'red'))
 
     model_without_ddp = utils.DistributedParallel_Model(model, args.local_rank)
 
@@ -74,8 +82,7 @@ def subprocess_fn(args):
         logger.info("params {key}: {cnt_params}".format(key=key, cnt_params=cnt_params))
             
     logger.info('begin training ...')
-
-    model_without_ddp.trainer(train_dataloader, valid_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+    model_without_ddp.trainer(test_dataloader, test_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
 
     
 def main(args):
@@ -110,6 +117,10 @@ def main(args):
     print(run_dir)
     os.makedirs(run_dir, exist_ok=True)
     train_config_file = os.path.join(run_dir, 'training_options.yaml')
+    from termcolor import colored
+    print(colored(f'run_dir: {run_dir}', 'green'))
+    print(colored(f'relative_checkpoint_dir: {relative_checkpoint_dir}', 'green'))
+    print(colored(f'train_config_file: {train_config_file}', 'green'))
 
     if not args.resume:
         print("load yaml from config")

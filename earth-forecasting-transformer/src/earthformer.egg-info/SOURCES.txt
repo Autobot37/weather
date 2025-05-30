@@ -7,7 +7,6 @@ src/earthformer/config.py
 src/earthformer.egg-info/PKG-INFO
 src/earthformer.egg-info/SOURCES.txt
 src/earthformer.egg-info/dependency_links.txt
-src/earthformer.egg-info/requires.txt
 src/earthformer.egg-info/top_level.txt
 src/earthformer.egg-info/zip-safe
 src/earthformer/baselines/__init__.py

@@ -5,7 +5,7 @@ node_num=1
 single_gpus=`expr $gpus / $node_num`
 
 cpus=8
-export CUDA_VISIBLE_DEVICES=1
+
 # export NCCL_IB_DISABLE=1
 # export NCCL_SOCKET_IFNAME=eth0
 # export NCCL_DEBUG=INFO
@@ -16,10 +16,13 @@ PORT=$((((RANDOM<<15)|RANDOM)%49152 + 10000))
 
 echo $PORT
 
-python evaluation.py \
+
+srun -p ai4earth --quotatype=auto --ntasks-per-node=$single_gpus -x SH-IDC1-10-140-24-110 --cpus-per-task=$cpus --time=43200 -N $node_num --gres=gpu:$single_gpus python -u evaluation.py \
+--init_method 'tcp://127.0.0.1:'$PORT \
+--world_size $gpus \
 --per_cpus $cpus \
---batch_size 2 \
---num_workers 2 \
+--batch_size 8 \
+--num_workers 8 \
 --cfgdir ./experiments/cascast_diffusion/world_size1-ckpt \
 --pred_len 12 \
 --test_name test \

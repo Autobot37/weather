@@ -7,7 +7,7 @@ world_size: 1
 per_cpus: 4
 local_rank: 0
 init_method: tcp://127.0.0.1:47950
-outdir: experiments/cascast_diffusion
+outdir: /mnt/lustre/gongjunchao/release_code/cascast/experiments/cascast_diffusion
 cfg: ./configs/sevir_used/cascast_diffusion.yaml
 desc: debug
 visual_vars: null
@@ -25,7 +25,7 @@ sevir:
   base_freq: 5min
   data_dir: radar:s3://sevir_latent
   latent_gt_dir: path/to/latent_gt
-  latent_deterministic_dir: ./latent_data/earthformer_example #path/to/latent_prediction
+  latent_deterministic_dir: /mnt/lustre/gongjunchao/release_code/cascast/latent_data/earthformer_example #path/to/latent_prediction
   latent_size: 48x48x4
 dataset:
   train:
@@ -36,7 +36,7 @@ dataset:
     base_freq: 5min
     data_dir: radar:s3://sevir_latent
     latent_gt_dir: path/to/latent_gt
-    latent_deterministic_dir: ./latent_data/earthformer_example #path/to/latent_prediction
+    latent_deterministic_dir: /mnt/lustre/gongjunchao/release_code/cascast/latent_data/earthformer_example #path/to/latent_prediction
     latent_size: 48x48x4
   valid:
     type: sevir_diffusion_eval
@@ -46,7 +46,7 @@ dataset:
     base_freq: 5min
     data_dir: radar:s3://sevir_latent
     latent_gt_dir: path/to/latent_gt
-    latent_deterministic_dir: ./latent_data/earthformer_example #path/to/latent_prediction
+    latent_deterministic_dir: /mnt/lustre/gongjunchao/release_code/cascast/latent_data/earthformer_example #path/to/latent_prediction
     latent_size: 48x48x4
 sampler:
   type: TrainingSampler

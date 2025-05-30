@@ -7,7 +7,7 @@ import time
 import copy
 from megatron_utils import mpu
 import numpy as np
-import json
+
 import utils.misc as utils
 import math
 import wandb
@@ -48,7 +48,6 @@ class non_ar_model(basemodel):
             pass
         return {self.loss_type: loss.item()}
     
-
 
     def test_one_step(self, batch_data):
         data_dict = self.data_preprocess(batch_data)
@@ -119,6 +118,8 @@ class non_ar_model(basemodel):
             self.eval_metrics.update(target=data_dict['gt'], pred=data_dict['pred'])
             ############
             sf_dict = self.eval_metrics.get_single_frame_metrics(target=data_dict['gt'], pred=data_dict['pred'])
+            from termcolor import colored
+            print(colored(f"sf_dict: {sf_dict}", 'green'))
             crps_dict = self.eval_metrics.get_crps(target=data_dict['gt'], pred=data_dict['pred'])
             losses.update(sf_dict)
             losses.update(crps_dict)
@@ -133,7 +134,6 @@ class non_ar_model(basemodel):
     
     @torch.no_grad()
     def test_final(self, test_data_loader, predict_length):
-        print("TEST IT")
         self.test_data_loader = test_data_loader
         metric_logger = utils.MetricLogger(delimiter="  ", sync=True)
         # set model to eval
@@ -147,7 +147,7 @@ class non_ar_model(basemodel):
 
         from megatron_utils.tensor_parallel.data import get_data_loader_length
         total_step = get_data_loader_length(test_data_loader)
-        
+
         for step, batch in enumerate(data_loader):
             losses = self.eval_step(batch_data=batch, step=step)
             metric_logger.update(**losses)
@@ -172,5 +172,5 @@ class non_ar_model(basemodel):
         metric_logger.update(**losses)
         self.logger.info('final results: {meters}'.format(meters=str(metric_logger)))
         ##################################################
-        return metrics
+        return None
     

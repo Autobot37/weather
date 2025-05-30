@@ -33,11 +33,11 @@ class sevir_latent(Dataset):
 
     def _init_file_list(self, split):
         if split == 'train':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/train_list.txt'
+            txt_path = 'datasets/sevir_list/train.txt'
         elif split == 'valid':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/val_list.txt'
+            txt_path = 'datasets/sevir_list/val.txt'
         elif split == 'test':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/test_list.txt'
+            txt_path = 'datasets/sevir_list/test.txt'
         files = []
         with open(f'{txt_path}', 'r') as file:
             for line in file.readlines():

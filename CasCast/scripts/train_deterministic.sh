@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gpus=0
+gpus=1
 node_num=1
 single_gpus=`expr $gpus / $node_num`
 
@@ -21,7 +21,7 @@ echo $PORT
 
 # export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
-python3 -u train.py \
+python -u train.py \
 --init_method 'tcp://127.0.0.1:'$PORT \
 -c ./configs/sevir_used/EarthFormer.yaml \
 --world_size $gpus \

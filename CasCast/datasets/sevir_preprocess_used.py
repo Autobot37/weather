@@ -17,7 +17,7 @@ def get_sevir_dataset( split, input_length=13, pred_length=12, data_dir='/mnt/da
 
 
 class sevir_preprocess(Dataset):
-    def __init__(self, split, input_length=13, pred_length=12, data_dir='/home/vatsal/NWM/CasCast/pixel_data/sevir', base_freq='5min', height=384, width=384, **kwargs):
+    def __init__(self, split, input_length=13, pred_length=12, data_dir='radar:s3://weather_radar_datasets/sevir', base_freq='5min', height=384, width=384, **kwargs):
         super().__init__()
         assert input_length == 13, pred_length==12
         self.input_length = 13
@@ -30,11 +30,11 @@ class sevir_preprocess(Dataset):
 
     def _init_file_list(self, split):
         if split == 'train':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/train_list.txt'
+            txt_path = 'datasets/sevir_list/train.txt'
         elif split == 'valid':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/val_list.txt'
+            txt_path = 'datasets/sevir_list/val.txt'
         elif split == 'test':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/sevir/test_list.txt'
+            txt_path = 'datasets/sevir_list/test.txt'
         files = []
         with open(f'{txt_path}', 'r') as file:
             for line in file.readlines():
@@ -49,9 +49,7 @@ class sevir_preprocess(Dataset):
         frame_data = np.load(file_path)
         tensor = torch.from_numpy(frame_data) / 255
         ## 1, h, w, t -> t, c, h, w
-        print(tensor.shape)
-        tensor = tensor.permute(0, 3, 1, 2)
-        # tensor = tensor.permute(3, 0, 1, 2)
+        tensor = tensor.permute(3, 0, 1, 2)
         return tensor
 
 

@@ -6,7 +6,7 @@ cuda: 0
 world_size: 1
 per_cpus: 13
 local_rank: 0
-init_method: tcp://127.0.0.1:38804
+init_method: tcp://127.0.0.1:23953
 outdir: ./experiments/compress_gt
 cfg: ./configs/sevir_used/compress_gt.yaml
 desc: gt_48x48x4
@@ -23,7 +23,7 @@ sevir:
   pred_length: 12
   total_length: 25
   base_freq: 5min
-  data_dir: /home/vatsal/NWM/CasCast/pixel_data/sevir
+  data_dir: radar:s3://weather_radar_datasets/sevir
 dataset:
   train:
     type: sevir_preprocess
@@ -31,21 +31,21 @@ dataset:
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: /home/vatsal/NWM/CasCast/pixel_data/sevir
+    data_dir: radar:s3://weather_radar_datasets/sevir
   valid:
     type: sevir_preprocess
     input_length: 13
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: /home/vatsal/NWM/CasCast/pixel_data/sevir
+    data_dir: radar:s3://weather_radar_datasets/sevir
   test:
     type: sevir_preprocess
     input_length: 13
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: /home/vatsal/NWM/CasCast/pixel_data/sevir
+    data_dir: radar:s3://weather_radar_datasets/sevir
 sampler:
   type: DistributedSampler
 dataloader:
@@ -65,7 +65,7 @@ model:
   params:
     latent_size: 48x48x4
     model_name: gt
-    latent_data_save_dir: latent_data2
+    latent_data_save_dir: latent_data
     sub_model:
       autoencoder_kl:
         in_channels: 1
@@ -118,5 +118,5 @@ model:
       loss_type: MSELoss
       enabled_amp: false
       log_step: 20
-      predictor_checkpoint_path: /home/vatsal/NWM/CasCast/ckpts/earthformer/earthformer_sevir.pt
+      predictor_checkpoint_path: None
       autoencoder_checkpoint_path: ckpts/autoencoder/ckpt.pth

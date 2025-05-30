@@ -7,7 +7,7 @@ world_size: 1
 per_cpus: 4
 local_rank: 0
 init_method: tcp://127.0.0.1:34182
-outdir: /mnt/lustre/gongjunchao/release_code/cascast/experiments/EarthFormer
+outdir: ./experiments/EarthFormer
 cfg: ./configs/sevir_used/EarthFormer.yaml
 desc: debug
 visual_vars: null
@@ -23,7 +23,7 @@ sevir:
   pred_length: 12
   total_length: 25
   base_freq: 5min
-  data_dir: pixel_data/sevir #path/to/sevir 
+  data_dir: pixel_data #path/to/sevir 
 dataset:
   train:
     type: sevir
@@ -31,25 +31,32 @@ dataset:
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: pixel_data/sevir #path/to/sevir 
+    data_dir: pixel_data #path/to/sevir 
   valid:
     type: sevir
     input_length: 13
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: pixel_data/sevir #path/to/sevir 
+    data_dir: pixel_data #path/to/sevir 
+  test:
+    type: sevir
+    input_length: 13
+    pred_length: 12
+    total_length: 25
+    base_freq: 5min
+    data_dir: pixel_data #path/to/sevir 
 sampler:
   type: DistributedSampler
 dataloader:
-  num_workers: 8
+  num_workers: 2
   pin_memory: false
   prefetch_factor: 2
   persistent_workers: true
 trainer:
-  batch_size: 8
-  valid_batch_size: 16
-  max_epoch: 1
+  batch_size: 1
+  valid_batch_size: 1
+  max_epoch: 10
   max_step: 100000
 model:
   type: non_ar_model
@@ -64,7 +71,7 @@ model:
     use_ceph: false
     ceph_checkpoint_path: mpas:s3://sevir/checkpoint
     metrics_type: SEVIRSkillScore
-    data_type: fp32
+    data_type: fp16
     visualizer:
       visualizer_type: sevir_visualizer
       visualizer_step: 8000
@@ -81,15 +88,15 @@ model:
       EarthFormer_xy:
         by_step: true
         sched: cosine
-        epochs: 1
+        epochs: 100
         min_lr: 1.0e-05
         warmup_lr: 1.0e-05
-        warmup_epochs: 0.1
+        warmup_epochs: 1
         lr_noise: null
         cooldown_epochs: 0
     extra_params:
       loss_type: MSELoss
-      enabled_amp: false
+      enabled_amp: true
       log_step: 20
       z_score_delta: false
     wandb:

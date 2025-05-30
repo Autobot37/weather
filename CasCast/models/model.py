@@ -20,7 +20,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 # from terminaltables import AsciiTable
 import wandb
-
+from termcolor import colored
 
 
 
@@ -277,9 +277,12 @@ class basemodel(nn.Module):
         else:
             self.logger.info("checkpoint is not exist")
             return
-        checkpoint_model = checkpoint_dict['model']
-        checkpoint_optimizer = checkpoint_dict['optimizer']
-        checkpoint_lr_scheduler = checkpoint_dict['lr_scheduler']
+        try:
+            checkpoint_model = checkpoint_dict['model']
+        except KeyError:
+            print(colored("checkpoint model not exist, please check your checkpoint file", 'red'))
+        # checkpoint_optimizer = checkpoint_dict['optimizer']
+        # checkpoint_lr_scheduler = checkpoint_dict['lr_scheduler']
         ### load model for lora training ##
         lora = kwargs.get('lora', False)
         lora_base_model = kwargs.get('lora_base_model', 'DiT')
@@ -305,25 +308,26 @@ class basemodel(nn.Module):
                     else:
                         name = k
                     new_state_dict[name] = v
-                self.model[key].load_state_dict(new_state_dict, strict=False)
+                self.model[key].load_state_dict(new_state_dict, strict=True)
+                print(colored(f"load {key} model weight from checkpoint", 'orange'))
         ######################################
-        if load_optimizer:
-            resume = kwargs.get('resume', False)
-            for key in checkpoint_optimizer:
-                self.optimizer[key].load_state_dict(checkpoint_optimizer[key])
-                if resume: #for resume train
-                    self.optimizer[key].param_groups[0]['capturable'] = True
-        if load_scheduler:
-            for key in checkpoint_lr_scheduler:
-                self.lr_scheduler[key].load_state_dict(checkpoint_lr_scheduler[key])
-        if load_epoch:
-            self.begin_epoch = checkpoint_dict['epoch']
-            self.begin_step = 0 if 'step' not in checkpoint_dict.keys() else checkpoint_dict['step']
-        if load_metric_best and 'metric_best' in checkpoint_dict:
-            self.metric_best = checkpoint_dict['metric_best']
-        if 'amp_scaler' in checkpoint_dict:
-            self.gscaler.load_state_dict(checkpoint_dict['amp_scaler'])
-        self.logger.info("last epoch:{epoch}, metric best:{metric_best}".format(epoch=checkpoint_dict['epoch'], metric_best=checkpoint_dict['metric_best']))
+        # if load_optimizer:
+        #     resume = kwargs.get('resume', False)
+        #     for key in checkpoint_optimizer:
+        #         self.optimizer[key].load_state_dict(checkpoint_optimizer[key])
+        #         if resume: #for resume train
+        #             self.optimizer[key].param_groups[0]['capturable'] = True
+        # if load_scheduler:
+        #     for key in checkpoint_lr_scheduler:
+        #         self.lr_scheduler[key].load_state_dict(checkpoint_lr_scheduler[key])
+        # if load_epoch:
+        #     self.begin_epoch = checkpoint_dict['epoch']
+        #     self.begin_step = 0 if 'step' not in checkpoint_dict.keys() else checkpoint_dict['step']
+        # if load_metric_best and 'metric_best' in checkpoint_dict:
+        #     self.metric_best = checkpoint_dict['metric_best']
+        # if 'amp_scaler' in checkpoint_dict:
+        #     self.gscaler.load_state_dict(checkpoint_dict['amp_scaler'])
+        # self.logger.info("last epoch:{epoch}, metric best:{metric_best}".format(epoch=checkpoint_dict['epoch'], metric_best=checkpoint_dict['metric_best']))
 
 
     def save_checkpoint(self, epoch, checkpoint_savedir, save_type='save_best', step=0): 

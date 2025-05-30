@@ -52,7 +52,6 @@ class ConfigBuilder(object):
         """
         super(ConfigBuilder, self).__init__()
         self.model_params = params.get('model', {})
-        print("Model", params.get('model', {}))
         # self.optimizer_params = params.get('optimizer', {})
         # self.lr_scheduler_params = params.get('lr_scheduler', {})
         self.dataset_params = params.get('dataset', {'data_dir': 'data'})
@@ -125,8 +124,6 @@ class ConfigBuilder(object):
             return None
         if type(dataset_params) == dict:
             dataset_type = str.lower(dataset_params.get('type', 'fourcastceph'))
-            print("dataset_type")
-            print(dataset_type)
             if dataset_type == 'sevir':
                 from datasets.sevir_used import get_sevir_dataset
                 dataset = get_sevir_dataset(split=split, **dataset_params)
@@ -216,23 +213,19 @@ class ConfigBuilder(object):
     
         if batch_size is None:
             if split == 'train':
-                batch_size = self.trainer_params.get('batch_size', 32)
+                batch_size = self.trainer_params.get('batch_size', 1)
             elif split == 'valid':
-                batch_size = self.trainer_params.get('valid_batch_size', 32)
+                batch_size = self.trainer_params.get('valid_batch_size', 1)
             else:
-                batch_size = self.trainer_params.get('test_batch_size', 32)
+                batch_size = self.trainer_params.get('test_batch_size', 1)
         if dataloader_params is None:
             dataloader_params = self.dataloader_params
         dataset = self.get_dataset(dataset_params, split)
-        print("Dataset class")
-        sample = dataset[0]
-        print("Sample keys:", sample.keys())
         if dataset is None:
             return None
         if sampler_params == None:
             sampler_params = self.sampler_params
         sampler = self.get_sampler(dataset, split, **sampler_params)
-        
         return DataLoader(
             dataset,
             batch_size = batch_size,

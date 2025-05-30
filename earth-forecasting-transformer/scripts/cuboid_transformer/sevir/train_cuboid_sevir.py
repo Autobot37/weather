@@ -837,6 +837,7 @@ def main():
     print(dm.start_date, dm.train_val_split_date, dm.train_test_split_date, dm.end_date)
     dm.prepare_data()
     dm.setup()
+ 
     accumulate_grad_batches = total_batch_size // (micro_batch_size * args.gpus)
     total_num_steps = CuboidSEVIRPLModule.get_total_num_steps(
         epoch=max_epochs,
@@ -863,6 +864,18 @@ def main():
         state_dict = torch.load(os.path.join(pretrained_checkpoints_dir, pretrained_ckpt_name),
                                 map_location=torch.device("cpu"))
         pl_module.torch_nn_module.load_state_dict(state_dict=state_dict)
+        state_dict = torch.load(os.path.join(pretrained_checkpoints_dir, pretrained_ckpt_name),
+                        map_location=torch.device("cpu"))
+        pl_module.torch_nn_module.load_state_dict(state_dict=state_dict)
+        model = pl_module.torch_nn_module
+
+        checkpoint = {
+            'model': model.state_dict(),
+        }
+        ckpt_name = "cuboid_sevir_transformer_v2.pth"
+        torch.save(checkpoint, os.path.join(pl_module.save_dir, ckpt_name))
+        exit()
+
         trainer.test(model=pl_module,
                      datamodule=dm)
     elif args.test:

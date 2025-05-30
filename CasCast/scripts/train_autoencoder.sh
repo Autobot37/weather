@@ -1,10 +1,10 @@
 #!/bin/bash
 
-gpus=1
+gpus=4
 node_num=1
 single_gpus=`expr $gpus / $node_num`
 
-cpus=2
+cpus=13
 
 # export NCCL_IB_DISABLE=1
 # export NCCL_SOCKET_IFNAME=eth0
@@ -21,13 +21,13 @@ echo $PORT
 
 # export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
-python3 -u train.py \
+srun -p ai4earth --kill-on-bad-exit=1 --quotatype=reserved --ntasks-per-node=$single_gpus --time=43200 --cpus-per-task=$cpus -N $node_num -o train_job/%j.out  --gres=gpu:$single_gpus --async  python -u train.py \
 --init_method 'tcp://127.0.0.1:'$PORT \
 -c ./configs/sevir_used/autoencoder_kl_gan.yaml \
 --world_size $gpus \
 --per_cpus $cpus \
 --tensor_model_parallel_size 1 \
---outdir './experiments' \
+--outdir '/mnt/lustre/gongjunchao/release_code/cascast/experiments' \
 --desc  'bs8_200k'
 
 #

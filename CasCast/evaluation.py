@@ -7,6 +7,7 @@ import yaml
 from utils.logger import get_logger
 import copy
 from utils.misc import is_dist_avail_and_initialized
+from termcolor import colored
 
 
 
@@ -33,9 +34,13 @@ def subprocess_fn(args):
         pass
     else:
         model_checkpoint = os.path.join(args.run_dir, 'checkpoint_best.pth')
+        model_type = args.cfg_params['model']['type']
+        if model_type == "non_ar_model":
+            model_checkpoint = os.path.join(args.run_dir, 'checkpoint_best.pt')
     
     if not args.debug:
         model.load_checkpoint(model_checkpoint, load_optimizer=False, load_scheduler=False)
+    
     model_without_ddp = utils.DistributedParallel_Model(model, args.local_rank)
 
     for key in model_without_ddp.model:
@@ -51,11 +56,7 @@ def subprocess_fn(args):
     dataset_params = args.cfg_params['dataset']
 
     test_dataloader = builder.get_dataloader(dataset_params=dataset_params, split = 'test', batch_size=args.batch_size)
-    print("Test loader")
-    batch = next(iter(test_dataloader))
-    print(batch.keys())
-
-
+    print(colored(f'Build test dataloader with {len(test_dataloader)} samples', 'green'))
     logger.info('valid dataloaders build complete')
     logger.info('begin valid ...')
     # model_without_ddp.test(test_data_loader=test_dataloader, epoch=0)
@@ -80,17 +81,9 @@ def subprocess_fn(args):
     model_without_ddp.ens_member = args.ens_member
     ## set the classifier free guidance weight ###
     model_without_ddp.cfg_weight = args.cfg_weight
-    print(f"Test loader: {len(test_dataloader)}")
 
-    metrics = model_without_ddp.test_final(test_dataloader, args.pred_len)
+    model_without_ddp.test_final(test_dataloader, args.pred_len)
 
-
-
-    print("METRICS")
-
-    print(metrics)
-    # with open(os.path.join(self.exp_dir, 'sevir_metrics.json'), 'w') as f:
-    #     json.dump(metrics, f, indent=2)
 def main(args):
     if args.world_size > 1:
         utils.init_distributed_mode(args)
@@ -103,12 +96,10 @@ def main(args):
 
 
     run_dir = args.cfgdir
-    print("The run directory")
     print(run_dir)
-    print("running on device", torch.cuda.current_device() if torch.cuda.is_available() else "CPU")
+    
     # args.cfg = os.path.join(args.cfgdir, 'lora_eval_options.yaml')
     args.cfg = os.path.join(args.cfgdir, 'training_options.yaml')
-    print(f"args.cfg : {args.cfg}")
     with open(args.cfg, 'r') as cfg_file:
         cfg_params = yaml.load(cfg_file, Loader = yaml.FullLoader)
     # 根据申请的cpu数来设置dataloader的线程数
@@ -137,10 +128,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--tensor_model_parallel_size', type = int,     default = 1,                                            help = 'tensor_model_parallel_size')
     parser.add_argument('--seed',           type = int,     default = 0,                                            help = 'seed')
-    parser.add_argument('--cuda',           type = int,     default = 1,                                            help = 'cuda id')
+    parser.add_argument('--cuda',           type = int,     default = 0,                                            help = 'cuda id')
     parser.add_argument('--world_size',     type = int,     default = 1,                                            help = 'Number of progress')
     parser.add_argument('--per_cpus',       type = int,     default = 1,                                            help = 'Number of perCPUs to use')
-    parser.add_argument('--batch_size',     type = int,     default = 1,                                           help = "batch size")
+    parser.add_argument('--batch_size',     type = int,     default = 32,                                           help = "batch size")
     parser.add_argument('--local_rank',                 type=int,       default=0,                                              help='local rank')
     # parser.add_argument('--predict_len',    type = int,     default = 15,                                           help = "predict len")
     parser.add_argument('--num_workers',         type = int,     default = 8,                                           help = "worker num")

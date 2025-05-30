@@ -21,13 +21,13 @@ echo $PORT
 
 # export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
-python -u train.py \
+srun -p ai4earth --kill-on-bad-exit=1 --quotatype=auto --ntasks-per-node=$gpus --time=43200 --cpus-per-task=$cpus -N $node_num  --gres=gpu:$single_gpus  python -u train.py \
 --init_method 'tcp://127.0.0.1:'$PORT \
 -c ./configs/sevir_used/cascast_diffusion.yaml \
 --world_size $gpus \
 --per_cpus $cpus \
 --tensor_model_parallel_size 1 \
---outdir './experiments' \
+--outdir '/mnt/lustre/gongjunchao/release_code/cascast/experiments' \
 --desc  'debug' \
 --debug
 #

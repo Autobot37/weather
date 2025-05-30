@@ -18,10 +18,10 @@ dataloader:
   persistent_workers: True
 
 trainer:
-  batch_size: 1 # to check
-  valid_batch_size: 1
+  batch_size: 8 # to check
+  valid_batch_size: 16
   max_epoch: &max_epoch 1
-  max_step: 10
+  max_step: 200000
 
 model:
   type: autoencoder_kl_gan_model
