@@ -1,0 +1,44 @@
+Train dataset size: 5953
+Validation dataset size: 525
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.960784375667572, minimum value: 0.0
+Epoch 1/3 [Train]:  17%|███▏               | 1001/5953 [08:22<41:23,  1.99it/s, Loss=0.0410]
+Epoch 1/3 [Validation]:   0%|                          | 0/525 [00:00<?, ?it/s, Loss=0.0410]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Epoch 1/3 [Validation]: 100%|████████████████| 525/525 [07:23<00:00,  1.18it/s, Loss=0.0410]
+Saved best model at epoch 0 with val_loss: 0.0410
+Epoch 1, Train Loss: 0.078892, Val Loss: 0.040972, SSIM: 0.2560569941997528, PSNR: 46.89651870727539, ACC: 0.38917067646980286, RMSE :0.36666017754515495
+Epoch 2/3 [Train]:  17%|████████████████████▋                                                                                                      | 1001/5953 [08:17<41:01,  2.01it/s, Loss=0.0795]
+Epoch 2/3 [Validation]:  59%|███████████████████████████████████████████████████████████████████████                                                 | 311/525 [04:09<02:51,  1.25it/s, Loss=0.0795]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_vae_train.py", line 173, in <module>
+    encoded_input = encode_vae(input_frames, vae_model)
+  File "/home/vatsal/NWM/fno_sevir/fno_vae_train.py", line 78, in encode_vae
+    encoded = vae_model.encode(frame).latent_dist.mean
+              ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/diffusers/utils/accelerate_utils.py", line 46, in wrapper
+    return method(self, *args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/diffusers/models/autoencoders/autoencoder_kl.py", line 278, in encode
+    h = self._encode(x)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/diffusers/models/autoencoders/autoencoder_kl.py", line 252, in _encode
+    enc = self.encoder(x)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/diffusers/models/autoencoders/vae.py", line 168, in forward
+    sample = down_block(sample)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/diffusers/models/unets/unet_2d_blocks.py", line 1442, in forward
+    hidden_states = resnet(hidden_states, temb=None)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+KeyboardInterrupt

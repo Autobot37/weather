@@ -1,0 +1,14 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 9634
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.46666669845581055, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Epoch 1/1 [Train]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉| 1382/1383 [06:59<00:00,  3.29it/s, Loss=0.0023]
+Epoch 1/1 [Test]:   0%|                                                                                       | 0/990 [00:00<?, ?it/s, Loss=0.0032]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 139, in <module>
+  File "/home/vatsal/NWM/fno_sevir/Prediction_metrics/Calculate_pred_met.py", line 341, in cal_batch_avg_pcc
+    y = y.cpu().numpy()
+        ^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'cpu'

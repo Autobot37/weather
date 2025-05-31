@@ -1,0 +1,56 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+train data: 10000, valid data: 16887, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 48.87M
+============ Running training ============
+    Num examples = 10000
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 10000
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.10424041748046875
+True
+gpu_nums: 1, gpu_id: 0
+  0%|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 0/10000 [00:00<?, ?it/s]Traceback (most recent call last):
+frames_in shape: torch.Size([1, 10, 1, 384, 384])
+backbone_output shape: torch.Size([1, 10, 384, 384, 1])
+residual shape: torch.Size([1, 10, 384, 384, 384])
+frames_gt shape: torch.Size([1, 10, 1, 384, 384])
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 556, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 409, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 477, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 952, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 976, in _predict
+    global_ctx, local_ctx = self.ctx_net.scan_ctx(torch.cat((frames_in, backbone_output), dim=1))
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 1 but got size 384 for tensor number 1 in the list.

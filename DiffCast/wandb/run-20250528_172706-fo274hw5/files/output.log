@@ -1,0 +1,68 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+train data: 10000, valid data: 4221, test_data: 100
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 46.30M
+============ Running training ============
+    Num examples = 10000
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 4
+    Total train batch size (w. parallel, distributed & accumulation) = 4
+    Total optimization steps = 10000
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.24741864204406738
+True
+gpu_nums: 1, gpu_id: 0
+  0%|                                                                                                                                                                       | 0/10000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 556, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 409, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 477, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 963, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 1037, in _predict
+    global_ctx, local_ctx = self.ctx_net.scan_ctx(
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 444, in scan_ctx
+    globla_ctx = self.forward(frames[:,i])
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 431, in forward
+    x = conv(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 380, in forward
+    input_tensor = self.step_forward(input_tensor, i)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 374, in step_forward
+    h_next = (1 - update_gate) * h_cur + update_gate * cnm
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_tensor.py", line 39, in wrapped
+    return f(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_tensor.py", line 1098, in __rsub__
+    return _C._VariableFunctions.rsub(self, other)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 144.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 13.50 MiB is free. Process 492339 has 584.00 MiB memory in use. Including non-PyTorch memory, this process has 23.02 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 178.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

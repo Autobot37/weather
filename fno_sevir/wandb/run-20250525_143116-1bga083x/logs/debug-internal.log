@@ -1,0 +1,10 @@
+{"time":"2025-05-25T14:31:16.631105778+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250525_143116-1bga083x/logs/debug-core.log"}
+{"time":"2025-05-25T14:31:17.054345394+05:30","level":"INFO","msg":"created new stream","id":"1bga083x"}
+{"time":"2025-05-25T14:31:17.054451925+05:30","level":"INFO","msg":"stream: started","id":"1bga083x"}
+{"time":"2025-05-25T14:31:17.054492553+05:30","level":"INFO","msg":"handler: started","stream_id":"1bga083x"}
+{"time":"2025-05-25T14:31:17.054525547+05:30","level":"INFO","msg":"sender: started","stream_id":"1bga083x"}
+{"time":"2025-05-25T14:31:17.05464454+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"1bga083x"}
+{"time":"2025-05-25T14:31:17.42666268+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-25T14:31:27.568610832+05:30","level":"INFO","msg":"stream: closing","id":"1bga083x"}
+{"time":"2025-05-25T14:31:27.568684153+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-25T14:31:27.568748149+05:30","level":"INFO","msg":"Stopped system monitor"}

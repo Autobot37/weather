@@ -1,0 +1,10 @@
+{"time":"2025-05-29T11:14:34.431043475+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250529_111434-981e3gpq/logs/debug-core.log"}
+{"time":"2025-05-29T11:14:34.837743927+05:30","level":"INFO","msg":"created new stream","id":"981e3gpq"}
+{"time":"2025-05-29T11:14:34.837801969+05:30","level":"INFO","msg":"stream: started","id":"981e3gpq"}
+{"time":"2025-05-29T11:14:34.837829376+05:30","level":"INFO","msg":"handler: started","stream_id":"981e3gpq"}
+{"time":"2025-05-29T11:14:34.837856058+05:30","level":"INFO","msg":"sender: started","stream_id":"981e3gpq"}
+{"time":"2025-05-29T11:14:34.837956445+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"981e3gpq"}
+{"time":"2025-05-29T11:14:35.212775592+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-29T11:14:55.37477064+05:30","level":"INFO","msg":"stream: closing","id":"981e3gpq"}
+{"time":"2025-05-29T11:14:55.374831518+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-29T11:14:55.374906046+05:30","level":"INFO","msg":"Stopped system monitor"}

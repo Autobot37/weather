@@ -1,0 +1,45 @@
+2025-05-27 17:27:20,738 INFO    MainThread:440798 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-05-27 17:27:20,738 INFO    MainThread:440798 [wandb_setup.py:_flush():70] Configure stats pid to 440798
+2025-05-27 17:27:20,738 INFO    MainThread:440798 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/.config/wandb/settings
+2025-05-27 17:27:20,738 INFO    MainThread:440798 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/NWM/DiffCast/wandb/settings
+2025-05-27 17:27:20,738 INFO    MainThread:440798 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/vatsal/NWM/DiffCast/wandb/run-20250527_172720-c3ilft6z/logs/debug.log
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/vatsal/NWM/DiffCast/wandb/run-20250527_172720-c3ilft6z/logs/debug-internal.log
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:init():852] calling init triggers
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:init():893] starting backend
+2025-05-27 17:27:20,739 INFO    MainThread:440798 [wandb_init.py:init():897] sending inform_init request
+2025-05-27 17:27:20,760 WARNING MainThread:440798 [wandb_init.py:init():1681] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 1677, in init
+    return wi.init(run_settings, run_config, run_printer)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 899, in init
+    settings=settings.to_proto(),
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_settings.py", line 1574, in to_proto
+    for k, v in self.model_dump(exclude_none=True).items():
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pydantic/main.py", line 463, in model_dump
+    return self.__pydantic_serializer__.to_python(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_settings.py", line 1232, in _os
+    return platform.platform(aliased=True)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/platform.py", line 1218, in platform
+    system, node, release, version, machine, processor = uname()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/platform.py", line 804, in __iter__
+    (self.processor,)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/functools.py", line 993, in __get__
+    val = self.func(instance)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/platform.py", line 799, in processor
+    return _unknown_as_blank(_Processor.get())
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/platform.py", line 751, in get
+    return func() or ''
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/platform.py", line 770, in from_subprocess
+    return subprocess.check_output(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 424, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1793, in _execute_child
+    part = os.read(errpipe_read, 50000)
+KeyboardInterrupt

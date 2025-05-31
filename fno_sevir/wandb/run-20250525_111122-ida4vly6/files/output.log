@@ -1,0 +1,15 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 618
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Epoch 1/1 [Train]: 100%|██████████████████████████████▉| 1382/1383 [06:58<00:00,  3.30it/s, Loss=0.0021]
+Epoch 1/1 [Validation]:   0%|                                                                                                                                  | 0/618 [00:00<?, ?it/s, Loss=0.0154]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Epoch 1/1 [Validation]:   9%|██████████▊                                                                                                              | 55/618 [00:21<03:37,  2.59it/s, Loss=0.0902]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 133, in <module>
+    avg_val_losses.append(loss.item())
+                          ~~~~~~~~~^^
+KeyboardInterrupt

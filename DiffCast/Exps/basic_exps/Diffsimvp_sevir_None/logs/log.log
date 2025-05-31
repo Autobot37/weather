@@ -1,0 +1,1997 @@
+05/28/2025 11:10:30 - INFO - root - ============================================================
+05/28/2025 11:10:30 - INFO - root -                  Experiment Start                           
+05/28/2025 11:10:30 - INFO - root - ============================================================
+05/28/2025 11:10:30 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:10:46 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:10:46 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:10:47 - INFO - root - Main Model Parameters: 58.90M
+05/28/2025 11:10:47 - INFO - root - ============ Running training ============
+05/28/2025 11:10:47 - INFO - root -     Num examples = 71436
+05/28/2025 11:10:47 - INFO - root -     Num Epochs = 2
+05/28/2025 11:10:47 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:10:47 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:10:47 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:10:47 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:10:47 - INFO - root - Data Loading Time: 0.1178884506225586
+05/28/2025 11:10:47 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:10:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:12:09 - INFO - root - ============================================================
+05/28/2025 11:12:09 - INFO - root -                  Experiment Start                           
+05/28/2025 11:12:09 - INFO - root - ============================================================
+05/28/2025 11:12:09 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:12:24 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:12:24 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:12:25 - INFO - root - Main Model Parameters: 58.90M
+05/28/2025 11:12:25 - INFO - root - ============ Running training ============
+05/28/2025 11:12:25 - INFO - root -     Num examples = 71436
+05/28/2025 11:12:25 - INFO - root -     Num Epochs = 2
+05/28/2025 11:12:25 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:12:25 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:12:25 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:12:25 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:12:25 - INFO - root - Data Loading Time: 0.12724733352661133
+05/28/2025 11:12:25 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:12:26 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:19:49 - INFO - root - ============================================================
+05/28/2025 11:19:49 - INFO - root -                  Experiment Start                           
+05/28/2025 11:19:49 - INFO - root - ============================================================
+05/28/2025 11:19:49 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:20:05 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:20:05 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:20:05 - INFO - root - Main Model Parameters: 58.90M
+05/28/2025 11:20:05 - INFO - root - ============ Running training ============
+05/28/2025 11:20:05 - INFO - root -     Num examples = 71436
+05/28/2025 11:20:05 - INFO - root -     Num Epochs = 2
+05/28/2025 11:20:05 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:20:05 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:20:05 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:20:05 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:20:06 - INFO - root - Data Loading Time: 0.11448264122009277
+05/28/2025 11:20:06 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:20:06 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:20:51 - INFO - root - ============================================================
+05/28/2025 11:20:51 - INFO - root -                  Experiment Start                           
+05/28/2025 11:20:51 - INFO - root - ============================================================
+05/28/2025 11:20:51 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:21:07 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:21:07 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:21:08 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:21:08 - INFO - root - ============ Running training ============
+05/28/2025 11:21:08 - INFO - root -     Num examples = 71436
+05/28/2025 11:21:08 - INFO - root -     Num Epochs = 2
+05/28/2025 11:21:08 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:21:08 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:21:08 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:21:08 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:21:08 - INFO - root - Data Loading Time: 0.1021881103515625
+05/28/2025 11:21:08 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:21:08 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:50:12 - INFO - root - ============================================================
+05/28/2025 11:50:12 - INFO - root -                  Experiment Start                           
+05/28/2025 11:50:12 - INFO - root - ============================================================
+05/28/2025 11:50:12 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:50:28 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:50:28 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:50:29 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:50:29 - INFO - root - ============ Running training ============
+05/28/2025 11:50:29 - INFO - root -     Num examples = 71436
+05/28/2025 11:50:29 - INFO - root -     Num Epochs = 2
+05/28/2025 11:50:29 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:50:29 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:50:29 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:50:29 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:50:29 - INFO - root - Data Loading Time: 0.10165286064147949
+05/28/2025 11:50:29 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:50:29 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:51:48 - INFO - root - ============================================================
+05/28/2025 11:51:48 - INFO - root -                  Experiment Start                           
+05/28/2025 11:51:48 - INFO - root - ============================================================
+05/28/2025 11:51:48 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:52:04 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:52:04 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:52:05 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:52:05 - INFO - root - ============ Running training ============
+05/28/2025 11:52:05 - INFO - root -     Num examples = 71436
+05/28/2025 11:52:05 - INFO - root -     Num Epochs = 2
+05/28/2025 11:52:05 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:52:05 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:52:05 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:52:05 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:52:05 - INFO - root - Data Loading Time: 0.10435628890991211
+05/28/2025 11:52:05 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:52:05 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:52:25 - INFO - root - ============================================================
+05/28/2025 11:52:25 - INFO - root -                  Experiment Start                           
+05/28/2025 11:52:25 - INFO - root - ============================================================
+05/28/2025 11:52:25 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:52:41 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:52:41 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:52:42 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:52:42 - INFO - root - ============ Running training ============
+05/28/2025 11:52:42 - INFO - root -     Num examples = 71436
+05/28/2025 11:52:42 - INFO - root -     Num Epochs = 2
+05/28/2025 11:52:42 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:52:42 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:52:42 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:52:42 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:52:42 - INFO - root - Data Loading Time: 0.09681248664855957
+05/28/2025 11:52:42 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:52:42 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:53:51 - INFO - root - ============================================================
+05/28/2025 11:53:51 - INFO - root -                  Experiment Start                           
+05/28/2025 11:53:51 - INFO - root - ============================================================
+05/28/2025 11:53:51 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:54:07 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:54:07 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:54:08 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:54:08 - INFO - root - ============ Running training ============
+05/28/2025 11:54:08 - INFO - root -     Num examples = 71436
+05/28/2025 11:54:08 - INFO - root -     Num Epochs = 2
+05/28/2025 11:54:08 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:54:08 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:54:08 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:54:08 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:54:08 - INFO - root - Data Loading Time: 0.09751009941101074
+05/28/2025 11:54:08 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:54:08 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:54:30 - INFO - root - ============================================================
+05/28/2025 11:54:30 - INFO - root -                  Experiment Start                           
+05/28/2025 11:54:30 - INFO - root - ============================================================
+05/28/2025 11:54:30 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:54:45 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 11:54:45 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:54:46 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:54:46 - INFO - root - ============ Running training ============
+05/28/2025 11:54:46 - INFO - root -     Num examples = 71436
+05/28/2025 11:54:46 - INFO - root -     Num Epochs = 2
+05/28/2025 11:54:46 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:54:46 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:54:46 - INFO - root -     Total optimization steps = 142872
+05/28/2025 11:54:46 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:54:46 - INFO - root - Data Loading Time: 0.09747672080993652
+05/28/2025 11:54:46 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:54:46 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:54:48 - INFO - root - Epoch 0/2, Step 0/71436::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 11:54:48 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 11:54:48 - INFO - root - predict() missing 1 required positional argument: 'frames_gt'
+05/28/2025 11:54:48 - INFO - root - Sanity Check Failed
+05/28/2025 11:55:21 - INFO - root - ============================================================
+05/28/2025 11:55:21 - INFO - root -                  Experiment Start                           
+05/28/2025 11:55:21 - INFO - root - ============================================================
+05/28/2025 11:55:21 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:55:37 - INFO - root - train data: 100, valid data: 100, test_data: 100
+05/28/2025 11:55:37 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:55:38 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:55:38 - INFO - root - ============ Running training ============
+05/28/2025 11:55:38 - INFO - root -     Num examples = 100
+05/28/2025 11:55:38 - INFO - root -     Num Epochs = 200
+05/28/2025 11:55:38 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:55:38 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:55:38 - INFO - root -     Total optimization steps = 20000
+05/28/2025 11:55:38 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:55:38 - INFO - root - Data Loading Time: 0.11214971542358398
+05/28/2025 11:55:38 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:55:38 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:55:39 - INFO - root - Epoch 0/200, Step 0/100::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 11:55:39 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 11:55:39 - INFO - root - predict() missing 1 required positional argument: 'frames_gt'
+05/28/2025 11:55:39 - INFO - root - Sanity Check Failed
+05/28/2025 11:55:43 - INFO - root - Epoch 0/200, Step 20/100::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 11:55:47 - INFO - root - Epoch 0/200, Step 40/100::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 11:55:51 - INFO - root - Epoch 0/200, Step 60/100::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 11:55:55 - INFO - root - Epoch 0/200, Step 80/100::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 11:56:13 - INFO - root - ============================================================
+05/28/2025 11:56:13 - INFO - root -                  Experiment Start                           
+05/28/2025 11:56:13 - INFO - root - ============================================================
+05/28/2025 11:56:13 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:56:29 - INFO - root - train data: 100, valid data: 100, test_data: 100
+05/28/2025 11:56:29 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:56:30 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:56:30 - INFO - root - ============ Running training ============
+05/28/2025 11:56:30 - INFO - root -     Num examples = 100
+05/28/2025 11:56:30 - INFO - root -     Num Epochs = 20
+05/28/2025 11:56:30 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:56:30 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:56:30 - INFO - root -     Total optimization steps = 2000
+05/28/2025 11:56:30 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:56:30 - INFO - root - Data Loading Time: 0.10190916061401367
+05/28/2025 11:56:30 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:56:30 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:56:31 - INFO - root - Epoch 0/20, Step 0/100::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 11:56:31 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 11:56:31 - INFO - root - predict() missing 1 required positional argument: 'frames_gt'
+05/28/2025 11:56:31 - INFO - root - Sanity Check Failed
+05/28/2025 11:56:35 - INFO - root - Epoch 0/20, Step 20/100::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 11:56:40 - INFO - root - Epoch 0/20, Step 40/100::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 11:56:44 - INFO - root - Epoch 0/20, Step 60/100::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 11:56:48 - INFO - root - Epoch 0/20, Step 80/100::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 11:56:53 - INFO - root - Save checkpoint 100 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 11:56:53 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 11:56:53 - INFO - root - Epoch 1/20, Step 0/100::{'lr': 1.0100000000000002e-05, 'total_loss': 0.048245809972286224}
+05/28/2025 11:56:57 - INFO - root - Epoch 1/20, Step 20/100::{'lr': 1.2100000000000001e-05, 'total_loss': 0.05520889163017273}
+05/28/2025 11:57:01 - INFO - root - Epoch 1/20, Step 40/100::{'lr': 1.4099999999999999e-05, 'total_loss': 0.4073184132575989}
+05/28/2025 11:57:05 - INFO - root - Epoch 1/20, Step 60/100::{'lr': 1.6100000000000002e-05, 'total_loss': 0.3446213901042938}
+05/28/2025 11:57:09 - INFO - root - Epoch 1/20, Step 80/100::{'lr': 1.81e-05, 'total_loss': 0.06721486896276474}
+05/28/2025 11:57:14 - INFO - root - Save checkpoint 200 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 11:57:14 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 11:57:14 - INFO - root - Epoch 2/20, Step 0/100::{'lr': 2.01e-05, 'total_loss': 0.15269967913627625}
+05/28/2025 11:57:18 - INFO - root - Epoch 2/20, Step 20/100::{'lr': 2.2100000000000002e-05, 'total_loss': 0.22084125876426697}
+05/28/2025 11:57:22 - INFO - root - Epoch 2/20, Step 40/100::{'lr': 2.41e-05, 'total_loss': 0.06324811279773712}
+05/28/2025 11:57:32 - INFO - root - ============================================================
+05/28/2025 11:57:32 - INFO - root -                  Experiment Start                           
+05/28/2025 11:57:32 - INFO - root - ============================================================
+05/28/2025 11:57:32 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 11:57:48 - INFO - root - train data: 1000, valid data: 1000, test_data: 1000
+05/28/2025 11:57:48 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 11:57:49 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 11:57:49 - INFO - root - ============ Running training ============
+05/28/2025 11:57:49 - INFO - root -     Num examples = 1000
+05/28/2025 11:57:49 - INFO - root -     Num Epochs = 2
+05/28/2025 11:57:49 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 11:57:49 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 11:57:49 - INFO - root -     Total optimization steps = 2000
+05/28/2025 11:57:49 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 11:57:49 - INFO - root - Data Loading Time: 0.09420394897460938
+05/28/2025 11:57:49 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 11:57:49 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 11:57:50 - INFO - root - Epoch 0/2, Step 0/1000::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 11:57:50 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 11:57:50 - INFO - root - predict() missing 1 required positional argument: 'frames_gt'
+05/28/2025 11:57:50 - INFO - root - Sanity Check Failed
+05/28/2025 11:57:54 - INFO - root - Epoch 0/2, Step 20/1000::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 11:57:58 - INFO - root - Epoch 0/2, Step 40/1000::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 11:58:02 - INFO - root - Epoch 0/2, Step 60/1000::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 11:58:06 - INFO - root - Epoch 0/2, Step 80/1000::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 11:58:10 - INFO - root - Epoch 0/2, Step 100/1000::{'lr': 1.0100000000000002e-05, 'total_loss': 0.009477859362959862}
+05/28/2025 11:58:14 - INFO - root - Epoch 0/2, Step 120/1000::{'lr': 1.2100000000000001e-05, 'total_loss': 0.04558367282152176}
+05/28/2025 11:58:18 - INFO - root - Epoch 0/2, Step 140/1000::{'lr': 1.4099999999999999e-05, 'total_loss': 0.4404609203338623}
+05/28/2025 11:58:22 - INFO - root - Epoch 0/2, Step 160/1000::{'lr': 1.6100000000000002e-05, 'total_loss': 0.37367016077041626}
+05/28/2025 11:58:25 - INFO - root - Epoch 0/2, Step 180/1000::{'lr': 1.81e-05, 'total_loss': 0.1063024252653122}
+05/28/2025 11:58:29 - INFO - root - Epoch 0/2, Step 200/1000::{'lr': 2.01e-05, 'total_loss': 0.15668857097625732}
+05/28/2025 11:58:33 - INFO - root - Epoch 0/2, Step 220/1000::{'lr': 2.2100000000000002e-05, 'total_loss': 0.21864548325538635}
+05/28/2025 11:58:37 - INFO - root - Epoch 0/2, Step 240/1000::{'lr': 2.41e-05, 'total_loss': 0.09630520641803741}
+05/28/2025 11:58:41 - INFO - root - Epoch 0/2, Step 260/1000::{'lr': 2.61e-05, 'total_loss': 0.4172980487346649}
+05/28/2025 11:58:45 - INFO - root - Epoch 0/2, Step 280/1000::{'lr': 2.8100000000000005e-05, 'total_loss': 0.1221318393945694}
+05/28/2025 11:58:49 - INFO - root - Epoch 0/2, Step 300/1000::{'lr': 3.01e-05, 'total_loss': 0.005564367864280939}
+05/28/2025 11:58:53 - INFO - root - Epoch 0/2, Step 320/1000::{'lr': 3.21e-05, 'total_loss': 0.26217779517173767}
+05/28/2025 11:58:57 - INFO - root - Epoch 0/2, Step 340/1000::{'lr': 3.41e-05, 'total_loss': 0.27968209981918335}
+05/28/2025 11:59:01 - INFO - root - Epoch 0/2, Step 360/1000::{'lr': 3.61e-05, 'total_loss': 0.01459561102092266}
+05/28/2025 11:59:05 - INFO - root - Epoch 0/2, Step 380/1000::{'lr': 3.8100000000000005e-05, 'total_loss': 0.09662799537181854}
+05/28/2025 11:59:09 - INFO - root - Epoch 0/2, Step 400/1000::{'lr': 4.0100000000000006e-05, 'total_loss': 0.07900150120258331}
+05/28/2025 11:59:13 - INFO - root - Epoch 0/2, Step 420/1000::{'lr': 4.21e-05, 'total_loss': 0.20294718444347382}
+05/28/2025 12:00:15 - INFO - root - ============================================================
+05/28/2025 12:00:15 - INFO - root -                  Experiment Start                           
+05/28/2025 12:00:15 - INFO - root - ============================================================
+05/28/2025 12:00:15 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:00:31 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:00:31 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:00:32 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:00:32 - INFO - root - ============ Running training ============
+05/28/2025 12:00:32 - INFO - root -     Num examples = 10
+05/28/2025 12:00:32 - INFO - root -     Num Epochs = 2
+05/28/2025 12:00:32 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:00:32 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:00:32 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:00:32 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:00:32 - INFO - root - Data Loading Time: 0.11152362823486328
+05/28/2025 12:00:32 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:00:32 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:00:33 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:00:33 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:00:33 - INFO - root - predict() missing 1 required positional argument: 'frames_gt'
+05/28/2025 12:00:33 - INFO - root - Sanity Check Failed
+05/28/2025 12:00:36 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:00:36 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:00:36 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.42514118552207947}
+05/28/2025 12:00:39 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:00:39 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:00:41 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:00:42 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:00:42 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:00:42 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:02:17 - INFO - root - ============================================================
+05/28/2025 12:02:17 - INFO - root -                  Experiment Start                           
+05/28/2025 12:02:17 - INFO - root - ============================================================
+05/28/2025 12:02:17 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:02:33 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:02:33 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:02:33 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:02:33 - INFO - root - ============ Running training ============
+05/28/2025 12:02:33 - INFO - root -     Num examples = 10
+05/28/2025 12:02:33 - INFO - root -     Num Epochs = 2
+05/28/2025 12:02:33 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:02:33 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:02:33 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:02:33 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:02:33 - INFO - root - Data Loading Time: 0.09294271469116211
+05/28/2025 12:02:33 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:02:34 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:02:35 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:02:35 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:02:42 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+05/28/2025 12:02:42 - INFO - root - Sanity Check Failed
+05/28/2025 12:02:45 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:02:45 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:02:45 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.6934045553207397}
+05/28/2025 12:02:49 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:02:49 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:02:50 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:02:51 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:02:51 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:02:51 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:04:13 - INFO - root - ============================================================
+05/28/2025 12:04:13 - INFO - root -                  Experiment Start                           
+05/28/2025 12:04:13 - INFO - root - ============================================================
+05/28/2025 12:04:13 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:04:28 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:04:28 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:04:29 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:04:29 - INFO - root - ============ Running training ============
+05/28/2025 12:04:29 - INFO - root -     Num examples = 10
+05/28/2025 12:04:29 - INFO - root -     Num Epochs = 2
+05/28/2025 12:04:29 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:04:29 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:04:29 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:04:29 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:04:29 - INFO - root - Data Loading Time: 0.09683823585510254
+05/28/2025 12:04:29 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:04:29 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:04:30 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:04:30 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:04:37 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+05/28/2025 12:04:37 - INFO - root - Sanity Check Failed
+05/28/2025 12:04:41 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:04:41 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:04:41 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.6934045553207397}
+05/28/2025 12:04:45 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:04:45 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:04:47 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:04:48 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:04:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:04:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:08:14 - INFO - root - ============================================================
+05/28/2025 12:08:14 - INFO - root -                  Experiment Start                           
+05/28/2025 12:08:14 - INFO - root - ============================================================
+05/28/2025 12:08:14 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:08:29 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:08:29 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:08:30 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:08:30 - INFO - root - ============ Running training ============
+05/28/2025 12:08:30 - INFO - root -     Num examples = 10
+05/28/2025 12:08:30 - INFO - root -     Num Epochs = 2
+05/28/2025 12:08:30 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:08:30 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:08:30 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:08:30 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:08:30 - INFO - root - Data Loading Time: 0.09648370742797852
+05/28/2025 12:08:30 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:08:30 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:08:31 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:08:31 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:08:38 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+05/28/2025 12:08:38 - INFO - root - Sanity Check Failed
+05/28/2025 12:08:41 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:08:42 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:08:42 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.6934045553207397}
+05/28/2025 12:08:45 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:08:45 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:08:47 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:08:48 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:08:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:08:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:11:03 - INFO - root - ============================================================
+05/28/2025 12:11:03 - INFO - root -                  Experiment Start                           
+05/28/2025 12:11:03 - INFO - root - ============================================================
+05/28/2025 12:11:03 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:11:18 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:11:18 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:11:19 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:11:19 - INFO - root - ============ Running training ============
+05/28/2025 12:11:19 - INFO - root -     Num examples = 10
+05/28/2025 12:11:19 - INFO - root -     Num Epochs = 2
+05/28/2025 12:11:19 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:11:19 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:11:19 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:11:19 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:11:19 - INFO - root - Data Loading Time: 0.1073918342590332
+05/28/2025 12:11:19 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:11:19 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:11:20 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:11:20 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:11:27 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+05/28/2025 12:11:27 - INFO - root - Sanity Check Failed
+05/28/2025 12:11:30 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:11:30 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:11:31 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.6934045553207397}
+05/28/2025 12:11:34 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:11:34 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:11:36 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:11:37 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:11:37 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:11:37 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:14:09 - INFO - root - ============================================================
+05/28/2025 12:14:09 - INFO - root -                  Experiment Start                           
+05/28/2025 12:14:09 - INFO - root - ============================================================
+05/28/2025 12:14:09 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:14:24 - INFO - root - train data: 10, valid data: 10, test_data: 10
+05/28/2025 12:14:24 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:14:25 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:14:25 - INFO - root - ============ Running training ============
+05/28/2025 12:14:25 - INFO - root -     Num examples = 10
+05/28/2025 12:14:25 - INFO - root -     Num Epochs = 2
+05/28/2025 12:14:25 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:14:25 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:14:25 - INFO - root -     Total optimization steps = 20
+05/28/2025 12:14:25 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:14:25 - INFO - root - Data Loading Time: 0.11479949951171875
+05/28/2025 12:14:25 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:14:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:14:26 - INFO - root - Epoch 0/2, Step 0/10::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:14:26 - INFO - root -  ========= Running Sanity Check ==========
+05/28/2025 12:14:33 - INFO - root - Save checkpoint 10 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:14:33 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:14:33 - INFO - root - Epoch 1/2, Step 0/10::{'lr': 1.1e-06, 'total_loss': 0.47246718406677246}
+05/28/2025 12:14:37 - INFO - root - Save checkpoint 20 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:14:37 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 12:14:38 - INFO - root - milestones: [200, 100, 20, 10]
+05/28/2025 12:14:39 - INFO - root - Load checkpoint 200 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:14:39 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 12:14:39 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 12:15:14 - INFO - root - ****************************** < Evaluation Results: > ******************************
+05/28/2025 12:15:14 - INFO - root - Total 20 samples with 10 seq_len.
+05/28/2025 12:15:14 - INFO - root - ******************************************************************************************
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 16 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.11108564747213386; [0.05315261 0.0705764  0.09952181 0.13609245 0.08933964 0.12221543
+ 0.13374607 0.16263099 0.133052   0.11052908]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.7944024510555467; [0.8948882  0.86660519 0.81755538 0.79089933 0.82459499 0.76731332
+ 0.73880002 0.70896082 0.74315101 0.79125626]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.19372898687672707; [0.09708669 0.13033562 0.17963209 0.28046079 0.15403223 0.20472303
+ 0.21512914 0.26932935 0.21633221 0.19022873]
+05/28/2025 12:15:14 - INFO - root - <HSS> : -0.023304223871283617; [-0.13277348 -0.10488238 -0.04522157 -0.01733599 -0.0566161   0.00730447
+  0.03810092  0.07690852  0.03064751 -0.02917414]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.29089064949984733; CSI_POOL 16x16: 0.5365262911164935
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 74 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.060905391940162555; [0.00985554 0.01688079 0.04530618 0.07490192 0.0301827  0.07362492
+ 0.09020765 0.12229875 0.0875052  0.05829028]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.8272261846825296; [0.96699275 0.9566692  0.87490344 0.8490566  0.88988073 0.78296719
+ 0.73241395 0.6811121  0.72061986 0.81764603]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.08539495195591615; [0.0138563  0.02691018 0.06632082 0.12943655 0.03991937 0.10025305
+ 0.11978316 0.16554097 0.113013   0.07891613]
+05/28/2025 12:15:14 - INFO - root - <HSS> : 0.03984582370094337; [-0.04819366 -0.05588842  0.01000937  0.03913138 -0.00279731  0.06827277
+  0.1000007   0.14881354  0.09902733  0.04008254]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.1872521472270381; CSI_POOL 16x16: 0.383673104434907
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 133 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.021571510629462505; [0.00214654 0.00337883 0.0144176  0.02999241 0.00487465 0.03533166
+ 0.03561675 0.04673696 0.02969188 0.01352782]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.9289901051686587; [0.98231132 0.98039216 0.93834505 0.93341761 0.96571988 0.87809674
+ 0.87559618 0.89037433 0.90246596 0.94318182]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.03110195980964455; [0.00243704 0.0040657  0.01847051 0.05175237 0.00565063 0.04739336
+ 0.04753227 0.07533303 0.04093929 0.01744539]
+05/28/2025 12:15:14 - INFO - root - <HSS> : 0.03212029301318224; [-0.00026637  0.00029129  0.01991443  0.04263423  0.00437558  0.05772079
+  0.05832055  0.07427045  0.04653447  0.01740752]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.15143977402082717; CSI_POOL 16x16: 0.39815557337610263
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 160 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.007330357768260349; [0.00465116 0.0036075  0.00328947 0.00744417 0.00716846 0.01276053
+ 0.00728863 0.01025791 0.01017249 0.00666325]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.9859911892304284; [0.98584906 0.99056604 0.99341383 0.98972603 0.97894737 0.97956403
+ 0.98721228 0.98578969 0.98245614 0.98638743]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.017790200400488627; [0.00688073 0.0058072  0.00652884 0.02631579 0.01075269 0.03285871
+ 0.01666667 0.03556911 0.02363823 0.01288404]
+05/28/2025 12:15:14 - INFO - root - <HSS> : 0.011604758725137313; [0.00753114 0.00519717 0.00377561 0.01081821 0.01233953 0.02183881
+ 0.01139892 0.01608515 0.01678855 0.0102745 ]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.05196304849884526; CSI_POOL 16x16: 0.27450980392156865
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 181 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.002531785229225815; [0.00203666 0.         0.00134228 0.         0.0040404  0.00340136
+ 0.00353357 0.0036036  0.00605449 0.00130548]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.9966236878301787; [0.996633   1.         0.99820144 1.         0.99346405 0.99593082
+ 0.99547511 0.9959322  0.99232737 0.99827288]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.012087852219067373; [0.00512821 0.         0.00526316 0.         0.0104712  0.02030457
+ 0.01587302 0.03061224 0.02790698 0.00531915]
+05/28/2025 12:15:14 - INFO - root - <HSS> : 0.004150349924630243; [ 0.00334898 -0.00072406  0.00181823 -0.00110223  0.0073358   0.0057838
+  0.00615011  0.00613183  0.01101818  0.00174287]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.014110657259561826; CSI_POOL 16x16: 0.11389128559102674
+05/28/2025 12:15:14 - INFO - root - ====================Threshold: 219 with melthod 1====================
+05/28/2025 12:15:14 - INFO - root - <CSI> : 0.00016611295681063127; [0.         0.         0.         0.         0.         0.
+ 0.         0.00166113 0.         0.        ]
+05/28/2025 12:15:14 - INFO - root - <FAR> : 0.9998330550918197; [1.         1.         1.         1.         1.         1.
+ 1.         0.99833055 1.         1.        ]
+05/28/2025 12:15:14 - INFO - root - <POD> : 0.025; [0.   0.   0.   0.   0.   0.   0.   0.25 0.   0.  ]
+05/28/2025 12:15:14 - INFO - root - <HSS> : 0.0003201727434930782; [-1.20644045e-05 -1.20773151e-05 -1.81004084e-05 -6.09224993e-06
+ -6.06764941e-06 -1.21486319e-05 -1.21301624e-05  3.29257733e-03
+ -6.08586131e-06 -6.08320758e-06]
+05/28/2025 12:15:14 - INFO - root - < CSI_POOL 4x4 > : 0.00048590864917395527; CSI_POOL 16x16: 0.007853403141361256
+05/28/2025 12:15:14 - INFO - root - ********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+05/28/2025 12:15:14 - INFO - root - [ avg_csi ] : 0.033931800999342614; [ avg_far ] : 0.9221777788431936; [ avg_pod ] : 0.06085065854364063; [ avg_hss] : 0.010789529039350437
+05/28/2025 12:15:14 - INFO - root - [ avg_csi_pool 4x4 ] : 0.11602369752588228; [ avg_csi_pool 16x16 ]: 0.28576824359691
+05/28/2025 12:15:14 - INFO - root - ====================Losses with 10 seq_len====================
+05/28/2025 12:15:14 - INFO - root - <MSE> : 2123.35595703125; [2209.2107 2346.8806 2157.0278 2481.8079 2067.1694 2002.8004 1922.7008
+ 1953.4119 1941.808  2150.74  ]
+05/28/2025 12:15:14 - INFO - root - <MAE> : 26.7579402923584; [27.638111 28.739979 27.139109 30.774689 26.322834 25.397114 24.585615
+ 24.96735  24.839954 27.174652]
+05/28/2025 12:15:14 - INFO - root - <RMSE> : 45.04595184326172; [45.56001  47.559807 45.584377 49.34673  44.085278 43.92464  42.973026
+ 43.309055 42.811028 45.305595]
+05/28/2025 12:15:14 - INFO - root - <PSNR> : 15.281509635080033; [15.27287147 14.76272184 15.13339459 14.35434233 15.5515082  15.45578688
+ 15.66137669 15.59497117 15.78792643 15.24019675]
+05/28/2025 12:15:14 - INFO - root - <SSIM> : 0.08124149058281643; [0.05186115 0.05019602 0.0602544  0.03448472 0.06815888 0.12138205
+ 0.13763471 0.09935027 0.11159873 0.07749397]
+05/28/2025 12:15:14 - INFO - root - <CRPS> : 0.10493308513003285; [0.10838472 0.11270578 0.10642786 0.12068504 0.10322679 0.09959651
+ 0.09641416 0.09791117 0.09741157 0.10656724]
+05/28/2025 12:15:14 - INFO - root - <LPIPS> : 0.8396295309066772; [0.9023427  0.91797477 0.8816673  0.91163653 0.853699   0.7857752
+ 0.75068164 0.77214104 0.7883729  0.8320042 ]
+05/28/2025 12:15:14 - INFO - root - ==========================================================================================
+05/28/2025 12:15:14 - INFO - root - Test Results: {'csi': 0.033931800999342614}
+05/28/2025 12:15:14 - INFO - root - ==============================
+05/28/2025 12:15:15 - INFO - root - Load checkpoint 100 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:15:51 - INFO - root - ****************************** < Evaluation Results: > ******************************
+05/28/2025 12:15:51 - INFO - root - Total 20 samples with 10 seq_len.
+05/28/2025 12:15:51 - INFO - root - ******************************************************************************************
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 16 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 0.14789907532956165; [0.08483773 0.10145384 0.14258515 0.1664151  0.13974391 0.15487706
+ 0.16897559 0.18102168 0.18365086 0.15542985]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.7758436226814338; [0.86581112 0.83216629 0.79257063 0.76933521 0.7758769  0.76130693
+ 0.748831   0.73713146 0.72859893 0.74680775]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.30130297453705907; [0.18744052 0.20414743 0.31324054 0.3740031  0.27070094 0.30606746
+ 0.3405262  0.3676447  0.36224916 0.2870097 ]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 0.0007411461626078194; [-0.12541977 -0.07048773 -0.01749831  0.01744096  0.00118268  0.01832233
+  0.03661561  0.05446938  0.06365691  0.0291294 ]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.31367231078166447; CSI_POOL 16x16: 0.53703125
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 74 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 0.08898396663114064; [0.02390389 0.03952929 0.075367   0.09639409 0.0756728  0.10087664
+ 0.12573104 0.12585252 0.12603678 0.10047562]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.8516130222288215; [0.95882579 0.92978464 0.88294602 0.85948584 0.85422591 0.82249982
+ 0.78412775 0.80235907 0.80005633 0.82181906]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.18020696605207692; [0.05391664 0.08294765 0.17466212 0.23488736 0.13596456 0.18941904
+ 0.23142168 0.25732556 0.25427285 0.1872522 ]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 0.04046918269894557; [-0.08810156 -0.04907087  0.00730434  0.04012663  0.03335409  0.07106661
+  0.11572055  0.10299123  0.10423767  0.06706314]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.17247585817136396; CSI_POOL 16x16: 0.35994651144497763
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 133 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 0.04029171740935164; [0.00641613 0.01037635 0.03616267 0.0440187  0.02905908 0.04735194
+ 0.06220764 0.0601565  0.05954911 0.04761905]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.9378368202690256; [0.98549223 0.97941176 0.94565316 0.93973277 0.94031997 0.92371546
+ 0.90605505 0.9147018  0.91775821 0.92552779]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.10535148467470105; [0.01137287 0.02049114 0.09753727 0.14035375 0.05360026 0.1109922
+ 0.15550494 0.16949931 0.17750657 0.11665655]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 0.05518313446922477; [-0.00382095  0.00185336  0.04674029  0.05981235  0.03929176  0.06837915
+  0.09444004  0.0893376   0.08777549  0.06802225]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.15976009863540425; CSI_POOL 16x16: 0.3310408676101045
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 160 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 0.007953680149785692; [0.0021479  0.00358522 0.00877319 0.00761019 0.00783572 0.01043939
+ 0.00829819 0.01076462 0.01041989 0.00966249]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.990782129938854; [0.99707602 0.99532037 0.9899918  0.9916483  0.98964286 0.98797559
+ 0.99063268 0.98806007 0.98855005 0.98892356]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.06135417379422954; [0.00802752 0.01509872 0.0663765  0.07894737 0.0311828  0.07338445
+ 0.06777778 0.09857724 0.10380267 0.0703667 ]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 0.011049454969073908; [0.00038684 0.00314569 0.0125809  0.0101225  0.0113369  0.01595147
+ 0.01169005 0.01602882 0.01535829 0.01389308]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.057009513552324545; CSI_POOL 16x16: 0.23086507653969385
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 181 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 0.0016323144129572358; [0.         0.00051706 0.00110059 0.00204499 0.00206718 0.00122911
+ 0.00150538 0.00282815 0.00401111 0.00101958]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.9982920911393502; [1.         0.99942857 0.99885268 0.9978903  0.99771167 0.99871001
+ 0.9984333  0.99708505 0.99586843 0.9989409 ]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.041184202206953006; [0.         0.00540541 0.02631579 0.0625     0.02094241 0.02538071
+ 0.03703704 0.08673469 0.12093023 0.02659574]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 0.0021344110495138003; [-1.05883621e-03  1.24089595e-05  1.08875756e-03  2.85706418e-03
+  3.07813511e-03  1.31245840e-03  1.90158364e-03  4.48814779e-03
+  6.72980159e-03  9.34589476e-04]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.01539622641509434; CSI_POOL 16x16: 0.09292618629173989
+05/28/2025 12:15:51 - INFO - root - ====================Threshold: 219 with melthod 1====================
+05/28/2025 12:15:51 - INFO - root - <CSI> : 3.071253071253072e-05; [0.         0.         0.         0.         0.         0.
+ 0.         0.00030713 0.         0.        ]
+05/28/2025 12:15:51 - INFO - root - <FAR> : 0.9999692591454042; [1.         1.         1.         1.         1.         1.
+ 1.         0.99969259 1.         1.        ]
+05/28/2025 12:15:51 - INFO - root - <POD> : 0.025; [0.   0.   0.   0.   0.   0.   0.   0.25 0.   0.  ]
+05/28/2025 12:15:51 - INFO - root - <HSS> : 4.9825468155343855e-05; [-1.21774787e-05 -1.21780110e-05 -1.82894153e-05 -6.10180450e-06
+ -6.09604539e-06 -1.21951947e-05 -1.21965606e-05  5.89692320e-04
+ -6.10181148e-06 -6.10131713e-06]
+05/28/2025 12:15:51 - INFO - root - < CSI_POOL 4x4 > : 0.00017089635136289838; CSI_POOL 16x16: 0.005036197670758578
+05/28/2025 12:15:51 - INFO - root - ********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+05/28/2025 12:15:51 - INFO - root - [ avg_csi ] : 0.047798577743918234; [ avg_far ] : 0.9257228242338149; [ avg_pod ] : 0.11906663354416992; [ avg_hss] : 0.018271192469586868
+05/28/2025 12:15:51 - INFO - root - [ avg_csi_pool 4x4 ] : 0.11974748398453573; [ avg_csi_pool 16x16 ]: 0.2594743482595457
+05/28/2025 12:15:51 - INFO - root - ====================Losses with 10 seq_len====================
+05/28/2025 12:15:51 - INFO - root - <MSE> : 2994.509765625; [3089.8774 2929.564  3285.2935 3459.4753 2570.974  2831.4058 2789.2837
+ 3042.104  3047.808  2899.3135]
+05/28/2025 12:15:51 - INFO - root - <MAE> : 33.66675567626953; [35.377846 33.03355  36.02694  37.265667 30.720669 32.319542 32.32667
+ 33.88903  33.538734 32.168938]
+05/28/2025 12:15:51 - INFO - root - <RMSE> : 54.374534606933594; [54.99104  53.6167   57.09199  58.667957 50.317184 52.9494   52.65677
+ 54.94866  55.017143 53.488503]
+05/28/2025 12:15:51 - INFO - root - <PSNR> : 13.482576611371258; [13.42787274 13.63555077 13.03634583 12.7864151  14.16673737 13.69924234
+ 13.72876166 13.36565585 13.35190128 13.62728317]
+05/28/2025 12:15:51 - INFO - root - <SSIM> : 0.028975158021604042; [0.02317472 0.02931441 0.02034477 0.01793105 0.03311916 0.03746691
+ 0.0374521  0.02731783 0.02819522 0.03543541]
+05/28/2025 12:15:51 - INFO - root - <CRPS> : 0.13202648454192972; [0.13873663 0.12954333 0.1412821  0.14613986 0.12047319 0.12674328
+ 0.12677123 0.13289813 0.13152445 0.12615267]
+05/28/2025 12:15:51 - INFO - root - <LPIPS> : 0.9183252453804016; [0.94825095 0.92792875 0.9615186  0.93805856 0.91251963 0.8963734
+ 0.8752562  0.9095808  0.929128   0.88463813]
+05/28/2025 12:15:51 - INFO - root - ==========================================================================================
+05/28/2025 12:15:51 - INFO - root - Test Results: {'csi': 0.047798577743918234}
+05/28/2025 12:15:51 - INFO - root - ==============================
+05/28/2025 12:15:52 - INFO - root - Load checkpoint 20 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 12:16:28 - INFO - root - ****************************** < Evaluation Results: > ******************************
+05/28/2025 12:16:28 - INFO - root - Total 20 samples with 10 seq_len.
+05/28/2025 12:16:28 - INFO - root - ******************************************************************************************
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 16 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 0.19922568451277953; [0.15930096 0.16742512 0.18484968 0.21039108 0.18676577 0.19694837
+ 0.21758633 0.23085721 0.23213984 0.20599249]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.7428479296835527; [0.80887122 0.76757394 0.77907322 0.72028544 0.77272175 0.73689519
+ 0.7472265  0.69626763 0.67831709 0.7212473 ]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.4800401545904219; [0.48891351 0.37447911 0.53095055 0.45914101 0.51166414 0.43923106
+ 0.60984305 0.49036202 0.4547321  0.441085  ]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 0.05631941594084113; [-0.04934921  0.02637239  0.00565812  0.10151452  0.0079632   0.06381982
+  0.05229653  0.12927297  0.14645993  0.07918589]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.3280335506097442; CSI_POOL 16x16: 0.53703125
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 74 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 0.1207191216089774; [0.06065902 0.08808274 0.0998243  0.14216132 0.09871197 0.12697406
+ 0.13471385 0.15509832 0.1684416  0.13252403]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.8450974774739322; [0.92602915 0.87748307 0.88121032 0.81490448 0.87984572 0.83260258
+ 0.84511138 0.79726598 0.77377727 0.82274482]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.3603934248076251; [0.25209521 0.23861652 0.3847099  0.37999028 0.3561444  0.34461169
+ 0.50841698 0.39762192 0.39740047 0.34432688]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 0.06215071463664708; [-0.06562186  0.01917758  0.01293552  0.11436201  0.00921179  0.08054764
+  0.0696396   0.1318999   0.16073841  0.08861655]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.18961809715239525; CSI_POOL 16x16: 0.35929687499999996
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 133 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 0.0462013804633299; [0.01915896 0.03060172 0.04001547 0.0562622  0.03981781 0.05529446
+ 0.05469427 0.05413366 0.06010776 0.05192749]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.9463203573544945; [0.97618118 0.96154031 0.95457339 0.93488321 0.95358158 0.93443001
+ 0.94067482 0.93758861 0.93164862 0.93810184]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.2521396599450698; [0.08919578 0.13026508 0.2514582  0.29266295 0.21876009 0.26081639
+ 0.41199696 0.28984842 0.33261239 0.24378034]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 0.05821961294453144; [0.00819091 0.03131789 0.04652945 0.07843672 0.04686004 0.07529377
+ 0.07108039 0.07227857 0.08335805 0.06885033]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.12030880082346886; CSI_POOL 16x16: 0.2593212001967536
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 160 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 0.008388379820995977; [0.00410036 0.00634398 0.00718801 0.01091026 0.0096865  0.00857357
+ 0.00823209 0.00850408 0.00977226 0.01057269]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.9912298748016892; [0.99553809 0.99324324 0.99251513 0.98866037 0.98979099 0.9910322
+ 0.9915858  0.9911376  0.98990918 0.98888614]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.1705804490436989; [0.04816514 0.09407666 0.15342764 0.22368421 0.15913978 0.16319825
+ 0.27555556 0.17378049 0.23638232 0.17839445]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 0.011333693468742611; [0.00331234 0.00774296 0.00897319 0.01637393 0.01392735 0.01178135
+ 0.0110583  0.01121438 0.01373804 0.01521508]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.04449262069540565; CSI_POOL 16x16: 0.180084474593626
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 181 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 0.0017278295711072211; [0.00120358 0.00151798 0.00102512 0.00342564 0.0016546  0.00119208
+ 0.00161038 0.0014435  0.00248072 0.0017247 ]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.9982473970550396; [0.99875622 0.99845091 0.9989615  0.9965348  0.9983149  0.99879042
+ 0.99837852 0.99853893 0.99749646 0.99825131]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.11938075766015166; [0.03589744 0.07027027 0.07368421 0.23076923 0.08376963 0.07614213
+ 0.19047619 0.10714286 0.21395349 0.11170213]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 0.0022788302353167053; [0.00125537 0.0019287  0.00090562 0.00558411 0.00216343 0.00119916
+ 0.00207412 0.00170465 0.00365683 0.00231631]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.012441194176272546; CSI_POOL 16x16: 0.07365657813465103
+05/28/2025 12:16:28 - INFO - root - ====================Threshold: 219 with melthod 1====================
+05/28/2025 12:16:28 - INFO - root - <CSI> : 4.356687922899401e-05; [0.00000000e+00 0.00000000e+00 1.21891760e-04 0.00000000e+00
+ 0.00000000e+00 1.25391850e-04 0.00000000e+00 1.10533879e-04
+ 7.78513040e-05 0.00000000e+00]
+05/28/2025 12:16:28 - INFO - root - <FAR> : 0.9999564249094801; [1.         1.         0.99987808 1.         1.         0.99987459
+ 1.         0.99988943 0.99992215 1.        ]
+05/28/2025 12:16:28 - INFO - root - <POD> : 0.20833333333333331; [0.         0.         0.33333333 0.         0.         0.5
+ 0.         0.25       1.         0.        ]
+05/28/2025 12:16:28 - INFO - root - <HSS> : 7.553256296506407e-05; [-1.21975492e-05 -1.22019712e-05  2.25454083e-04 -6.10287236e-06
+ -6.10223461e-06  2.38551198e-04 -1.22054781e-05  1.96644854e-04
+  1.49588360e-04 -6.10275959e-06]
+05/28/2025 12:16:28 - INFO - root - < CSI_POOL 4x4 > : 0.00029934144881261224; CSI_POOL 16x16: 0.0038275584206285255
+05/28/2025 12:16:28 - INFO - root - ********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+05/28/2025 12:16:28 - INFO - root - [ avg_csi ] : 0.06271766047606984; [ avg_far ] : 0.9206165768796981; [ avg_pod ] : 0.2651446298967167; [ avg_hss] : 0.031729633298174
+05/28/2025 12:16:28 - INFO - root - [ avg_csi_pool 4x4 ] : 0.11586560081768317; [ avg_csi_pool 16x16 ]: 0.2355363227242765
+05/28/2025 12:16:28 - INFO - root - ====================Losses with 10 seq_len====================
+05/28/2025 12:16:28 - INFO - root - <MSE> : 5050.12646484375; [5672.5186 4243.8228 6020.282  4421.456  5391.5923 4532.248  6699.272
+ 4506.835  4596.122  4417.118 ]
+05/28/2025 12:16:28 - INFO - root - <MAE> : 46.68044662475586; [55.593    40.692635 54.917004 40.93956  51.70926  42.53266  57.70268
+ 41.154472 39.82657  41.73664 ]
+05/28/2025 12:16:28 - INFO - root - <RMSE> : 70.77542877197266; [75.2609   65.04958  77.52567  66.39865  73.3848   67.24367  81.752396
+ 67.047455 67.67619  66.41493 ]
+05/28/2025 12:16:28 - INFO - root - <PSNR> : 11.168393204693206; [10.60601441 11.8796042  10.3491028  11.7008981  10.82372588 11.5886962
+  9.89090817 11.61485614 11.53838353 11.69174264]
+05/28/2025 12:16:28 - INFO - root - <SSIM> : 0.008897638546261851; [0.00293017 0.00986807 0.00521854 0.01176468 0.00596244 0.00975238
+ 0.0062577  0.01123232 0.0147031  0.01128699]
+05/28/2025 12:16:28 - INFO - root - <CRPS> : 0.1830605487037974; [0.21801173 0.15957894 0.21536075 0.16054726 0.20278138 0.16679473
+ 0.226285   0.16139006 0.15618259 0.16367306]
+05/28/2025 12:16:28 - INFO - root - <LPIPS> : 1.0074710845947266; [1.0650088  1.0025908  1.0674635  0.95030296 1.0431764  0.9850316
+ 1.0314754  0.98707783 0.96672326 0.97585976]
+05/28/2025 12:16:28 - INFO - root - ==========================================================================================
+05/28/2025 12:16:28 - INFO - root - Test Results: {'csi': 0.06271766047606984}
+05/28/2025 12:16:28 - INFO - root - ==============================
+05/28/2025 12:22:06 - INFO - root - ============================================================
+05/28/2025 12:22:06 - INFO - root -                  Experiment Start                           
+05/28/2025 12:22:06 - INFO - root - ============================================================
+05/28/2025 12:22:06 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:22:21 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 12:22:21 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:22:21 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:22:21 - INFO - root - ============ Running training ============
+05/28/2025 12:22:21 - INFO - root -     Num examples = 71436
+05/28/2025 12:22:21 - INFO - root -     Num Epochs = 1
+05/28/2025 12:22:21 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:22:21 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:22:21 - INFO - root -     Total optimization steps = 71436
+05/28/2025 12:22:21 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:22:22 - INFO - root - Data Loading Time: 0.11734271049499512
+05/28/2025 12:22:22 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:22:22 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:22:23 - INFO - root - Epoch 0/1, Step 0/71436::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:22:27 - INFO - root - Epoch 0/1, Step 20/71436::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 12:22:31 - INFO - root - Epoch 0/1, Step 40/71436::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 12:22:36 - INFO - root - Epoch 0/1, Step 60/71436::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 12:22:40 - INFO - root - Epoch 0/1, Step 80/71436::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 12:22:44 - INFO - root - Epoch 0/1, Step 100/71436::{'lr': 1.0100000000000002e-05, 'total_loss': 0.009477859362959862}
+05/28/2025 12:22:48 - INFO - root - Epoch 0/1, Step 120/71436::{'lr': 1.2100000000000001e-05, 'total_loss': 0.04558367282152176}
+05/28/2025 12:22:52 - INFO - root - Epoch 0/1, Step 140/71436::{'lr': 1.4099999999999999e-05, 'total_loss': 0.4404609203338623}
+05/28/2025 12:23:01 - INFO - root - ============================================================
+05/28/2025 12:23:01 - INFO - root -                  Experiment Start                           
+05/28/2025 12:23:01 - INFO - root - ============================================================
+05/28/2025 12:23:01 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:23:16 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 12:23:16 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:23:16 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:23:16 - INFO - root - ============ Running training ============
+05/28/2025 12:23:16 - INFO - root -     Num examples = 71436
+05/28/2025 12:23:16 - INFO - root -     Num Epochs = 1
+05/28/2025 12:23:16 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:23:16 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:23:16 - INFO - root -     Total optimization steps = 71436
+05/28/2025 12:23:16 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:23:17 - INFO - root - Data Loading Time: 0.10896801948547363
+05/28/2025 12:23:17 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:23:17 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:23:18 - INFO - root - Epoch 0/1, Step 0/71436::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:23:27 - INFO - root - ============================================================
+05/28/2025 12:23:27 - INFO - root -                  Experiment Start                           
+05/28/2025 12:23:27 - INFO - root - ============================================================
+05/28/2025 12:23:27 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:23:42 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 12:23:42 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:23:43 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:23:43 - INFO - root - ============ Running training ============
+05/28/2025 12:23:43 - INFO - root -     Num examples = 71436
+05/28/2025 12:23:43 - INFO - root -     Num Epochs = 1
+05/28/2025 12:23:43 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:23:43 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:23:43 - INFO - root -     Total optimization steps = 71436
+05/28/2025 12:23:43 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:23:43 - INFO - root - Data Loading Time: 0.1060037612915039
+05/28/2025 12:23:43 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:23:43 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:23:44 - INFO - root - Epoch 0/1, Step 0/71436::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:23:48 - INFO - root - Epoch 0/1, Step 20/71436::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 12:23:53 - INFO - root - Epoch 0/1, Step 40/71436::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 12:24:04 - INFO - root - ============================================================
+05/28/2025 12:24:04 - INFO - root -                  Experiment Start                           
+05/28/2025 12:24:04 - INFO - root - ============================================================
+05/28/2025 12:24:04 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:24:19 - INFO - root - train data: 71436, valid data: 16887, test_data: 4332
+05/28/2025 12:24:19 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:24:19 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:24:19 - INFO - root - ============ Running training ============
+05/28/2025 12:24:19 - INFO - root -     Num examples = 71436
+05/28/2025 12:24:19 - INFO - root -     Num Epochs = 1
+05/28/2025 12:24:19 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:24:19 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:24:19 - INFO - root -     Total optimization steps = 71436
+05/28/2025 12:24:19 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:24:20 - INFO - root - Data Loading Time: 0.11576223373413086
+05/28/2025 12:24:20 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:24:20 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:24:21 - INFO - root - Epoch 0/1, Step 0/71436::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:24:25 - INFO - root - Epoch 0/1, Step 20/71436::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 12:24:29 - INFO - root - Epoch 0/1, Step 40/71436::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 12:24:33 - INFO - root - Epoch 0/1, Step 60/71436::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 12:24:37 - INFO - root - Epoch 0/1, Step 80/71436::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 12:24:42 - INFO - root - Epoch 0/1, Step 100/71436::{'lr': 1.0100000000000002e-05, 'total_loss': 0.009477859362959862}
+05/28/2025 12:24:46 - INFO - root - Epoch 0/1, Step 120/71436::{'lr': 1.2100000000000001e-05, 'total_loss': 0.04558367282152176}
+05/28/2025 12:29:21 - INFO - root - ============================================================
+05/28/2025 12:29:21 - INFO - root -                  Experiment Start                           
+05/28/2025 12:29:21 - INFO - root - ============================================================
+05/28/2025 12:29:21 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:29:37 - INFO - root - train data: 10000, valid data: 16887, test_data: 100
+05/28/2025 12:29:37 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:29:37 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:29:37 - INFO - root - ============ Running training ============
+05/28/2025 12:29:37 - INFO - root -     Num examples = 10000
+05/28/2025 12:29:37 - INFO - root -     Num Epochs = 1
+05/28/2025 12:29:37 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 12:29:37 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 12:29:37 - INFO - root -     Total optimization steps = 10000
+05/28/2025 12:29:37 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:29:37 - INFO - root - Data Loading Time: 0.10104751586914062
+05/28/2025 12:29:37 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:29:37 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:29:39 - INFO - root - Epoch 0/1, Step 0/10000::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3256329298019409}
+05/28/2025 12:29:43 - INFO - root - Epoch 0/1, Step 20/10000::{'lr': 2.1000000000000002e-06, 'total_loss': 0.5391654968261719}
+05/28/2025 12:29:47 - INFO - root - Epoch 0/1, Step 40/10000::{'lr': 4.1000000000000006e-06, 'total_loss': 0.21630534529685974}
+05/28/2025 12:29:50 - INFO - root - Epoch 0/1, Step 60/10000::{'lr': 6.1e-06, 'total_loss': 0.4954938590526581}
+05/28/2025 12:29:54 - INFO - root - Epoch 0/1, Step 80/10000::{'lr': 8.1e-06, 'total_loss': 0.020622827112674713}
+05/28/2025 12:29:58 - INFO - root - Epoch 0/1, Step 100/10000::{'lr': 1.0100000000000002e-05, 'total_loss': 0.009477859362959862}
+05/28/2025 12:30:03 - INFO - root - Epoch 0/1, Step 120/10000::{'lr': 1.2100000000000001e-05, 'total_loss': 0.04558367282152176}
+05/28/2025 12:30:07 - INFO - root - Epoch 0/1, Step 140/10000::{'lr': 1.4099999999999999e-05, 'total_loss': 0.4404609203338623}
+05/28/2025 12:30:11 - INFO - root - Epoch 0/1, Step 160/10000::{'lr': 1.6100000000000002e-05, 'total_loss': 0.37367016077041626}
+05/28/2025 12:30:15 - INFO - root - Epoch 0/1, Step 180/10000::{'lr': 1.81e-05, 'total_loss': 0.1063024252653122}
+05/28/2025 12:30:27 - INFO - root - ============================================================
+05/28/2025 12:30:27 - INFO - root -                  Experiment Start                           
+05/28/2025 12:30:27 - INFO - root - ============================================================
+05/28/2025 12:30:27 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 12:30:43 - INFO - root - train data: 10000, valid data: 4221, test_data: 100
+05/28/2025 12:30:43 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 12:30:44 - INFO - root - Main Model Parameters: 58.45M
+05/28/2025 12:30:44 - INFO - root - ============ Running training ============
+05/28/2025 12:30:44 - INFO - root -     Num examples = 10000
+05/28/2025 12:30:44 - INFO - root -     Num Epochs = 1
+05/28/2025 12:30:44 - INFO - root -     Instantaneous batch size per GPU = 4
+05/28/2025 12:30:44 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+05/28/2025 12:30:44 - INFO - root -     Total optimization steps = 10000
+05/28/2025 12:30:44 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 12:30:44 - INFO - root - Data Loading Time: 0.18751931190490723
+05/28/2025 12:30:44 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 12:30:44 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+05/28/2025 12:30:45 - INFO - root - Epoch 0/1, Step 0/10000::{'lr': 1.0000000000000001e-07, 'total_loss': 0.6071042418479919}
+05/28/2025 12:30:50 - INFO - root - Epoch 0/1, Step 20/10000::{'lr': 2.1000000000000002e-06, 'total_loss': 0.4481852054595947}
+05/28/2025 12:30:54 - INFO - root - Epoch 0/1, Step 40/10000::{'lr': 4.1000000000000006e-06, 'total_loss': 0.17439502477645874}
+05/28/2025 12:30:58 - INFO - root - Epoch 0/1, Step 60/10000::{'lr': 6.1e-06, 'total_loss': 0.25003582239151}
+05/28/2025 12:31:03 - INFO - root - Epoch 0/1, Step 80/10000::{'lr': 8.1e-06, 'total_loss': 0.21926294267177582}
+05/28/2025 12:31:07 - INFO - root - Epoch 0/1, Step 100/10000::{'lr': 1.0100000000000002e-05, 'total_loss': 0.2591468095779419}
+05/28/2025 12:31:12 - INFO - root - Epoch 0/1, Step 120/10000::{'lr': 1.2100000000000001e-05, 'total_loss': 0.17235895991325378}
+05/28/2025 12:31:16 - INFO - root - Epoch 0/1, Step 140/10000::{'lr': 1.4099999999999999e-05, 'total_loss': 0.3258136808872223}
+05/28/2025 12:31:21 - INFO - root - Epoch 0/1, Step 160/10000::{'lr': 1.6100000000000002e-05, 'total_loss': 0.15038317441940308}
+05/28/2025 12:31:25 - INFO - root - Epoch 0/1, Step 180/10000::{'lr': 1.81e-05, 'total_loss': 0.14834651350975037}
+05/28/2025 12:31:30 - INFO - root - Epoch 0/1, Step 200/10000::{'lr': 2.01e-05, 'total_loss': 0.2052232027053833}
+05/28/2025 12:31:34 - INFO - root - Epoch 0/1, Step 220/10000::{'lr': 2.2100000000000002e-05, 'total_loss': 0.29826104640960693}
+05/28/2025 12:31:39 - INFO - root - Epoch 0/1, Step 240/10000::{'lr': 2.41e-05, 'total_loss': 0.09795880317687988}
+05/28/2025 12:31:43 - INFO - root - Epoch 0/1, Step 260/10000::{'lr': 2.61e-05, 'total_loss': 0.20417052507400513}
+05/28/2025 12:31:48 - INFO - root - Epoch 0/1, Step 280/10000::{'lr': 2.8100000000000005e-05, 'total_loss': 0.11768689006567001}
+05/28/2025 12:31:52 - INFO - root - Epoch 0/1, Step 300/10000::{'lr': 3.01e-05, 'total_loss': 0.10319173336029053}
+05/28/2025 12:31:57 - INFO - root - Epoch 0/1, Step 320/10000::{'lr': 3.21e-05, 'total_loss': 0.19717171788215637}
+05/28/2025 12:32:01 - INFO - root - Epoch 0/1, Step 340/10000::{'lr': 3.41e-05, 'total_loss': 0.1907198280096054}
+05/28/2025 12:32:05 - INFO - root - Epoch 0/1, Step 360/10000::{'lr': 3.61e-05, 'total_loss': 0.07145991176366806}
+05/28/2025 12:32:10 - INFO - root - Epoch 0/1, Step 380/10000::{'lr': 3.8100000000000005e-05, 'total_loss': 0.07177793234586716}
+05/28/2025 12:32:14 - INFO - root - Epoch 0/1, Step 400/10000::{'lr': 4.0100000000000006e-05, 'total_loss': 0.03804553300142288}
+05/28/2025 12:32:19 - INFO - root - Epoch 0/1, Step 420/10000::{'lr': 4.21e-05, 'total_loss': 0.13930679857730865}
+05/28/2025 12:32:24 - INFO - root - Epoch 0/1, Step 440/10000::{'lr': 4.41e-05, 'total_loss': 0.045457132160663605}
+05/28/2025 12:32:28 - INFO - root - Epoch 0/1, Step 460/10000::{'lr': 4.61e-05, 'total_loss': 0.07189922034740448}
+05/28/2025 12:32:33 - INFO - root - Epoch 0/1, Step 480/10000::{'lr': 4.8100000000000004e-05, 'total_loss': 0.09549307823181152}
+05/28/2025 12:32:37 - INFO - root - Epoch 0/1, Step 500/10000::{'lr': 5.0100000000000005e-05, 'total_loss': 0.13106150925159454}
+05/28/2025 12:32:41 - INFO - root - Epoch 0/1, Step 520/10000::{'lr': 5.2100000000000006e-05, 'total_loss': 0.11796495318412781}
+05/28/2025 12:32:46 - INFO - root - Epoch 0/1, Step 540/10000::{'lr': 5.410000000000001e-05, 'total_loss': 0.030804339796304703}
+05/28/2025 12:32:50 - INFO - root - Epoch 0/1, Step 560/10000::{'lr': 5.610000000000001e-05, 'total_loss': 0.03160726651549339}
+05/28/2025 12:32:54 - INFO - root - Epoch 0/1, Step 580/10000::{'lr': 5.8099999999999996e-05, 'total_loss': 0.03663010895252228}
+05/28/2025 12:32:59 - INFO - root - Epoch 0/1, Step 600/10000::{'lr': 6.0100000000000004e-05, 'total_loss': 0.08150998502969742}
+05/28/2025 12:33:03 - INFO - root - Epoch 0/1, Step 620/10000::{'lr': 6.21e-05, 'total_loss': 0.01966257020831108}
+05/28/2025 12:33:08 - INFO - root - Epoch 0/1, Step 640/10000::{'lr': 6.41e-05, 'total_loss': 0.02912316657602787}
+05/28/2025 12:33:12 - INFO - root - Epoch 0/1, Step 660/10000::{'lr': 6.610000000000001e-05, 'total_loss': 0.09723445773124695}
+05/28/2025 12:33:16 - INFO - root - Epoch 0/1, Step 680/10000::{'lr': 6.81e-05, 'total_loss': 0.043232545256614685}
+05/28/2025 12:33:21 - INFO - root - Epoch 0/1, Step 700/10000::{'lr': 7.01e-05, 'total_loss': 0.023035530000925064}
+05/28/2025 12:33:25 - INFO - root - Epoch 0/1, Step 720/10000::{'lr': 7.21e-05, 'total_loss': 0.04406837001442909}
+05/28/2025 12:33:30 - INFO - root - Epoch 0/1, Step 740/10000::{'lr': 7.41e-05, 'total_loss': 0.07415679097175598}
+05/28/2025 12:33:34 - INFO - root - Epoch 0/1, Step 760/10000::{'lr': 7.61e-05, 'total_loss': 0.10967178642749786}
+05/28/2025 12:33:39 - INFO - root - Epoch 0/1, Step 780/10000::{'lr': 7.81e-05, 'total_loss': 0.016681650653481483}
+05/28/2025 12:33:43 - INFO - root - Epoch 0/1, Step 800/10000::{'lr': 8.010000000000001e-05, 'total_loss': 0.017808839678764343}
+05/28/2025 12:33:47 - INFO - root - Epoch 0/1, Step 820/10000::{'lr': 8.21e-05, 'total_loss': 0.03891195356845856}
+05/28/2025 12:33:52 - INFO - root - Epoch 0/1, Step 840/10000::{'lr': 8.41e-05, 'total_loss': 0.013900857418775558}
+05/28/2025 12:33:56 - INFO - root - Epoch 0/1, Step 860/10000::{'lr': 8.61e-05, 'total_loss': 0.07381634414196014}
+05/28/2025 12:34:01 - INFO - root - Epoch 0/1, Step 880/10000::{'lr': 8.81e-05, 'total_loss': 0.02151099219918251}
+05/28/2025 12:34:05 - INFO - root - Epoch 0/1, Step 900/10000::{'lr': 9.010000000000001e-05, 'total_loss': 0.013878759928047657}
+05/28/2025 12:34:10 - INFO - root - Epoch 0/1, Step 920/10000::{'lr': 9.21e-05, 'total_loss': 0.05216324329376221}
+05/28/2025 12:34:14 - INFO - root - Epoch 0/1, Step 940/10000::{'lr': 9.41e-05, 'total_loss': 0.03188801556825638}
+05/28/2025 12:34:19 - INFO - root - Epoch 0/1, Step 960/10000::{'lr': 9.61e-05, 'total_loss': 0.023098398000001907}
+05/28/2025 12:34:23 - INFO - root - Epoch 0/1, Step 980/10000::{'lr': 9.81e-05, 'total_loss': 0.10385872423648834}
+05/28/2025 12:34:28 - INFO - root - Epoch 0/1, Step 1000/10000::{'lr': 9.999999695382584e-05, 'total_loss': 0.011743592098355293}
+05/28/2025 12:34:32 - INFO - root - Epoch 0/1, Step 1020/10000::{'lr': 9.999865664319414e-05, 'total_loss': 0.026196634396910667}
+05/28/2025 12:34:36 - INFO - root - Epoch 0/1, Step 1040/10000::{'lr': 9.999487946857525e-05, 'total_loss': 0.05201290547847748}
+05/28/2025 12:34:41 - INFO - root - Epoch 0/1, Step 1060/10000::{'lr': 9.99886656140633e-05, 'total_loss': 0.032413024455308914}
+05/28/2025 12:34:45 - INFO - root - Epoch 0/1, Step 1080/10000::{'lr': 9.998001538251282e-05, 'total_loss': 0.021247979253530502}
+05/28/2025 12:34:50 - INFO - root - Epoch 0/1, Step 1100/10000::{'lr': 9.99689291955239e-05, 'total_loss': 0.02069956064224243}
+05/28/2025 12:34:54 - INFO - root - Epoch 0/1, Step 1120/10000::{'lr': 9.995540759342161e-05, 'total_loss': 0.035202085971832275}
+05/28/2025 12:34:58 - INFO - root - Epoch 0/1, Step 1140/10000::{'lr': 9.993945123522978e-05, 'total_loss': 0.06800319254398346}
+05/28/2025 12:35:03 - INFO - root - Epoch 0/1, Step 1160/10000::{'lr': 9.992106089863883e-05, 'total_loss': 0.024048946797847748}
+05/28/2025 12:35:08 - INFO - root - Epoch 0/1, Step 1180/10000::{'lr': 9.990023747996777e-05, 'total_loss': 0.02533574402332306}
+05/28/2025 12:35:12 - INFO - root - Epoch 0/1, Step 1200/10000::{'lr': 9.98769819941207e-05, 'total_loss': 0.027798742055892944}
+05/28/2025 12:35:16 - INFO - root - Epoch 0/1, Step 1220/10000::{'lr': 9.985129557453713e-05, 'total_loss': 0.003090382320806384}
+05/28/2025 12:35:21 - INFO - root - Epoch 0/1, Step 1240/10000::{'lr': 9.982317947313695e-05, 'total_loss': 0.01393673475831747}
+05/28/2025 12:35:25 - INFO - root - Epoch 0/1, Step 1260/10000::{'lr': 9.979263506025929e-05, 'total_loss': 0.020914753898978233}
+05/28/2025 12:35:29 - INFO - root - Epoch 0/1, Step 1280/10000::{'lr': 9.975966382459572e-05, 'total_loss': 0.015973147004842758}
+05/28/2025 12:35:34 - INFO - root - Epoch 0/1, Step 1300/10000::{'lr': 9.972426737311774e-05, 'total_loss': 0.04122164100408554}
+05/28/2025 12:35:38 - INFO - root - Epoch 0/1, Step 1320/10000::{'lr': 9.968644743099848e-05, 'total_loss': 0.0840669721364975}
+05/28/2025 12:35:43 - INFO - root - Epoch 0/1, Step 1340/10000::{'lr': 9.964620584152857e-05, 'total_loss': 0.06543179601430893}
+05/28/2025 12:35:47 - INFO - root - Epoch 0/1, Step 1360/10000::{'lr': 9.960354456602628e-05, 'total_loss': 0.02880336157977581}
+05/28/2025 12:35:52 - INFO - root - Epoch 0/1, Step 1380/10000::{'lr': 9.955846568374201e-05, 'total_loss': 0.03940053656697273}
+05/28/2025 12:35:56 - INFO - root - Epoch 0/1, Step 1400/10000::{'lr': 9.951097139175687e-05, 'total_loss': 0.020512394607067108}
+05/28/2025 12:36:00 - INFO - root - Epoch 0/1, Step 1420/10000::{'lr': 9.946106400487567e-05, 'total_loss': 0.04650235176086426}
+05/28/2025 12:36:05 - INFO - root - Epoch 0/1, Step 1440/10000::{'lr': 9.940874595551404e-05, 'total_loss': 0.020793642848730087}
+05/28/2025 12:36:10 - INFO - root - Epoch 0/1, Step 1460/10000::{'lr': 9.935401979357986e-05, 'total_loss': 0.04510343074798584}
+05/28/2025 12:36:14 - INFO - root - Epoch 0/1, Step 1480/10000::{'lr': 9.929688818634907e-05, 'total_loss': 0.0921797901391983}
+05/28/2025 12:36:18 - INFO - root - Epoch 0/1, Step 1500/10000::{'lr': 9.923735391833564e-05, 'total_loss': 0.021886438131332397}
+05/28/2025 12:36:23 - INFO - root - Epoch 0/1, Step 1520/10000::{'lr': 9.917541989115578e-05, 'total_loss': 0.02496860921382904}
+05/28/2025 12:36:27 - INFO - root - Epoch 0/1, Step 1540/10000::{'lr': 9.911108912338657e-05, 'total_loss': 0.02958623878657818}
+05/28/2025 12:36:32 - INFO - root - Epoch 0/1, Step 1560/10000::{'lr': 9.904436475041891e-05, 'total_loss': 0.012222925201058388}
+05/28/2025 12:36:36 - INFO - root - Epoch 0/1, Step 1580/10000::{'lr': 9.897525002430458e-05, 'total_loss': 0.01698337495326996}
+05/28/2025 12:36:40 - INFO - root - Epoch 0/1, Step 1600/10000::{'lr': 9.890374831359787e-05, 'total_loss': 0.0594119131565094}
+05/28/2025 12:36:45 - INFO - root - Epoch 0/1, Step 1620/10000::{'lr': 9.882986310319124e-05, 'total_loss': 0.01922152005136013}
+05/28/2025 12:36:49 - INFO - root - Epoch 0/1, Step 1640/10000::{'lr': 9.875359799414561e-05, 'total_loss': 0.016459550708532333}
+05/28/2025 12:36:53 - INFO - root - Epoch 0/1, Step 1660/10000::{'lr': 9.867495670351483e-05, 'total_loss': 0.09176450967788696}
+05/28/2025 12:36:58 - INFO - root - Epoch 0/1, Step 1680/10000::{'lr': 9.859394306416444e-05, 'total_loss': 0.013717704452574253}
+05/28/2025 12:37:02 - INFO - root - Epoch 0/1, Step 1700/10000::{'lr': 9.851056102458492e-05, 'total_loss': 0.07900690287351608}
+05/28/2025 12:37:07 - INFO - root - Epoch 0/1, Step 1720/10000::{'lr': 9.842481464869927e-05, 'total_loss': 0.056007444858551025}
+05/28/2025 12:37:11 - INFO - root - Epoch 0/1, Step 1740/10000::{'lr': 9.833670811566485e-05, 'total_loss': 0.016646288335323334}
+05/28/2025 12:37:15 - INFO - root - Epoch 0/1, Step 1760/10000::{'lr': 9.824624571966981e-05, 'total_loss': 0.035214558243751526}
+05/28/2025 12:37:20 - INFO - root - Epoch 0/1, Step 1780/10000::{'lr': 9.815343186972369e-05, 'total_loss': 0.005064882803708315}
+05/28/2025 12:37:24 - INFO - root - Epoch 0/1, Step 1800/10000::{'lr': 9.80582710894426e-05, 'total_loss': 0.009916314855217934}
+05/28/2025 12:37:28 - INFO - root - Epoch 0/1, Step 1820/10000::{'lr': 9.796076801682871e-05, 'total_loss': 0.01415545679628849}
+05/28/2025 12:37:33 - INFO - root - Epoch 0/1, Step 1840/10000::{'lr': 9.786092740404424e-05, 'total_loss': 0.029443295672535896}
+05/28/2025 12:37:37 - INFO - root - Epoch 0/1, Step 1860/10000::{'lr': 9.77587541171798e-05, 'total_loss': 0.017402976751327515}
+05/28/2025 12:37:42 - INFO - root - Epoch 0/1, Step 1880/10000::{'lr': 9.765425313601724e-05, 'total_loss': 0.02845786139369011}
+05/28/2025 12:37:46 - INFO - root - Epoch 0/1, Step 1900/10000::{'lr': 9.754742955378696e-05, 'total_loss': 0.023821065202355385}
+05/28/2025 12:37:51 - INFO - root - Epoch 0/1, Step 1920/10000::{'lr': 9.743828857691963e-05, 'total_loss': 0.04845608025789261}
+05/28/2025 12:37:55 - INFO - root - Epoch 0/1, Step 1940/10000::{'lr': 9.732683552479252e-05, 'total_loss': 0.00658774096518755}
+05/28/2025 12:37:59 - INFO - root - Epoch 0/1, Step 1960/10000::{'lr': 9.721307582947014e-05, 'total_loss': 0.019070476293563843}
+05/28/2025 12:38:04 - INFO - root - Epoch 0/1, Step 1980/10000::{'lr': 9.709701503543954e-05, 'total_loss': 0.020166411995887756}
+05/28/2025 12:38:08 - INFO - root - Epoch 0/1, Step 2000/10000::{'lr': 9.697865879934009e-05, 'total_loss': 0.015604645945131779}
+05/28/2025 12:38:12 - INFO - root - Epoch 0/1, Step 2020/10000::{'lr': 9.685801288968777e-05, 'total_loss': 0.02578955516219139}
+05/28/2025 12:38:16 - INFO - root - Epoch 0/1, Step 2040/10000::{'lr': 9.6735083186594e-05, 'total_loss': 0.011351391673088074}
+05/28/2025 12:38:21 - INFO - root - Epoch 0/1, Step 2060/10000::{'lr': 9.660987568147907e-05, 'total_loss': 0.009383290074765682}
+05/28/2025 12:38:25 - INFO - root - Epoch 0/1, Step 2080/10000::{'lr': 9.648239647678017e-05, 'total_loss': 0.07806351035833359}
+05/28/2025 12:38:30 - INFO - root - Epoch 0/1, Step 2100/10000::{'lr': 9.635265178565385e-05, 'total_loss': 0.032751668244600296}
+05/28/2025 12:38:34 - INFO - root - Epoch 0/1, Step 2120/10000::{'lr': 9.622064793167336e-05, 'total_loss': 0.0054332418367266655}
+05/28/2025 12:38:39 - INFO - root - Epoch 0/1, Step 2140/10000::{'lr': 9.608639134852028e-05, 'total_loss': 0.02178429812192917}
+05/28/2025 12:38:43 - INFO - root - Epoch 0/1, Step 2160/10000::{'lr': 9.594988857967106e-05, 'total_loss': 0.009795764461159706}
+05/28/2025 12:38:47 - INFO - root - Epoch 0/1, Step 2180/10000::{'lr': 9.581114627807812e-05, 'total_loss': 0.015938643366098404}
+05/28/2025 12:38:52 - INFO - root - Epoch 0/1, Step 2200/10000::{'lr': 9.567017120584545e-05, 'total_loss': 0.01747463457286358}
+05/28/2025 12:38:56 - INFO - root - Epoch 0/1, Step 2220/10000::{'lr': 9.552697023389922e-05, 'total_loss': 0.041541967540979385}
+05/28/2025 12:39:01 - INFO - root - Epoch 0/1, Step 2240/10000::{'lr': 9.538155034165277e-05, 'total_loss': 0.03970634192228317}
+05/28/2025 12:39:05 - INFO - root - Epoch 0/1, Step 2260/10000::{'lr': 9.523391861666649e-05, 'total_loss': 0.02140597254037857}
+05/28/2025 12:39:09 - INFO - root - Epoch 0/1, Step 2280/10000::{'lr': 9.508408225430237e-05, 'total_loss': 0.027256028726696968}
+05/28/2025 12:39:14 - INFO - root - Epoch 0/1, Step 2300/10000::{'lr': 9.493204855737332e-05, 'total_loss': 0.058283545076847076}
+05/28/2025 12:39:18 - INFO - root - Epoch 0/1, Step 2320/10000::{'lr': 9.477782493578725e-05, 'total_loss': 0.03482556715607643}
+05/28/2025 12:39:23 - INFO - root - Epoch 0/1, Step 2340/10000::{'lr': 9.46214189061859e-05, 'total_loss': 0.04440569877624512}
+05/28/2025 12:39:27 - INFO - root - Epoch 0/1, Step 2360/10000::{'lr': 9.44628380915785e-05, 'total_loss': 0.004936685785651207}
+05/28/2025 12:39:32 - INFO - root - Epoch 0/1, Step 2380/10000::{'lr': 9.430209022097023e-05, 'total_loss': 0.03593974560499191}
+05/28/2025 12:39:36 - INFO - root - Epoch 0/1, Step 2400/10000::{'lr': 9.413918312898551e-05, 'total_loss': 0.04612953960895538}
+05/28/2025 12:39:41 - INFO - root - Epoch 0/1, Step 2420/10000::{'lr': 9.397412475548618e-05, 'total_loss': 0.043818339705467224}
+05/28/2025 12:39:45 - INFO - root - Epoch 0/1, Step 2440/10000::{'lr': 9.380692314518451e-05, 'total_loss': 0.03904549032449722}
+05/28/2025 12:39:50 - INFO - root - Epoch 0/1, Step 2460/10000::{'lr': 9.36375864472511e-05, 'total_loss': 0.04496593028306961}
+05/28/2025 12:39:54 - INFO - root - Epoch 0/1, Step 2480/10000::{'lr': 9.34661229149177e-05, 'total_loss': 0.009914092719554901}
+05/28/2025 12:39:59 - INFO - root - Epoch 0/1, Step 2500/10000::{'lr': 9.329254090507498e-05, 'total_loss': 0.011475872248411179}
+05/28/2025 12:40:03 - INFO - root - Epoch 0/1, Step 2520/10000::{'lr': 9.31168488778652e-05, 'total_loss': 0.0027036238461732864}
+05/28/2025 12:40:08 - INFO - root - Epoch 0/1, Step 2540/10000::{'lr': 9.293905539626993e-05, 'total_loss': 0.010487833991646767}
+05/28/2025 12:40:12 - INFO - root - Epoch 0/1, Step 2560/10000::{'lr': 9.27591691256926e-05, 'total_loss': 0.037936389446258545}
+05/28/2025 12:40:16 - INFO - root - Epoch 0/1, Step 2580/10000::{'lr': 9.257719883353631e-05, 'total_loss': 0.00910387933254242}
+05/28/2025 12:40:21 - INFO - root - Epoch 0/1, Step 2600/10000::{'lr': 9.239315338877631e-05, 'total_loss': 0.005374183878302574}
+05/28/2025 12:40:25 - INFO - root - Epoch 0/1, Step 2620/10000::{'lr': 9.220704176152797e-05, 'total_loss': 0.036624182015657425}
+05/28/2025 12:40:30 - INFO - root - Epoch 0/1, Step 2640/10000::{'lr': 9.201887302260943e-05, 'total_loss': 0.016158662736415863}
+05/28/2025 12:40:34 - INFO - root - Epoch 0/1, Step 2660/10000::{'lr': 9.182865634309956e-05, 'total_loss': 0.04822525382041931}
+05/28/2025 12:40:39 - INFO - root - Epoch 0/1, Step 2680/10000::{'lr': 9.163640099389095e-05, 'total_loss': 0.04202134907245636}
+05/28/2025 12:40:43 - INFO - root - Epoch 0/1, Step 2700/10000::{'lr': 9.14421163452381e-05, 'total_loss': 0.019951041787862778}
+05/28/2025 12:40:48 - INFO - root - Epoch 0/1, Step 2720/10000::{'lr': 9.124581186630071e-05, 'total_loss': 0.019252121448516846}
+05/28/2025 12:40:52 - INFO - root - Epoch 0/1, Step 2740/10000::{'lr': 9.104749712468207e-05, 'total_loss': 0.024202413856983185}
+05/28/2025 12:40:56 - INFO - root - Epoch 0/1, Step 2760/10000::{'lr': 9.084718178596301e-05, 'total_loss': 0.047196678817272186}
+05/28/2025 12:41:01 - INFO - root - Epoch 0/1, Step 2780/10000::{'lr': 9.064487561323045e-05, 'total_loss': 0.006179058458656073}
+05/28/2025 12:41:05 - INFO - root - Epoch 0/1, Step 2800/10000::{'lr': 9.044058846660187e-05, 'total_loss': 0.08119030296802521}
+05/28/2025 12:41:09 - INFO - root - Epoch 0/1, Step 2820/10000::{'lr': 9.023433030274459e-05, 'total_loss': 0.028642291203141212}
+05/28/2025 12:41:14 - INFO - root - Epoch 0/1, Step 2840/10000::{'lr': 9.002611117439054e-05, 'total_loss': 0.03052057884633541}
+05/28/2025 12:41:18 - INFO - root - Epoch 0/1, Step 2860/10000::{'lr': 8.981594122984627e-05, 'total_loss': 0.012895351275801659}
+05/28/2025 12:41:23 - INFO - root - Epoch 0/1, Step 2880/10000::{'lr': 8.960383071249836e-05, 'total_loss': 0.034561775624752045}
+05/28/2025 12:41:27 - INFO - root - Epoch 0/1, Step 2900/10000::{'lr': 8.93897899603142e-05, 'total_loss': 0.03890203684568405}
+05/28/2025 12:41:32 - INFO - root - Epoch 0/1, Step 2920/10000::{'lr': 8.917382940533808e-05, 'total_loss': 0.007445753086358309}
+05/28/2025 12:41:36 - INFO - root - Epoch 0/1, Step 2940/10000::{'lr': 8.895595957318277e-05, 'total_loss': 0.006373364944010973}
+05/28/2025 12:41:40 - INFO - root - Epoch 0/1, Step 2960/10000::{'lr': 8.873619108251653e-05, 'total_loss': 0.030633408576250076}
+05/28/2025 12:41:45 - INFO - root - Epoch 0/1, Step 2980/10000::{'lr': 8.851453464454554e-05, 'total_loss': 0.007284374907612801}
+05/28/2025 12:41:49 - INFO - root - Epoch 0/1, Step 3000/10000::{'lr': 8.829100106249189e-05, 'total_loss': 0.017883747816085815}
+05/28/2025 12:41:54 - INFO - root - Epoch 0/1, Step 3020/10000::{'lr': 8.8065601231067e-05, 'total_loss': 0.054384708404541016}
+05/28/2025 12:41:58 - INFO - root - Epoch 0/1, Step 3040/10000::{'lr': 8.783834613594064e-05, 'total_loss': 0.016944099217653275}
+05/28/2025 12:42:02 - INFO - root - Epoch 0/1, Step 3060/10000::{'lr': 8.760924685320557e-05, 'total_loss': 0.08769086003303528}
+05/28/2025 12:42:07 - INFO - root - Epoch 0/1, Step 3080/10000::{'lr': 8.737831454883761e-05, 'total_loss': 0.025029119104146957}
+05/28/2025 12:42:11 - INFO - root - Epoch 0/1, Step 3100/10000::{'lr': 8.714556047815147e-05, 'total_loss': 0.04691952094435692}
+05/28/2025 12:42:16 - INFO - root - Epoch 0/1, Step 3120/10000::{'lr': 8.69109959852522e-05, 'total_loss': 0.006725073326379061}
+05/28/2025 12:42:20 - INFO - root - Epoch 0/1, Step 3140/10000::{'lr': 8.667463250248228e-05, 'total_loss': 0.0035459655337035656}
+05/28/2025 12:42:25 - INFO - root - Epoch 0/1, Step 3160/10000::{'lr': 8.643648154986435e-05, 'total_loss': 0.015217635780572891}
+05/28/2025 12:42:29 - INFO - root - Epoch 0/1, Step 3180/10000::{'lr': 8.61965547345399e-05, 'total_loss': 0.021226931363344193}
+05/28/2025 12:42:34 - INFO - root - Epoch 0/1, Step 3200/10000::{'lr': 8.595486375020341e-05, 'total_loss': 0.005940426606684923}
+05/28/2025 12:42:38 - INFO - root - Epoch 0/1, Step 3220/10000::{'lr': 8.571142037653249e-05, 'total_loss': 0.02434482052922249}
+05/28/2025 12:42:42 - INFO - root - Epoch 0/1, Step 3240/10000::{'lr': 8.54662364786137e-05, 'total_loss': 0.019171731546521187}
+05/28/2025 12:42:47 - INFO - root - Epoch 0/1, Step 3260/10000::{'lr': 8.521932400636434e-05, 'total_loss': 0.01798049546778202}
+05/28/2025 12:42:51 - INFO - root - Epoch 0/1, Step 3280/10000::{'lr': 8.497069499394998e-05, 'total_loss': 0.012759058736264706}
+05/28/2025 12:42:56 - INFO - root - Epoch 0/1, Step 3300/10000::{'lr': 8.472036155919791e-05, 'total_loss': 0.04443740099668503}
+05/28/2025 12:43:00 - INFO - root - Epoch 0/1, Step 3320/10000::{'lr': 8.446833590300656e-05, 'total_loss': 0.021702861413359642}
+05/28/2025 12:43:05 - INFO - root - Epoch 0/1, Step 3340/10000::{'lr': 8.421463030875085e-05, 'total_loss': 0.024885065853595734}
+05/28/2025 12:43:09 - INFO - root - Epoch 0/1, Step 3360/10000::{'lr': 8.395925714168356e-05, 'total_loss': 0.07662800699472427}
+05/28/2025 12:43:13 - INFO - root - Epoch 0/1, Step 3380/10000::{'lr': 8.370222884833254e-05, 'total_loss': 0.015917202457785606}
+05/28/2025 12:43:17 - INFO - root - Epoch 0/1, Step 3400/10000::{'lr': 8.344355795589421e-05, 'total_loss': 0.06842690706253052}
+05/28/2025 12:43:22 - INFO - root - Epoch 0/1, Step 3420/10000::{'lr': 8.318325707162293e-05, 'total_loss': 0.06272401660680771}
+05/28/2025 12:43:26 - INFO - root - Epoch 0/1, Step 3440/10000::{'lr': 8.292133888221659e-05, 'total_loss': 0.05974092334508896}
+05/28/2025 12:43:31 - INFO - root - Epoch 0/1, Step 3460/10000::{'lr': 8.265781615319818e-05, 'total_loss': 0.028294049203395844}
+05/28/2025 12:43:35 - INFO - root - Epoch 0/1, Step 3480/10000::{'lr': 8.239270172829379e-05, 'total_loss': 0.006548229139298201}
+05/28/2025 12:43:39 - INFO - root - Epoch 0/1, Step 3500/10000::{'lr': 8.212600852880644e-05, 'total_loss': 0.1377021223306656}
+05/28/2025 12:43:44 - INFO - root - Epoch 0/1, Step 3520/10000::{'lr': 8.185774955298644e-05, 'total_loss': 0.017685865983366966}
+05/28/2025 12:43:48 - INFO - root - Epoch 0/1, Step 3540/10000::{'lr': 8.158793787539782e-05, 'total_loss': 0.02146625891327858}
+05/28/2025 12:43:53 - INFO - root - Epoch 0/1, Step 3560/10000::{'lr': 8.131658664628107e-05, 'total_loss': 0.012517076916992664}
+05/28/2025 12:43:57 - INFO - root - Epoch 0/1, Step 3580/10000::{'lr': 8.10437090909123e-05, 'total_loss': 0.012117603793740273}
+05/28/2025 12:44:02 - INFO - root - Epoch 0/1, Step 3600/10000::{'lr': 8.076931850895859e-05, 'total_loss': 0.03801976144313812}
+05/28/2025 12:44:06 - INFO - root - Epoch 0/1, Step 3620/10000::{'lr': 8.049342827382977e-05, 'total_loss': 0.02321525476872921}
+05/28/2025 12:44:10 - INFO - root - Epoch 0/1, Step 3640/10000::{'lr': 8.02160518320267e-05, 'total_loss': 0.010430879890918732}
+05/28/2025 12:44:15 - INFO - root - Epoch 0/1, Step 3660/10000::{'lr': 7.993720270248584e-05, 'total_loss': 0.003219774691388011}
+05/28/2025 12:44:19 - INFO - root - Epoch 0/1, Step 3680/10000::{'lr': 7.965689447592035e-05, 'total_loss': 0.017312580719590187}
+05/28/2025 12:44:24 - INFO - root - Epoch 0/1, Step 3700/10000::{'lr': 7.937514081415773e-05, 'total_loss': 0.0058106714859604836}
+05/28/2025 12:44:28 - INFO - root - Epoch 0/1, Step 3720/10000::{'lr': 7.909195544947398e-05, 'total_loss': 0.0051871491596102715}
+05/28/2025 12:44:32 - INFO - root - Epoch 0/1, Step 3740/10000::{'lr': 7.880735218392423e-05, 'total_loss': 0.003346371464431286}
+05/28/2025 12:44:37 - INFO - root - Epoch 0/1, Step 3760/10000::{'lr': 7.852134488867018e-05, 'total_loss': 0.018547741696238518}
+05/28/2025 12:44:41 - INFO - root - Epoch 0/1, Step 3780/10000::{'lr': 7.823394750330387e-05, 'total_loss': 0.030874721705913544}
+05/28/2025 12:44:45 - INFO - root - Epoch 0/1, Step 3800/10000::{'lr': 7.794517403516838e-05, 'total_loss': 0.011883595958352089}
+05/28/2025 12:44:50 - INFO - root - Epoch 0/1, Step 3820/10000::{'lr': 7.76550385586752e-05, 'total_loss': 0.02346133440732956}
+05/28/2025 12:44:54 - INFO - root - Epoch 0/1, Step 3840/10000::{'lr': 7.736355521461811e-05, 'total_loss': 0.03505149483680725}
+05/28/2025 12:44:58 - INFO - root - Epoch 0/1, Step 3860/10000::{'lr': 7.707073820948407e-05, 'total_loss': 0.05888965725898743}
+05/28/2025 12:45:03 - INFO - root - Epoch 0/1, Step 3880/10000::{'lr': 7.677660181476081e-05, 'total_loss': 0.03762130066752434}
+05/28/2025 12:45:07 - INFO - root - Epoch 0/1, Step 3900/10000::{'lr': 7.648116036624126e-05, 'total_loss': 0.010882849805057049}
+05/28/2025 12:45:11 - INFO - root - Epoch 0/1, Step 3920/10000::{'lr': 7.618442826332482e-05, 'total_loss': 0.027938708662986755}
+05/28/2025 12:45:16 - INFO - root - Epoch 0/1, Step 3940/10000::{'lr': 7.58864199683155e-05, 'total_loss': 0.01975707709789276}
+05/28/2025 12:45:20 - INFO - root - Epoch 0/1, Step 3960/10000::{'lr': 7.558715000571726e-05, 'total_loss': 0.07415580004453659}
+05/28/2025 12:45:24 - INFO - root - Epoch 0/1, Step 3980/10000::{'lr': 7.52866329615258e-05, 'total_loss': 0.0069289966486394405}
+05/28/2025 12:45:29 - INFO - root - Epoch 0/1, Step 4000/10000::{'lr': 7.498488348251794e-05, 'total_loss': 0.03168051317334175}
+05/28/2025 12:45:34 - INFO - root - Epoch 0/1, Step 4020/10000::{'lr': 7.468191627553753e-05, 'total_loss': 0.04783223569393158}
+05/28/2025 12:45:38 - INFO - root - Epoch 0/1, Step 4040/10000::{'lr': 7.437774610677884e-05, 'total_loss': 0.004305265843868256}
+05/28/2025 12:45:43 - INFO - root - Epoch 0/1, Step 4060/10000::{'lr': 7.407238780106679e-05, 'total_loss': 0.0377931222319603}
+05/28/2025 12:45:48 - INFO - root - Epoch 0/1, Step 4080/10000::{'lr': 7.376585624113437e-05, 'total_loss': 0.002273829188197851}
+05/28/2025 12:45:52 - INFO - root - Epoch 0/1, Step 4100/10000::{'lr': 7.34581663668974e-05, 'total_loss': 0.0039938390254974365}
+05/28/2025 12:45:56 - INFO - root - Epoch 0/1, Step 4120/10000::{'lr': 7.314933317472624e-05, 'total_loss': 0.017235474660992622}
+05/28/2025 12:46:01 - INFO - root - Epoch 0/1, Step 4140/10000::{'lr': 7.283937171671498e-05, 'total_loss': 0.026635508984327316}
+05/28/2025 12:46:06 - INFO - root - Epoch 0/1, Step 4160/10000::{'lr': 7.25282970999478e-05, 'total_loss': 0.025968307629227638}
+05/28/2025 12:46:10 - INFO - root - Epoch 0/1, Step 4180/10000::{'lr': 7.221612448576266e-05, 'total_loss': 0.009521065279841423}
+05/28/2025 12:46:14 - INFO - root - Epoch 0/1, Step 4200/10000::{'lr': 7.190286908901234e-05, 'total_loss': 0.0045392741449177265}
+05/28/2025 12:46:19 - INFO - root - Epoch 0/1, Step 4220/10000::{'lr': 7.158854617732297e-05, 'total_loss': 0.05651118606328964}
+05/28/2025 12:46:23 - INFO - root - Epoch 0/1, Step 4240/10000::{'lr': 7.127317107034981e-05, 'total_loss': 0.008067994378507137}
+05/28/2025 12:46:28 - INFO - root - Epoch 0/1, Step 4260/10000::{'lr': 7.095675913903067e-05, 'total_loss': 0.03427385538816452}
+05/28/2025 12:46:32 - INFO - root - Epoch 0/1, Step 4280/10000::{'lr': 7.063932580483665e-05, 'total_loss': 0.011339238844811916}
+05/28/2025 12:46:37 - INFO - root - Epoch 0/1, Step 4300/10000::{'lr': 7.032088653902067e-05, 'total_loss': 0.004799882881343365}
+05/28/2025 12:46:41 - INFO - root - Epoch 0/1, Step 4320/10000::{'lr': 7.000145686186324e-05, 'total_loss': 0.004128928761929274}
+05/28/2025 12:46:45 - INFO - root - Epoch 0/1, Step 4340/10000::{'lr': 6.968105234191623e-05, 'total_loss': 0.013210365548729897}
+05/28/2025 12:46:50 - INFO - root - Epoch 0/1, Step 4360/10000::{'lr': 6.935968859524389e-05, 'total_loss': 0.02063077688217163}
+05/28/2025 12:46:54 - INFO - root - Epoch 0/1, Step 4380/10000::{'lr': 6.903738128466188e-05, 'total_loss': 0.011426334269344807}
+05/28/2025 12:46:59 - INFO - root - Epoch 0/1, Step 4400/10000::{'lr': 6.871414611897379e-05, 'total_loss': 0.062070704996585846}
+05/28/2025 12:47:03 - INFO - root - Epoch 0/1, Step 4420/10000::{'lr': 6.838999885220558e-05, 'total_loss': 0.036542631685733795}
+05/28/2025 12:47:08 - INFO - root - Epoch 0/1, Step 4440/10000::{'lr': 6.806495528283771e-05, 'total_loss': 0.010625121183693409}
+05/28/2025 12:47:12 - INFO - root - Epoch 0/1, Step 4460/10000::{'lr': 6.773903125303524e-05, 'total_loss': 0.03773915395140648}
+05/28/2025 12:47:16 - INFO - root - Epoch 0/1, Step 4480/10000::{'lr': 6.741224264787553e-05, 'total_loss': 0.025662079453468323}
+05/28/2025 12:47:21 - INFO - root - Epoch 0/1, Step 4500/10000::{'lr': 6.708460539457418e-05, 'total_loss': 0.0152975395321846}
+05/28/2025 12:47:25 - INFO - root - Epoch 0/1, Step 4520/10000::{'lr': 6.675613546170866e-05, 'total_loss': 0.051100607961416245}
+05/28/2025 12:47:29 - INFO - root - Epoch 0/1, Step 4540/10000::{'lr': 6.642684885844013e-05, 'total_loss': 0.029043346643447876}
+05/28/2025 12:47:34 - INFO - root - Epoch 0/1, Step 4560/10000::{'lr': 6.609676163373306e-05, 'total_loss': 0.0074654691852629185}
+05/28/2025 12:47:38 - INFO - root - Epoch 0/1, Step 4580/10000::{'lr': 6.576588987557312e-05, 'total_loss': 0.005970827303826809}
+05/28/2025 12:47:42 - INFO - root - Epoch 0/1, Step 4600/10000::{'lr': 6.543424971018298e-05, 'total_loss': 0.010467621497809887}
+05/28/2025 12:47:47 - INFO - root - Epoch 0/1, Step 4620/10000::{'lr': 6.510185730123646e-05, 'total_loss': 0.022645384073257446}
+05/28/2025 12:47:51 - INFO - root - Epoch 0/1, Step 4640/10000::{'lr': 6.476872884907062e-05, 'total_loss': 0.0012678962666541338}
+05/28/2025 12:47:55 - INFO - root - Epoch 0/1, Step 4660/10000::{'lr': 6.443488058989624e-05, 'total_loss': 0.008786311373114586}
+05/28/2025 12:48:00 - INFO - root - Epoch 0/1, Step 4680/10000::{'lr': 6.410032879500647e-05, 'total_loss': 0.006693280767649412}
+05/28/2025 12:48:05 - INFO - root - Epoch 0/1, Step 4700/10000::{'lr': 6.376508976998386e-05, 'total_loss': 0.006323235109448433}
+05/28/2025 12:48:09 - INFO - root - Epoch 0/1, Step 4720/10000::{'lr': 6.342917985390548e-05, 'total_loss': 0.01485805306583643}
+05/28/2025 12:48:13 - INFO - root - Epoch 0/1, Step 4740/10000::{'lr': 6.309261541854678e-05, 'total_loss': 0.058469682931900024}
+05/28/2025 12:48:18 - INFO - root - Epoch 0/1, Step 4760/10000::{'lr': 6.275541286758352e-05, 'total_loss': 0.04308457672595978}
+05/28/2025 12:48:22 - INFO - root - Epoch 0/1, Step 4780/10000::{'lr': 6.241758863579227e-05, 'total_loss': 0.0038273949176073074}
+05/28/2025 12:48:26 - INFO - root - Epoch 0/1, Step 4800/10000::{'lr': 6.207915918824952e-05, 'total_loss': 0.02514265477657318}
+05/28/2025 12:48:31 - INFO - root - Epoch 0/1, Step 4820/10000::{'lr': 6.174014101952909e-05, 'total_loss': 0.040842071175575256}
+05/28/2025 12:48:35 - INFO - root - Epoch 0/1, Step 4840/10000::{'lr': 6.140055065289825e-05, 'total_loss': 0.039056435227394104}
+05/28/2025 12:48:39 - INFO - root - Epoch 0/1, Step 4860/10000::{'lr': 6.106040463951237e-05, 'total_loss': 0.01532857958227396}
+05/28/2025 12:48:44 - INFO - root - Epoch 0/1, Step 4880/10000::{'lr': 6.071971955760823e-05, 'total_loss': 0.008508123457431793}
+05/28/2025 12:48:48 - INFO - root - Epoch 0/1, Step 4900/10000::{'lr': 6.0378512011696154e-05, 'total_loss': 0.00857945904135704}
+05/28/2025 12:48:52 - INFO - root - Epoch 0/1, Step 4920/10000::{'lr': 6.003679863175053e-05, 'total_loss': 0.003911116160452366}
+05/28/2025 12:48:57 - INFO - root - Epoch 0/1, Step 4940/10000::{'lr': 5.969459607239938e-05, 'total_loss': 0.032590992748737335}
+05/28/2025 12:49:01 - INFO - root - Epoch 0/1, Step 4960/10000::{'lr': 5.93519210121127e-05, 'total_loss': 0.018677838146686554}
+05/28/2025 12:49:05 - INFO - root - Epoch 0/1, Step 4980/10000::{'lr': 5.900879015238948e-05, 'total_loss': 0.0022068412508815527}
+05/28/2025 12:49:10 - INFO - root - Epoch 0/1, Step 5000/10000::{'lr': 5.866522021694376e-05, 'total_loss': 0.0028334339149296284}
+05/28/2025 12:49:14 - INFO - root - Epoch 0/1, Step 5020/10000::{'lr': 5.832122795088946e-05, 'total_loss': 0.02057596482336521}
+05/28/2025 12:49:19 - INFO - root - Epoch 0/1, Step 5040/10000::{'lr': 5.797683011992432e-05, 'total_loss': 0.057025209069252014}
+05/28/2025 12:49:23 - INFO - root - Epoch 0/1, Step 5060/10000::{'lr': 5.763204350951278e-05, 'total_loss': 0.026003975421190262}
+05/28/2025 12:49:27 - INFO - root - Epoch 0/1, Step 5080/10000::{'lr': 5.728688492406779e-05, 'total_loss': 0.023768167942762375}
+05/28/2025 12:49:32 - INFO - root - Epoch 0/1, Step 5100/10000::{'lr': 5.6941371186131855e-05, 'total_loss': 0.02800849825143814}
+05/28/2025 12:49:36 - INFO - root - Epoch 0/1, Step 5120/10000::{'lr': 5.659551913555713e-05, 'total_loss': 0.01674477942287922}
+05/28/2025 12:49:40 - INFO - root - Epoch 0/1, Step 5140/10000::{'lr': 5.6249345628684625e-05, 'total_loss': 0.027882326394319534}
+05/28/2025 12:49:45 - INFO - root - Epoch 0/1, Step 5160/10000::{'lr': 5.590286753752268e-05, 'total_loss': 0.03320618346333504}
+05/28/2025 12:49:49 - INFO - root - Epoch 0/1, Step 5180/10000::{'lr': 5.555610174892468e-05, 'total_loss': 0.035194892436265945}
+05/28/2025 12:49:53 - INFO - root - Epoch 0/1, Step 5200/10000::{'lr': 5.5209065163765916e-05, 'total_loss': 0.01814810000360012}
+05/28/2025 12:49:57 - INFO - root - Epoch 0/1, Step 5220/10000::{'lr': 5.486177469611998e-05, 'total_loss': 0.0038505676202476025}
+05/28/2025 12:50:02 - INFO - root - Epoch 0/1, Step 5240/10000::{'lr': 5.451424727243428e-05, 'total_loss': 0.002108160639181733}
+05/28/2025 12:50:06 - INFO - root - Epoch 0/1, Step 5260/10000::{'lr': 5.4166499830705175e-05, 'total_loss': 0.06593361496925354}
+05/28/2025 12:50:10 - INFO - root - Epoch 0/1, Step 5280/10000::{'lr': 5.381854931965238e-05, 'total_loss': 0.002316923812031746}
+05/28/2025 12:50:15 - INFO - root - Epoch 0/1, Step 5300/10000::{'lr': 5.3470412697892924e-05, 'total_loss': 0.023303791880607605}
+05/28/2025 12:50:19 - INFO - root - Epoch 0/1, Step 5320/10000::{'lr': 5.312210693311458e-05, 'total_loss': 0.022554166615009308}
+05/28/2025 12:50:23 - INFO - root - Epoch 0/1, Step 5340/10000::{'lr': 5.277364900124896e-05, 'total_loss': 0.013328591361641884}
+05/28/2025 12:50:28 - INFO - root - Epoch 0/1, Step 5360/10000::{'lr': 5.2425055885644034e-05, 'total_loss': 0.05875295773148537}
+05/28/2025 12:50:32 - INFO - root - Epoch 0/1, Step 5380/10000::{'lr': 5.2076344576236516e-05, 'total_loss': 0.03273135423660278}
+05/28/2025 12:50:36 - INFO - root - Epoch 0/1, Step 5400/10000::{'lr': 5.172753206872363e-05, 'total_loss': 0.04989175871014595}
+05/28/2025 12:50:40 - INFO - root - Epoch 0/1, Step 5420/10000::{'lr': 5.1378635363734886e-05, 'total_loss': 0.0013003560015931726}
+05/28/2025 12:50:44 - INFO - root - Epoch 0/1, Step 5440/10000::{'lr': 5.102967146600348e-05, 'total_loss': 0.022546693682670593}
+05/28/2025 12:50:49 - INFO - root - Epoch 0/1, Step 5460/10000::{'lr': 5.068065738353748e-05, 'total_loss': 0.017562802881002426}
+05/28/2025 12:50:53 - INFO - root - Epoch 0/1, Step 5480/10000::{'lr': 5.033161012679086e-05, 'total_loss': 0.0008638573926873505}
+05/28/2025 12:50:57 - INFO - root - Epoch 0/1, Step 5500/10000::{'lr': 4.998254670783452e-05, 'total_loss': 0.01800409145653248}
+05/28/2025 12:51:01 - INFO - root - Epoch 0/1, Step 5520/10000::{'lr': 4.9633484139526975e-05, 'total_loss': 0.00806601531803608}
+05/28/2025 12:51:06 - INFO - root - Epoch 0/1, Step 5540/10000::{'lr': 4.9284439434685415e-05, 'total_loss': 0.014070302248001099}
+05/28/2025 12:51:10 - INFO - root - Epoch 0/1, Step 5560/10000::{'lr': 4.89354296052563e-05, 'total_loss': 0.019211415201425552}
+05/28/2025 12:51:14 - INFO - root - Epoch 0/1, Step 5580/10000::{'lr': 4.858647166148634e-05, 'total_loss': 0.014743993990123272}
+05/28/2025 12:51:18 - INFO - root - Epoch 0/1, Step 5600/10000::{'lr': 4.8237582611093415e-05, 'total_loss': 0.03170311078429222}
+05/28/2025 12:51:22 - INFO - root - Epoch 0/1, Step 5620/10000::{'lr': 4.788877945843761e-05, 'total_loss': 0.0052471403032541275}
+05/28/2025 12:51:27 - INFO - root - Epoch 0/1, Step 5640/10000::{'lr': 4.7540079203692516e-05, 'total_loss': 0.016762470826506615}
+05/28/2025 12:51:31 - INFO - root - Epoch 0/1, Step 5660/10000::{'lr': 4.7191498842016633e-05, 'total_loss': 0.0006891608936712146}
+05/28/2025 12:51:35 - INFO - root - Epoch 0/1, Step 5680/10000::{'lr': 4.684305536272496e-05, 'total_loss': 0.03415068984031677}
+05/28/2025 12:51:39 - INFO - root - Epoch 0/1, Step 5700/10000::{'lr': 4.6494765748461126e-05, 'total_loss': 0.04331393539905548}
+05/28/2025 12:51:44 - INFO - root - Epoch 0/1, Step 5720/10000::{'lr': 4.6146646974369554e-05, 'total_loss': 0.02177419140934944}
+05/28/2025 12:51:48 - INFO - root - Epoch 0/1, Step 5740/10000::{'lr': 4.579871600726819e-05, 'total_loss': 0.04724302142858505}
+05/28/2025 12:51:52 - INFO - root - Epoch 0/1, Step 5760/10000::{'lr': 4.5450989804821506e-05, 'total_loss': 0.005537951830774546}
+05/28/2025 12:51:57 - INFO - root - Epoch 0/1, Step 5780/10000::{'lr': 4.510348531471403e-05, 'total_loss': 0.029376858845353127}
+05/28/2025 12:52:01 - INFO - root - Epoch 0/1, Step 5800/10000::{'lr': 4.475621947382438e-05, 'total_loss': 0.00809245090931654}
+05/28/2025 12:52:05 - INFO - root - Epoch 0/1, Step 5820/10000::{'lr': 4.44092092073997e-05, 'total_loss': 0.019525296986103058}
+05/28/2025 12:52:09 - INFO - root - Epoch 0/1, Step 5840/10000::{'lr': 4.4062471428230816e-05, 'total_loss': 0.022403882816433907}
+05/28/2025 12:52:14 - INFO - root - Epoch 0/1, Step 5860/10000::{'lr': 4.371602303582792e-05, 'total_loss': 0.014729298651218414}
+05/28/2025 12:52:18 - INFO - root - Epoch 0/1, Step 5880/10000::{'lr': 4.336988091559688e-05, 'total_loss': 0.031142503023147583}
+05/28/2025 12:52:22 - INFO - root - Epoch 0/1, Step 5900/10000::{'lr': 4.302406193801633e-05, 'total_loss': 0.049187056720256805}
+05/28/2025 12:52:27 - INFO - root - Epoch 0/1, Step 5920/10000::{'lr': 4.267858295781531e-05, 'total_loss': 0.020946457982063293}
+05/28/2025 12:52:31 - INFO - root - Epoch 0/1, Step 5940/10000::{'lr': 4.233346081315196e-05, 'total_loss': 0.03714488446712494}
+05/28/2025 12:52:35 - INFO - root - Epoch 0/1, Step 5960/10000::{'lr': 4.198871232479274e-05, 'total_loss': 0.003508380614221096}
+05/28/2025 12:52:39 - INFO - root - Epoch 0/1, Step 5980/10000::{'lr': 4.164435429529253e-05, 'total_loss': 0.021076777949929237}
+05/28/2025 12:52:44 - INFO - root - Epoch 0/1, Step 6000/10000::{'lr': 4.13004035081759e-05, 'total_loss': 0.07550641894340515}
+05/28/2025 12:52:48 - INFO - root - Epoch 0/1, Step 6020/10000::{'lr': 4.0956876727118996e-05, 'total_loss': 0.006678694859147072}
+05/28/2025 12:52:52 - INFO - root - Epoch 0/1, Step 6040/10000::{'lr': 4.0613790695132476e-05, 'total_loss': 0.017669901251792908}
+05/28/2025 12:52:56 - INFO - root - Epoch 0/1, Step 6060/10000::{'lr': 4.02711621337455e-05, 'total_loss': 0.013373186811804771}
+05/28/2025 12:53:01 - INFO - root - Epoch 0/1, Step 6080/10000::{'lr': 3.992900774219078e-05, 'total_loss': 0.008355355821549892}
+05/28/2025 12:53:05 - INFO - root - Epoch 0/1, Step 6100/10000::{'lr': 3.958734419659066e-05, 'total_loss': 0.01757410727441311}
+05/28/2025 12:53:09 - INFO - root - Epoch 0/1, Step 6120/10000::{'lr': 3.9246188149144346e-05, 'total_loss': 0.023317553102970123}
+05/28/2025 12:53:14 - INFO - root - Epoch 0/1, Step 6140/10000::{'lr': 3.890555622731626e-05, 'total_loss': 0.0011708374368026853}
+05/28/2025 12:53:18 - INFO - root - Epoch 0/1, Step 6160/10000::{'lr': 3.8565465033025726e-05, 'total_loss': 0.036458417773246765}
+05/28/2025 12:53:22 - INFO - root - Epoch 0/1, Step 6180/10000::{'lr': 3.822593114183777e-05, 'total_loss': 0.019220173358917236}
+05/28/2025 12:53:27 - INFO - root - Epoch 0/1, Step 6200/10000::{'lr': 3.788697110215521e-05, 'total_loss': 0.04606149345636368}
+05/28/2025 12:53:31 - INFO - root - Epoch 0/1, Step 6220/10000::{'lr': 3.75486014344122e-05, 'total_loss': 0.00173932034522295}
+05/28/2025 12:53:35 - INFO - root - Epoch 0/1, Step 6240/10000::{'lr': 3.7210838630268986e-05, 'total_loss': 0.0015830742195248604}
+05/28/2025 12:53:40 - INFO - root - Epoch 0/1, Step 6260/10000::{'lr': 3.687369915180811e-05, 'total_loss': 0.034884244203567505}
+05/28/2025 12:53:44 - INFO - root - Epoch 0/1, Step 6280/10000::{'lr': 3.653719943073214e-05, 'total_loss': 0.02163195051252842}
+05/28/2025 12:53:48 - INFO - root - Epoch 0/1, Step 6300/10000::{'lr': 3.620135586756273e-05, 'total_loss': 0.005110876634716988}
+05/28/2025 12:53:52 - INFO - root - Epoch 0/1, Step 6320/10000::{'lr': 3.586618483084134e-05, 'total_loss': 0.04166313260793686}
+05/28/2025 12:53:57 - INFO - root - Epoch 0/1, Step 6340/10000::{'lr': 3.553170265633146e-05, 'total_loss': 0.010920263826847076}
+05/28/2025 12:54:01 - INFO - root - Epoch 0/1, Step 6360/10000::{'lr': 3.5197925646222387e-05, 'total_loss': 0.011568313464522362}
+05/28/2025 12:54:05 - INFO - root - Epoch 0/1, Step 6380/10000::{'lr': 3.486487006833471e-05, 'total_loss': 0.002881163265556097}
+05/28/2025 12:54:09 - INFO - root - Epoch 0/1, Step 6400/10000::{'lr': 3.45325521553274e-05, 'total_loss': 0.05553495138883591}
+05/28/2025 12:54:14 - INFO - root - Epoch 0/1, Step 6420/10000::{'lr': 3.4200988103906745e-05, 'total_loss': 0.00204353011213243}
+05/28/2025 12:54:18 - INFO - root - Epoch 0/1, Step 6440/10000::{'lr': 3.387019407403684e-05, 'total_loss': 0.004936031997203827}
+05/28/2025 12:54:22 - INFO - root - Epoch 0/1, Step 6460/10000::{'lr': 3.3540186188151974e-05, 'total_loss': 0.01650475524365902}
+05/28/2025 12:54:26 - INFO - root - Epoch 0/1, Step 6480/10000::{'lr': 3.321098053037097e-05, 'total_loss': 0.018562309443950653}
+05/28/2025 12:54:31 - INFO - root - Epoch 0/1, Step 6500/10000::{'lr': 3.288259314571315e-05, 'total_loss': 0.009122852236032486}
+05/28/2025 12:54:35 - INFO - root - Epoch 0/1, Step 6520/10000::{'lr': 3.255504003931634e-05, 'total_loss': 0.03423602879047394}
+05/28/2025 12:54:39 - INFO - root - Epoch 0/1, Step 6540/10000::{'lr': 3.222833717565685e-05, 'total_loss': 0.02385825663805008}
+05/28/2025 12:54:43 - INFO - root - Epoch 0/1, Step 6560/10000::{'lr': 3.190250047777134e-05, 'total_loss': 0.03817075118422508}
+05/28/2025 12:54:47 - INFO - root - Epoch 0/1, Step 6580/10000::{'lr': 3.1577545826480794e-05, 'total_loss': 0.02697400562465191}
+05/28/2025 12:54:52 - INFO - root - Epoch 0/1, Step 6600/10000::{'lr': 3.125348905961645e-05, 'total_loss': 0.001959407702088356}
+05/28/2025 12:54:56 - INFO - root - Epoch 0/1, Step 6620/10000::{'lr': 3.093034597124795e-05, 'total_loss': 0.0048140231519937515}
+05/28/2025 12:55:00 - INFO - root - Epoch 0/1, Step 6640/10000::{'lr': 3.060813231091354e-05, 'total_loss': 0.05385003611445427}
+05/28/2025 12:55:05 - INFO - root - Epoch 0/1, Step 6660/10000::{'lr': 3.028686378285245e-05, 'total_loss': 0.01245912816375494}
+05/28/2025 12:55:09 - INFO - root - Epoch 0/1, Step 6680/10000::{'lr': 2.9966556045239503e-05, 'total_loss': 0.020512830466032028}
+05/28/2025 12:55:13 - INFO - root - Epoch 0/1, Step 6700/10000::{'lr': 2.964722470942194e-05, 'total_loss': 0.004362932872027159}
+05/28/2025 12:55:17 - INFO - root - Epoch 0/1, Step 6720/10000::{'lr': 2.932888533915855e-05, 'total_loss': 0.0025246997829526663}
+05/28/2025 12:55:22 - INFO - root - Epoch 0/1, Step 6740/10000::{'lr': 2.9011553449861163e-05, 'total_loss': 0.01237464975565672}
+05/28/2025 12:55:26 - INFO - root - Epoch 0/1, Step 6760/10000::{'lr': 2.8695244507838325e-05, 'total_loss': 0.02520456165075302}
+05/28/2025 12:55:30 - INFO - root - Epoch 0/1, Step 6780/10000::{'lr': 2.8379973929541646e-05, 'total_loss': 0.0013653772184625268}
+05/28/2025 12:55:34 - INFO - root - Epoch 0/1, Step 6800/10000::{'lr': 2.8065757080814313e-05, 'total_loss': 0.04478843882679939}
+05/28/2025 12:55:39 - INFO - root - Epoch 0/1, Step 6820/10000::{'lr': 2.7752609276142282e-05, 'total_loss': 0.01725916564464569}
+05/28/2025 12:55:43 - INFO - root - Epoch 0/1, Step 6840/10000::{'lr': 2.7440545777907746e-05, 'total_loss': 0.0008709551184438169}
+05/28/2025 12:55:47 - INFO - root - Epoch 0/1, Step 6860/10000::{'lr': 2.712958179564535e-05, 'total_loss': 0.02880082093179226}
+05/28/2025 12:55:51 - INFO - root - Epoch 0/1, Step 6880/10000::{'lr': 2.6819732485300887e-05, 'total_loss': 0.014100623317062855}
+05/28/2025 12:55:56 - INFO - root - Epoch 0/1, Step 6900/10000::{'lr': 2.6511012948492624e-05, 'total_loss': 0.022463291883468628}
+05/28/2025 12:56:00 - INFO - root - Epoch 0/1, Step 6920/10000::{'lr': 2.6203438231775222e-05, 'total_loss': 0.04758536070585251}
+05/28/2025 12:56:04 - INFO - root - Epoch 0/1, Step 6940/10000::{'lr': 2.5897023325906456e-05, 'total_loss': 0.00776563910767436}
+05/28/2025 12:56:08 - INFO - root - Epoch 0/1, Step 6960/10000::{'lr': 2.5591783165116562e-05, 'total_loss': 0.015310126356780529}
+05/28/2025 12:56:12 - INFO - root - Epoch 0/1, Step 6980/10000::{'lr': 2.528773262638034e-05, 'total_loss': 0.019744958728551865}
+05/28/2025 12:56:17 - INFO - root - Epoch 0/1, Step 7000/10000::{'lr': 2.4984886528692074e-05, 'total_loss': 0.008890675380825996}
+05/28/2025 12:56:21 - INFO - root - Epoch 0/1, Step 7020/10000::{'lr': 2.4683259632343362e-05, 'total_loss': 0.013737134635448456}
+05/28/2025 12:56:25 - INFO - root - Epoch 0/1, Step 7040/10000::{'lr': 2.4382866638203578e-05, 'total_loss': 0.03810778260231018}
+05/28/2025 12:56:30 - INFO - root - Epoch 0/1, Step 7060/10000::{'lr': 2.4083722187003483e-05, 'total_loss': 0.015912353992462158}
+05/28/2025 12:56:34 - INFO - root - Epoch 0/1, Step 7080/10000::{'lr': 2.3785840858621555e-05, 'total_loss': 0.007288145832717419}
+05/28/2025 12:56:38 - INFO - root - Epoch 0/1, Step 7100/10000::{'lr': 2.348923717137352e-05, 'total_loss': 0.04286865144968033}
+05/28/2025 12:56:42 - INFO - root - Epoch 0/1, Step 7120/10000::{'lr': 2.3193925581304637e-05, 'total_loss': 0.02004251815378666}
+05/28/2025 12:56:47 - INFO - root - Epoch 0/1, Step 7140/10000::{'lr': 2.289992048148519e-05, 'total_loss': 0.03245913237333298}
+05/28/2025 12:56:51 - INFO - root - Epoch 0/1, Step 7160/10000::{'lr': 2.2607236201308972e-05, 'total_loss': 0.019691409543156624}
+05/28/2025 12:56:55 - INFO - root - Epoch 0/1, Step 7180/10000::{'lr': 2.2315887005794876e-05, 'total_loss': 0.004887848161160946}
+05/28/2025 12:56:59 - INFO - root - Epoch 0/1, Step 7200/10000::{'lr': 2.2025887094891657e-05, 'total_loss': 0.0016553273890167475}
+05/28/2025 12:57:04 - INFO - root - Epoch 0/1, Step 7220/10000::{'lr': 2.1737250602785846e-05, 'total_loss': 0.0037936242297291756}
+05/28/2025 12:57:08 - INFO - root - Epoch 0/1, Step 7240/10000::{'lr': 2.1449991597212867e-05, 'total_loss': 0.019691411405801773}
+05/28/2025 12:57:12 - INFO - root - Epoch 0/1, Step 7260/10000::{'lr': 2.116412407877138e-05, 'total_loss': 0.018934380263090134}
+05/28/2025 12:57:16 - INFO - root - Epoch 0/1, Step 7280/10000::{'lr': 2.087966198024094e-05, 'total_loss': 0.019442791119217873}
+05/28/2025 12:57:21 - INFO - root - Epoch 0/1, Step 7300/10000::{'lr': 2.0596619165902913e-05, 'total_loss': 0.04360850155353546}
+05/28/2025 12:57:25 - INFO - root - Epoch 0/1, Step 7320/10000::{'lr': 2.031500943086476e-05, 'total_loss': 0.0293765626847744}
+05/28/2025 12:57:29 - INFO - root - Epoch 0/1, Step 7340/10000::{'lr': 2.003484650038767e-05, 'total_loss': 0.021778862923383713}
+05/28/2025 12:57:33 - INFO - root - Epoch 0/1, Step 7360/10000::{'lr': 1.9756144029217628e-05, 'total_loss': 0.00797843374311924}
+05/28/2025 12:57:37 - INFO - root - Epoch 0/1, Step 7380/10000::{'lr': 1.947891560091988e-05, 'total_loss': 0.015115909278392792}
+05/28/2025 12:57:41 - INFO - root - Epoch 0/1, Step 7400/10000::{'lr': 1.920317472721691e-05, 'total_loss': 0.06608844548463821}
+05/28/2025 12:57:46 - INFO - root - Epoch 0/1, Step 7420/10000::{'lr': 1.8928934847329904e-05, 'total_loss': 0.012251226231455803}
+05/28/2025 12:57:50 - INFO - root - Epoch 0/1, Step 7440/10000::{'lr': 1.8656209327323703e-05, 'total_loss': 0.030026450753211975}
+05/28/2025 12:57:54 - INFO - root - Epoch 0/1, Step 7460/10000::{'lr': 1.838501145945539e-05, 'total_loss': 0.012752017006278038}
+05/28/2025 12:57:58 - INFO - root - Epoch 0/1, Step 7480/10000::{'lr': 1.811535446152645e-05, 'total_loss': 0.005551458802074194}
+05/28/2025 12:58:03 - INFO - root - Epoch 0/1, Step 7500/10000::{'lr': 1.784725147623853e-05, 'total_loss': 0.010988416150212288}
+05/28/2025 12:58:07 - INFO - root - Epoch 0/1, Step 7520/10000::{'lr': 1.758071557055291e-05, 'total_loss': 0.01801658235490322}
+05/28/2025 12:58:11 - INFO - root - Epoch 0/1, Step 7540/10000::{'lr': 1.731575973505356e-05, 'total_loss': 0.00049566914094612}
+05/28/2025 12:58:15 - INFO - root - Epoch 0/1, Step 7560/10000::{'lr': 1.7052396883314152e-05, 'total_loss': 0.007596523966640234}
+05/28/2025 12:58:19 - INFO - root - Epoch 0/1, Step 7580/10000::{'lr': 1.679063985126852e-05, 'total_loss': 0.0037295804359018803}
+05/28/2025 12:58:24 - INFO - root - Epoch 0/1, Step 7600/10000::{'lr': 1.653050139658512e-05, 'total_loss': 0.023146577179431915}
+05/28/2025 12:58:28 - INFO - root - Epoch 0/1, Step 7620/10000::{'lr': 1.627199419804522e-05, 'total_loss': 0.012588069774210453}
+05/28/2025 12:58:32 - INFO - root - Epoch 0/1, Step 7640/10000::{'lr': 1.6015130854924998e-05, 'total_loss': 0.019365951418876648}
+05/28/2025 12:58:37 - INFO - root - Epoch 0/1, Step 7660/10000::{'lr': 1.57599238863814e-05, 'total_loss': 0.018921442329883575}
+05/28/2025 12:58:41 - INFO - root - Epoch 0/1, Step 7680/10000::{'lr': 1.550638573084206e-05, 'total_loss': 0.012730635702610016}
+05/28/2025 12:58:45 - INFO - root - Epoch 0/1, Step 7700/10000::{'lr': 1.5254528745398944e-05, 'total_loss': 0.01593886688351631}
+05/28/2025 12:58:50 - INFO - root - Epoch 0/1, Step 7720/10000::{'lr': 1.5004365205206233e-05, 'total_loss': 0.02018655091524124}
+05/28/2025 12:58:54 - INFO - root - Epoch 0/1, Step 7740/10000::{'lr': 1.4755907302881927e-05, 'total_loss': 0.014390895143151283}
+05/28/2025 12:58:58 - INFO - root - Epoch 0/1, Step 7760/10000::{'lr': 1.4509167147913694e-05, 'total_loss': 0.00036947772605344653}
+05/28/2025 12:59:02 - INFO - root - Epoch 0/1, Step 7780/10000::{'lr': 1.4264156766068576e-05, 'total_loss': 0.014009596779942513}
+05/28/2025 12:59:07 - INFO - root - Epoch 0/1, Step 7800/10000::{'lr': 1.4020888098806922e-05, 'total_loss': 0.0026052414905279875}
+05/28/2025 12:59:11 - INFO - root - Epoch 0/1, Step 7820/10000::{'lr': 1.377937300270039e-05, 'total_loss': 0.005043060053139925}
+05/28/2025 12:59:15 - INFO - root - Epoch 0/1, Step 7840/10000::{'lr': 1.353962324885401e-05, 'total_loss': 0.011905929073691368}
+05/28/2025 12:59:19 - INFO - root - Epoch 0/1, Step 7860/10000::{'lr': 1.3301650522332565e-05, 'total_loss': 0.06384026259183884}
+05/28/2025 12:59:24 - INFO - root - Epoch 0/1, Step 7880/10000::{'lr': 1.3065466421591004e-05, 'total_loss': 0.0008091867784969509}
+05/28/2025 12:59:28 - INFO - root - Epoch 0/1, Step 7900/10000::{'lr': 1.2831082457909205e-05, 'total_loss': 0.005965019576251507}
+05/28/2025 12:59:32 - INFO - root - Epoch 0/1, Step 7920/10000::{'lr': 1.2598510054830886e-05, 'total_loss': 0.024031057953834534}
+05/28/2025 12:59:37 - INFO - root - Epoch 0/1, Step 7940/10000::{'lr': 1.2367760547606844e-05, 'total_loss': 0.019345160573720932}
+05/28/2025 12:59:41 - INFO - root - Epoch 0/1, Step 7960/10000::{'lr': 1.2138845182642556e-05, 'total_loss': 0.00982911791652441}
+05/28/2025 12:59:45 - INFO - root - Epoch 0/1, Step 7980/10000::{'lr': 1.1911775116949958e-05, 'total_loss': 0.002100342186167836}
+05/28/2025 12:59:50 - INFO - root - Epoch 0/1, Step 8000/10000::{'lr': 1.1686561417603675e-05, 'total_loss': 0.022834111005067825}
+05/28/2025 12:59:54 - INFO - root - Epoch 0/1, Step 8020/10000::{'lr': 1.1463215061201693e-05, 'total_loss': 0.01901945285499096}
+05/28/2025 12:59:58 - INFO - root - Epoch 0/1, Step 8040/10000::{'lr': 1.1241746933330338e-05, 'total_loss': 0.012171678245067596}
+05/28/2025 13:00:03 - INFO - root - Epoch 0/1, Step 8060/10000::{'lr': 1.1022167828033714e-05, 'total_loss': 0.0002324259839951992}
+05/28/2025 13:00:07 - INFO - root - Epoch 0/1, Step 8080/10000::{'lr': 1.080448844728763e-05, 'total_loss': 0.009354941546916962}
+05/28/2025 13:00:11 - INFO - root - Epoch 0/1, Step 8100/10000::{'lr': 1.0588719400478004e-05, 'total_loss': 0.04997865483164787}
+05/28/2025 13:00:15 - INFO - root - Epoch 0/1, Step 8120/10000::{'lr': 1.0374871203883773e-05, 'total_loss': 0.013479968532919884}
+05/28/2025 13:00:19 - INFO - root - Epoch 0/1, Step 8140/10000::{'lr': 1.016295428016435e-05, 'total_loss': 0.021177614107728004}
+05/28/2025 13:00:23 - INFO - root - Epoch 0/1, Step 8160/10000::{'lr': 9.952978957851622e-06, 'total_loss': 0.001020193682052195}
+05/28/2025 13:00:28 - INFO - root - Epoch 0/1, Step 8180/10000::{'lr': 9.744955470846567e-06, 'total_loss': 0.059784382581710815}
+05/28/2025 13:00:32 - INFO - root - Epoch 0/1, Step 8200/10000::{'lr': 9.538893957920463e-06, 'total_loss': 0.010049252770841122}
+05/28/2025 13:00:36 - INFO - root - Epoch 0/1, Step 8220/10000::{'lr': 9.334804462220748e-06, 'total_loss': 0.013800911605358124}
+05/28/2025 13:00:40 - INFO - root - Epoch 0/1, Step 8240/10000::{'lr': 9.13269693078151e-06, 'total_loss': 0.007797854486852884}
+05/28/2025 13:00:44 - INFO - root - Epoch 0/1, Step 8260/10000::{'lr': 8.932581214038693e-06, 'total_loss': 0.018791306763887405}
+05/28/2025 13:00:49 - INFO - root - Epoch 0/1, Step 8280/10000::{'lr': 8.734467065350022e-06, 'total_loss': 0.01624470204114914}
+05/28/2025 13:00:53 - INFO - root - Epoch 0/1, Step 8300/10000::{'lr': 8.5383641405196e-06, 'total_loss': 0.0002559463609941304}
+05/28/2025 13:00:57 - INFO - root - Epoch 0/1, Step 8320/10000::{'lr': 8.34428199732733e-06, 'total_loss': 0.00852414034307003}
+05/28/2025 13:01:02 - INFO - root - Epoch 0/1, Step 8340/10000::{'lr': 8.152230095063052e-06, 'total_loss': 0.023556143045425415}
+05/28/2025 13:01:06 - INFO - root - Epoch 0/1, Step 8360/10000::{'lr': 7.962217794065546e-06, 'total_loss': 0.04985005408525467}
+05/28/2025 13:01:10 - INFO - root - Epoch 0/1, Step 8380/10000::{'lr': 7.774254355266286e-06, 'total_loss': 0.017644692212343216}
+05/28/2025 13:01:15 - INFO - root - Epoch 0/1, Step 8400/10000::{'lr': 7.588348939738116e-06, 'total_loss': 0.027568725869059563}
+05/28/2025 13:01:19 - INFO - root - Epoch 0/1, Step 8420/10000::{'lr': 7.404510608248699e-06, 'total_loss': 0.008227350190281868}
+05/28/2025 13:01:23 - INFO - root - Epoch 0/1, Step 8440/10000::{'lr': 7.222748320818984e-06, 'total_loss': 0.05443279445171356}
+05/28/2025 13:01:27 - INFO - root - Epoch 0/1, Step 8460/10000::{'lr': 7.0430709362863945e-06, 'total_loss': 0.019881848245859146}
+05/28/2025 13:01:32 - INFO - root - Epoch 0/1, Step 8480/10000::{'lr': 6.865487211873167e-06, 'total_loss': 0.02196938544511795}
+05/28/2025 13:01:36 - INFO - root - Epoch 0/1, Step 8500/10000::{'lr': 6.69000580275953e-06, 'total_loss': 0.014858562499284744}
+05/28/2025 13:01:40 - INFO - root - Epoch 0/1, Step 8520/10000::{'lr': 6.5166352616617745e-06, 'total_loss': 0.010516947135329247}
+05/28/2025 13:01:44 - INFO - root - Epoch 0/1, Step 8540/10000::{'lr': 6.345384038415486e-06, 'total_loss': 0.03407181799411774}
+05/28/2025 13:01:49 - INFO - root - Epoch 0/1, Step 8560/10000::{'lr': 6.176260479563689e-06, 'total_loss': 0.0622088648378849}
+05/28/2025 13:01:53 - INFO - root - Epoch 0/1, Step 8580/10000::{'lr': 6.009272827950041e-06, 'total_loss': 0.015052063390612602}
+05/28/2025 13:01:57 - INFO - root - Epoch 0/1, Step 8600/10000::{'lr': 5.84442922231711e-06, 'total_loss': 0.010082146152853966}
+05/28/2025 13:02:02 - INFO - root - Epoch 0/1, Step 8620/10000::{'lr': 5.6817376969096555e-06, 'total_loss': 0.024114135652780533}
+05/28/2025 13:02:06 - INFO - root - Epoch 0/1, Step 8640/10000::{'lr': 5.521206181083111e-06, 'total_loss': 0.02592412382364273}
+05/28/2025 13:02:10 - INFO - root - Epoch 0/1, Step 8660/10000::{'lr': 5.362842498917081e-06, 'total_loss': 0.0012713592732325196}
+05/28/2025 13:02:15 - INFO - root - Epoch 0/1, Step 8680/10000::{'lr': 5.206654368834002e-06, 'total_loss': 0.003381268586963415}
+05/28/2025 13:02:19 - INFO - root - Epoch 0/1, Step 8700/10000::{'lr': 5.052649403223014e-06, 'total_loss': 0.012447962537407875}
+05/28/2025 13:02:23 - INFO - root - Epoch 0/1, Step 8720/10000::{'lr': 4.900835108068863e-06, 'total_loss': 0.011615358293056488}
+05/28/2025 13:02:28 - INFO - root - Epoch 0/1, Step 8740/10000::{'lr': 4.751218882586106e-06, 'total_loss': 0.01478212047368288}
+05/28/2025 13:02:32 - INFO - root - Epoch 0/1, Step 8760/10000::{'lr': 4.603808018858513e-06, 'total_loss': 0.06717327982187271}
+05/28/2025 13:02:36 - INFO - root - Epoch 0/1, Step 8780/10000::{'lr': 4.458609701483601e-06, 'total_loss': 0.009866556152701378}
+05/28/2025 13:02:40 - INFO - root - Epoch 0/1, Step 8800/10000::{'lr': 4.315631007222515e-06, 'total_loss': 0.01490728184580803}
+05/28/2025 13:02:45 - INFO - root - Epoch 0/1, Step 8820/10000::{'lr': 4.174878904655105e-06, 'total_loss': 0.004911755211651325}
+05/28/2025 13:02:49 - INFO - root - Epoch 0/1, Step 8840/10000::{'lr': 4.036360253840283e-06, 'total_loss': 0.006030729506164789}
+05/28/2025 13:02:53 - INFO - root - Epoch 0/1, Step 8860/10000::{'lr': 3.900081805981659e-06, 'total_loss': 0.008514062501490116}
+05/28/2025 13:02:57 - INFO - root - Epoch 0/1, Step 8880/10000::{'lr': 3.7660502030985202e-06, 'total_loss': 0.01957819238305092}
+05/28/2025 13:03:01 - INFO - root - Epoch 0/1, Step 8900/10000::{'lr': 3.6342719777021196e-06, 'total_loss': 0.017425118014216423}
+05/28/2025 13:03:05 - INFO - root - Epoch 0/1, Step 8920/10000::{'lr': 3.5047535524772467e-06, 'total_loss': 0.051928773522377014}
+05/28/2025 13:03:10 - INFO - root - Epoch 0/1, Step 8940/10000::{'lr': 3.3775012399692054e-06, 'total_loss': 0.004297385457903147}
+05/28/2025 13:03:14 - INFO - root - Epoch 0/1, Step 8960/10000::{'lr': 3.2525212422761907e-06, 'total_loss': 0.012365938164293766}
+05/28/2025 13:03:18 - INFO - root - Epoch 0/1, Step 8980/10000::{'lr': 3.1298196507469734e-06, 'total_loss': 0.028838394209742546}
+05/28/2025 13:03:22 - INFO - root - Epoch 0/1, Step 9000/10000::{'lr': 3.0094024456840174e-06, 'total_loss': 0.04284647852182388}
+05/28/2025 13:03:26 - INFO - root - Epoch 0/1, Step 9020/10000::{'lr': 2.891275496052015e-06, 'total_loss': 0.018168628215789795}
+05/28/2025 13:03:30 - INFO - root - Epoch 0/1, Step 9040/10000::{'lr': 2.7754445591918365e-06, 'total_loss': 0.008993108756840229}
+05/28/2025 13:03:34 - INFO - root - Epoch 0/1, Step 9060/10000::{'lr': 2.6619152805399283e-06, 'total_loss': 0.014680984430015087}
+05/28/2025 13:03:39 - INFO - root - Epoch 0/1, Step 9080/10000::{'lr': 2.550693193353171e-06, 'total_loss': 0.02353094518184662}
+05/28/2025 13:03:43 - INFO - root - Epoch 0/1, Step 9100/10000::{'lr': 2.4417837184391833e-06, 'total_loss': 0.015839770436286926}
+05/28/2025 13:03:47 - INFO - root - Epoch 0/1, Step 9120/10000::{'lr': 2.3351921638921194e-06, 'total_loss': 0.030773315578699112}
+05/28/2025 13:03:52 - INFO - root - Epoch 0/1, Step 9140/10000::{'lr': 2.2309237248339774e-06, 'total_loss': 0.0062996987253427505}
+05/28/2025 13:03:56 - INFO - root - Epoch 0/1, Step 9160/10000::{'lr': 2.1289834831613676e-06, 'total_loss': 0.018369968980550766}
+05/28/2025 13:04:00 - INFO - root - Epoch 0/1, Step 9180/10000::{'lr': 2.0293764072978618e-06, 'total_loss': 0.04033994674682617}
+05/28/2025 13:04:04 - INFO - root - Epoch 0/1, Step 9200/10000::{'lr': 1.9321073519518005e-06, 'total_loss': 0.00949664507061243}
+05/28/2025 13:04:09 - INFO - root - Epoch 0/1, Step 9220/10000::{'lr': 1.8371810578797277e-06, 'total_loss': 0.03052205964922905}
+05/28/2025 13:04:13 - INFO - root - Epoch 0/1, Step 9240/10000::{'lr': 1.744602151655289e-06, 'total_loss': 0.028545435518026352}
+05/28/2025 13:04:17 - INFO - root - Epoch 0/1, Step 9260/10000::{'lr': 1.6543751454437707e-06, 'total_loss': 0.01574510894715786}
+05/28/2025 13:04:22 - INFO - root - Epoch 0/1, Step 9280/10000::{'lr': 1.5665044367821512e-06, 'total_loss': 0.01718074269592762}
+05/28/2025 13:04:26 - INFO - root - Epoch 0/1, Step 9300/10000::{'lr': 1.4809943083648192e-06, 'total_loss': 0.03446226567029953}
+05/28/2025 13:04:30 - INFO - root - Epoch 0/1, Step 9320/10000::{'lr': 1.3978489278347884e-06, 'total_loss': 0.024358322843909264}
+05/28/2025 13:04:34 - INFO - root - Epoch 0/1, Step 9340/10000::{'lr': 1.3170723475806002e-06, 'total_loss': 0.000830373726785183}
+05/28/2025 13:04:39 - INFO - root - Epoch 0/1, Step 9360/10000::{'lr': 1.2386685045388313e-06, 'total_loss': 0.02378932386636734}
+05/28/2025 13:04:43 - INFO - root - Epoch 0/1, Step 9380/10000::{'lr': 1.1626412200021696e-06, 'total_loss': 0.0505831316113472}
+05/28/2025 13:04:47 - INFO - root - Epoch 0/1, Step 9400/10000::{'lr': 1.0889941994332075e-06, 'total_loss': 0.024912480264902115}
+05/28/2025 13:04:52 - INFO - root - Epoch 0/1, Step 9420/10000::{'lr': 1.0177310322838252e-06, 'total_loss': 0.0006839352427050471}
+05/28/2025 13:04:56 - INFO - root - Epoch 0/1, Step 9440/10000::{'lr': 9.488551918202526e-07, 'total_loss': 0.0045683435164391994}
+05/28/2025 13:05:00 - INFO - root - Epoch 0/1, Step 9460/10000::{'lr': 8.823700349537944e-07, 'total_loss': 0.032595276832580566}
+05/28/2025 13:05:05 - INFO - root - Epoch 0/1, Step 9480/10000::{'lr': 8.182788020771825e-07, 'total_loss': 0.0016733373049646616}
+05/28/2025 13:05:09 - INFO - root - Epoch 0/1, Step 9500/10000::{'lr': 7.565846169067026e-07, 'total_loss': 0.0006933719268999994}
+05/28/2025 13:05:13 - INFO - root - Epoch 0/1, Step 9520/10000::{'lr': 6.97290486329899e-07, 'total_loss': 0.017693709582090378}
+05/28/2025 13:05:17 - INFO - root - Epoch 0/1, Step 9540/10000::{'lr': 6.403993002590425e-07, 'total_loss': 0.017342165112495422}
+05/28/2025 13:05:22 - INFO - root - Epoch 0/1, Step 9560/10000::{'lr': 5.859138314902813e-07, 'total_loss': 0.0059106191620230675}
+05/28/2025 13:05:26 - INFO - root - Epoch 0/1, Step 9580/10000::{'lr': 5.338367355684881e-07, 'total_loss': 0.017998017370700836}
+05/28/2025 13:05:30 - INFO - root - Epoch 0/1, Step 9600/10000::{'lr': 4.841705506578587e-07, 'total_loss': 0.0009226962574757636}
+05/28/2025 13:05:34 - INFO - root - Epoch 0/1, Step 9620/10000::{'lr': 4.36917697418171e-07, 'total_loss': 0.013893648982048035}
+05/28/2025 13:05:39 - INFO - root - Epoch 0/1, Step 9640/10000::{'lr': 3.9208047888683597e-07, 'total_loss': 0.01522645354270935}
+05/28/2025 13:05:43 - INFO - root - Epoch 0/1, Step 9660/10000::{'lr': 3.4966108036662e-07, 'total_loss': 0.0034475652500987053}
+05/28/2025 13:05:47 - INFO - root - Epoch 0/1, Step 9680/10000::{'lr': 3.0966156931916954e-07, 'total_loss': 0.021558983251452446}
+05/28/2025 13:05:51 - INFO - root - Epoch 0/1, Step 9700/10000::{'lr': 2.7208389526421904e-07, 'total_loss': 0.0004703478771261871}
+05/28/2025 13:05:56 - INFO - root - Epoch 0/1, Step 9720/10000::{'lr': 2.3692988968458395e-07, 'total_loss': 0.03989887610077858}
+05/28/2025 13:06:00 - INFO - root - Epoch 0/1, Step 9740/10000::{'lr': 2.0420126593690415e-07, 'total_loss': 0.017710357904434204}
+05/28/2025 13:06:04 - INFO - root - Epoch 0/1, Step 9760/10000::{'lr': 1.7389961916813303e-07, 'total_loss': 0.004648772533982992}
+05/28/2025 13:06:09 - INFO - root - Epoch 0/1, Step 9780/10000::{'lr': 1.4602642623777752e-07, 'total_loss': 0.017749059945344925}
+05/28/2025 13:06:13 - INFO - root - Epoch 0/1, Step 9800/10000::{'lr': 1.2058304564593893e-07, 'total_loss': 0.05841052532196045}
+05/28/2025 13:06:17 - INFO - root - Epoch 0/1, Step 9820/10000::{'lr': 9.757071746708813e-08, 'total_loss': 0.0010532098822295666}
+05/28/2025 13:06:21 - INFO - root - Epoch 0/1, Step 9840/10000::{'lr': 7.699056328964726e-08, 'total_loss': 0.021236050873994827}
+05/28/2025 13:06:26 - INFO - root - Epoch 0/1, Step 9860/10000::{'lr': 5.8843586161289044e-08, 'total_loss': 0.010097585618495941}
+05/28/2025 13:06:30 - INFO - root - Epoch 0/1, Step 9880/10000::{'lr': 4.3130670540081354e-08, 'total_loss': 0.0026184238959103823}
+05/28/2025 13:06:34 - INFO - root - Epoch 0/1, Step 9900/10000::{'lr': 2.985258225135512e-08, 'total_loss': 0.0007581838872283697}
+05/28/2025 13:06:38 - INFO - root - Epoch 0/1, Step 9920/10000::{'lr': 1.9009968450406368e-08, 'total_loss': 0.06280511617660522}
+05/28/2025 13:06:43 - INFO - root - Epoch 0/1, Step 9940/10000::{'lr': 1.0603357590938113e-08, 'total_loss': 0.0019210947211831808}
+05/28/2025 13:06:47 - INFO - root - Epoch 0/1, Step 9960/10000::{'lr': 4.6331593993032e-09, 'total_loss': 0.014720647595822811}
+05/28/2025 13:06:52 - INFO - root - Epoch 0/1, Step 9980/10000::{'lr': 1.0996648545313903e-09, 'total_loss': 0.06729419529438019}
+05/28/2025 13:06:57 - INFO - root - Save checkpoint 10000 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 13:06:57 - INFO - root -  ========= Finisth one Epoch ==========
+05/28/2025 13:06:58 - INFO - root - milestones: [10000]
+05/28/2025 13:07:00 - INFO - root - Load checkpoint 10000 from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+05/28/2025 13:07:00 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 13:07:00 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+05/28/2025 13:15:06 - INFO - root - ****************************** < Evaluation Results: > ******************************
+05/28/2025 13:15:06 - INFO - root - Total 800 samples with 10 seq_len.
+05/28/2025 13:15:06 - INFO - root - ******************************************************************************************
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 16 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.22354927972528013; [0.21133033 0.21033115 0.21314224 0.21837821 0.22213475 0.22129844
+ 0.22393902 0.23730781 0.24146607 0.23616478]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.7747323788968787; [0.78815393 0.78940636 0.78641773 0.78082434 0.7766794  0.77741031
+ 0.77432656 0.75965986 0.75487911 0.75956618]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.9696121111694277; [0.98861121 0.99410887 0.99042653 0.98361212 0.97665328 0.9744561
+ 0.96681901 0.9495176  0.94184229 0.9300741 ]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.04346363791648128; [0.01520963 0.01095885 0.01651292 0.03006712 0.03930498 0.03667624
+ 0.04363619 0.07693893 0.08793243 0.0773991 ]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.3215886405126404; CSI_POOL 16x16: 0.556384859505572
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 74 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.1474016481448062; [0.1374998  0.13407654 0.1373441  0.1472248  0.15155253 0.14962304
+ 0.15161551 0.15739013 0.15701395 0.15067609]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.8503825709631718; [0.86237919 0.86574979 0.8623184  0.85210853 0.84724997 0.84881128
+ 0.8461351  0.83881466 0.83822258 0.8420362 ]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.9212523966553174; [0.99364584 0.99044381 0.98246469 0.97029091 0.95081569 0.93526759
+ 0.91205664 0.86986754 0.84208514 0.76558613]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.10389754296321796; [0.0831872  0.07565711 0.08183499 0.10189649 0.11071124 0.10743143
+ 0.11210931 0.1248789  0.12530022 0.11596855]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.22191351397775583; CSI_POOL 16x16: 0.3944109910454875
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 133 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.04538049330952186; [0.04354452 0.04319181 0.04383557 0.04644693 0.04860205 0.04622557
+ 0.04766813 0.04751645 0.04659557 0.04017833]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.9539461351973604; [0.95644019 0.95677375 0.95609657 0.95341892 0.9511203  0.95331664
+ 0.95167116 0.9513578  0.95197181 0.95729421]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.8065444595684517; [0.99200735 0.98188737 0.96593828 0.94161702 0.8953561  0.82498803
+ 0.77712171 0.67246746 0.60969609 0.40436518]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.04922842418082981; [0.04517886 0.04456776 0.04560042 0.05084929 0.05503654 0.05056642
+ 0.05355791 0.0536006  0.05231828 0.04100815]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.11272027869258872; CSI_POOL 16x16: 0.2730339010178012
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 160 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.012985174109476746; [0.01259404 0.01254398 0.01263422 0.01347364 0.01427688 0.01227111
+ 0.01298101 0.01273732 0.01261823 0.01372132]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.9868563498319828; [0.98740412 0.98745083 0.98735415 0.9865022  0.98566777 0.98764924
+ 0.98690153 0.98707067 0.98712369 0.98543929]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.6845749809879907; [0.98849466 0.96805457 0.93212386 0.88272697 0.7871108  0.65548969
+ 0.59144807 0.46170041 0.38634235 0.19225844]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.015918075863867842; [0.01487679 0.01490162 0.01503069 0.01673511 0.01827164 0.01445924
+ 0.01594114 0.01557627 0.01545442 0.01793384]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.04870421474992629; CSI_POOL 16x16: 0.17526156110497854
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 181 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.0050561611373796805; [0.00447887 0.00454053 0.00454083 0.00483398 0.00535013 0.00399646
+ 0.00464282 0.00483346 0.00554736 0.00779718]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.9948535740268101; [0.99552087 0.99545846 0.99545672 0.99516075 0.99463605 0.99598664
+ 0.99532767 0.99510832 0.99433777 0.9915425 ]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.583008916426959; [0.98710884 0.95327381 0.8938824  0.81617243 0.6748525  0.48684611
+ 0.42361891 0.2888083  0.21472551 0.09080035]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.007112141116132469; [0.00584867 0.00599679 0.00599169 0.00660818 0.00766421 0.00499609
+ 0.00630538 0.00670264 0.00818372 0.01282403]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.021091167427042746; CSI_POOL 16x16: 0.09784538114831207
+05/28/2025 13:15:06 - INFO - root - ====================Threshold: 219 with melthod 1====================
+05/28/2025 13:15:06 - INFO - root - <CSI> : 0.0008855649152056521; [0.00058991 0.00065917 0.0006877  0.00085768 0.00152242 0.00100809
+ 0.00107877 0.00106648 0.00070576 0.00067966]
+05/28/2025 13:15:06 - INFO - root - <FAR> : 0.9991088138643631; [0.99941008 0.99934079 0.99931218 0.99914196 0.99847521 0.99898886
+ 0.99891552 0.99892245 0.99928511 0.99929597]
+05/28/2025 13:15:06 - INFO - root - <POD> : 0.44692050142682815; [0.98747153 0.92699884 0.79941176 0.67346939 0.495625   0.25048544
+ 0.17012726 0.09402883 0.05232975 0.01925722]
+05/28/2025 13:15:06 - INFO - root - <HSS> : 0.0015320272708068843; [0.00091159 0.00105457 0.00111557 0.00147529 0.00279751 0.00177976
+ 0.00192928 0.00191131 0.00120078 0.00114461]
+05/28/2025 13:15:06 - INFO - root - < CSI_POOL 4x4 > : 0.003524481693868549; CSI_POOL 16x16: 0.02015961503878757
+05/28/2025 13:15:06 - INFO - root - ********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+05/28/2025 13:15:06 - INFO - root - [ avg_csi ] : 0.07254305355694504; [ avg_far ] : 0.9266466371300944; [ avg_pod ] : 0.7353188943724959; [ avg_hss] : 0.03685864155188938
+05/28/2025 13:15:06 - INFO - root - [ avg_csi_pool 4x4 ] : 0.12159038284230374; [ avg_csi_pool 16x16 ]: 0.25284938481015645
+05/28/2025 13:15:06 - INFO - root - ====================Losses with 10 seq_len====================
+05/28/2025 13:15:06 - INFO - root - <MSE> : 12738.37890625; [18947.39   18092.723  16906.174  14524.64   12229.671  12143.603
+ 10610.878   8998.473   8215.293   6714.9487]
+05/28/2025 13:15:06 - INFO - root - <MAE> : 91.84784698486328; [118.390076 117.16567  111.69631  100.36488   90.67436   89.613625
+  83.28584   73.842575  69.91334   63.531773]
+05/28/2025 13:15:06 - INFO - root - <RMSE> : 101.23865509033203; [126.66899  124.248634 119.573044 109.820656 100.14489   98.55593
+  92.96846   84.8353    81.656494  73.91412 ]
+05/28/2025 13:15:06 - INFO - root - <PSNR> : 9.000648832676557; [ 6.78912646  6.92518724  7.30398902  8.12593705  8.99746259  9.2442518
+  9.66288856 10.52899226 10.78848593 11.64016741]
+05/28/2025 13:15:06 - INFO - root - <SSIM> : 0.10354072793775067; [0.11267587 0.09929448 0.08856873 0.0934217  0.09424166 0.08526971
+ 0.08875091 0.12151025 0.12928359 0.12239037]
+05/28/2025 13:15:06 - INFO - root - <CRPS> : 0.3601876135926169; [0.4642746  0.45947337 0.43802475 0.39358774 0.35558548 0.35142607
+ 0.32661129 0.28957869 0.27416987 0.24914428]
+05/28/2025 13:15:06 - INFO - root - <LPIPS> : 0.5363304018974304; [0.54845476 0.5574976  0.5668058  0.55564934 0.54160833 0.54024625
+ 0.5314315  0.5129797  0.5058904  0.50274026]
+05/28/2025 13:15:06 - INFO - root - ==========================================================================================
+05/28/2025 13:15:06 - INFO - root - Test Results: {'csi': 0.07254305355694504}
+05/28/2025 13:15:06 - INFO - root - ==============================

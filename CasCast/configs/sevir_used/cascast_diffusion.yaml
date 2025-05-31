@@ -50,6 +50,7 @@ model:
         classifier_free_guidance:
           p_uncond: 0.1
           guidance_weight: 1 ## TODO
+          cfg_weight : 2.0
 
     sub_model:
       casformer:

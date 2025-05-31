@@ -1,0 +1,80 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 100, valid data: 100, test_data: 100
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 58.45M
+============ Running training ============
+    Num examples = 100
+    Num Epochs = 20
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 2000
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.10190916061401367
+True
+gpu_nums: 1, gpu_id: 0
+Epoch 2/20, Step 51/100:  13%|▏| 252/2000 [00:54<06:26,  4.52it/s, lr=2.52e-5, total_loss=0.3Traceback (most recent call last):
+ ========= Running Sanity Check ==========
+predict() missing 1 required positional argument: 'frames_gt'
+Sanity Check Failed
+Save checkpoint 100 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+ ========= Finisth one Epoch ==========
+Save checkpoint 200 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffsimvp_sevir_None/checkpoints
+ ========= Finisth one Epoch ==========
+  File "/home/vatsal/NWM/DiffCast/run.py", line 577, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 566, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 421, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 489, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 955, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 1025, in _predict
+    global_ctx, local_ctx = self.ctx_net.scan_ctx(
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 444, in scan_ctx
+    globla_ctx = self.forward(frames[:,i])
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 431, in forward
+    x = conv(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 380, in forward
+    input_tensor = self.step_forward(input_tensor, i)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 374, in step_forward
+    h_next = (1 - update_gate) * h_cur + update_gate * cnm
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_tensor.py", line 39, in wrapped
+    return f(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_tensor.py", line 1098, in __rsub__
+    return _C._VariableFunctions.rsub(self, other)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

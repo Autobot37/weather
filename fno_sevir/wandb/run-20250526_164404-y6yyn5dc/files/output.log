@@ -1,0 +1,17 @@
+Train dataset size: 5953
+Validation dataset size: 525
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.960784375667572, minimum value: 0.0
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_vae_train.py", line 99, in <module>
+    vae_model.load_state_dict(torch.load('/home/vatsal/NWM/fno_sevir/vae_weights/weights.pth'))
+                              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/serialization.py", line 1479, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+                     ~~~~^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/vatsal/NWM/fno_sevir/vae_weights/weights.pth'

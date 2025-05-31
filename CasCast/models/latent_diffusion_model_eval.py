@@ -183,7 +183,10 @@ class latent_diffusion_model_eval(basemodel):
     @torch.no_grad()
     def eval_step(self, batch_data, step):
         data_dict = self.data_preprocess(batch_data)
+        from termcolor import colored
+        print(colored(f"data_dict keys: {data_dict.keys()}", 'red'))
         inp = data_dict['inputs']
+        tar = data_dict['targets']
         b, t, c, h, w = inp.shape
         ## inp is coarse prediction in latent space, tar is gt in latent space
         z_coarse_prediction = inp
@@ -203,10 +206,19 @@ class latent_diffusion_model_eval(basemodel):
             member_sample_prediction = rearrange(member_sample_prediction, '(b t) c h w -> b t c h w', t=t)
             sample_predictions.append(member_sample_prediction) 
         sample_predictions = torch.stack(sample_predictions, dim=1)
+
+        sample_targets = []
+        for i in range(n):
+            member_tar = tar[:, i, ...]
+            member_tar = rearrange(member_tar, 'b t c h w -> (b t) c h w').contiguous()
+            member_sample_target = self.decode_stage(member_tar)
+            member_sample_target = rearrange(member_sample_target, '(b t) c h w -> b t c h w', t=t)
+            sample_targets.append(member_sample_target)
+        sample_targets = torch.stack(sample_targets, dim=1)
         ## evaluate other metrics ##
         data_dict = {}
         data_dict['pred'] = sample_predictions.mean(dim=1)
-        data_dict['gt'] = sample_predictions.mean(dim=1)
+        data_dict['gt'] = sample_targets.mean(dim=1)
         ############
         ## save image ##
         if self.visualizer_type == 'sevir_visualizer' and (step) % 1 == 0:
@@ -219,6 +231,7 @@ class latent_diffusion_model_eval(basemodel):
     @torch.no_grad()
     def test_final(self, test_data_loader, predict_length):
         self.test_data_loader = test_data_loader
+        
         metric_logger = utils.MetricLogger(delimiter="  ", sync=True)
         if self.metrics_type == 'SEVIRSkillScore':
             self.scale_factor = 0.6786020398139954

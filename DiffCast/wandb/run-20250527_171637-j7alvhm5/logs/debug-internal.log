@@ -1,0 +1,15 @@
+{"time":"2025-05-27T17:16:37.491568805+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250527_171637-j7alvhm5/logs/debug-core.log"}
+{"time":"2025-05-27T17:16:37.925583723+05:30","level":"INFO","msg":"created new stream","id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:37.925690876+05:30","level":"INFO","msg":"stream: started","id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:37.925749303+05:30","level":"INFO","msg":"sender: started","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:37.925860478+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:37.925870485+05:30","level":"INFO","msg":"handler: started","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:38.333386671+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-27T17:16:55.830280941+05:30","level":"INFO","msg":"stream: closing","id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:55.830343637+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-27T17:16:55.830462369+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-27T17:16:56.858803119+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-27T17:16:57.20466015+05:30","level":"INFO","msg":"handler: closed","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:57.204725139+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:57.204754483+05:30","level":"INFO","msg":"sender: closed","stream_id":"j7alvhm5"}
+{"time":"2025-05-27T17:16:57.204849803+05:30","level":"INFO","msg":"stream: closed","id":"j7alvhm5"}

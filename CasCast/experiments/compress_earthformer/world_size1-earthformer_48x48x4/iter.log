@@ -1,0 +1,40 @@
+2025-05-31 16:28:51,472 train INFO: Building config ...
+2025-05-31 16:28:51,472 train INFO: Building dataloaders ...
+2025-05-31 16:28:51,475 train INFO: Train dataloaders build complete
+2025-05-31 16:28:51,476 train INFO: Valid dataloaders build complete
+2025-05-31 16:28:51,480 train INFO: Test dataloaders build complete
+2025-05-31 16:28:51,480 train INFO: Building models ...
+2025-05-31 16:28:53,265 train INFO: finetune checkpoint path not exist
+2025-05-31 16:28:53,326 train INFO: [32mload EarthFormer_xy model from /home/vatsal/NWM/CasCast/experiments/EarthFormer/world_size1-ckpt/earthformer_ckpt.pth[0m
+2025-05-31 16:28:53,326 train INFO: last epoch:11.0, metric best:0.003162863486452384
+2025-05-31 16:28:53,532 train INFO: [32mload autoencoder_kl model from ckpts/autoencoder/ckpt.pth[0m
+2025-05-31 16:28:53,533 train INFO: last epoch:22.94065054028852, metric best:8.824201591018594e-05
+2025-05-31 16:28:53,705 train INFO: params autoencoder_kl: 83649253
+2025-05-31 16:28:53,706 train INFO: params EarthFormer_xy: 8659677
+2025-05-31 16:28:53,706 train INFO: begin compressing ...
+2025-05-31 16:29:21,509 train INFO: Epoch [1/1][20/500]  eta: 0:11:07  time: 1.327  data: 0.005  memory: 18182
+2025-05-31 16:29:48,078 train INFO: Epoch [1/1][40/500]  eta: 0:10:25  time: 1.332  data: 0.006  memory: 18182
+2025-05-31 16:30:14,702 train INFO: Epoch [1/1][60/500]  eta: 0:09:53  time: 1.332  data: 0.007  memory: 18182
+2025-05-31 16:30:41,310 train INFO: Epoch [1/1][80/500]  eta: 0:09:24  time: 1.329  data: 0.006  memory: 18182
+2025-05-31 16:31:07,859 train INFO: Epoch [1/1][100/500]  eta: 0:08:56  time: 1.331  data: 0.006  memory: 18182
+2025-05-31 16:31:34,358 train INFO: Epoch [1/1][120/500]  eta: 0:08:28  time: 1.320  data: 0.005  memory: 18182
+2025-05-31 16:32:00,915 train INFO: Epoch [1/1][140/500]  eta: 0:08:01  time: 1.324  data: 0.005  memory: 18182
+2025-05-31 16:32:27,424 train INFO: Epoch [1/1][160/500]  eta: 0:07:34  time: 1.326  data: 0.006  memory: 18182
+2025-05-31 16:32:53,108 train INFO: Epoch [1/1][180/500]  eta: 0:07:05  time: 1.276  data: 0.007  memory: 18182
+2025-05-31 16:33:18,608 train INFO: Epoch [1/1][200/500]  eta: 0:06:37  time: 1.273  data: 0.005  memory: 18182
+2025-05-31 16:33:44,122 train INFO: Epoch [1/1][220/500]  eta: 0:06:09  time: 1.274  data: 0.006  memory: 18182
+2025-05-31 16:34:09,598 train INFO: Epoch [1/1][240/500]  eta: 0:05:42  time: 1.273  data: 0.005  memory: 18182
+2025-05-31 16:34:35,073 train INFO: Epoch [1/1][260/500]  eta: 0:05:15  time: 1.274  data: 0.006  memory: 18182
+2025-05-31 16:35:00,556 train INFO: Epoch [1/1][280/500]  eta: 0:04:48  time: 1.274  data: 0.006  memory: 18182
+2025-05-31 16:35:26,039 train INFO: Epoch [1/1][300/500]  eta: 0:04:21  time: 1.276  data: 0.007  memory: 18182
+2025-05-31 16:35:51,468 train INFO: Epoch [1/1][320/500]  eta: 0:03:54  time: 1.271  data: 0.005  memory: 18182
+2025-05-31 16:36:16,933 train INFO: Epoch [1/1][340/500]  eta: 0:03:28  time: 1.274  data: 0.006  memory: 18182
+2025-05-31 16:36:42,368 train INFO: Epoch [1/1][360/500]  eta: 0:03:02  time: 1.273  data: 0.006  memory: 18182
+2025-05-31 16:37:07,846 train INFO: Epoch [1/1][380/500]  eta: 0:02:36  time: 1.274  data: 0.007  memory: 18182
+2025-05-31 16:37:33,322 train INFO: Epoch [1/1][400/500]  eta: 0:02:09  time: 1.274  data: 0.006  memory: 18182
+2025-05-31 16:37:58,727 train INFO: Epoch [1/1][420/500]  eta: 0:01:43  time: 1.270  data: 0.005  memory: 18182
+2025-05-31 16:38:24,139 train INFO: Epoch [1/1][440/500]  eta: 0:01:17  time: 1.271  data: 0.006  memory: 18182
+2025-05-31 16:38:49,559 train INFO: Epoch [1/1][460/500]  eta: 0:00:51  time: 1.272  data: 0.006  memory: 18182
+2025-05-31 16:39:14,993 train INFO: Epoch [1/1][480/500]  eta: 0:00:25  time: 1.273  data: 0.005  memory: 18182
+2025-05-31 16:39:40,446 train INFO: Epoch [1/1][500/500]  eta: 0:00:00  time: 1.274  data: 0.007  memory: 18182
+2025-05-31 16:39:40,450 train INFO: final results: MSELoss: 0.0000 (0.0002, 0.0000)  16-csi: 0.9896 (0.9896, 0.9896)  16-csi-4-avg: 0.9945 (0.9945, 0.9945)  16-csi-16-avg: 0.9955 (0.9955, 0.9955)  16-csi-4-max: 0.9896 (0.9896, 0.9896)  16-csi-16-max: 0.9910 (0.9910, 0.9910)  16-bias: 2.0749 (2.0749, 2.0749)  16-sucr: 0.9955 (0.9955, 0.9955)  16-pod: 0.9940 (0.9940, 0.9940)  16-hss: 0.9925 (0.9925, 0.9925)  74-csi: 0.9901 (0.9901, 0.9901)  74-csi-4-avg: 0.9960 (0.9960, 0.9960)  74-csi-16-avg: 0.9975 (0.9975, 0.9975)  74-csi-4-max: 0.9890 (0.9890, 0.9890)  74-csi-16-max: 0.9893 (0.9893, 0.9893)  74-bias: 2.0838 (2.0838, 2.0838)  74-sucr: 0.9947 (0.9947, 0.9947)  74-pod: 0.9953 (0.9953, 0.9953)  74-hss: 0.9942 (0.9942, 0.9942)  133-csi: 0.6689 (0.6689, 0.6689)  133-csi-4-avg: 0.6742 (0.6742, 0.6742)  133-csi-16-avg: 0.6546 (0.6546, 0.6546)  133-csi-4-max: 0.6873 (0.6873, 0.6873)  133-csi-16-max: 0.7668 (0.7668, 0.7668)  133-bias: 4.5068 (4.5068, 4.5068)  133-sucr: 0.6732 (0.6732, 0.6732)  133-pod: 0.9906 (0.9906, 0.9906)  133-hss: 0.7936 (0.7936, 0.7936)  160-csi: 0.8327 (0.8327, 0.8327)  160-csi-4-avg: 0.8482 (0.8482, 0.8482)  160-csi-16-avg: 0.8430 (0.8430, 0.8430)  160-csi-4-max: 0.8130 (0.8130, 0.8130)  160-csi-16-max: 0.8148 (0.8148, 0.8148)  160-bias: 2.8620 (2.8620, 2.8620)  160-sucr: 0.8418 (0.8418, 0.8418)  160-pod: 0.9872 (0.9872, 0.9872)  160-hss: 0.9079 (0.9079, 0.9079)  181-csi: 0.8539 (0.8539, 0.8539)  181-csi-4-avg: 0.8684 (0.8684, 0.8684)  181-csi-16-avg: 0.8797 (0.8797, 0.8797)  181-csi-4-max: 0.8423 (0.8423, 0.8423)  181-csi-16-max: 0.8295 (0.8295, 0.8295)  181-bias: 2.6912 (2.6912, 2.6912)  181-sucr: 0.8656 (0.8656, 0.8656)  181-pod: 0.9843 (0.9843, 0.9843)  181-hss: 0.9209 (0.9209, 0.9209)  219-csi: 0.7413 (0.7413, 0.7413)  219-csi-4-avg: 0.7732 (0.7732, 0.7732)  219-csi-16-avg: 0.8885 (0.8885, 0.8885)  219-csi-4-max: 0.7372 (0.7372, 0.7372)  219-csi-16-max: 0.7193 (0.7193, 0.7193)  219-bias: 3.5003 (3.5003, 3.5003)  219-sucr: 0.7540 (0.7540, 0.7540)  219-pod: 0.9778 (0.9778, 0.9778)  219-hss: 0.8514 (0.8514, 0.8514)  avg-csi: 0.8461 (0.8461, 0.8461)  avg-csi-4-avg: 0.8591 (0.8591, 0.8591)  avg-csi-16-avg: 0.8765 (0.8765, 0.8765)  avg-csi-4-max: 0.8431 (0.8431, 0.8431)  avg-csi-16-max: 0.8518 (0.8518, 0.8518)  avg-bias: 2.9532 (2.9532, 2.9532)  avg-sucr: 0.8541 (0.8541, 0.8541)  avg-pod: 0.9882 (0.9882, 0.9882)  avg-hss: 0.9101 (0.9101, 0.9101)

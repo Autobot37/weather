@@ -1,0 +1,12 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 3612
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.7490196228027344, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Epoch 1/1 [Train]:  12%|███▉                            | 169/1383 [00:51<06:11,  3.27it/s, Loss=0.0275]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 109, in <module>
+    avg_train_losses.append(loss.item())
+                            ~~~~~~~~~^^
+KeyboardInterrupt

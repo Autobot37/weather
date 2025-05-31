@@ -1,0 +1,16 @@
+{"time":"2025-05-28T16:14:07.582519566+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_161407-378ci60p/logs/debug-core.log"}
+{"time":"2025-05-28T16:14:07.997782307+05:30","level":"INFO","msg":"created new stream","id":"378ci60p"}
+{"time":"2025-05-28T16:14:07.99785314+05:30","level":"INFO","msg":"stream: started","id":"378ci60p"}
+{"time":"2025-05-28T16:14:07.997886137+05:30","level":"INFO","msg":"handler: started","stream_id":"378ci60p"}
+{"time":"2025-05-28T16:14:07.997941863+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"378ci60p"}
+{"time":"2025-05-28T16:14:07.997974526+05:30","level":"INFO","msg":"sender: started","stream_id":"378ci60p"}
+{"time":"2025-05-28T16:14:08.348534713+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T17:07:34.06828089+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T17:07:34.068367182+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T17:07:35.071071161+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.407598729,"progress":"1.9KB/1.9KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.407571185,"progress":"142B/142B"},{"desc":"uploading config.yaml","runtime_seconds":0.136778147,"progress":"1.5KB/1.5KB"}],"total_operations":3}}
+{"time":"2025-05-28T17:07:36.061605493+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T17:07:36.390243009+05:30","level":"INFO","msg":"stream: closing","id":"378ci60p"}
+{"time":"2025-05-28T17:07:36.390270057+05:30","level":"INFO","msg":"handler: closed","stream_id":"378ci60p"}
+{"time":"2025-05-28T17:07:36.390285416+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"378ci60p"}
+{"time":"2025-05-28T17:07:36.390365374+05:30","level":"INFO","msg":"sender: closed","stream_id":"378ci60p"}
+{"time":"2025-05-28T17:07:36.39040766+05:30","level":"INFO","msg":"stream: closed","id":"378ci60p"}

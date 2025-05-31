@@ -1,0 +1,65 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 9634
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.46666669845581055, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Epoch 1/1 [Train]: 100%|█████████████████████████████████████████████████████████████████████████▉| 1382/1383 [06:58<00:00,  3.30it/s, Loss=0.0024]
+Epoch 1/1 [Validation]:   0%|                                     | 0/9634 [00:00<?, ?it/s, Loss=0.0042]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Epoch 1/1 [Validation]:   1%|▍                          | 136/9634 [00:50<59:17,  2.67it/s, Loss=0.0495]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 130, in <module>
+    predicted_frames = model(input_frames)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/models/fno.py", line 378, in forward
+    x = self.fno_blocks(x, layer_idx, output_shape=output_shape[layer_idx])
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/fno_block.py", line 277, in forward
+    return self.forward_with_postactivation(x, index, output_shape)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/fno_block.py", line 303, in forward_with_postactivation
+    x = self.channel_mlp[index](x) + x_skip_channel_mlp
+        ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/channel_mlp.py", line 73, in forward
+    x = fc(x)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/conv.py", line 375, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/conv.py", line 370, in _conv_forward
+    return F.conv1d(
+           ~~~~~~~~^
+        input, weight, bias, self.stride, self.padding, self.dilation, self.groups
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+KeyboardInterrupt
+Exception ignored in atexit callback <function _start_and_connect_service.<locals>.teardown_atexit at 0x71b3b8b94d60>:
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 1092, in join
+    self._handle.join(timeout)
+KeyboardInterrupt:

@@ -1,0 +1,16 @@
+2025-05-30 16:38:50,605 test INFO: Building config ...
+2025-05-30 16:38:50,605 test INFO: Building models ...
+2025-05-30 16:38:54,354 test INFO: finetune checkpoint path not exist
+2025-05-30 16:38:54,374 test INFO: ####### noise scale: 1.0 ##########
+2025-05-30 16:38:54,374 test INFO: checkpoint is not exist
+2025-05-30 16:38:54,576 test INFO: warning: skip load of lpipsWithDisc - not found in current model
+2025-05-30 16:38:54,576 test INFO: Loaded checkpoint from ckpts/autoencoder/ckpt.pth
+2025-05-30 16:38:54,576 test INFO: last epoch:22.94065054028852, metric best:8.824201591018594e-05
+2025-05-30 16:38:54,591 test INFO: ####### USE SCALE_FACTOR: 1.0 ##########
+2025-05-30 16:38:55,422 test INFO: Loaded checkpoint from ./experiments/cascast_diffusion/world_size1-ckpt/checkpoint_best.pth
+2025-05-30 16:38:55,423 test INFO: last epoch:90.52551477170994, metric best:0.05239752692443925
+2025-05-30 16:38:55,893 test INFO: params casformer: 309246016
+2025-05-30 16:38:55,894 test INFO: params autoencoder_kl: 83649253
+2025-05-30 16:38:55,894 test INFO: Building dataloaders ...
+2025-05-30 16:38:56,094 test INFO: valid dataloaders build complete
+2025-05-30 16:38:56,094 test INFO: begin valid ...

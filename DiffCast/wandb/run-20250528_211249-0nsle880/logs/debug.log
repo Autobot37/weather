@@ -1,0 +1,30 @@
+2025-05-28 21:12:49,841 INFO    MainThread:683471 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-05-28 21:12:49,841 INFO    MainThread:683471 [wandb_setup.py:_flush():70] Configure stats pid to 683471
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/.config/wandb/settings
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/NWM/DiffCast/wandb/settings
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/vatsal/NWM/DiffCast/wandb/run-20250528_211249-0nsle880/logs/debug.log
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/vatsal/NWM/DiffCast/wandb/run-20250528_211249-0nsle880/logs/debug-internal.log
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:init():852] calling init triggers
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:init():893] starting backend
+2025-05-28 21:12:49,842 INFO    MainThread:683471 [wandb_init.py:init():897] sending inform_init request
+2025-05-28 21:12:49,883 INFO    MainThread:683471 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-28 21:12:49,883 INFO    MainThread:683471 [wandb_init.py:init():907] backend started and connected
+2025-05-28 21:12:49,891 INFO    MainThread:683471 [wandb_init.py:init():1005] updated telemetry
+2025-05-28 21:12:49,932 INFO    MainThread:683471 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-05-28 21:12:50,664 INFO    MainThread:683471 [wandb_init.py:init():1104] starting run threads in backend
+2025-05-28 21:12:50,804 INFO    MainThread:683471 [wandb_run.py:_console_start():2573] atexit reg
+2025-05-28 21:12:50,805 INFO    MainThread:683471 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-05-28 21:12:50,805 INFO    MainThread:683471 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-05-28 21:12:50,805 INFO    MainThread:683471 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-05-28 21:12:50,809 INFO    MainThread:683471 [wandb_init.py:init():1150] run started, returning control to user process
+2025-05-28 21:12:50,811 INFO    MainThread:683471 [wandb_run.py:_config_callback():1436] config_cb None None {'backbone': 'fno', 'use_diff': True, 'seed': 0, 'exp_dir': 'basic_exps', 'exp_note': None, 'dataset': 'sevir', 'img_size': 64, 'img_channel': 1, 'seq_len': 15, 'frames_in': 5, 'frames_out': 10, 'num_workers': 2, 'lr': 0.0001, 'lr_beta1': 0.9, 'lr_beta2': 0.95, 'l2_norm': 0.0, 'ema_rate': 0.95, 'scheduler': 'cosine', 'warmup_steps': 1000, 'mixed_precision': 'no', 'grad_acc_step': 1, 'batch_size': 1, 'epochs': 1, 'training_steps': 20, 'early_stop': 10, 'ckpt_milestone': None, 'eval': False, 'wandb_state': 'online'}
+2025-05-28 21:13:16,155 INFO    MainThread:683471 [wandb_run.py:_finish():2321] finishing run bagrishivasingh/Difffno_sevir_None/0nsle880
+2025-05-28 21:13:16,156 INFO    MainThread:683471 [wandb_run.py:_atexit_cleanup():2538] got exitcode: 0
+2025-05-28 21:13:16,156 INFO    MainThread:683471 [wandb_run.py:_restore():2520] restore
+2025-05-28 21:13:16,156 INFO    MainThread:683471 [wandb_run.py:_restore():2526] restore done
+2025-05-28 21:13:17,750 INFO    MainThread:683471 [wandb_run.py:_footer_history_summary_info():4188] rendering history
+2025-05-28 21:13:17,751 INFO    MainThread:683471 [wandb_run.py:_footer_history_summary_info():4220] rendering summary
+2025-05-28 21:13:17,752 INFO    MainThread:683471 [wandb_run.py:_footer_sync_info():4149] logging synced files

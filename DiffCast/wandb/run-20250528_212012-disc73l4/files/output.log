@@ -1,0 +1,67 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+train data: 10000, valid data: 16887, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 46.30M
+============ Running training ============
+    Num examples = 10000
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 10000
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.12800383567810059
+True
+gpu_nums: 1, gpu_id: 0
+Epoch 0/1, Step 13/10000:   0%|▏                                                                                                     | 14/10000 [00:05<59:53,  2.78it/s, lr=1.4e-6, total_loss=0.0716]Traceback (most recent call last):
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+torch.Size([1, 10, 1, 384, 384])
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 556, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 409, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 477, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 952, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 994, in _predict
+    if torch.isnan(loss):
+KeyboardInterrupt

@@ -1,0 +1,23 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 1749
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.7490196228027344, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9921569228172302, minimum value: 0.0
+Epoch 1/1 [Train]:   0%|                                  | 3/1383 [00:01<11:14,  2.05it/s, Loss=0.0022]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 109, in <module>
+    avg_train_losses.append(loss.item())
+                            ~~~~~~~~~^^
+KeyboardInterrupt
+Exception ignored in atexit callback <function _start_and_connect_service.<locals>.teardown_atexit at 0x7846ff384d60>:
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 1092, in join
+    self._handle.join(timeout)
+KeyboardInterrupt:

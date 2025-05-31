@@ -1,0 +1,46 @@
+05/28/2025 17:23:23 - INFO - root - ============================================================
+05/28/2025 17:23:23 - INFO - root -                  Experiment Start                           
+05/28/2025 17:23:23 - INFO - root - ============================================================
+05/28/2025 17:23:23 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/28/2025 17:23:39 - INFO - root - train data: 59530, valid data: 14072, test_data: 3610
+05/28/2025 17:23:39 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+05/28/2025 17:23:39 - INFO - root - Main Model Parameters: 49.36M
+05/28/2025 17:23:39 - INFO - root - ============ Running training ============
+05/28/2025 17:23:39 - INFO - root -     Num examples = 59530
+05/28/2025 17:23:39 - INFO - root -     Num Epochs = 2
+05/28/2025 17:23:39 - INFO - root -     Instantaneous batch size per GPU = 1
+05/28/2025 17:23:39 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 1
+05/28/2025 17:23:39 - INFO - root -     Total optimization steps = 119060
+05/28/2025 17:23:39 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+05/28/2025 17:23:40 - INFO - root - Data Loading Time: 0.11430096626281738
+05/28/2025 17:23:40 - INFO - root - gpu_nums: 1, gpu_id: 0
+05/28/2025 17:23:40 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_sevir_None/checkpoints
+05/28/2025 17:23:40 - INFO - root - milestones: []
+05/28/2025 17:23:41 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_sevir_None/checkpoints
+05/28/2025 17:23:41 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+05/28/2025 17:23:41 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+

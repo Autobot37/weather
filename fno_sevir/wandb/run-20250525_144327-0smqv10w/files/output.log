@@ -1,0 +1,28 @@
+Train dataset size: 5953
+Validation dataset size: 525
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.960784375667572, minimum value: 0.0
+Epoch 1/5 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉| 5952/5953 [34:48<00:00,  2.85it/s, Loss=0.0009]
+Epoch 1/5 [Validation]:   0%|                                                                                                                                                    | 0/525 [00:00<?, ?it/s, Loss=0.0094]/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Epoch 1/5 [Validation]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 525/525 [03:31<00:00,  2.49it/s, Loss=0.0034]
+Saved best model at epoch 0 with val_loss: 0.0059
+Epoch 1, Train Loss: 0.006070, Val Loss: 0.005949, SSIM: 0.6536349058151245, PSNR: 59.36180114746094, ACC: 0.7661148905754089, RMSE :0.08694728989785479
+Epoch 2/5 [Train]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5953/5953 [40:28<00:00,  2.45it/s, Loss=0.0045]
+Epoch 2/5 [Validation]: 526it [03:18,  2.65it/s, Loss=0.0032]                                                                                                                                                 
+Saved best model at epoch 1 with val_loss: 0.0054
+Epoch 2, Train Loss: 0.004942, Val Loss: 0.005397, SSIM: 0.6142969131469727, PSNR: 59.533470153808594, ACC: 0.7854009866714478, RMSE :0.08352698516913504
+Epoch 3/5 [Train]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5953/5953 [32:13<00:00,  3.08it/s, Loss=0.0096]
+Epoch 3/5 [Validation]: 526it [03:20,  2.62it/s, Loss=0.0031]                                                                                                                                                 
+Saved best model at epoch 2 with val_loss: 0.0050
+Epoch 3, Train Loss: 0.004582, Val Loss: 0.005034, SSIM: 0.6755444407463074, PSNR: 60.01769256591797, ACC: 0.7947514057159424, RMSE :0.08023034745117563
+Epoch 4/5 [Train]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5953/5953 [31:56<00:00,  3.11it/s, Loss=0.0016]
+Epoch 4/5 [Validation]:  38%|█████████████████████████████████████████████████▌                                                                                | 200/525 [01:18<02:03,  2.63it/s, Loss=0.0067]/home/vatsal/NWM/fno_sevir/fno_sevir2.py:21: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  fig, axes = plt.subplots(2, num_frames, figsize=(2*num_frames, 6))
+Epoch 4/5 [Validation]: 526it [03:26,  2.55it/s, Loss=0.0031]                                                                                                                                                 
+Saved best model at epoch 3 with val_loss: 0.0049
+Epoch 4, Train Loss: 0.004249, Val Loss: 0.004857, SSIM: 0.669479250907898, PSNR: 60.01859664916992, ACC: 0.8091508150100708, RMSE :0.0789502292840193
+Epoch 5/5 [Train]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5953/5953 [31:48<00:00,  3.12it/s, Loss=0.0055]
+Epoch 5/5 [Validation]: 526it [03:20,  2.63it/s, Loss=0.0029]                                                                                                                                                 
+Saved best model at epoch 4 with val_loss: 0.0046
+Epoch 5, Train Loss: 0.004025, Val Loss: 0.004641, SSIM: 0.6622408032417297, PSNR: 60.302486419677734, ACC: 0.8158084154129028, RMSE :0.07711434280510386

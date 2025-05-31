@@ -1,0 +1,18 @@
+2025-05-31 17:33:43,439 test INFO: Building config ...
+2025-05-31 17:33:43,439 test INFO: Building models ...
+2025-05-31 17:33:47,510 test INFO: finetune checkpoint path not exist
+2025-05-31 17:33:47,530 test INFO: ####### noise scale: 1.0 ##########
+2025-05-31 17:33:48,251 test INFO: [32mload autoencoder_kl model from /home/vatsal/NWM/CasCast/experiments/cascast_diffusion/world_size1-ckpt/checkpoint_best.pth[0m
+2025-05-31 17:33:48,374 test INFO: [32mload casformer model from /home/vatsal/NWM/CasCast/experiments/cascast_diffusion/world_size1-ckpt/checkpoint_best.pth[0m
+2025-05-31 17:33:48,375 test INFO: last epoch:90.52551477170994, metric best:0.05239752692443925
+2025-05-31 17:33:48,650 test INFO: [32mload autoencoder_kl model from ckpts/autoencoder/ckpt.pth[0m
+2025-05-31 17:33:48,650 test INFO: last epoch:22.94065054028852, metric best:8.824201591018594e-05
+2025-05-31 17:33:48,662 test INFO: ####### USE SCALE_FACTOR: 1.0 ##########
+2025-05-31 17:33:49,359 test INFO: [32mload autoencoder_kl model from ./experiments/cascast_diffusion/world_size1-ckpt/checkpoint_best.pth[0m
+2025-05-31 17:33:49,481 test INFO: [32mload casformer model from ./experiments/cascast_diffusion/world_size1-ckpt/checkpoint_best.pth[0m
+2025-05-31 17:33:49,482 test INFO: last epoch:90.52551477170994, metric best:0.05239752692443925
+2025-05-31 17:33:49,882 test INFO: params casformer: 309246016
+2025-05-31 17:33:49,883 test INFO: params autoencoder_kl: 83649253
+2025-05-31 17:33:49,883 test INFO: Building dataloaders ...
+2025-05-31 17:33:49,891 test INFO: valid dataloaders build complete
+2025-05-31 17:33:49,891 test INFO: begin valid ...

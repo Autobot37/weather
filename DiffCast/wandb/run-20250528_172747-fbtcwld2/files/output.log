@@ -1,0 +1,82 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+train data: 10000, valid data: 16887, test_data: 100
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 46.30M
+============ Running training ============
+    Num examples = 10000
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 10000
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.13249850273132324
+True
+gpu_nums: 1, gpu_id: 0
+  0%|                                                                                                                                                                       | 0/10000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 556, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 409, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 477, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 963, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 1079, in _predict
+    predicted_model_output_from_unet = self.model(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 586, in forward
+    x = attn(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 77, in forward
+    return self.fn(x, *args, **kwargs) + x
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 107, in forward
+    return self.fn(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 260, in forward
+    x = self.spatial_gating_unit(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 292, in forward
+    u = x.clone()
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 3.50 MiB is free. Process 492339 has 584.00 MiB memory in use. Including non-PyTorch memory, this process has 23.03 GiB memory in use. Of the allocated memory 22.34 GiB is allocated by PyTorch, and 240.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

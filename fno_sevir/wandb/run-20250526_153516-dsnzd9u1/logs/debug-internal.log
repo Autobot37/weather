@@ -1,0 +1,7 @@
+{"time":"2025-05-26T15:35:16.217376859+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250526_153516-dsnzd9u1/logs/debug-core.log"}
+{"time":"2025-05-26T15:35:16.677381596+05:30","level":"INFO","msg":"created new stream","id":"dsnzd9u1"}
+{"time":"2025-05-26T15:35:16.677447424+05:30","level":"INFO","msg":"stream: started","id":"dsnzd9u1"}
+{"time":"2025-05-26T15:35:16.677484114+05:30","level":"INFO","msg":"sender: started","stream_id":"dsnzd9u1"}
+{"time":"2025-05-26T15:35:16.677476643+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"dsnzd9u1"}
+{"time":"2025-05-26T15:35:16.677564903+05:30","level":"INFO","msg":"handler: started","stream_id":"dsnzd9u1"}
+{"time":"2025-05-26T15:35:17.066257891+05:30","level":"INFO","msg":"Starting system monitor"}

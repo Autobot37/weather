@@ -1,0 +1,15 @@
+{"time":"2025-05-26T16:45:08.642325212+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250526_164508-lj5474gr/logs/debug-core.log"}
+{"time":"2025-05-26T16:45:09.057859892+05:30","level":"INFO","msg":"created new stream","id":"lj5474gr"}
+{"time":"2025-05-26T16:45:09.057906514+05:30","level":"INFO","msg":"stream: started","id":"lj5474gr"}
+{"time":"2025-05-26T16:45:09.057934755+05:30","level":"INFO","msg":"sender: started","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:09.057946691+05:30","level":"INFO","msg":"handler: started","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:09.057979145+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:09.401911336+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-26T16:45:37.547290267+05:30","level":"INFO","msg":"stream: closing","id":"lj5474gr"}
+{"time":"2025-05-26T16:45:37.547364062+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-26T16:45:37.547415752+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-26T16:45:38.546628624+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-26T16:45:38.915596269+05:30","level":"INFO","msg":"handler: closed","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:38.915666565+05:30","level":"INFO","msg":"sender: closed","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:38.915644273+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"lj5474gr"}
+{"time":"2025-05-26T16:45:38.915820257+05:30","level":"INFO","msg":"stream: closed","id":"lj5474gr"}

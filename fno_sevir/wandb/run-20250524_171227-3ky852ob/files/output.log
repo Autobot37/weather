@@ -1,0 +1,20 @@
+Training
+Epoch 1/1 [Train]:   0%|                                                                                                  | 0/8929 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir.py", line 38, in <module>
+    for batch_idx, data in pbar:
+                           ^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "/home/vatsal/NWM/fno_sevir/fno_dataset.py", line 764, in __next__
+    ret_dict = self._sequent_sample()
+  File "/home/vatsal/NWM/fno_sevir/fno_dataset.py", line 985, in _sequent_sample
+    event_batch = self._load_event_batch(event_idx=start_event_idx,
+                                         event_batch_size=event_batch_size)
+  File "/home/vatsal/NWM/fno_sevir/fno_dataset.py", line 739, in _load_event_batch
+    data = self._read_data(row, data)
+  File "/home/vatsal/NWM/fno_sevir/fno_dataset.py", line 513, in _read_data
+    data_i = self._hdf_files[fname][t][idx:idx + 1, :, :, t_slice]
+             ~~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'vil/2017/SEVIR_VIL_RANDOMEVENTS_2017_0501_0831.h5'

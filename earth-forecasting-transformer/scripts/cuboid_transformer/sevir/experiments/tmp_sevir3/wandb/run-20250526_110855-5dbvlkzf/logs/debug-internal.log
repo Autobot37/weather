@@ -1,0 +1,15 @@
+{"time":"2025-05-26T11:08:55.526800946+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/earth-forecasting-transformer/scripts/cuboid_transformer/sevir/experiments/tmp_sevir3/wandb/run-20250526_110855-5dbvlkzf/logs/debug-core.log"}
+{"time":"2025-05-26T11:08:55.953509132+05:30","level":"INFO","msg":"created new stream","id":"5dbvlkzf"}
+{"time":"2025-05-26T11:08:55.953611037+05:30","level":"INFO","msg":"stream: started","id":"5dbvlkzf"}
+{"time":"2025-05-26T11:08:55.953646803+05:30","level":"INFO","msg":"sender: started","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:08:55.953659252+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:08:55.953736883+05:30","level":"INFO","msg":"handler: started","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:08:56.780783088+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-26T11:09:08.933621043+05:30","level":"INFO","msg":"stream: closing","id":"5dbvlkzf"}
+{"time":"2025-05-26T11:09:08.933708892+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-26T11:09:08.933821736+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-26T11:09:10.031071091+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-26T11:09:10.430937278+05:30","level":"INFO","msg":"handler: closed","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:09:10.431009326+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:09:10.431020221+05:30","level":"INFO","msg":"sender: closed","stream_id":"5dbvlkzf"}
+{"time":"2025-05-26T11:09:10.431122736+05:30","level":"INFO","msg":"stream: closed","id":"5dbvlkzf"}

@@ -1,0 +1,23 @@
+Epoch 1/10:   8%|███▋                                       | 757/8929 [01:38<17:43,  7.69it/s, Loss=0.0027, Recon=0.0022, KL=515.7215]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 258, in <module>
+    main()
+    ~~~~^^
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 246, in main
+    train_vae(vae_model, train_loader, val_loader, optimizer, NUM_EPOCHS)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 111, in train_vae
+    epoch_loss += total_loss.item()
+                  ~~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+Exception ignored in atexit callback <function _start_and_connect_service.<locals>.teardown_atexit at 0x7a37c95cbe20>:
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 1092, in join
+    self._handle.join(timeout)
+KeyboardInterrupt:

@@ -1,0 +1,7 @@
+{"time":"2025-05-25T11:10:48.577228087+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250525_111048-vsabckd8/logs/debug-core.log"}
+{"time":"2025-05-25T11:10:49.027847868+05:30","level":"INFO","msg":"created new stream","id":"vsabckd8"}
+{"time":"2025-05-25T11:10:49.027911585+05:30","level":"INFO","msg":"stream: started","id":"vsabckd8"}
+{"time":"2025-05-25T11:10:49.027936468+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"vsabckd8"}
+{"time":"2025-05-25T11:10:49.027971461+05:30","level":"INFO","msg":"sender: started","stream_id":"vsabckd8"}
+{"time":"2025-05-25T11:10:49.028024142+05:30","level":"INFO","msg":"handler: started","stream_id":"vsabckd8"}
+{"time":"2025-05-25T11:10:49.429303052+05:30","level":"INFO","msg":"Starting system monitor"}

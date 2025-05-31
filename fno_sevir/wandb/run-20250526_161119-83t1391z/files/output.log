@@ -1,0 +1,37 @@
+Epoch 2/10: 100%|██████████████████████████████████████████| 8929/8929 [26:01<00:00,  5.72it/s, Loss=0.0004, Recon=0.0002, KL=206.4103]
+Epoch 2: Loss=0.0021, Recon=0.0012, KL=847.3645
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_2.pth
+Validation Loss: 0.0019
+Epoch 3/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 3: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_3.pth
+Validation Loss: 0.0019
+Epoch 4/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 4: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_4.pth
+Validation Loss: 0.0022
+Epoch 5/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 5: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_5.pth
+Validation Loss: 0.0000
+Epoch 6/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 6: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_6.pth
+Validation Loss: 0.0000
+Epoch 7/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 7: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_7.pth
+Validation Loss: 0.0000
+Epoch 8/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 8: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_8.pth
+Validation Loss: 0.0000
+Epoch 9/10:   0%|                             | 0/8929 [00:00<?, ?it/s]
+Epoch 9: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_9.pth
+Validation Loss: 0.0000
+Epoch 10/10:   0%|                            | 0/8929 [00:00<?, ?it/s]
+Epoch 10: Loss=0.0000, Recon=0.0000, KL=0.0000
+Model saved: /home/vatsal/NWM/fno_sevir/vae_weights/vae_epoch_10.pth
+Validation Loss: 0.0000
+Running inference...

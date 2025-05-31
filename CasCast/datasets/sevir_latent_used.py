@@ -58,10 +58,12 @@ class sevir_latent(Dataset):
         file_path = os.path.join(self.data_dir, file)
         frame_data = np.load(file_path)
         tensor = torch.from_numpy(frame_data) / 255
+        # print(colored(f"min: {tensor.min().item()}, max: {tensor.max().item()}", 'green'))
         ## 1, h, w, t -> t, c, h, w
-        tensor = tensor.permute(3, 0, 1, 2)
+        tensor = tensor.unsqueeze(3)
+        tensor = tensor.permute(2, 3, 0, 1)
         return tensor
-
+    
     def __getitem__(self, index):
         file = self.file_list[index]
         gt_data = self._load_frames(file)[self.input_length:]

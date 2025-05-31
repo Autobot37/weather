@@ -1,0 +1,75 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+train data: 71436, valid data: 20, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 46.30M
+============ Running training ============
+    Num examples = 71436
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 71436
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.13024234771728516
+True
+gpu_nums: 1, gpu_id: 0
+Load checkpoint /home/vatsal/NWM/DiffCast/Exps/basic_exps/Difffno_sevir_None/checkpoints/ckpt-10000.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Difffno_sevir_None/checkpoints
+Epoch 0/1, Step 2/71436:   0%|                                                                                                     | 3/71436 [00:01<10:44:35,  1.85it/s, lr=9.6e-5, total_loss=0.0217]Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 575, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 564, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 410, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 485, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 952, in predict
+    loss = self._predict(frames_in, frames_gt)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 987, in _predict
+    _, noise_loss = self.p_losses(res, t, cond=cond, ctx=global_ctx if frag_idx > 0 else local_ctx, idx=torch.full((frames_in.shape[0],), frag_idx, device=frames_in.device, dtype=torch.long))
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 1001, in p_losses
+    model_out = self.model(x_t, t, cond=cond, ctx=ctx, idx=idx)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 581, in forward
+    x = self.final_res_block(x, t)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/DiffCast/models/diffcast.py", line 176, in forward
+    return h + self.res_conv(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 35.50 MiB is free. Process 95453 has 584.00 MiB memory in use. Including non-PyTorch memory, this process has 23.00 GiB memory in use. Of the allocated memory 21.97 GiB is allocated by PyTorch, and 567.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

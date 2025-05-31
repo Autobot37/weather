@@ -1,0 +1,16 @@
+{"time":"2025-05-25T11:31:58.065654221+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250525_113158-tcom3bq1/logs/debug-core.log"}
+{"time":"2025-05-25T11:31:58.488866659+05:30","level":"INFO","msg":"created new stream","id":"tcom3bq1"}
+{"time":"2025-05-25T11:31:58.488941759+05:30","level":"INFO","msg":"stream: started","id":"tcom3bq1"}
+{"time":"2025-05-25T11:31:58.488956909+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:31:58.489014332+05:30","level":"INFO","msg":"handler: started","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:31:58.489182371+05:30","level":"INFO","msg":"sender: started","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:31:58.891791462+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-25T11:38:42.224835478+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-25T11:38:42.22497333+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-25T11:38:43.227383979+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.130682871,"progress":"716B/716B"}],"total_operations":1}}
+{"time":"2025-05-25T11:38:43.435072703+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-25T11:38:43.789749878+05:30","level":"INFO","msg":"stream: closing","id":"tcom3bq1"}
+{"time":"2025-05-25T11:38:43.78976821+05:30","level":"INFO","msg":"handler: closed","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:38:43.789779651+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:38:43.789844056+05:30","level":"INFO","msg":"sender: closed","stream_id":"tcom3bq1"}
+{"time":"2025-05-25T11:38:43.789875748+05:30","level":"INFO","msg":"stream: closed","id":"tcom3bq1"}

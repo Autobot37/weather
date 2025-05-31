@@ -1,0 +1,16 @@
+{"time":"2025-05-28T21:11:13.701271287+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_211113-tfmtrgho/logs/debug-core.log"}
+{"time":"2025-05-28T21:11:14.118065157+05:30","level":"INFO","msg":"created new stream","id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:14.11813088+05:30","level":"INFO","msg":"stream: started","id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:14.11817982+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:14.118211704+05:30","level":"INFO","msg":"handler: started","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:14.118323037+05:30","level":"INFO","msg":"sender: started","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:14.483486167+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T21:11:39.777966715+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T21:11:39.77811376+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T21:11:40.782363152+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.694614037,"progress":"157B/157B"},{"desc":"uploading config.yaml","runtime_seconds":0.362901046,"progress":"1.4KB/1.4KB"}],"total_operations":2}}
+{"time":"2025-05-28T21:11:41.571865649+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T21:11:41.93982582+05:30","level":"INFO","msg":"stream: closing","id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:41.939853973+05:30","level":"INFO","msg":"handler: closed","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:41.939868396+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:41.93989547+05:30","level":"INFO","msg":"sender: closed","stream_id":"tfmtrgho"}
+{"time":"2025-05-28T21:11:41.939968643+05:30","level":"INFO","msg":"stream: closed","id":"tfmtrgho"}

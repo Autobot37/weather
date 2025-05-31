@@ -1,0 +1,21 @@
+Epoch 1/10:  25%|██████████▎                               | 2195/8929 [04:37<14:11,  7.91it/s, Loss=0.0031, Recon=0.0024, KL=656.7330]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 257, in <module>
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 245, in main
+    else:
+        ^
+  File "/home/vatsal/NWM/fno_sevir/vae.py", line 111, in train_vae
+    epoch_loss += total_loss.item()
+                  ~~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+Exception ignored in atexit callback <function _start_and_connect_service.<locals>.teardown_atexit at 0x7908d49cbec0>:
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/vatsal/miniconda3/lib/python3.13/threading.py", line 1092, in join
+    self._handle.join(timeout)
+KeyboardInterrupt:

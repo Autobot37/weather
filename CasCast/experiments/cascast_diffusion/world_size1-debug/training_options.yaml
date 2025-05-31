@@ -6,7 +6,7 @@ cuda: 0
 world_size: 1
 per_cpus: 2
 local_rank: 0
-init_method: tcp://127.0.0.1:16147
+init_method: tcp://127.0.0.1:39662
 outdir: ./experiments/cascast_diffusion
 cfg: ./configs/sevir_used/cascast_diffusion.yaml
 desc: debug

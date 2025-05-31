@@ -1,0 +1,73 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 71436, valid data: 16887, test_data: 4332
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 58.45M
+============ Running training ============
+    Num examples = 71436
+    Num Epochs = 1
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 71436
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.11576223373413086
+True
+gpu_nums: 1, gpu_id: 0
+Epoch 0/1, Step 122/71436:   0%| | 123/71436 [00:26<4:13:51,  4.68it/s, lr=1.23e-5, total_losTraceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 581, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 570, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 437, in train
+    self.optimizer.step()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/optimizer.py", line 149, in step
+    self.optimizer.step(closure)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 124, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 485, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 79, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 246, in step
+    adam(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 147, in maybe_fallback
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 933, in adam
+    func(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 595, in _multi_tensor_adam
+    grouped_tensors = Optimizer._group_tensors_by_device_and_dtype(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 514, in _group_tensors_by_device_and_dtype
+    return _group_tensors_by_device_and_dtype(tensorlistlist, with_indices)  # type: ignore[return-value, arg-type]
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/_foreach_utils.py", line 37, in _group_tensors_by_device_and_dtype
+    return torch._C._group_tensors_by_device_and_dtype(tensorlistlist, with_indices)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

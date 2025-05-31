@@ -1,0 +1,14 @@
+2025-05-31 17:34:59,292 train INFO: Building config ...
+2025-05-31 17:34:59,293 train INFO: Building dataloaders ...
+2025-05-31 17:34:59,293 train INFO: Valid dataloaders build complete
+2025-05-31 17:35:00,626 train INFO: Building models ...
+2025-05-31 17:35:04,433 train INFO: finetune checkpoint path not exist
+2025-05-31 17:35:04,454 train INFO: ####### noise scale: 1.0 ##########
+2025-05-31 17:35:04,498 train INFO: last epoch:11.0, metric best:0.003162863486452384
+2025-05-31 17:35:04,695 train INFO: [32mload autoencoder_kl model from ckpts/autoencoder/ckpt.pth[0m
+2025-05-31 17:35:04,695 train INFO: last epoch:22.94065054028852, metric best:8.824201591018594e-05
+2025-05-31 17:35:04,710 train INFO: ####### USE SCALE_FACTOR: 1.0 ##########
+2025-05-31 17:35:04,741 train INFO: last epoch:11.0, metric best:0.003162863486452384
+2025-05-31 17:35:05,168 train INFO: params casformer: 309246016
+2025-05-31 17:35:05,168 train INFO: params autoencoder_kl: 83649253
+2025-05-31 17:35:05,168 train INFO: begin training ...

@@ -10,7 +10,7 @@ import numpy as np
 import utils.misc as utils
 from tqdm.auto import tqdm
 import torch.distributed as dist
-
+from utils.metrics import SEVIRSkillScore
 import wandb
 
 from einops import rearrange
@@ -20,9 +20,11 @@ class latent_diffusion_model(basemodel):
         super().__init__(logger, **params)
         self.logger_print_time = False
         self.data_begin_time = time.time()
-
+        self.cfg_weight = params.get('cfg_weight', 2.0)
+        self.ens_member = params.get('ens_member', 1)
         self.diffusion_kwargs = params.get('diffusion_kwargs', {})
-
+        seq_len = params.get("sevir_seq_len", 12)
+        self.eval_metrics = SEVIRSkillScore(layout='NTCHW', seq_len=seq_len, dist_eval=False)
         ## init noise scheduler ##
         self.noise_scheduler_kwargs = self.diffusion_kwargs.get('noise_scheduler', {})
         self.noise_scheduler_type = list(self.noise_scheduler_kwargs.keys())[0]
@@ -345,7 +347,8 @@ class latent_diffusion_model(basemodel):
         if self.metrics_type == 'SEVIRSkillScore':
             self.scale_factor = 0.6786020398139954
         else:
-            raise NotImplementedError
+            self.metrics_type = 'SEVIRSkillScore'
+            self.scale_factor = 0.6786020398139954
         # set model to eval
         for key in self.model:
             self.model[key].eval()

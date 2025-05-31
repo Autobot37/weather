@@ -14,7 +14,7 @@ all_dirs = sorted(os.listdir(data_dir))
 
 train_dirs = all_dirs[:int(len(all_dirs)*TRAIN_TEST_SPLIT)]
 test_dirs = all_dirs[int(len(all_dirs)*TRAIN_TEST_SPLIT):]
-print(len(train_dirs), len(test_dirs))
+# print(len(train_dirs), len(test_dirs))
 
 h5_data = "data/to/path/shanghai.h5"
 

@@ -1,0 +1,26 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 71436, valid data: 16887, test_data: 4332
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+layer  0 input dim  64  hidden dim  128
+layer  1 input dim  128  hidden dim  128
+layer  2 input dim  128  hidden dim  64
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 577, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 564, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 120, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 281, in _build_model
+    from DiffCast.models.diffcast import get_model
+ModuleNotFoundError: No module named 'DiffCast'

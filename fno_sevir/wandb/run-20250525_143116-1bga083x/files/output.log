@@ -1,0 +1,39 @@
+Train dataset size: 922
+Test dataset size: 247
+Validation dataset size: 9634
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.46666669845581055, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Epoch 1/3 [Train]:   1%|█▏                                                                                                                             | 9/922 [00:03<05:29,  2.77it/s, Loss=0.0011]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 105, in <module>
+    predicted_frames = model(input_frames)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/models/fno.py", line 378, in forward
+    x = self.fno_blocks(x, layer_idx, output_shape=output_shape[layer_idx])
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/fno_block.py", line 277, in forward
+    return self.forward_with_postactivation(x, index, output_shape)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/fno_block.py", line 292, in forward_with_postactivation
+    x_fno = self.convs[index](x, output_shape=output_shape)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/spectral_convolution.py", line 468, in forward
+    out_fft[slices_x] = self._contract(x[slices_x], weight, separable=self.separable)
+                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/neuralop/layers/spectral_convolution.py", line 21, in _contract_dense
+    def _contract_dense(x, weight, separable=False):
+
+KeyboardInterrupt

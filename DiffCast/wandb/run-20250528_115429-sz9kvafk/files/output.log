@@ -1,0 +1,84 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 71436, valid data: 16887, test_data: 4332
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Main Model Parameters: 58.45M
+============ Running training ============
+    Num examples = 71436
+    Num Epochs = 2
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 142872
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.09747672080993652
+True
+gpu_nums: 1, gpu_id: 0
+Epoch 0/2, Step 13/71436:   0%| | 14/142872 [00:03<7:51:41,  5.05it/s, lr=1.4e-6, total_loss=Traceback (most recent call last):
+loss: 0.3256329298019409
+ ========= Running Sanity Check ==========
+predict() missing 1 required positional argument: 'frames_gt'
+Sanity Check Failed
+loss: 0.26479050517082214
+loss: 0.5677434206008911
+loss: 0.3361695110797882
+loss: 0.7388345003128052
+loss: 0.759924590587616
+loss: 0.8084093928337097
+loss: 0.5589974522590637
+loss: 0.6711902618408203
+loss: 0.3973463177680969
+loss: 0.48445987701416016
+loss: 0.4545244574546814
+loss: 0.20468534529209137
+loss: 0.14759165048599243
+loss: 0.15957605838775635
+  File "/home/vatsal/NWM/DiffCast/run.py", line 578, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in main
+    exp.train()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 434, in train
+    self.optimizer.step()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/optimizer.py", line 149, in step
+    self.optimizer.step(closure)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 124, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 485, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 79, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 246, in step
+    adam(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 147, in maybe_fallback
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 933, in adam
+    func(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 741, in _multi_tensor_adam
+    bias_correction2 = [
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 742, in <listcomp>
+    1 - beta2 ** _get_value(step) for step in device_state_steps
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 94, in _get_value
+    return x.item() if isinstance(x, torch.Tensor) else x
+KeyboardInterrupt

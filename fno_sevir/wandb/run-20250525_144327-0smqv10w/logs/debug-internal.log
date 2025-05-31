@@ -1,0 +1,16 @@
+{"time":"2025-05-25T14:43:27.156177562+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250525_144327-0smqv10w/logs/debug-core.log"}
+{"time":"2025-05-25T14:43:27.575551497+05:30","level":"INFO","msg":"created new stream","id":"0smqv10w"}
+{"time":"2025-05-25T14:43:27.575616094+05:30","level":"INFO","msg":"stream: started","id":"0smqv10w"}
+{"time":"2025-05-25T14:43:27.575654764+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"0smqv10w"}
+{"time":"2025-05-25T14:43:27.575677591+05:30","level":"INFO","msg":"sender: started","stream_id":"0smqv10w"}
+{"time":"2025-05-25T14:43:27.575797388+05:30","level":"INFO","msg":"handler: started","stream_id":"0smqv10w"}
+{"time":"2025-05-25T14:43:27.971088768+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-25T17:51:58.208291782+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-25T17:51:58.208587412+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-25T17:51:59.210937922+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.404762819,"progress":"6.1KB/6.1KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.404744796,"progress":"7.7KB/7.7KB"},{"desc":"uploading history steps 33-34, summary, console lines 25-27","runtime_seconds":0.371237542},{"desc":"uploading config.yaml","runtime_seconds":0.084003063,"progress":"716B/716B"}],"total_operations":4}}
+{"time":"2025-05-25T17:52:00.349643664+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-25T17:52:00.720455505+05:30","level":"INFO","msg":"stream: closing","id":"0smqv10w"}
+{"time":"2025-05-25T17:52:00.720495046+05:30","level":"INFO","msg":"handler: closed","stream_id":"0smqv10w"}
+{"time":"2025-05-25T17:52:00.720513585+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"0smqv10w"}
+{"time":"2025-05-25T17:52:00.720590655+05:30","level":"INFO","msg":"sender: closed","stream_id":"0smqv10w"}
+{"time":"2025-05-25T17:52:00.720652666+05:30","level":"INFO","msg":"stream: closed","id":"0smqv10w"}

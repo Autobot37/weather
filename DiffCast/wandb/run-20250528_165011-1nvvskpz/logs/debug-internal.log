@@ -1,0 +1,15 @@
+{"time":"2025-05-28T16:50:11.108259941+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_165011-1nvvskpz/logs/debug-core.log"}
+{"time":"2025-05-28T16:50:11.538535818+05:30","level":"INFO","msg":"created new stream","id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:11.538627173+05:30","level":"INFO","msg":"stream: started","id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:11.538652505+05:30","level":"INFO","msg":"handler: started","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:11.53870577+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:11.538650956+05:30","level":"INFO","msg":"sender: started","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:11.924261669+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T16:50:30.446982674+05:30","level":"INFO","msg":"stream: closing","id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:30.447021385+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T16:50:30.44708071+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T16:50:31.426175566+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T16:50:31.750182009+05:30","level":"INFO","msg":"handler: closed","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:31.750250593+05:30","level":"INFO","msg":"sender: closed","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:31.750247429+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"1nvvskpz"}
+{"time":"2025-05-28T16:50:31.750409083+05:30","level":"INFO","msg":"stream: closed","id":"1nvvskpz"}

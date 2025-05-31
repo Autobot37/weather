@@ -1,0 +1,7 @@
+{"time":"2025-05-24T17:36:06.06352277+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250524_173606-iuwsj7la/logs/debug-core.log"}
+{"time":"2025-05-24T17:36:06.495864149+05:30","level":"INFO","msg":"created new stream","id":"iuwsj7la"}
+{"time":"2025-05-24T17:36:06.495928267+05:30","level":"INFO","msg":"stream: started","id":"iuwsj7la"}
+{"time":"2025-05-24T17:36:06.495952162+05:30","level":"INFO","msg":"handler: started","stream_id":"iuwsj7la"}
+{"time":"2025-05-24T17:36:06.495996932+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"iuwsj7la"}
+{"time":"2025-05-24T17:36:06.495997324+05:30","level":"INFO","msg":"sender: started","stream_id":"iuwsj7la"}
+{"time":"2025-05-24T17:36:06.847827705+05:30","level":"INFO","msg":"Starting system monitor"}

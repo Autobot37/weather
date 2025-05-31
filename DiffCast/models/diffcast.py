@@ -195,7 +195,7 @@ class LinearAttention(nn.Module):
 
         q = q.softmax(dim = -2)
         k = k.softmax(dim = -1)
-
+        
         q = q * self.scale
 
         context = torch.einsum('b h d n, b h e n -> b h d e', k, v)
@@ -372,6 +372,7 @@ class ConvGRUCell(nn.Module):
 
 
 # model
+# globalnet -> provides prior to the diffusion model
 class ContextNet(nn.Module):
     def __init__(
         self,
@@ -1052,23 +1053,24 @@ def main():
         img_channels=1,
         dim=64,
         dim_mults=(1, 2, 4, 8),
-        T_in=5,
-        T_out=20,
+        T_in=10,
+        T_out=10,
     )
     from models.simvp import get_model as gm
     kwargs = {
-        "in_shape": (1, 64, 64),
-        "T_in": 5,
-        "T_out": 20,
+        "in_shape": (1, 480, 480),
+        "T_in": 10,
+        "T_out": 10,
     }
 
     backbone_net = gm(**kwargs)
+
     diff_model.load_backbone(backbone_net)
 
-    inp = torch.randn(2, 5, 1, 64, 64)
-    gt = torch.randn(2, 20, 1, 64, 64)
-    pred, loss = diff_model.predict(inp, gt, compute_loss=True)
-    print(f"Loss: {loss.item()}")
-
+    inp = torch.randn(2, 10, 1, 32, 32)
+    gt = torch.randn(2, 10, 1, 32, 32)
+    pred, loss = diff_model.predict(inp, gt, compute_loss=False)
+    # print(f"Loss: {loss.item()}")
+    print(pred.shape)
 if __name__ == "__main__":
     main()

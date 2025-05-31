@@ -1,0 +1,15 @@
+{"time":"2025-05-25T11:19:06.895490103+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250525_111906-t8wk5v34/logs/debug-core.log"}
+{"time":"2025-05-25T11:19:07.324722923+05:30","level":"INFO","msg":"created new stream","id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:07.324783106+05:30","level":"INFO","msg":"stream: started","id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:07.324868329+05:30","level":"INFO","msg":"handler: started","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:07.324942257+05:30","level":"INFO","msg":"sender: started","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:07.324979847+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:07.677763168+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-25T11:19:17.353563645+05:30","level":"INFO","msg":"stream: closing","id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:17.353637594+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-25T11:19:17.353724495+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-25T11:19:18.35465619+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-25T11:19:18.716199124+05:30","level":"INFO","msg":"handler: closed","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:18.716233807+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:18.716249454+05:30","level":"INFO","msg":"sender: closed","stream_id":"t8wk5v34"}
+{"time":"2025-05-25T11:19:18.716382497+05:30","level":"INFO","msg":"stream: closed","id":"t8wk5v34"}

@@ -1,0 +1,15 @@
+{"time":"2025-05-29T12:48:19.389659497+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250529_124819-jndooq20/logs/debug-core.log"}
+{"time":"2025-05-29T12:48:19.803812021+05:30","level":"INFO","msg":"created new stream","id":"jndooq20"}
+{"time":"2025-05-29T12:48:19.803885068+05:30","level":"INFO","msg":"stream: started","id":"jndooq20"}
+{"time":"2025-05-29T12:48:19.803923071+05:30","level":"INFO","msg":"handler: started","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:19.803939649+05:30","level":"INFO","msg":"sender: started","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:19.803986818+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:20.130833415+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-29T12:48:38.797559654+05:30","level":"INFO","msg":"stream: closing","id":"jndooq20"}
+{"time":"2025-05-29T12:48:38.79763129+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-29T12:48:38.797675904+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-29T12:48:40.388303881+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-29T12:48:40.709894847+05:30","level":"INFO","msg":"handler: closed","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:40.709959864+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:40.709983371+05:30","level":"INFO","msg":"sender: closed","stream_id":"jndooq20"}
+{"time":"2025-05-29T12:48:40.710049343+05:30","level":"INFO","msg":"stream: closed","id":"jndooq20"}

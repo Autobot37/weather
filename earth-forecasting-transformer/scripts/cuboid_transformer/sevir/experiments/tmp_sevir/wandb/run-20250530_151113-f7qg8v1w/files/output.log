@@ -1,0 +1,30 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Global seed set to 0
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: Detected KeyboardInterrupt, attempting graceful shutdown...
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/vatsal/NWM/earth-forecasting-transformer/scripts/cuboid_transformer/sevir/train_cuboid_sevir.py", line 897, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/vatsal/NWM/earth-forecasting-transformer/scripts/cuboid_transformer/sevir/train_cuboid_sevir.py", line 889, in main
+[rank0]:     state_dict = pl_ckpt_to_pytorch_state_dict(checkpoint_path=trainer.checkpoint_callback.best_model_path,
+[rank0]:   File "/home/vatsal/NWM/earth-forecasting-transformer/src/earthformer/utils/checkpoint.py", line 108, in pl_ckpt_to_pytorch_state_dict
+[rank0]:     checkpoint = pl_load(checkpoint_path, map_location=map_location)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning_fabric/utilities/cloud_io.py", line 59, in _load
+[rank0]:     with fs.open(path_or_url, "rb") as f:
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/fsspec/spec.py", line 1293, in open
+[rank0]:     f = self._open(
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/fsspec/implementations/local.py", line 197, in _open
+[rank0]:     return LocalFileOpener(path, mode, fs=self, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/fsspec/implementations/local.py", line 322, in __init__
+[rank0]:     self._open()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/fsspec/implementations/local.py", line 327, in _open
+[rank0]:     self.f = open(self.path, mode=self.mode)
+[rank0]: IsADirectoryError: [Errno 21] Is a directory: '/home/vatsal/NWM/earth-forecasting-transformer/scripts/cuboid_transformer/sevir/'

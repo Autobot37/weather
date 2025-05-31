@@ -1,0 +1,52 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 554, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 119, in __init__
+    self._load_data()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 194, in _load_data
+    train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
+  File "/home/vatsal/NWM/DiffCast/datasets/get_datasets.py", line 177, in get_dataset
+    test = SEVIRTorchDataset(
+  File "/home/vatsal/NWM/DiffCast/datasets/dataset_sevir.py", line 968, in __init__
+    self.sevir_dataloader = SEVIRDataLoader(
+  File "/home/vatsal/NWM/DiffCast/datasets/dataset_sevir.py", line 336, in __init__
+    self._compute_samples()
+  File "/home/vatsal/NWM/DiffCast/datasets/dataset_sevir.py", line 353, in _compute_samples
+    self._samples = filtcat.groupby('id').apply(lambda df: self._df_to_series(df,imgt) )
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/groupby.py", line 1353, in apply
+    result = self._python_apply_general(f, self._selected_obj)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/groupby.py", line 1402, in _python_apply_general
+    values, mutated = self.grouper.apply(f, data, self.axis)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 767, in apply
+    res = f(group)
+  File "/home/vatsal/NWM/DiffCast/datasets/dataset_sevir.py", line 353, in <lambda>
+    self._samples = filtcat.groupby('id').apply(lambda df: self._df_to_series(df,imgt) )
+  File "/home/vatsal/NWM/DiffCast/datasets/dataset_sevir.py", line 362, in _df_to_series
+    df = df.set_index('img_type')
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/frame.py", line 5926, in set_index
+    index._cleanup()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 818, in _cleanup
+    self._engine.clear_mapping()
+  File "pandas/_libs/properties.pyx", line 36, in pandas._libs.properties.CachedProperty.__get__
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 825, in _engine
+    target_values = self._get_engine_target()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 4974, in _get_engine_target
+    and isinstance(self._values, ExtensionArray)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

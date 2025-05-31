@@ -67,4 +67,6 @@ class sevir_latent(Dataset):
         coarse_latent_data = self._load_latent_frames(file, datasource=self.latent_deterministic_dir)
         packed_results = dict()
         packed_results['inputs'] = coarse_latent_data
+        real_latent_data = self._load_latent_frames(file, datasource=self.latent_gt_dir)
+        packed_results['targets'] = real_latent_data      
         return packed_results

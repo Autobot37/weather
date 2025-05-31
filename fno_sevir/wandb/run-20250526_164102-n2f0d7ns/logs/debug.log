@@ -1,0 +1,60 @@
+2025-05-26 16:41:02,357 INFO    MainThread:295334 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_setup.py:_flush():70] Configure stats pid to 295334
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/.config/wandb/settings
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/NWM/fno_sevir/wandb/settings
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/vatsal/NWM/fno_sevir/wandb/run-20250526_164102-n2f0d7ns/logs/debug.log
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/vatsal/NWM/fno_sevir/wandb/run-20250526_164102-n2f0d7ns/logs/debug-internal.log
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:init():852] calling init triggers
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.0001, 'epochs': 10, 'batch_size': 4, 'kl_weight': 1e-06, '_wandb': {}}
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:init():893] starting backend
+2025-05-26 16:41:02,358 INFO    MainThread:295334 [wandb_init.py:init():897] sending inform_init request
+2025-05-26 16:41:02,363 INFO    MainThread:295334 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-26 16:41:02,363 INFO    MainThread:295334 [wandb_init.py:init():907] backend started and connected
+2025-05-26 16:41:02,365 INFO    MainThread:295334 [wandb_init.py:init():1005] updated telemetry
+2025-05-26 16:41:02,372 INFO    MainThread:295334 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-05-26 16:41:03,135 INFO    MainThread:295334 [wandb_init.py:init():1104] starting run threads in backend
+2025-05-26 16:41:03,244 WARNING MainThread:295334 [wandb_init.py:init():1681] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/wandb_init.py", line 1677, in init
+    return wi.init(run_settings, run_config, run_printer)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/wandb_init.py", line 1149, in init
+    run._on_start()
+    ~~~~~~~~~~~~~^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 2602, in _on_start
+    self._backend.interface.publish_python_packages(working_set())
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/sdk/interface/interface.py", line 345, in publish_python_packages
+    for pkg in working_set:
+               ^^^^^^^^^^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/wandb/util.py", line 1941, in working_set
+    yield InstalledDistribution(key=d.metadata["Name"], version=d.version)
+                                                                ^^^^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/importlib/metadata/__init__.py", line 486, in version
+    return self.metadata['Version']
+           ^^^^^^^^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/importlib/metadata/__init__.py", line 471, in metadata
+    return _adapters.Message(email.message_from_string(text))
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/__init__.py", line 37, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/parser.py", line 64, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/parser.py", line 53, in parse
+    feedparser.feed(data)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/feedparser.py", line 176, in feed
+    self._call_parse()
+    ~~~~~~~~~~~~~~~~^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/feedparser.py", line 180, in _call_parse
+    self._parse()
+    ~~~~~~~~~~~^^
+  File "/home/vatsal/miniconda3/lib/python3.13/email/feedparser.py", line 469, in _parsegen
+    lines.append(line)
+    ~~~~~~~~~~~~^^^^^^
+KeyboardInterrupt
+2025-05-26 16:41:04,147 INFO    MsgRouterThr:295334 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 0 handles.

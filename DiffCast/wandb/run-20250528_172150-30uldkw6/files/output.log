@@ -1,0 +1,56 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 71436, valid data: 16887, test_data: 4332
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+layer  0 input dim  64  hidden dim  128
+layer  1 input dim  128  hidden dim  128
+layer  2 input dim  128  hidden dim  64
+Main Model Parameters: 49.41M
+============ Running training ============
+    Num examples = 71436
+    Num Epochs = 2
+    Instantaneous batch size per GPU = 1
+    Total train batch size (w. parallel, distributed & accumulation) = 1
+    Total optimization steps = 142872
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.13657784461975098
+True
+gpu_nums: 1, gpu_id: 0
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 577, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 564, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 141, in __init__
+    self.load(self.args.ckpt_milestone)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 391, in load
+    model.load_state_dict(data['model'])
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 2593, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for GaussianDiffusion:
+	size mismatch for model.init_conv.weight: copying a param with shape torch.Size([64, 10, 7, 7]) from checkpoint, the shape in current model is torch.Size([64, 24, 7, 7]).
+	size mismatch for model.final_conv.weight: copying a param with shape torch.Size([5, 64, 1, 1]) from checkpoint, the shape in current model is torch.Size([12, 64, 1, 1]).
+	size mismatch for model.final_conv.bias: copying a param with shape torch.Size([5]) from checkpoint, the shape in current model is torch.Size([12]).

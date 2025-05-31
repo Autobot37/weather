@@ -1,0 +1,27 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 71436, valid data: 16887, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 576, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 563, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 120, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 281, in _build_model
+    model.load_state_dict(torch.load("/home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffearthformer_sevir_None/checkpoints/ckpt-10000.pt", weights_only=True))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 2593, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for GaussianDiffusion:
+	Missing key(s) in state_dict: "betas", "alphas_cumprod", "alphas_cumprod_prev", "sqrt_alphas_cumprod", "sqrt_one_minus_alphas_cumprod", "log_one_minus_alphas_cumprod", "sqrt_recip_alphas_cumprod", "sqrt_recipm1_alphas_cumprod", "posterior_variance", "posterior_log_variance_clipped", "posterior_mean_coef1", "posterior_mean_coef2", "loss_weight", "model.init_conv.weight", "model.init_conv.bias", "model.time_mlp.1.weight", "model.time_mlp.1.bias", "model.time_mlp.3.weight", "model.time_mlp.3.bias", "model.frag_idx_mlp.1.weight", "model.frag_idx_mlp.1.bias", "model.frag_idx_mlp.3.weight", "model.frag_idx_mlp.3.bias", "model.downs.0.0.mlp.1.weight", "model.downs.0.0.mlp.1.bias", "model.downs.0.0.block1.proj.weight", "model.downs.0.0.block1.proj.bias", "model.downs.0.0.block1.norm.weight", "model.downs.0.0.block1.norm.bias", "model.downs.0.0.block2.proj.weight", "model.downs.0.0.block2.proj.bias", "model.downs.0.0.block2.norm.weight", "model.downs.0.0.block2.norm.bias", "model.downs.0.0.res_conv.weight", "model.downs.0.0.res_conv.bias", "model.downs.0.1.mlp.1.weight", "model.downs.0.1.mlp.1.bias", "model.downs.0.1.block1.proj.weight", "model.downs.0.1.block1.proj.bias", "model.downs.0.1.block1.norm.weight", "model.downs.0.1.block1.norm.bias", "model.downs.0.1.block2.proj.weight", "model.downs.0.1.block2.proj.bias", "model.downs.0.1.block2.norm.weight", "model.downs.0.1.block2.norm.bias", "model.downs.0.2.fn.fn.proj_1.weight", "model.downs.0.2.fn.fn.proj_1.bias", "model.downs.0.2.fn.fn.spatial_gating_unit.conv0.weight", "model.downs.0.2.fn.fn.spatial_gating_unit.conv0.bias", "model.downs.0.2.fn.fn.spatial_gating_unit.conv_spatial.weight", "model.downs.0.2.fn.fn.spatial_gating_unit.conv_spatial.bias", "model.downs.0.2.fn.fn.spatial_gating_unit.conv1.weight", "model.downs.0.2.fn.fn.spatial_gating_unit.conv1.bias", "model.downs.0.2.fn.fn.spatial_gating_unit.fc.0.weight", "model.downs.0.2.fn.fn.spatial_gating_unit.fc.2.weight", "model.downs.0.2.fn.fn.proj_2.weight", "model.downs.0.2.fn.fn.proj_2.bias", "model.downs.0.2.fn.norm.g", "model.downs.0.3.1.weight", "model.downs.0.3.1.bias", "model.downs.1.0.mlp.1.weight", "model.downs.1.0.mlp.1.bias", "model.downs.1.0.block1.proj.weight", "model.downs.1.0.block1.proj.bias", "model.downs.1.0.block1.norm.weight", "model.downs.1.0.block1.norm.bias", "model.downs.1.0.block2.proj.weight", "model.downs.1.0.block2.proj.bias", "model.downs.1.0.block2.norm.weight", "model.downs.1.0.block2.norm.bias", "model.downs.1.0.res_conv.weight", "model.downs.1.0.res_conv.bias", "model.downs.1.1.mlp.1.weight", "model.downs.1.1.mlp.1.bias", "model.downs.1.1.block1.proj.weight", "model.downs.1.1.block1.proj.bias", "model.downs.1.1.block1.norm.weight", "model.downs.1.1.block1.norm.bias", "model.downs.1.1.block2.proj.weight", "model.downs.1.1.block2.proj.bias", "model.downs.1.1.block2.norm.weight", "model.downs.1.1.block2.norm.bias", "model.downs.1.2.fn.fn.proj_1.weight", "model.downs.1.2.fn.fn.proj_1.bias", "model.downs.1.2.fn.fn.spatial_gating_unit.conv0.weight", "model.downs.1.2.fn.fn.spatial_gating_unit.conv0.bias", "model.downs.1.2.fn.fn.spatial_gating_unit.conv_spatial.weight", "model.downs.1.2.fn.fn.spatial_gating_unit.conv_spatial.bias", "model.downs.1.2.fn.fn.spatial_gating_unit.conv1.weight", "model.downs.1.2.fn.fn.spatial_gating_unit.conv1.bias", "model.downs.1.2.fn.fn.spatial_gating_unit.fc.0.weight", "model.downs.1.2.fn.fn.spatial_gating_unit.fc.2.weight", "model.downs.1.2.fn.fn.proj_2.weight", "model.downs.1.2.fn.fn.proj_2.bias", "model.downs.1.2.fn.norm.g", "model.downs.1.3.1.weight", "model.downs.1.3.1.bias", "model.downs.2.0.mlp.1.weight", "model.downs.2.0.mlp.1.bias", "model.downs.2.0.block1.proj.weight", "model.downs.2.0.block1.proj.bias", "model.downs.2.0.block1.norm.weight", "model.downs.2.0.block1.norm.bias", "model.downs.2.0.block2.proj.weight", "model.downs.2.0.block2.proj.bias", "model.downs.2.0.block2.norm.weight", "model.downs.2.0.block2.norm.bias", "model.downs.2.0.res_conv.weight", "model.downs.2.0.res_conv.bias", "model.downs.2.1.mlp.1.weight", "model.downs.2.1.mlp.1.bias", "model.d
+	Unexpected key(s) in state_dict: "step", "epoch", "model", "ema", "opt", "scheduler".

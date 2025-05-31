@@ -1,0 +1,12 @@
+Train dataset size: 1383
+Test dataset size: 371
+Validation dataset size: 13246
+Sample shape: torch.Size([4, 384, 384, 8]), dtype: torch.float32. maximum value: 0.9568628072738647, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 8]), dtype: torch.float32. maximum value: 0.46666669845581055, minimum value: 0.0
+Sample shape: torch.Size([4, 384, 384, 8]), dtype: torch.float32. maximum value: 0.9960784912109375, minimum value: 0.0
+Epoch 1/3 [Train]:   0%|                                                                                                                                                   | 0/1383 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 101, in <module>
+    assert vil_sequence.shape[1] == 20, f"Expected 10 channels, got {vil_sequence.shape[1]}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected 10 channels, got 8

@@ -27,9 +27,6 @@ python -u train.py \
 --world_size $gpus \
 --per_cpus $cpus \
 --tensor_model_parallel_size 1 \
---outdir './experiments' \
---desc  'debug' \
---debug
-#
+--outdir './experiments' 
 sleep 2
 rm -f batchscript-*

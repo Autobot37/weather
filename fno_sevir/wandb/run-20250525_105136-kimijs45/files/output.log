@@ -1,0 +1,36 @@
+Train dataset size: 1383
+Test dataset size: 990
+Validation dataset size: 9634
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32, device: cpu
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32, device: cpu
+Sample shape: torch.Size([4, 384, 384, 20]), dtype: torch.float32, device: cpu
+Epoch 1/5 [Train]:   1%|▋                                                                                                                             | 8/1383 [00:03<08:38,  2.65it/s, Loss=0.0166]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/fno_sevir/fno_sevir2.py", line 105, in <module>
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/vatsal/NWM/SSBware/senv/lib/python3.13/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 576.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 385.50 MiB is free. Process 64975 has 11.54 GiB memory in use. Including non-PyTorch memory, this process has 11.68 GiB memory in use. Of the allocated memory 8.81 GiB is allocated by PyTorch, and 2.40 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

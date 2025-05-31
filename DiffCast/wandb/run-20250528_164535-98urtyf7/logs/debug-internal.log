@@ -1,0 +1,15 @@
+{"time":"2025-05-28T16:45:35.428762606+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_164535-98urtyf7/logs/debug-core.log"}
+{"time":"2025-05-28T16:45:35.842802634+05:30","level":"INFO","msg":"created new stream","id":"98urtyf7"}
+{"time":"2025-05-28T16:45:35.842855227+05:30","level":"INFO","msg":"stream: started","id":"98urtyf7"}
+{"time":"2025-05-28T16:45:35.842907748+05:30","level":"INFO","msg":"sender: started","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:35.842893408+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:35.842922754+05:30","level":"INFO","msg":"handler: started","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:36.260107623+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T16:45:56.401561137+05:30","level":"INFO","msg":"stream: closing","id":"98urtyf7"}
+{"time":"2025-05-28T16:45:56.402197156+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T16:45:56.402267853+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T16:45:57.331255596+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T16:45:57.648829949+05:30","level":"INFO","msg":"handler: closed","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:57.64890679+05:30","level":"INFO","msg":"sender: closed","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:57.648907109+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"98urtyf7"}
+{"time":"2025-05-28T16:45:57.64904463+05:30","level":"INFO","msg":"stream: closed","id":"98urtyf7"}

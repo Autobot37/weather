@@ -1,0 +1,16 @@
+{"time":"2025-05-24T18:52:50.238994587+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/fno_sevir/wandb/run-20250524_185250-a743aqvj/logs/debug-core.log"}
+{"time":"2025-05-24T18:52:50.674987264+05:30","level":"INFO","msg":"created new stream","id":"a743aqvj"}
+{"time":"2025-05-24T18:52:50.675031127+05:30","level":"INFO","msg":"stream: started","id":"a743aqvj"}
+{"time":"2025-05-24T18:52:50.675063701+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:52:50.675076964+05:30","level":"INFO","msg":"sender: started","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:52:50.675098623+05:30","level":"INFO","msg":"handler: started","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:52:51.076470193+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-24T18:54:51.18090949+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-24T18:54:51.181003737+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-24T18:54:52.183615612+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.409414216,"progress":"909B/909B"},{"desc":"uploading summary, console lines 1-7","runtime_seconds":0.351588009},{"desc":"uploading config.yaml","runtime_seconds":0.073195204,"progress":"716B/716B"}],"total_operations":3}}
+{"time":"2025-05-24T18:54:52.490207565+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-24T18:54:52.846708041+05:30","level":"INFO","msg":"stream: closing","id":"a743aqvj"}
+{"time":"2025-05-24T18:54:52.846744698+05:30","level":"INFO","msg":"handler: closed","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:54:52.846765597+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:54:52.846788481+05:30","level":"INFO","msg":"sender: closed","stream_id":"a743aqvj"}
+{"time":"2025-05-24T18:54:52.846901746+05:30","level":"INFO","msg":"stream: closed","id":"a743aqvj"}

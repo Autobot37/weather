@@ -1,0 +1,16 @@
+{"time":"2025-05-29T10:15:25.156591942+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250529_101525-k3wreyfn/logs/debug-core.log"}
+{"time":"2025-05-29T10:15:25.565140863+05:30","level":"INFO","msg":"created new stream","id":"k3wreyfn"}
+{"time":"2025-05-29T10:15:25.565202228+05:30","level":"INFO","msg":"stream: started","id":"k3wreyfn"}
+{"time":"2025-05-29T10:15:25.565315641+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T10:15:25.565406168+05:30","level":"INFO","msg":"handler: started","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T10:15:25.565473526+05:30","level":"INFO","msg":"sender: started","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T10:15:25.961634361+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-29T11:02:49.27207622+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-29T11:02:49.272164286+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-29T11:02:50.275093371+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.427419469,"progress":"1.6KB/1.6KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.427396653,"progress":"143B/143B"},{"desc":"uploading config.yaml","runtime_seconds":0.144591583,"progress":"1.4KB/1.4KB"}],"total_operations":3}}
+{"time":"2025-05-29T11:02:51.453243442+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-29T11:02:51.789509061+05:30","level":"INFO","msg":"stream: closing","id":"k3wreyfn"}
+{"time":"2025-05-29T11:02:51.78953405+05:30","level":"INFO","msg":"handler: closed","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T11:02:51.78954827+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T11:02:51.789578672+05:30","level":"INFO","msg":"sender: closed","stream_id":"k3wreyfn"}
+{"time":"2025-05-29T11:02:51.789633032+05:30","level":"INFO","msg":"stream: closed","id":"k3wreyfn"}

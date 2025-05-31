@@ -1,0 +1,16 @@
+{"time":"2025-05-28T12:11:02.103067034+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_121102-bjtklrcr/logs/debug-core.log"}
+{"time":"2025-05-28T12:11:02.509580398+05:30","level":"INFO","msg":"created new stream","id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:02.509664008+05:30","level":"INFO","msg":"stream: started","id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:02.509706303+05:30","level":"INFO","msg":"sender: started","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:02.509714725+05:30","level":"INFO","msg":"handler: started","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:02.509752606+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:02.876630586+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T12:11:34.854143343+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T12:11:34.854226885+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T12:11:35.857618923+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.444998046,"progress":"2.1KB/2.1KB"},{"desc":"uploading config.yaml","runtime_seconds":0.165144687,"progress":"1.4KB/1.4KB"}],"total_operations":2}}
+{"time":"2025-05-28T12:11:36.083670242+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T12:11:36.456907681+05:30","level":"INFO","msg":"stream: closing","id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:36.456933156+05:30","level":"INFO","msg":"handler: closed","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:36.456946289+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:36.457023706+05:30","level":"INFO","msg":"sender: closed","stream_id":"bjtklrcr"}
+{"time":"2025-05-28T12:11:36.457068887+05:30","level":"INFO","msg":"stream: closed","id":"bjtklrcr"}

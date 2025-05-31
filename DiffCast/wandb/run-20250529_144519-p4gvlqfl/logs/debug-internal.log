@@ -1,0 +1,7 @@
+{"time":"2025-05-29T14:45:19.16097203+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250529_144519-p4gvlqfl/logs/debug-core.log"}
+{"time":"2025-05-29T14:45:19.581451689+05:30","level":"INFO","msg":"created new stream","id":"p4gvlqfl"}
+{"time":"2025-05-29T14:45:19.581545931+05:30","level":"INFO","msg":"stream: started","id":"p4gvlqfl"}
+{"time":"2025-05-29T14:45:19.58158539+05:30","level":"INFO","msg":"handler: started","stream_id":"p4gvlqfl"}
+{"time":"2025-05-29T14:45:19.581595325+05:30","level":"INFO","msg":"sender: started","stream_id":"p4gvlqfl"}
+{"time":"2025-05-29T14:45:19.581757433+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"p4gvlqfl"}
+{"time":"2025-05-29T14:45:19.917783702+05:30","level":"INFO","msg":"Starting system monitor"}

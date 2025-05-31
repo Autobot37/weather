@@ -1,0 +1,23 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 10000, valid data: 16887, test_data: 100
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 567, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 554, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 120, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 263, in _build_model
+    model = FNOModel(in_channels=self.args.frames_in, out_channels=self.args.frames_out).to("cuda:0")
+AttributeError: 'FNOModel' object has no attribute 'to'

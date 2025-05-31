@@ -1,0 +1,23 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+train data: 10000, valid data: 4221, test_data: 100
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/DiffCast/run.py", line 578, in <module>
+    main()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 565, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/DiffCast/run.py", line 120, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/DiffCast/run.py", line 260, in _build_model
+    model = get_model(**kwargs)
+TypeError: get_model() got an unexpected keyword argument 'device'

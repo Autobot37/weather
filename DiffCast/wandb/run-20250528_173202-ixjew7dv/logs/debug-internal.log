@@ -1,0 +1,16 @@
+{"time":"2025-05-28T17:32:02.724382357+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/DiffCast/wandb/run-20250528_173202-ixjew7dv/logs/debug-core.log"}
+{"time":"2025-05-28T17:32:03.144289947+05:30","level":"INFO","msg":"created new stream","id":"ixjew7dv"}
+{"time":"2025-05-28T17:32:03.144381464+05:30","level":"INFO","msg":"stream: started","id":"ixjew7dv"}
+{"time":"2025-05-28T17:32:03.144416579+05:30","level":"INFO","msg":"handler: started","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T17:32:03.144438704+05:30","level":"INFO","msg":"sender: started","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T17:32:03.144497377+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T17:32:03.502964796+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-28T18:00:33.447306808+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-28T18:00:33.447408835+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-28T18:00:34.45065107+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.396478874,"progress":"15.5KB/15.5KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.396463188,"progress":"142B/142B"},{"desc":"uploading history steps 9918-9999, summary, console lines 447-448","runtime_seconds":0.136287355},{"desc":"uploading config.yaml","runtime_seconds":0.102882366,"progress":"1.4KB/1.4KB"}],"total_operations":4}}
+{"time":"2025-05-28T18:00:35.648508016+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-28T18:00:36.038169044+05:30","level":"INFO","msg":"stream: closing","id":"ixjew7dv"}
+{"time":"2025-05-28T18:00:36.038207328+05:30","level":"INFO","msg":"handler: closed","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T18:00:36.038227273+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T18:00:36.038307315+05:30","level":"INFO","msg":"sender: closed","stream_id":"ixjew7dv"}
+{"time":"2025-05-28T18:00:36.038372596+05:30","level":"INFO","msg":"stream: closed","id":"ixjew7dv"}
