@@ -30,11 +30,11 @@ class sevir_preprocess(Dataset):
 
     def _init_file_list(self, split):
         if split == 'train':
-            txt_path = 'datasets/sevir_list/train.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/train.txt'
         elif split == 'valid':
-            txt_path = 'datasets/sevir_list/val.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/val.txt'
         elif split == 'test':
-            txt_path = 'datasets/sevir_list/test.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/test.txt'
         files = []
         with open(f'{txt_path}', 'r') as file:
             for line in file.readlines():
@@ -46,10 +46,14 @@ class sevir_preprocess(Dataset):
 
     def _load_frames(self, file):
         file_path = os.path.join(self.data_dir, file)
+        from termcolor import colored
+        # print(colored(f'loading {file_path}', 'red'))
         frame_data = np.load(file_path)
         tensor = torch.from_numpy(frame_data) / 255
+        # print(colored(f"min: {tensor.min().item()}, max: {tensor.max().item()}", 'green'))
         ## 1, h, w, t -> t, c, h, w
-        tensor = tensor.permute(3, 0, 1, 2)
+        tensor = tensor.unsqueeze(3)
+        tensor = tensor.permute(2, 3, 0, 1)
         return tensor
 
 
@@ -59,5 +63,5 @@ class sevir_preprocess(Dataset):
         packed_results = dict()
         packed_results['inputs'] = frame_data[:self.input_length]
         packed_results['data_samples'] = frame_data[self.input_length:self.input_length+self.pred_length]
-        packed_results['file_name'] = file
+        packed_results['file_name'] =  os.path.join(self.data_dir, file)
         return packed_results

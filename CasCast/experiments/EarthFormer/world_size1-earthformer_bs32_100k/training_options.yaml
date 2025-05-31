@@ -6,7 +6,7 @@ cuda: 0
 world_size: 1
 per_cpus: 2
 local_rank: 0
-init_method: tcp://127.0.0.1:55052
+init_method: tcp://127.0.0.1:27638
 outdir: ./experiments/EarthFormer
 cfg: ./configs/sevir_used/EarthFormer.yaml
 desc: earthformer_bs32_100k
@@ -58,7 +58,7 @@ trainer:
   valid_batch_size: 2
   train_batch_size: 2
   test_batch_size: 2
-  max_epoch: 1
+  max_epoch: 100
   max_step: 100000
 model:
   type: non_ar_model
@@ -90,10 +90,10 @@ model:
       EarthFormer_xy:
         by_step: true
         sched: cosine
-        epochs: 1
+        epochs: 100
         min_lr: 1.0e-05
         warmup_lr: 1.0e-05
-        warmup_epochs: 0.1
+        warmup_epochs: 1
         lr_noise: null
         cooldown_epochs: 0
     extra_params:

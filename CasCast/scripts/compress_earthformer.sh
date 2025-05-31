@@ -4,7 +4,7 @@ gpus=1
 node_num=1
 single_gpus=`expr $gpus / $node_num`
 
-cpus=13
+cpus=2
 
 # export NCCL_IB_DISABLE=1
 # export NCCL_SOCKET_IFNAME=eth0
@@ -19,15 +19,13 @@ do
 done
 echo $PORT
 
-# export TORCH_DISTRIBUTED_DEBUG=DETAIL
-
-srun -p ai4earth --kill-on-bad-exit=1  --quotatype=reserved --ntasks-per-node=$single_gpus --time=43200 --cpus-per-task=$cpus -N $node_num -o train_job/%j.out  --gres=gpu:$single_gpus --async  python -u latent_preprocess.py \
+python -u latent_preprocess.py \
 --init_method 'tcp://127.0.0.1:'$PORT \
 -c ./configs/sevir_used/compress_earthformer.yaml \
 --world_size $gpus \
 --per_cpus $cpus \
 --tensor_model_parallel_size 1 \
---outdir '/mnt/cache/gongjunchao/workdir/radar_forecasting/experiments' \
+--outdir './experiments' \
 --desc  'earthformer_48x48x4'
 
 #

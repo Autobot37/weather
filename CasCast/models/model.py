@@ -20,7 +20,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 # from terminaltables import AsciiTable
 import wandb
-from termcolor import colored
+
 
 
 
@@ -63,7 +63,7 @@ class basemodel(nn.Module):
         self.begin_step = 0
         self.metric_best = 1000
 
-        self.gscaler = amp.GradScaler(enabled=self.enabled_amp)
+        self.gscaler = torch.amp.GradScaler(enabled=self.enabled_amp)
 
         if self.ceph_checkpoint_path is None:
             self.checkpoint_ceph = None #checkpoint_ceph()
@@ -158,12 +158,16 @@ class basemodel(nn.Module):
         return torch.mean((pred-target)**2)
 
     def train_one_step(self, batch_data, step):
+        
         input, target = self.data_preprocess(batch_data)
         if len(self.model) == 1:
             predict = self.model[list(self.model.keys())[0]](input)
         else:
             raise NotImplementedError('Invalid model type.')
 
+        from termcolor import colored
+        self.logger.info(colored(f"train_one_step: step {step}, predict shape: {predict.shape}, target shape: {target.shape}", 'yellow'))
+        
         loss = self.loss(predict, target)
         if len(self.optimizer) == 1:
             self.optimizer[list(self.optimizer.keys())[0]].zero_grad()
@@ -277,12 +281,9 @@ class basemodel(nn.Module):
         else:
             self.logger.info("checkpoint is not exist")
             return
-        try:
-            checkpoint_model = checkpoint_dict['model']
-        except KeyError:
-            print(colored("checkpoint model not exist, please check your checkpoint file", 'red'))
-        # checkpoint_optimizer = checkpoint_dict['optimizer']
-        # checkpoint_lr_scheduler = checkpoint_dict['lr_scheduler']
+        checkpoint_model = checkpoint_dict['model']
+        checkpoint_optimizer = checkpoint_dict['optimizer']
+        checkpoint_lr_scheduler = checkpoint_dict['lr_scheduler']
         ### load model for lora training ##
         lora = kwargs.get('lora', False)
         lora_base_model = kwargs.get('lora_base_model', 'DiT')
@@ -309,26 +310,26 @@ class basemodel(nn.Module):
                         name = k
                     new_state_dict[name] = v
                 self.model[key].load_state_dict(new_state_dict, strict=True)
-                print(colored(f"load {key} model weight from checkpoint", 'orange'))
+                from termcolor import colored
+                self.logger.info(colored(f"load {key} model from {checkpoint_path}", 'green'))
         ######################################
-        # if load_optimizer:
-        #     resume = kwargs.get('resume', False)
-        #     for key in checkpoint_optimizer:
-        #         self.optimizer[key].load_state_dict(checkpoint_optimizer[key])
-        #         if resume: #for resume train
-        #             self.optimizer[key].param_groups[0]['capturable'] = True
-        # if load_scheduler:
-        #     for key in checkpoint_lr_scheduler:
-        #         self.lr_scheduler[key].load_state_dict(checkpoint_lr_scheduler[key])
-        # if load_epoch:
-        #     self.begin_epoch = checkpoint_dict['epoch']
-        #     self.begin_step = 0 if 'step' not in checkpoint_dict.keys() else checkpoint_dict['step']
-        # if load_metric_best and 'metric_best' in checkpoint_dict:
-        #     self.metric_best = checkpoint_dict['metric_best']
+        if load_optimizer:
+            resume = kwargs.get('resume', False)
+            for key in checkpoint_optimizer:
+                self.optimizer[key].load_state_dict(checkpoint_optimizer[key])
+                if resume: #for resume train
+                    self.optimizer[key].param_groups[0]['capturable'] = True
+        if load_scheduler:
+            for key in checkpoint_lr_scheduler:
+                self.lr_scheduler[key].load_state_dict(checkpoint_lr_scheduler[key])
+        if load_epoch:
+            self.begin_epoch = checkpoint_dict['epoch']
+            self.begin_step = 0 if 'step' not in checkpoint_dict.keys() else checkpoint_dict['step']
+        if load_metric_best and 'metric_best' in checkpoint_dict:
+            self.metric_best = checkpoint_dict['metric_best']
         # if 'amp_scaler' in checkpoint_dict:
         #     self.gscaler.load_state_dict(checkpoint_dict['amp_scaler'])
-        # self.logger.info("last epoch:{epoch}, metric best:{metric_best}".format(epoch=checkpoint_dict['epoch'], metric_best=checkpoint_dict['metric_best']))
-
+        self.logger.info("last epoch:{epoch}, metric best:{metric_best}".format(epoch=checkpoint_dict['epoch'], metric_best=checkpoint_dict['metric_best']))
 
     def save_checkpoint(self, epoch, checkpoint_savedir, save_type='save_best', step=0): 
         checkpoint_savedir = Path(checkpoint_savedir)
@@ -425,14 +426,14 @@ class basemodel(nn.Module):
 
 
     def trainer(self, train_data_loader, test_data_loader, max_epoches, max_steps, checkpoint_savedir=None, save_ceph=False, resume=False):
-        
+        from termcolor import colored
+        print(colored(f"trainer: sampler_type: {self.sampler_type}", 'yellow'))
         self.test_data_loader = test_data_loader
         self.train_data_loader = train_data_loader
         ## load temporal mean and std for delta-prediction model ##
 
         ## the dir of saving models and prediction results ##
         self.checkpoint_savedir = checkpoint_savedir
-
         if 'TrainingSampler' in self.sampler_type:
             self._iter_trainer(train_data_loader, test_data_loader, max_steps) 
         else:
@@ -440,6 +441,8 @@ class basemodel(nn.Module):
 
     
     def _epoch_trainer(self, train_data_loader, test_data_loader, max_epoches):
+        self.begin_epoch = int(self.begin_epoch)
+        max_epoches = int(max_epoches)
         for epoch in range(self.begin_epoch, max_epoches):
             if train_data_loader is not None:
                 train_data_loader.sampler.set_epoch(epoch)
@@ -579,9 +582,8 @@ class basemodel(nn.Module):
     @torch.no_grad()
     def test_final(self, test_data_loader, predict_length):
         pass
-    
 
-    
+
 
 
 

@@ -27,11 +27,11 @@ class sevir(Dataset):
 
     def _init_file_list(self, split):
         if split == 'train':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/train_list.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/train.txt'
         elif split == 'valid':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/val_list.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/val.txt'
         elif split == 'test':
-            txt_path = '/home/vatsal/NWM/CasCast/pixel_data/test_list.txt'
+            txt_path = '/home/vatsal/Dataserver/cascast/output/test.txt'
         files = []
         with open(f'{txt_path}', 'r') as file:
             for line in file.readlines():
@@ -50,7 +50,7 @@ class sevir(Dataset):
         # print(colored(f"min: {tensor.min().item()}, max: {tensor.max().item()}", 'green'))
         ## 1, h, w, t -> t, c, h, w
         tensor = tensor.unsqueeze(3)
-        tensor = tensor.permute(2, 3, 0, 1)
+        tensor = tensor.permute(2, 3, 0, 1)## t c h w
         return tensor
 
 

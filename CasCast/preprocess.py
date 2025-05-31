@@ -28,15 +28,12 @@ def process_single_file_optimized_cpu(args):
             month = h5_file_path.name[-11]
             
             if year != '2019':
-                selected_dir = train_dir
-                file_list = train_files_local
-            else:
-                if month in ['1', '2', '3', '4', '5']:
-                    selected_dir = val_dir
-                    file_list = val_files_local
-                else:
-                    selected_dir = test_dir
-                    file_list = test_files_local
+                from termcolor import colored
+                print(colored(f"Skipping {h5_file_path} as it is not from 2019", 'yellow'))
+                return [], [], []
+            
+            selected_dir = test_dir
+            file_list = test_files_local
 
             vil_data = h5_file['vil'][:]
             
@@ -53,18 +50,28 @@ def process_single_file_optimized_cpu(args):
             
             base_name = h5_file_path.stem
             
-            for window_idx in tqdm(range(len(time_windows)), desc=f"Preparing windows for {h5_file_path.name}", leave=False):
+            for window_idx in tqdm(range(len(time_windows)), desc=f"Processing windows for {h5_file_path.name}", leave=False):
                 window_data = time_windows[window_idx]
-                save_operations = []
-                for event_idx in tqdm(range(window_data.shape[0]), desc=f"Preparing events in window {window_idx}", leave=False):
+                
+                for event_idx in tqdm(range(window_data.shape[0]), desc=f"Processing events in window {window_idx}", leave=False):
                     file_name = f"vil-{year}-{base_name}-{event_idx}-{window_idx}.npy"
                     output_path = selected_dir / file_name
-                    save_operations.append((output_path, window_data[event_idx].copy(), file_name))
-            
-                for output_path, data, file_name in tqdm(save_operations, desc=f"Saving files for {h5_file_path.name}", leave=False):
-                    np.save(output_path, data)
-                    file_list.append(file_name)
-                del save_operations
+                    
+                    # Check if file exists and skip if it does
+                    if output_path.exists():
+                        print(f"File {output_path} already exists, skipping.")
+                        # Still add to file list since it exists
+                        file_list.append(file_name)
+                        continue
+                    
+                    # Save the file only if it doesn't exist
+                    try:
+                        np.save(output_path, window_data[event_idx])
+                        file_list.append(file_name)
+                    except Exception as save_error:
+                        print(f"Error saving {output_path}: {save_error}")
+                
+                # Clean up memory
                 del window_data
         
         return train_files_local, val_files_local, test_files_local
@@ -75,7 +82,7 @@ def process_single_file_optimized_cpu(args):
 
 def preprocess_sevir_dataset_optimized():
     sevir_data_dir = Path("/home/vatsal/NWM/earth-forecasting-transformer/datasets/sevir/data/vil")
-    output_base_dir = Path("~/Dataserver/vil").expanduser()
+    output_base_dir = Path("/home/vatsal/Dataserver/cascast/Output/")
     
     train_dir = output_base_dir / "train_2h"
     val_dir = output_base_dir / "valid_2h" 
@@ -94,14 +101,14 @@ def preprocess_sevir_dataset_optimized():
     
     start_time = time.time()
     
-    print("Using optimized CPU processing with 2 threads...")
+    print("Using optimized CPU processing with 1 thread...")
     args_list = [(str(h5_file), train_dir, val_dir, test_dir) for h5_file in h5_files]
     
     with ThreadPoolExecutor(max_workers=1) as executor:
         results = list(tqdm(
             executor.map(process_single_file_optimized_cpu, args_list),
             total=len(args_list),
-            desc="Processing files with 2 CPU threads"
+            desc="Processing files with 1 CPU thread"
         ))
         
         for train_files_local, val_files_local, test_files_local in tqdm(results, desc="Collecting results"):

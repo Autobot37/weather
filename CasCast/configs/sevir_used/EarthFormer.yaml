@@ -30,7 +30,7 @@ trainer:
   valid_batch_size: 2
   train_batch_size: 2
   test_batch_size: 2
-  max_epoch: &max_epoch 1
+  max_epoch: &max_epoch 100
   max_step: 100000
 
 model:
@@ -69,7 +69,7 @@ model:
         epochs: *max_epoch
         min_lr: 0.00001
         warmup_lr: 0.00001
-        warmup_epochs: 0.1
+        warmup_epochs: 1
         lr_noise: 
         cooldown_epochs: 0
 

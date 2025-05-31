@@ -36,6 +36,7 @@ class non_ar_model(basemodel):
         inp, tar = data_dict['inputs'], data_dict['data_samples']
         self.optimizer[list(self.model.keys())[0]].zero_grad()
         prediction = self.model[list(self.model.keys())[0]](inp)
+
         loss = self.loss(prediction, tar)
         loss.backward()
         self.optimizer[list(self.model.keys())[0]].step()
@@ -108,6 +109,7 @@ class non_ar_model(basemodel):
     def eval_step(self, batch_data, step):
         data_dict = self.data_preprocess(batch_data)
         inp, tar = data_dict['inputs'], data_dict['data_samples']
+        
         prediction = self.model[list(self.model.keys())[0]](inp)
 
         losses = {}
@@ -118,8 +120,6 @@ class non_ar_model(basemodel):
             self.eval_metrics.update(target=data_dict['gt'], pred=data_dict['pred'])
             ############
             sf_dict = self.eval_metrics.get_single_frame_metrics(target=data_dict['gt'], pred=data_dict['pred'])
-            from termcolor import colored
-            print(colored(f"sf_dict: {sf_dict}", 'green'))
             crps_dict = self.eval_metrics.get_crps(target=data_dict['gt'], pred=data_dict['pred'])
             losses.update(sf_dict)
             losses.update(crps_dict)
@@ -139,6 +139,7 @@ class non_ar_model(basemodel):
         # set model to eval
         for key in self.model:
             self.model[key].eval()
+        
 
         if test_data_loader is not None:
             data_loader = test_data_loader

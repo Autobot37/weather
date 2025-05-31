@@ -1,0 +1,2 @@
+data control is modified with txt files fill the data in txt and 
+all is set to run only testloader conversion for latent.

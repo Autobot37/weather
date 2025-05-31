@@ -31,21 +31,21 @@ dataset:
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: pixel_data #path/to/sevir 
+    data_dir: /home/vatsal/Dataserver/cascast/output #path/to/sevir 
   valid:
     type: sevir
     input_length: 13
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: pixel_data #path/to/sevir 
+    data_dir: /home/vatsal/Dataserver/cascast/output #path/to/sevir 
   test:
     type: sevir
     input_length: 13
     pred_length: 12
     total_length: 25
     base_freq: 5min
-    data_dir: pixel_data #path/to/sevir 
+    data_dir: /home/vatsal/Dataserver/cascast/output #path/to/sevir 
 sampler:
   type: DistributedSampler
 dataloader:
@@ -71,7 +71,7 @@ model:
     use_ceph: false
     ceph_checkpoint_path: mpas:s3://sevir/checkpoint
     metrics_type: SEVIRSkillScore
-    data_type: fp16
+    data_type: fp32
     visualizer:
       visualizer_type: sevir_visualizer
       visualizer_step: 8000

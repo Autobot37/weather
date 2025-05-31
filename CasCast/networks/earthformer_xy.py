@@ -899,7 +899,8 @@ class Upsample3DLayer(nn.Module):
                 assert self.target_size[0] == T
                 x = x.reshape(B * T, H, W, C).permute(0, 3, 1, 2)  # (B * T, C, H, W)
                 x = self.up(x)
-                return self.conv(x).permute(0, 2, 3, 1).reshape((B,) + self.target_size + (self.out_dim,))
+                out=  self.conv(x).permute(0, 2, 3, 1).reshape((B,) + self.target_size + (self.out_dim,))
+                return out  # (B, T, H_new, W_out, C_out)
         elif self.layout == 'CTHW':
             B, C, T, H, W = x.shape
             if self.temporal_upsample:
@@ -907,9 +908,11 @@ class Upsample3DLayer(nn.Module):
             else:
                 assert self.output_size[0] == T
                 x = x.permute(0, 2, 1, 3, 4)  # (B, T, C, H, W)
+                print(x.shape)
                 x = x.reshape(B * T, C, H, W)
-                return self.conv(self.up(x)).reshape(B, self.target_size[0], self.out_dim, self.target_size[1],
+                out=  self.conv(self.up(x)).reshape(B, self.target_size[0], self.out_dim, self.target_size[1],
                                                      self.target_size[2]).permute(0, 2, 1, 3, 4)
+                return out  # (B, C_out, T, H_out, W_out)
 
 
 class InitialEncoder(nn.Module):
@@ -1222,12 +1225,19 @@ class FinalStackUpsamplingDecoder(nn.Module):
         out
             Shape (B, T, H_new, W_new, C)
         """
+        def detect(z, t = 1):
+            nans = torch.isnan(z)
+            infs = torch.isinf(z)
+            if nans.any() or infs.any():
+                from termcolor import colored
+                print(colored(f"NaN or Inf detected in {z.shape, t}!", 'red'))
         for i, (conv_block, upsample) in enumerate(zip(self.conv_block_list, self.upsample_list)):
             x = upsample(x)
             if self.num_conv_per_up_list[i] > 0:
                 B, T, H, W, C = x.shape
                 x = x.reshape(B * T, H, W, C).permute(0, 3, 1, 2)
                 x = conv_block(x).permute(0, 2, 3, 1).reshape(B, T, H, W, -1)
+                # here 2
         return x
 
 
@@ -3322,11 +3332,11 @@ class CuboidTransformerModel(nn.Module):
         """
         # ### (b, t, c, h, w) -> (b, t, h, w, c)
         # x = rearrange(x, 'b t c h w -> b t h w c')
-
+        
         B, _, _, _, _ = x.shape
         T_out = self.target_shape[0]
         x = self.initial_encoder(x)
-        x = self.enc_pos_embed(x)
+        x = self.enc_pos_embed(x) 
         if self.num_global_vectors > 0:
             init_global_vectors = self.init_global_vectors\
                 .expand(B, self.num_global_vectors, self.global_dim_ratio*self.base_units)
@@ -3343,8 +3353,8 @@ class CuboidTransformerModel(nn.Module):
         else:
             dec_out = self.decoder(initial_z, mem_l)
         dec_out = self.final_decoder(dec_out)
+        #here
         out = self.dec_final_proj(dec_out)
-
         # ## (b, t, h, w, c) -> (b, t, c, h, w)
         # x = rearrange(x, 'b t h w c -> b t c h w ')
         return out

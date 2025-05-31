@@ -69,7 +69,6 @@ def subprocess_fn(args):
 
     logger.info('begin compressing ...')
 
-    # model_without_ddp.stat()
     model_without_ddp.trainer(train_data_loader=train_dataloader, valid_data_loader=valid_dataloader, test_data_loader=test_dataloader,
                                max_epoches=builder.get_max_epoch(), max_steps=builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
 

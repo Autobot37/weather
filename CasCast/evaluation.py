@@ -36,11 +36,13 @@ def subprocess_fn(args):
         model_checkpoint = os.path.join(args.run_dir, 'checkpoint_best.pth')
         model_type = args.cfg_params['model']['type']
         if model_type == "non_ar_model":
-            model_checkpoint = os.path.join(args.run_dir, 'checkpoint_best.pt')
+            model_checkpoint = os.path.join(args.run_dir, 'earthformer_ckpt.pth')
+            if not os.path.exists(model_checkpoint):
+                print(colored(f'Checkpoint {model_checkpoint} not found, please check the path', 'red'))
     
     if not args.debug:
         model.load_checkpoint(model_checkpoint, load_optimizer=False, load_scheduler=False)
-    
+        
     model_without_ddp = utils.DistributedParallel_Model(model, args.local_rank)
 
     for key in model_without_ddp.model:
@@ -82,7 +84,7 @@ def subprocess_fn(args):
     ## set the classifier free guidance weight ###
     model_without_ddp.cfg_weight = args.cfg_weight
 
-    model_without_ddp.test_final(test_dataloader, args.pred_len)
+    model_without_ddp.test_final(test_dataloader, 12)
 
 def main(args):
     if args.world_size > 1:

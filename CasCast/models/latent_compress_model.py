@@ -64,7 +64,6 @@ class latent_compress_model(basemodel):
         return z
 
     def trainer(self, train_data_loader, valid_data_loader, test_data_loader, max_epoches, max_steps, checkpoint_savedir=None, save_ceph=False, resume=False):
-        
         self.test_data_loader = test_data_loader
         self.valid_data_loader = valid_data_loader
         self.train_data_loader = train_data_loader
@@ -86,11 +85,11 @@ class latent_compress_model(basemodel):
     def _epoch_trainer(self, train_data_loader, valid_data_loader, test_data_loader, max_epoches):
         assert max_epoches == 1, "only support 1 epoch"
         for epoch in range(self.begin_epoch, max_epoches):
-            if train_data_loader is not None:
-                train_data_loader.sampler.set_epoch(epoch)
+            if test_data_loader is not None:
+                test_data_loader.sampler.set_epoch(epoch)
 
-            self.train_one_epoch(train_data_loader, epoch, max_epoches)
-            self.train_one_epoch(valid_data_loader, epoch, max_epoches)
+            # self.train_one_epoch(train_data_loader, epoch, max_epoches)
+            # self.train_one_epoch(valid_data_loader, epoch, max_epoches)
             self.train_one_epoch(test_data_loader, epoch, max_epoches)
 
     @torch.no_grad()

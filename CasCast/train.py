@@ -24,11 +24,12 @@ def subprocess_fn(args):
 
     logger.info('Building dataloaders ...')
 
-    train_dataloader = builder.get_dataloader(split = 'train')
-    logger.info('Train dataloaders build complete')
-    valid_dataloader = builder.get_dataloader(split = 'valid')
+    # train_dataloader = builder.get_dataloader(split = 'train')
+    # logger.info('Train dataloaders build complete')
+    # valid_dataloader = builder.get_dataloader(split = 'valid')
     logger.info('Valid dataloaders build complete')
     test_dataloader = builder.get_dataloader(split = 'test')
+    from termcolor import colored
     print(colored(f'len train_dataloader: {len(test_dataloader)}', 'green'))
 
     for loader in [test_dataloader]:
@@ -47,7 +48,7 @@ def subprocess_fn(args):
                             lr_scheduler_params[key][key1] = int(builder.get_max_step() * lr_scheduler_params[key][key1])
     else:
         ## by epoch ##
-        steps_per_epoch = get_data_loader_length(train_dataloader)
+        steps_per_epoch = get_data_loader_length(test_dataloader)
         if 'lr_scheduler' in model_params:
             lr_scheduler_params = model_params['lr_scheduler']
             for key in lr_scheduler_params:
@@ -69,7 +70,7 @@ def subprocess_fn(args):
         model_checkpoint = os.path.join(args.run_dir, 'checkpoint_latest.pth')
         if os.path.exists(model_checkpoint):
             print(colored(f'checkpoint_latest.pth exists, will not resume', 'red'))
-
+    model.load_checkpoint("/home/vatsal/NWM/CasCast/experiments/EarthFormer/world_size1-ckpt/earthformer_ckpt.pth", load_optimizer=False, load_scheduler=False)
     model_without_ddp = utils.DistributedParallel_Model(model, args.local_rank)
 
     if args.world_size > 1:
@@ -82,8 +83,10 @@ def subprocess_fn(args):
         logger.info("params {key}: {cnt_params}".format(key=key, cnt_params=cnt_params))
             
     logger.info('begin training ...')
-    model_without_ddp.trainer(test_dataloader, test_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
-
+    from termcolor import colored
+    print(colored(f'len train_dataloader: {len(train_dataloader)}', 'yellow'))
+    # model_without_ddp.trainer(train_dataloader, test_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+    model_without_ddp.test_final(test_dataloader, predict_length=12)
     
 def main(args):
     if args.world_size > 1:

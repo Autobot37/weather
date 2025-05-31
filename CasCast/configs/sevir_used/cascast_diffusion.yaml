@@ -4,9 +4,9 @@ sevir: &sevir
   pred_length: &pred_length 12
   total_length: &total_length 25
   base_freq: 5min
-  data_dir: radar:s3://sevir_latent ## path/to/sevir
-  latent_gt_dir: path/to/latent_gt
-  latent_deterministic_dir: path/to/latent_prediction
+  data_dir: '/home/vatsal/Dataserver/cascast/output/'
+  latent_gt_dir: /home/vatsal/NWM/CasCast/latent_data/sevir_latent/48x48x4/gt
+  latent_deterministic_dir: /home/vatsal/NWM/CasCast/latent_data/sevir_latent/48x48x4/earthformer
 
   latent_size: 48x48x4
 
@@ -17,6 +17,9 @@ dataset:
   valid:
     <<: *sevir
 
+  test:
+    <<: *sevir
+    
 sampler:
   type: TrainingSampler
 
@@ -27,8 +30,8 @@ dataloader:
   persistent_workers: True
 
 trainer:
-  batch_size: 8 # to check
-  valid_batch_size: 12
+  batch_size: 2 # to check
+  valid_batch_size: 2
   max_epoch: &max_epoch 1
   max_step: 100000
 
@@ -110,7 +113,7 @@ model:
       loss_type: MSELoss
       enabled_amp: False
       log_step: 20
-      predictor_checkpoint_path: None ## for pretrained advective predictor
+      predictor_checkpoint_path: /home/vatsal/NWM/CasCast/experiments/EarthFormer/world_size1-ckpt/earthformer_ckpt.pth ## for pretrained advective predictor
       autoencoder_checkpoint_path: ckpts/autoencoder/ckpt.pth ## for pretrained autoencoder
       save_epoch_interval: 20
 
