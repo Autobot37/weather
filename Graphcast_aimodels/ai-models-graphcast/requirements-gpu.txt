@@ -1,2 +1,0 @@
-jax[cuda11_pip]
-git+https://github.com/deepmind/graphcast.git
