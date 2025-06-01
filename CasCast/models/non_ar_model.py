@@ -124,7 +124,9 @@ class non_ar_model(basemodel):
             losses.update(sf_dict)
             losses.update(crps_dict)
             ############
-        if self.visualizer_type == 'sevir_visualizer' and (step) % 1000 == 0:
+        if self.visualizer_type == 'sevir_visualizer' and (step) % self.visualizer_step == 0:
+            from termcolor import colored
+            print(colored(f"vizing at step {step}", 'blue'))
             self.visualizer.save_pixel_image(pred_image=data_dict['pred'], target_img=data_dict['gt'], step=step)
         else:
             pass

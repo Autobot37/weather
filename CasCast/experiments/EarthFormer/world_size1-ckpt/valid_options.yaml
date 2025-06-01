@@ -7,7 +7,7 @@ debug: false
 distributed: false
 ens_member: 1
 gpu: 0
-init_method: tcp://127.0.0.1:58265
+init_method: tcp://127.0.0.1:29649
 local_rank: 0
 metrics_type: SEVIRSkillScore
 num_workers: 2
@@ -90,7 +90,7 @@ model:
         width: 384
     use_ceph: false
     visualizer:
-      visualizer_step: 8000
+      visualizer_step: 1000
       visualizer_type: sevir_visualizer
     wandb:
       project_name: sevir

@@ -76,7 +76,7 @@ model:
     data_type: fp32
     visualizer:
       visualizer_type: sevir_visualizer
-      visualizer_step: 8000
+      visualizer_step: 10
     optimizer:
       EarthFormer_xy:
         type: AdamW

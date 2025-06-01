@@ -26,10 +26,10 @@ dataloader:
   persistent_workers: True
 
 trainer:
-  batch_size: 2 # to check
-  valid_batch_size: 2
-  train_batch_size: 2
-  test_batch_size: 2
+  batch_size: 1 # to check
+  valid_batch_size: 1
+  train_batch_size: 1
+  test_batch_size: 1
   max_epoch: &max_epoch 100
   max_step: 100000
 
@@ -51,7 +51,7 @@ model:
 
     visualizer:
       visualizer_type: sevir_visualizer
-      visualizer_step: 8000
+      visualizer_step: 1000
 
     optimizer:
       EarthFormer_xy:

@@ -84,9 +84,6 @@ def subprocess_fn(args):
     ## set the classifier free guidance weight ###
     model_without_ddp.cfg_weight = args.cfg_weight
 
-    for data in test_dataloader:
-        print(colored(f"data keys: {data.keys()}", 'green'))
-
     model_without_ddp.test_final(test_dataloader, 12)
 
 def main(args):
