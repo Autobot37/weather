@@ -1,0 +1,607 @@
+06/02/2025 16:10:59 - INFO - root - ============================================================
+06/02/2025 16:10:59 - INFO - root -                  Experiment Start                           
+06/02/2025 16:10:59 - INFO - root - ============================================================
+06/02/2025 16:10:59 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:13:04 - INFO - root - ============================================================
+06/02/2025 16:13:04 - INFO - root -                  Experiment Start                           
+06/02/2025 16:13:04 - INFO - root - ============================================================
+06/02/2025 16:13:04 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:13:05 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:13:05 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:13:06 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:13:06 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:13:06 - INFO - root - ============ Running training ============
+06/02/2025 16:13:06 - INFO - root -     Num examples = 4683
+06/02/2025 16:13:06 - INFO - root -     Num Epochs = 1
+06/02/2025 16:13:06 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:13:06 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:13:06 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:13:06 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:13:52 - INFO - root - ============================================================
+06/02/2025 16:13:52 - INFO - root -                  Experiment Start                           
+06/02/2025 16:13:52 - INFO - root - ============================================================
+06/02/2025 16:13:52 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:13:53 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:13:53 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:13:54 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:13:54 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:13:54 - INFO - root - ============ Running training ============
+06/02/2025 16:13:54 - INFO - root -     Num examples = 4683
+06/02/2025 16:13:54 - INFO - root -     Num Epochs = 1
+06/02/2025 16:13:54 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:13:54 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:13:54 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:13:54 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:16:07 - INFO - root - ============================================================
+06/02/2025 16:16:07 - INFO - root -                  Experiment Start                           
+06/02/2025 16:16:07 - INFO - root - ============================================================
+06/02/2025 16:16:07 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:16:08 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:16:08 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:16:09 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:16:09 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:16:09 - INFO - root - ============ Running training ============
+06/02/2025 16:16:09 - INFO - root -     Num examples = 4683
+06/02/2025 16:16:09 - INFO - root -     Num Epochs = 1
+06/02/2025 16:16:09 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:16:09 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:16:09 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:16:09 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:16:39 - INFO - root - ============================================================
+06/02/2025 16:16:39 - INFO - root -                  Experiment Start                           
+06/02/2025 16:16:39 - INFO - root - ============================================================
+06/02/2025 16:16:39 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:16:40 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:16:40 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:16:40 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:16:41 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:16:41 - INFO - root - ============ Running training ============
+06/02/2025 16:16:41 - INFO - root -     Num examples = 4683
+06/02/2025 16:16:41 - INFO - root -     Num Epochs = 1
+06/02/2025 16:16:41 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:16:41 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:16:41 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:16:41 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:20:06 - INFO - root - ============================================================
+06/02/2025 16:20:06 - INFO - root -                  Experiment Start                           
+06/02/2025 16:20:06 - INFO - root - ============================================================
+06/02/2025 16:20:06 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:20:07 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:20:07 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:20:07 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:20:07 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:20:07 - INFO - root - ============ Running training ============
+06/02/2025 16:20:07 - INFO - root -     Num examples = 4683
+06/02/2025 16:20:07 - INFO - root -     Num Epochs = 1
+06/02/2025 16:20:07 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:20:07 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:20:07 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:20:07 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:21:29 - INFO - root - ============================================================
+06/02/2025 16:21:29 - INFO - root -                  Experiment Start                           
+06/02/2025 16:21:29 - INFO - root - ============================================================
+06/02/2025 16:21:29 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:21:30 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:21:30 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:21:31 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:21:31 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:21:31 - INFO - root - ============ Running training ============
+06/02/2025 16:21:31 - INFO - root -     Num examples = 4683
+06/02/2025 16:21:31 - INFO - root -     Num Epochs = 1
+06/02/2025 16:21:31 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:21:31 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:21:31 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:21:31 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:22:40 - INFO - root - ============================================================
+06/02/2025 16:22:40 - INFO - root -                  Experiment Start                           
+06/02/2025 16:22:40 - INFO - root - ============================================================
+06/02/2025 16:22:40 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:22:41 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:22:41 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:22:42 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:22:42 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:22:42 - INFO - root - ============ Running training ============
+06/02/2025 16:22:42 - INFO - root -     Num examples = 4683
+06/02/2025 16:22:42 - INFO - root -     Num Epochs = 1
+06/02/2025 16:22:42 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:22:42 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:22:42 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:22:42 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:25:33 - INFO - root - ============================================================
+06/02/2025 16:25:33 - INFO - root -                  Experiment Start                           
+06/02/2025 16:25:33 - INFO - root - ============================================================
+06/02/2025 16:25:33 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:25:34 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:25:34 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:25:34 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:25:35 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:25:35 - INFO - root - ============ Running training ============
+06/02/2025 16:25:35 - INFO - root -     Num examples = 4683
+06/02/2025 16:25:35 - INFO - root -     Num Epochs = 1
+06/02/2025 16:25:35 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:25:35 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:25:35 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:25:35 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:29:52 - INFO - root - ============================================================
+06/02/2025 16:29:52 - INFO - root -                  Experiment Start                           
+06/02/2025 16:29:52 - INFO - root - ============================================================
+06/02/2025 16:29:52 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:29:53 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:29:53 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:29:53 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:29:53 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:29:53 - INFO - root - ============ Running training ============
+06/02/2025 16:29:53 - INFO - root -     Num examples = 4683
+06/02/2025 16:29:53 - INFO - root -     Num Epochs = 1
+06/02/2025 16:29:53 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:29:53 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:29:53 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:29:53 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:32:59 - INFO - root - ============================================================
+06/02/2025 16:32:59 - INFO - root -                  Experiment Start                           
+06/02/2025 16:32:59 - INFO - root - ============================================================
+06/02/2025 16:32:59 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:33:00 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:33:00 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:33:01 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:33:01 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:33:01 - INFO - root - ============ Running training ============
+06/02/2025 16:33:01 - INFO - root -     Num examples = 4683
+06/02/2025 16:33:01 - INFO - root -     Num Epochs = 1
+06/02/2025 16:33:01 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:33:01 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:33:01 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:33:01 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:36:15 - INFO - root - ============================================================
+06/02/2025 16:36:15 - INFO - root -                  Experiment Start                           
+06/02/2025 16:36:15 - INFO - root - ============================================================
+06/02/2025 16:36:15 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:36:15 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 16:36:15 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:36:16 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:36:16 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:36:16 - INFO - root - ============ Running training ============
+06/02/2025 16:36:16 - INFO - root -     Num examples = 4683
+06/02/2025 16:36:16 - INFO - root -     Num Epochs = 1
+06/02/2025 16:36:16 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:36:16 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:36:16 - INFO - root -     Total optimization steps = 4683
+06/02/2025 16:36:16 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 16:41:48 - INFO - root - ============================================================
+06/02/2025 16:41:48 - INFO - root -                  Experiment Start                           
+06/02/2025 16:41:48 - INFO - root - ============================================================
+06/02/2025 16:41:48 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:42:10 - INFO - root - ============================================================
+06/02/2025 16:42:10 - INFO - root -                  Experiment Start                           
+06/02/2025 16:42:10 - INFO - root - ============================================================
+06/02/2025 16:42:10 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 16:42:11 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 16:42:11 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 16:42:11 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 16:42:12 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 16:42:12 - INFO - root - ============ Running training ============
+06/02/2025 16:42:12 - INFO - root -     Num examples = 187
+06/02/2025 16:42:12 - INFO - root -     Num Epochs = 1
+06/02/2025 16:42:12 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 16:42:12 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 16:42:12 - INFO - root -     Total optimization steps = 187
+06/02/2025 16:42:12 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:50:55 - INFO - root - ============================================================
+06/02/2025 19:50:55 - INFO - root -                  Experiment Start                           
+06/02/2025 19:50:55 - INFO - root - ============================================================
+06/02/2025 19:50:55 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:50:55 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:50:55 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:50:56 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 19:50:56 - INFO - root - Main Model Parameters: 2.42M
+06/02/2025 19:50:56 - INFO - root - ============ Running training ============
+06/02/2025 19:50:56 - INFO - root -     Num examples = 187
+06/02/2025 19:50:56 - INFO - root -     Num Epochs = 1
+06/02/2025 19:50:56 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:50:56 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:50:56 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:50:56 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:51:03 - INFO - root - Data Loading Time: 6.841299295425415
+06/02/2025 19:51:03 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 19:51:09 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 12:08:01 - INFO - root - ============================================================
+06/03/2025 12:08:01 - INFO - root -                  Experiment Start                           
+06/03/2025 12:08:01 - INFO - root - ============================================================
+06/03/2025 12:08:01 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 12:08:02 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 12:08:02 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 12:08:04 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 12:08:09 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 12:08:15 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 12:08:18 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/03/2025 12:08:18 - INFO - root - Main Model Parameters: 2.42M
+06/03/2025 12:08:18 - INFO - root - ============ Running training ============
+06/03/2025 12:08:18 - INFO - root -     Num examples = 500
+06/03/2025 12:08:18 - INFO - root -     Num Epochs = 10
+06/03/2025 12:08:18 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 12:08:18 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 12:08:18 - INFO - root -     Total optimization steps = 5000
+06/03/2025 12:08:18 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 12:08:21 - INFO - root - Data Loading Time: 2.9849157333374023
+06/03/2025 12:08:21 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 12:08:24 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 12:08:24 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/03/2025 12:08:25 - INFO - root - Epoch 0/10, Step 0/500::{'lr': 1.0000000000000001e-07, 'total_loss': 0.2522822916507721}
+06/03/2025 12:08:25 - INFO - root -  ========= Running Sanity Check ==========
+06/03/2025 12:08:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/03/2025 12:08:25 - INFO - root - [34mSanity Check: (4, 10, 1, 128, 128), (4, 10, 1, 128, 128)[0m
+06/03/2025 12:08:37 - INFO - root - Epoch 0/10, Step 20/500::{'lr': 2.1000000000000002e-06, 'total_loss': 0.18171429634094238}
+06/03/2025 12:08:50 - INFO - root - Epoch 0/10, Step 40/500::{'lr': 4.1000000000000006e-06, 'total_loss': 0.11738612502813339}
+06/03/2025 12:09:03 - INFO - root - Epoch 0/10, Step 60/500::{'lr': 6.1e-06, 'total_loss': 0.03519667312502861}
+06/03/2025 12:09:16 - INFO - root - Epoch 0/10, Step 80/500::{'lr': 8.1e-06, 'total_loss': 0.011935885064303875}
+06/03/2025 12:09:29 - INFO - root - Epoch 0/10, Step 100/500::{'lr': 1.0100000000000002e-05, 'total_loss': 0.016403276473283768}
+06/03/2025 12:09:41 - INFO - root - Epoch 0/10, Step 120/500::{'lr': 1.2100000000000001e-05, 'total_loss': 0.007863502018153667}
+06/03/2025 12:09:54 - INFO - root - Epoch 0/10, Step 140/500::{'lr': 1.4099999999999999e-05, 'total_loss': 0.011642041616141796}
+06/03/2025 12:10:07 - INFO - root - Epoch 0/10, Step 160/500::{'lr': 1.6100000000000002e-05, 'total_loss': 0.0050897481851279736}
+06/03/2025 12:10:20 - INFO - root - Epoch 0/10, Step 180/500::{'lr': 1.81e-05, 'total_loss': 0.0137734180316329}
+06/03/2025 12:10:33 - INFO - root - Epoch 0/10, Step 200/500::{'lr': 2.01e-05, 'total_loss': 0.017364559695124626}
+06/03/2025 12:10:46 - INFO - root - Epoch 0/10, Step 220/500::{'lr': 2.2100000000000002e-05, 'total_loss': 0.010737891308963299}
+06/03/2025 12:10:58 - INFO - root - Epoch 0/10, Step 240/500::{'lr': 2.41e-05, 'total_loss': 0.005635914858430624}
+06/03/2025 12:11:11 - INFO - root - Epoch 0/10, Step 260/500::{'lr': 2.61e-05, 'total_loss': 0.011474146507680416}
+06/03/2025 12:11:24 - INFO - root - Epoch 0/10, Step 280/500::{'lr': 2.8100000000000005e-05, 'total_loss': 0.01125976163893938}
+06/03/2025 12:11:37 - INFO - root - Epoch 0/10, Step 300/500::{'lr': 3.01e-05, 'total_loss': 0.012493324466049671}
+06/03/2025 12:11:50 - INFO - root - Epoch 0/10, Step 320/500::{'lr': 3.21e-05, 'total_loss': 0.012121128849685192}
+06/03/2025 12:12:03 - INFO - root - Epoch 0/10, Step 340/500::{'lr': 3.41e-05, 'total_loss': 0.00482603907585144}
+06/03/2025 12:12:15 - INFO - root - Epoch 0/10, Step 360/500::{'lr': 3.61e-05, 'total_loss': 0.007572876755148172}
+06/03/2025 12:12:28 - INFO - root - Epoch 0/10, Step 380/500::{'lr': 3.8100000000000005e-05, 'total_loss': 0.008243879303336143}
+06/03/2025 12:12:41 - INFO - root - Epoch 0/10, Step 400/500::{'lr': 4.0100000000000006e-05, 'total_loss': 0.00918021984398365}
+06/03/2025 12:12:54 - INFO - root - Epoch 0/10, Step 420/500::{'lr': 4.21e-05, 'total_loss': 0.005166932009160519}
+06/03/2025 12:13:07 - INFO - root - Epoch 0/10, Step 440/500::{'lr': 4.41e-05, 'total_loss': 0.005119231529533863}
+06/03/2025 12:13:19 - INFO - root - Epoch 0/10, Step 460/500::{'lr': 4.61e-05, 'total_loss': 0.005937599577009678}
+06/03/2025 12:13:32 - INFO - root - Epoch 0/10, Step 480/500::{'lr': 4.8100000000000004e-05, 'total_loss': 0.0056696608662605286}
+06/03/2025 12:13:43 - INFO - root - Save checkpoint 500 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Singleearthformer_custom_None/checkpoints
+06/03/2025 12:13:43 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 12:13:43 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+

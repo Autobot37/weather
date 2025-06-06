@@ -26,7 +26,7 @@ from utils.metrics import Evaluator
 from utils.tools import print_log, cycle, show_img_info
 
 # Apply your own wandb api key to log online
-os.environ["WANDB_API_KEY"] = "ebdff79c224117070aea32ad36c6031428ab5f04"
+# os.environ["WANDB_API_KEY"] = "ebdff79c224117070aea32ad36c6031428ab5f04"
 # os.environ["WANDB_SILENT"] = "true"
 os.environ["ACCELERATE_DEBUG_MODE"] = "1"
 
@@ -46,10 +46,10 @@ def create_parser():
     parser.add_argument("--dataset",        type=str,   default='sevir',        help="dataset name")
     parser.add_argument("--img_size",       type=int,   default=128,            help="image size")
     parser.add_argument("--img_channel",    type=int,   default=1,              help="channel of image")
-    parser.add_argument("--seq_len",        type=int,   default=20,             help="sequence length sampled from dataset")
-    parser.add_argument("--frames_in",      type=int,   default=10,              help="number of frames to input")
-    parser.add_argument("--frames_out",     type=int,   default=10,             help="number of frames to output")    
-    parser.add_argument("--num_workers",    type=int,   default=2,              help="number of workers for data loader")
+    parser.add_argument("--seq_len",        type=int,   default=25,             help="sequence length sampled from dataset")
+    parser.add_argument("--frames_in",      type=int,   default=5,              help="number of frames to input")
+    parser.add_argument("--frames_out",     type=int,   default=20,             help="number of frames to output")    
+    parser.add_argument("--num_workers",    type=int,   default=4,              help="number of workers for data loader")
     
     # --------------- Optimizer ---------------
     parser.add_argument("--lr",             type=float, default=1e-4,            help="learning rate")
@@ -59,12 +59,12 @@ def create_parser():
     parser.add_argument("--ema_rate",       type=float, default=0.95,            help="exponential moving average rate")
     parser.add_argument("--scheduler",      type=str,   default='cosine',        help="learning rate scheduler", choices=['constant', 'linear', 'cosine'])
     parser.add_argument("--warmup_steps",   type=int,   default=1000,            help="warmup steps")
-    parser.add_argument("--mixed_precision",type=str,   default='bf16',            help="mixed precision training")
+    parser.add_argument("--mixed_precision",type=str,   default='no',            help="mixed precision training")
     parser.add_argument("--grad_acc_step",  type=int,   default=1,               help="gradient accumulation step")
     
     # --------------- Training ---------------
     parser.add_argument("--batch_size",     type=int,   default=4,              help="batch size")
-    parser.add_argument("--epochs",         type=int,   default=1,              help="number of epochs")
+    parser.add_argument("--epochs",         type=int,   default=10,              help="number of epochs")
     parser.add_argument("--training_steps", type=int,   default=20,          help="number of training steps")
     parser.add_argument("--early_stop",     type=int,   default=10,              help="early stopping steps")
     parser.add_argument("--ckpt_milestone", type=str,   default=None,            help="resumed checkpoint milestone")
@@ -190,7 +190,9 @@ class Runner(object):
         # =================================
         # Get Train/Valid/Test dataloader among datasets 
         # =================================
-
+        # if self.args.dataset == 'custom':
+        #     self.args.num_workers = 1
+            
         train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
             data_name=self.args.dataset,
             # data_path=self.args.data_path,
@@ -224,6 +226,11 @@ class Runner(object):
                   self.is_main)
         print_log(f"Pixel Scale: {PIXEL_SCALE}, Threshold: {str(THRESHOLDS)}",
                   self.is_main)
+        for loader in [self.train_loader, self.valid_loader, self.test_loader]:
+            for batch in loader:
+                from termcolor import colored
+                print_log(colored(f"Batch Shape: {batch.shape}, Type: {batch.dtype}", 'green'), self.is_main)
+                break
         
     def _build_model(self):
         # =================================
@@ -275,7 +282,7 @@ class Runner(object):
                 'T_out': self.args.frames_out,
                 'sampling_timesteps' : 250,
             }
-            diff_model = get_model(**kwargs)
+            diff_model = get_model(self.args.img_channel, 64, (1,2,4,8), self.args.frames_in, self.args.frames_out, 1000, sampling_timesteps=250)
             diff_model.load_backbone(model)
             model = diff_model
 
@@ -459,6 +466,8 @@ class Runner(object):
                         try:
                             print_log(f" ========= Running Sanity Check ==========", self.is_main)
                             radar_ori, radar_recon= self._sample_batch(batch)
+                            from termcolor import colored
+                            print_log(colored(f"Sanity Check: {radar_ori.shape}, {radar_recon.shape}", 'blue'), self.is_main)
                             os.makedirs(self.sanity_path)
                             if self.is_main:
                                 for i in range(radar_ori.shape[0]):
@@ -470,6 +479,8 @@ class Runner(object):
 
             # save checkpoint and do test every epoch
             self.save()
+            self.test_samples(self.cur_step, do_test=False)  # Run validation test
+            self.model.train()  # Set back to training mode
             print_log(f" ========= Finisth one Epoch ==========", self.is_main)
 
         self.accelerator.end_training()
@@ -496,9 +507,10 @@ class Runner(object):
         radar_input, radar_gt = radar_batch[:,:frame_in], radar_batch[:,frame_in:]
         radar_pred, _ = sample_fn(radar_input,compute_loss=False)
         
+        
         radar_gt = self.accelerator.gather(radar_gt).detach().cpu().numpy()
-        radar_pred = self.accelerator.gather(radar_pred).detach().cpu().numpy()
 
+        radar_pred = self.accelerator.gather(radar_pred).detach().cpu().numpy()
         return radar_gt, radar_pred
     
     

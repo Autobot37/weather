@@ -1,11 +1,11 @@
 backbone: phydnet
 batch_size: 4
-ckpt_milestone: resources/diffcast_phydnet_sevir128.pt
+ckpt_milestone: null
 dataset: sevir
 early_stop: 10
 ema_rate: 0.95
 epochs: 1
-eval: true
+eval: false
 exp_dir: basic_exps
 exp_note: null
 frames_in: 5
@@ -23,6 +23,6 @@ scheduler: cosine
 seed: 0
 seq_len: 25
 training_steps: 20
-use_diff: true
+use_diff: false
 wandb_state: online
 warmup_steps: 1000

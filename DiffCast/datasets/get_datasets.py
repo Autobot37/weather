@@ -108,7 +108,14 @@ def get_dataset(data_name, img_size, seq_len, **kwargs):
     dataset_name = data_name.lower()
     train = val = test = None
 
-    if dataset_name == 'cikm':
+    if dataset_name == 'custom':
+        from .dataset_custom import RadarNowcastDataset
+        from .dataset_sevir import gray2color, PIXEL_SCALE, THRESHOLDS
+        train = RadarNowcastDataset("/home/vatsal/NWM/custom/full_dataset", seq_len, None, img_size, split='train')
+        val = RadarNowcastDataset("/home/vatsal/NWM/custom/full_dataset", seq_len, None, img_size, split='valid')
+        test = RadarNowcastDataset("/home/vatsal/NWM/custom/full_dataset", seq_len, None, img_size, split='test')
+        
+    elif dataset_name == 'cikm':
         from .dataset_cikm import CIKM, gray2color, PIXEL_SCALE, THRESHOLDS
         
         train = CIKM(DATAPATH[data_name], 'train', img_size)

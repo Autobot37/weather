@@ -643,7 +643,9 @@ class GaussianDiffusion(nn.Module):
         auto_normalize = True,
         offset_noise_strength = 0.1,  # https://www.crosslabs.org/blog/diffusion-with-offset-noise
         min_snr_loss_weight = True, # https://arxiv.org/abs/2303.09556
-        min_snr_gamma = 5
+        min_snr_gamma = 5,
+        T_in = 10,
+        T_out = 20,
     ):
         super().__init__()
         assert not model.random_or_learned_sinusoidal_cond
@@ -740,6 +742,10 @@ class GaussianDiffusion(nn.Module):
         self.normalize = normalize_to_neg_one_to_one if auto_normalize else identity
         self.unnormalize = unnormalize_to_zero_to_one if auto_normalize else identity
 
+        self.T_in = T_in
+        self.T_out = T_out
+        
+
     @property
     def device(self):
         return self.betas.device
@@ -806,7 +812,7 @@ class GaussianDiffusion(nn.Module):
         return ModelPrediction(pred_noise, x_start)
 
     def p_mean_variance(self, x, t, cond=None, ctx=None, idx=None, clip_denoised = True):
-        preds = self.model_predictions(x, t, cond=cond, ctx=cond, idx=cond,)
+        preds = self.model_predictions(x, t, cond=cond, ctx=cond, idx=idx)
         x_start = preds.pred_x_start
 
         if clip_denoised:
@@ -947,7 +953,7 @@ class GaussianDiffusion(nn.Module):
     
 
     def predict(self, frames_in, frames_gt = None, compute_loss=False, **kwargs):
-        T_out = default(kwargs.get('T_out'), 10)
+        T_out = self.T_out
         pred, loss = None, None
         if compute_loss:
             loss = self._predict(frames_in, frames_gt)
@@ -1024,7 +1030,6 @@ def get_model(
     T_out = 10,
     timesteps = 1000,           # number of steps
     sampling_timesteps = 250,    # number of sampling timesteps (using ddim for faster inference [see citation for ddim paper])
-    **kwargs
 ):
     
     unet = Unet(
@@ -1044,6 +1049,8 @@ def get_model(
         ctx_net = context_net,
         timesteps = timesteps,           # number of steps
         sampling_timesteps = sampling_timesteps,        
+        T_in = T_in,
+        T_out = T_out,
     )
     
     return diffusion

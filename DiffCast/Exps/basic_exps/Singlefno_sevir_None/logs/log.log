@@ -1,0 +1,13 @@
+06/02/2025 19:40:36 - INFO - root - ============================================================
+06/02/2025 19:40:36 - INFO - root -                  Experiment Start                           
+06/02/2025 19:40:36 - INFO - root - ============================================================
+06/02/2025 19:40:36 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 19:40:51 - INFO - root - train data: 14882, valid data: 20, test_data: 20
+06/02/2025 19:40:51 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)

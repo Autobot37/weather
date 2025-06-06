@@ -1,0 +1,371 @@
+06/03/2025 17:12:23 - INFO - root - ============================================================
+06/03/2025 17:12:23 - INFO - root -                  Experiment Start                           
+06/03/2025 17:12:23 - INFO - root - ============================================================
+06/03/2025 17:12:23 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:13:35 - INFO - root - ============================================================
+06/03/2025 17:13:35 - INFO - root -                  Experiment Start                           
+06/03/2025 17:13:35 - INFO - root - ============================================================
+06/03/2025 17:13:35 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:13:36 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:13:36 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:13:39 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:13:45 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:13:50 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:13:53 - INFO - root - Main Model Parameters: 49.39M
+06/03/2025 17:13:53 - INFO - root - ============ Running training ============
+06/03/2025 17:13:53 - INFO - root -     Num examples = 500
+06/03/2025 17:13:53 - INFO - root -     Num Epochs = 10
+06/03/2025 17:13:53 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:13:53 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:13:53 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:13:53 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:13:56 - INFO - root - Data Loading Time: 2.9497203826904297
+06/03/2025 17:13:56 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:14:31 - INFO - root - ============================================================
+06/03/2025 17:14:31 - INFO - root -                  Experiment Start                           
+06/03/2025 17:14:31 - INFO - root - ============================================================
+06/03/2025 17:14:31 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:14:32 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:14:32 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:14:35 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:14:42 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:14:48 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:14:52 - INFO - root - Main Model Parameters: 49.46M
+06/03/2025 17:14:52 - INFO - root - ============ Running training ============
+06/03/2025 17:14:52 - INFO - root -     Num examples = 500
+06/03/2025 17:14:52 - INFO - root -     Num Epochs = 10
+06/03/2025 17:14:52 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:14:52 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:14:52 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:14:52 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:15:04 - INFO - root - ============================================================
+06/03/2025 17:15:04 - INFO - root -                  Experiment Start                           
+06/03/2025 17:15:04 - INFO - root - ============================================================
+06/03/2025 17:15:04 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:15:05 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:15:05 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:15:08 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:15:15 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:15:21 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:15:25 - INFO - root - Main Model Parameters: 49.36M
+06/03/2025 17:15:25 - INFO - root - ============ Running training ============
+06/03/2025 17:15:25 - INFO - root -     Num examples = 500
+06/03/2025 17:15:25 - INFO - root -     Num Epochs = 10
+06/03/2025 17:15:25 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:15:25 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:15:25 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:15:25 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:15:29 - INFO - root - Data Loading Time: 3.6715450286865234
+06/03/2025 17:15:29 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:15:31 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:15:31 - INFO - root - milestones: []
+06/03/2025 17:15:33 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:15:33 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 17:15:33 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+06/03/2025 17:17:21 - INFO - root - ============================================================
+06/03/2025 17:17:21 - INFO - root -                  Experiment Start                           
+06/03/2025 17:17:21 - INFO - root - ============================================================
+06/03/2025 17:17:21 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:17:22 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:17:22 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:17:26 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:17:32 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:17:39 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:17:43 - INFO - root - Main Model Parameters: 49.36M
+06/03/2025 17:17:43 - INFO - root - ============ Running training ============
+06/03/2025 17:17:43 - INFO - root -     Num examples = 500
+06/03/2025 17:17:43 - INFO - root -     Num Epochs = 10
+06/03/2025 17:17:43 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:17:43 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:17:43 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:17:43 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:17:47 - INFO - root - Data Loading Time: 3.5645487308502197
+06/03/2025 17:17:47 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:17:48 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:17:48 - INFO - root - milestones: []
+06/03/2025 17:17:50 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:17:50 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 17:17:50 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+06/03/2025 17:18:57 - INFO - root - ============================================================
+06/03/2025 17:18:57 - INFO - root -                  Experiment Start                           
+06/03/2025 17:18:57 - INFO - root - ============================================================
+06/03/2025 17:18:57 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:18:58 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:18:58 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:19:01 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:19:08 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:19:14 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:23:29 - INFO - root - ============================================================
+06/03/2025 17:23:29 - INFO - root -                  Experiment Start                           
+06/03/2025 17:23:29 - INFO - root - ============================================================
+06/03/2025 17:23:29 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:23:30 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:23:30 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:23:34 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:23:57 - INFO - root - ============================================================
+06/03/2025 17:23:57 - INFO - root -                  Experiment Start                           
+06/03/2025 17:23:57 - INFO - root - ============================================================
+06/03/2025 17:23:57 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:23:58 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:23:58 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:24:01 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:24:08 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:24:15 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:24:19 - INFO - root - Main Model Parameters: 49.36M
+06/03/2025 17:24:19 - INFO - root - ============ Running training ============
+06/03/2025 17:24:19 - INFO - root -     Num examples = 500
+06/03/2025 17:24:19 - INFO - root -     Num Epochs = 10
+06/03/2025 17:24:19 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:24:19 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:24:19 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:24:19 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:24:22 - INFO - root - Data Loading Time: 3.6425976753234863
+06/03/2025 17:24:22 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:26:01 - INFO - root - ============================================================
+06/03/2025 17:26:01 - INFO - root -                  Experiment Start                           
+06/03/2025 17:26:01 - INFO - root - ============================================================
+06/03/2025 17:26:01 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:26:02 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:26:02 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:26:06 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:26:12 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:26:19 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:26:40 - INFO - root - ============================================================
+06/03/2025 17:26:40 - INFO - root -                  Experiment Start                           
+06/03/2025 17:26:40 - INFO - root - ============================================================
+06/03/2025 17:26:40 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:26:41 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:26:41 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:26:45 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:26:51 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:26:58 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:27:02 - INFO - root - Main Model Parameters: 49.36M
+06/03/2025 17:27:02 - INFO - root - ============ Running training ============
+06/03/2025 17:27:02 - INFO - root -     Num examples = 500
+06/03/2025 17:27:02 - INFO - root -     Num Epochs = 10
+06/03/2025 17:27:02 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:27:02 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:27:02 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:27:02 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:27:06 - INFO - root - Data Loading Time: 3.534355878829956
+06/03/2025 17:27:06 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:27:08 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:27:08 - INFO - root - milestones: []
+06/03/2025 17:27:09 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:27:09 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 17:27:09 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+06/03/2025 17:31:55 - INFO - root - ============================================================
+06/03/2025 17:31:55 - INFO - root -                  Experiment Start                           
+06/03/2025 17:31:55 - INFO - root - ============================================================
+06/03/2025 17:31:55 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 17:31:56 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 17:31:56 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 17:32:00 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:32:07 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:32:13 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 17:32:18 - INFO - root - Main Model Parameters: 49.36M
+06/03/2025 17:32:18 - INFO - root - ============ Running training ============
+06/03/2025 17:32:18 - INFO - root -     Num examples = 500
+06/03/2025 17:32:18 - INFO - root -     Num Epochs = 10
+06/03/2025 17:32:18 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 17:32:18 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 17:32:18 - INFO - root -     Total optimization steps = 5000
+06/03/2025 17:32:18 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 17:32:21 - INFO - root - Data Loading Time: 3.539825916290283
+06/03/2025 17:32:21 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 17:32:23 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:32:23 - INFO - root - milestones: []
+06/03/2025 17:32:25 - INFO - root - Load checkpoint resources/diffcast_phydnet_sevir128.pt from /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffphydnet_custom_None/checkpoints
+06/03/2025 17:32:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 17:32:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+

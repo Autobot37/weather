@@ -1,0 +1,357 @@
+06/02/2025 19:41:37 - INFO - root - ============================================================
+06/02/2025 19:41:37 - INFO - root -                  Experiment Start                           
+06/02/2025 19:41:37 - INFO - root - ============================================================
+06/02/2025 19:41:37 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+06/02/2025 19:41:38 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:41:38 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:41:38 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:41:38 - INFO - root - ============ Running training ============
+06/02/2025 19:41:38 - INFO - root -     Num examples = 187
+06/02/2025 19:41:38 - INFO - root -     Num Epochs = 1
+06/02/2025 19:41:38 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:41:38 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:41:38 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:41:38 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:42:06 - INFO - root - ============================================================
+06/02/2025 19:42:06 - INFO - root -                  Experiment Start                           
+06/02/2025 19:42:06 - INFO - root - ============================================================
+06/02/2025 19:42:06 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:42:07 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:42:07 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:42:07 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:42:07 - INFO - root - ============ Running training ============
+06/02/2025 19:42:07 - INFO - root -     Num examples = 187
+06/02/2025 19:42:07 - INFO - root -     Num Epochs = 1
+06/02/2025 19:42:07 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:42:07 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:42:07 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:42:07 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:42:37 - INFO - root - ============================================================
+06/02/2025 19:42:37 - INFO - root -                  Experiment Start                           
+06/02/2025 19:42:37 - INFO - root - ============================================================
+06/02/2025 19:42:37 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:42:38 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:42:38 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:42:38 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:42:38 - INFO - root - ============ Running training ============
+06/02/2025 19:42:38 - INFO - root -     Num examples = 187
+06/02/2025 19:42:38 - INFO - root -     Num Epochs = 1
+06/02/2025 19:42:38 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:42:38 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:42:38 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:42:38 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:43:03 - INFO - root - ============================================================
+06/02/2025 19:43:03 - INFO - root -                  Experiment Start                           
+06/02/2025 19:43:03 - INFO - root - ============================================================
+06/02/2025 19:43:03 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:43:04 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:43:04 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:43:04 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:43:04 - INFO - root - ============ Running training ============
+06/02/2025 19:43:04 - INFO - root -     Num examples = 187
+06/02/2025 19:43:04 - INFO - root -     Num Epochs = 1
+06/02/2025 19:43:04 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:43:04 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:43:04 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:43:04 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:43:53 - INFO - root - ============================================================
+06/02/2025 19:43:53 - INFO - root -                  Experiment Start                           
+06/02/2025 19:43:53 - INFO - root - ============================================================
+06/02/2025 19:43:53 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:43:54 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:43:54 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:43:55 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:43:55 - INFO - root - ============ Running training ============
+06/02/2025 19:43:55 - INFO - root -     Num examples = 187
+06/02/2025 19:43:55 - INFO - root -     Num Epochs = 1
+06/02/2025 19:43:55 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:43:55 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:43:55 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:43:55 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:44:16 - INFO - root - ============================================================
+06/02/2025 19:44:16 - INFO - root -                  Experiment Start                           
+06/02/2025 19:44:16 - INFO - root - ============================================================
+06/02/2025 19:44:16 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:44:17 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:44:17 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:44:17 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:44:17 - INFO - root - ============ Running training ============
+06/02/2025 19:44:17 - INFO - root -     Num examples = 187
+06/02/2025 19:44:17 - INFO - root -     Num Epochs = 1
+06/02/2025 19:44:17 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:44:17 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:44:17 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:44:17 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:44:40 - INFO - root - ============================================================
+06/02/2025 19:44:40 - INFO - root -                  Experiment Start                           
+06/02/2025 19:44:40 - INFO - root - ============================================================
+06/02/2025 19:44:40 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:44:41 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:44:41 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:44:41 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:44:41 - INFO - root - ============ Running training ============
+06/02/2025 19:44:41 - INFO - root -     Num examples = 187
+06/02/2025 19:44:41 - INFO - root -     Num Epochs = 1
+06/02/2025 19:44:41 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:44:41 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:44:41 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:44:41 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:45:51 - INFO - root - ============================================================
+06/02/2025 19:45:51 - INFO - root -                  Experiment Start                           
+06/02/2025 19:45:51 - INFO - root - ============================================================
+06/02/2025 19:45:51 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:45:52 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:45:52 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:45:52 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:45:52 - INFO - root - ============ Running training ============
+06/02/2025 19:45:52 - INFO - root -     Num examples = 187
+06/02/2025 19:45:52 - INFO - root -     Num Epochs = 1
+06/02/2025 19:45:52 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:45:52 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:45:52 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:45:52 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:46:56 - INFO - root - ============================================================
+06/02/2025 19:46:56 - INFO - root -                  Experiment Start                           
+06/02/2025 19:46:56 - INFO - root - ============================================================
+06/02/2025 19:46:56 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:46:57 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:46:57 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:46:58 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:46:58 - INFO - root - ============ Running training ============
+06/02/2025 19:46:58 - INFO - root -     Num examples = 187
+06/02/2025 19:46:58 - INFO - root -     Num Epochs = 1
+06/02/2025 19:46:58 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:46:58 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:46:58 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:46:58 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:47:12 - INFO - root - ============================================================
+06/02/2025 19:47:12 - INFO - root -                  Experiment Start                           
+06/02/2025 19:47:12 - INFO - root - ============================================================
+06/02/2025 19:47:12 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 19:47:13 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 19:47:13 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 19:47:13 - INFO - root - Main Model Parameters: 3.09M
+06/02/2025 19:47:13 - INFO - root - ============ Running training ============
+06/02/2025 19:47:13 - INFO - root -     Num examples = 187
+06/02/2025 19:47:13 - INFO - root -     Num Epochs = 1
+06/02/2025 19:47:13 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 19:47:13 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 19:47:13 - INFO - root -     Total optimization steps = 187
+06/02/2025 19:47:13 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 19:47:21 - INFO - root - Data Loading Time: 7.392294406890869
+06/02/2025 19:47:21 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 19:47:27 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 19:47:28 - INFO - root - Epoch 0/1, Step 0/187::{'lr': 1.0000000000000001e-07, 'total_loss': 10.148862838745117}
+06/02/2025 19:47:28 - INFO - root -  ========= Running Sanity Check ==========

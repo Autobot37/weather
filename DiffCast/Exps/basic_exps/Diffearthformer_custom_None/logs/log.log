@@ -1,0 +1,1095 @@
+06/02/2025 22:15:51 - INFO - root - ============================================================
+06/02/2025 22:15:51 - INFO - root -                  Experiment Start                           
+06/02/2025 22:15:51 - INFO - root - ============================================================
+06/02/2025 22:15:51 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:15:52 - INFO - root - train data: 187, valid data: 46, test_data: 47
+06/02/2025 22:15:52 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:15:52 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:15:54 - INFO - root - Main Model Parameters: 48.69M
+06/02/2025 22:15:54 - INFO - root - ============ Running training ============
+06/02/2025 22:15:54 - INFO - root -     Num examples = 187
+06/02/2025 22:15:54 - INFO - root -     Num Epochs = 1
+06/02/2025 22:15:54 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:15:54 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:15:54 - INFO - root -     Total optimization steps = 187
+06/02/2025 22:15:54 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:16:02 - INFO - root - Data Loading Time: 7.315381050109863
+06/02/2025 22:16:02 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:16:09 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:17:44 - INFO - root - ============================================================
+06/02/2025 22:17:44 - INFO - root -                  Experiment Start                           
+06/02/2025 22:17:44 - INFO - root - ============================================================
+06/02/2025 22:17:44 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:17:45 - INFO - root - train data: 4683, valid data: 1166, test_data: 1167
+06/02/2025 22:17:45 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:17:46 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:17:47 - INFO - root - Main Model Parameters: 48.69M
+06/02/2025 22:17:47 - INFO - root - ============ Running training ============
+06/02/2025 22:17:47 - INFO - root -     Num examples = 4683
+06/02/2025 22:17:47 - INFO - root -     Num Epochs = 1
+06/02/2025 22:17:47 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:17:47 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:17:47 - INFO - root -     Total optimization steps = 4683
+06/02/2025 22:17:47 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:17:51 - INFO - root - Data Loading Time: 3.819230079650879
+06/02/2025 22:17:51 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:17:54 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:18:24 - INFO - root - ============================================================
+06/02/2025 22:18:24 - INFO - root -                  Experiment Start                           
+06/02/2025 22:18:24 - INFO - root - ============================================================
+06/02/2025 22:18:24 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:18:25 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:18:25 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:18:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:18:26 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:18:26 - INFO - root - ============ Running training ============
+06/02/2025 22:18:26 - INFO - root -     Num examples = 4684
+06/02/2025 22:18:26 - INFO - root -     Num Epochs = 1
+06/02/2025 22:18:26 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:18:26 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:18:26 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:18:26 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:18:29 - INFO - root - Data Loading Time: 3.0312106609344482
+06/02/2025 22:18:29 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:18:32 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:18:33 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:18:34 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 1.6831893920898438}
+06/02/2025 22:18:34 - INFO - root -  ========= Running Sanity Check ==========
+06/02/2025 22:18:34 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/02/2025 22:18:42 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+06/02/2025 22:18:42 - INFO - root - Sanity Check Failed
+06/02/2025 22:19:05 - INFO - root - Epoch 0/1, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 1.5925886631011963}
+06/02/2025 22:20:42 - INFO - root - ============================================================
+06/02/2025 22:20:42 - INFO - root -                  Experiment Start                           
+06/02/2025 22:20:42 - INFO - root - ============================================================
+06/02/2025 22:20:42 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:20:43 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:20:43 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:20:45 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:20:51 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:20:56 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:20:59 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:21:00 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:21:00 - INFO - root - ============ Running training ============
+06/02/2025 22:21:00 - INFO - root -     Num examples = 4684
+06/02/2025 22:21:00 - INFO - root -     Num Epochs = 1
+06/02/2025 22:21:00 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:21:00 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:21:00 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:21:00 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:21:03 - INFO - root - Data Loading Time: 3.080894708633423
+06/02/2025 22:21:03 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:21:06 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:21:06 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:21:07 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:21:07 - INFO - root -  ========= Running Sanity Check ==========
+06/02/2025 22:21:07 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/02/2025 22:21:15 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+06/02/2025 22:21:15 - INFO - root - Sanity Check Failed
+06/02/2025 22:22:05 - INFO - root - ============================================================
+06/02/2025 22:22:05 - INFO - root -                  Experiment Start                           
+06/02/2025 22:22:05 - INFO - root - ============================================================
+06/02/2025 22:22:05 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:22:06 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:22:06 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:22:08 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:22:13 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:22:18 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:22:21 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:22:22 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:22:22 - INFO - root - ============ Running training ============
+06/02/2025 22:22:22 - INFO - root -     Num examples = 4684
+06/02/2025 22:22:22 - INFO - root -     Num Epochs = 1
+06/02/2025 22:22:22 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:22:22 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:22:22 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:22:22 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:22:25 - INFO - root - Data Loading Time: 2.6003291606903076
+06/02/2025 22:22:25 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:22:28 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:22:28 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:22:29 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:22:29 - INFO - root -  ========= Running Sanity Check ==========
+06/02/2025 22:22:29 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/02/2025 22:22:37 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+06/02/2025 22:22:37 - INFO - root - Sanity Check Failed
+06/02/2025 22:25:40 - INFO - root - ============================================================
+06/02/2025 22:25:40 - INFO - root -                  Experiment Start                           
+06/02/2025 22:25:40 - INFO - root - ============================================================
+06/02/2025 22:25:40 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:25:41 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:25:41 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:25:43 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:25:49 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:25:54 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:25:57 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:25:58 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:25:58 - INFO - root - ============ Running training ============
+06/02/2025 22:25:58 - INFO - root -     Num examples = 4684
+06/02/2025 22:25:58 - INFO - root -     Num Epochs = 1
+06/02/2025 22:25:58 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:25:58 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:25:58 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:25:58 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:26:01 - INFO - root - Data Loading Time: 2.6744225025177
+06/02/2025 22:26:01 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:26:03 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:26:04 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:26:04 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:26:04 - INFO - root -  ========= Running Sanity Check ==========
+06/02/2025 22:26:05 - INFO - root - [32mInput Shape: torch.Size([4, 10, 1, 128, 128]), GT Shape: torch.Size([4, 10, 1, 128, 128])[0m
+06/02/2025 22:26:05 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/02/2025 22:26:12 - INFO - root - The size of tensor a (10) must match the size of tensor b (0) at non-singleton dimension 1
+06/02/2025 22:26:12 - INFO - root - Sanity Check Failed
+06/02/2025 22:26:34 - INFO - root - Epoch 0/1, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 0.28727245330810547}
+06/02/2025 22:27:09 - INFO - root - ============================================================
+06/02/2025 22:27:09 - INFO - root -                  Experiment Start                           
+06/02/2025 22:27:09 - INFO - root - ============================================================
+06/02/2025 22:27:09 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:27:09 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:27:09 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:27:12 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:27:17 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:27:22 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:27:26 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:28:04 - INFO - root - ============================================================
+06/02/2025 22:28:04 - INFO - root -                  Experiment Start                           
+06/02/2025 22:28:04 - INFO - root - ============================================================
+06/02/2025 22:28:04 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:28:04 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:28:04 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:28:07 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:12 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:17 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:20 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:28:31 - INFO - root - ============================================================
+06/02/2025 22:28:31 - INFO - root -                  Experiment Start                           
+06/02/2025 22:28:31 - INFO - root - ============================================================
+06/02/2025 22:28:31 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:28:32 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:28:32 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:28:35 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:40 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:45 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:28:48 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:28:49 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:28:49 - INFO - root - ============ Running training ============
+06/02/2025 22:28:49 - INFO - root -     Num examples = 4684
+06/02/2025 22:28:49 - INFO - root -     Num Epochs = 1
+06/02/2025 22:28:49 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:28:49 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:28:49 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:28:49 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:28:52 - INFO - root - Data Loading Time: 2.683137893676758
+06/02/2025 22:28:52 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:28:54 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:28:55 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:28:56 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:28:56 - INFO - root -  ========= Running Sanity Check ==========
+06/02/2025 22:28:56 - INFO - root - [32mInput Shape: torch.Size([4, 10, 1, 128, 128]), GT Shape: torch.Size([4, 10, 1, 128, 128])[0m
+06/02/2025 22:28:56 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+
+06/02/2025 22:29:00 - INFO - root - [34mSanity Check: (4, 10, 1, 128, 128), (4, 10, 1, 128, 128)[0m
+06/02/2025 22:29:21 - INFO - root - Epoch 0/1, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 0.21355123817920685}
+06/02/2025 22:30:06 - INFO - root - ============================================================
+06/02/2025 22:30:06 - INFO - root -                  Experiment Start                           
+06/02/2025 22:30:06 - INFO - root - ============================================================
+06/02/2025 22:30:06 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:30:07 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:30:07 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:30:09 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:30:15 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:30:20 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/02/2025 22:30:23 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:30:24 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:30:24 - INFO - root - ============ Running training ============
+06/02/2025 22:30:24 - INFO - root -     Num examples = 4684
+06/02/2025 22:30:24 - INFO - root -     Num Epochs = 1
+06/02/2025 22:30:24 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:30:24 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:30:24 - INFO - root -     Total optimization steps = 4684
+06/02/2025 22:30:24 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:30:27 - INFO - root - Data Loading Time: 2.8089287281036377
+06/02/2025 22:30:27 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:30:30 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:30:30 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:30:31 - INFO - root - Epoch 0/1, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:30:43 - INFO - root - Epoch 0/1, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 0.3093980550765991}
+06/02/2025 22:30:55 - INFO - root - Epoch 0/1, Step 40/4684::{'lr': 4.1000000000000006e-06, 'total_loss': 0.262825071811676}
+06/02/2025 22:31:08 - INFO - root - Epoch 0/1, Step 60/4684::{'lr': 6.1e-06, 'total_loss': 0.036219026893377304}
+06/02/2025 22:31:22 - INFO - root - Epoch 0/1, Step 80/4684::{'lr': 8.1e-06, 'total_loss': 0.07095400243997574}
+06/02/2025 22:31:35 - INFO - root - Epoch 0/1, Step 100/4684::{'lr': 1.0100000000000002e-05, 'total_loss': 0.1414959579706192}
+06/02/2025 22:33:12 - INFO - root - ============================================================
+06/02/2025 22:33:12 - INFO - root -                  Experiment Start                           
+06/02/2025 22:33:12 - INFO - root - ============================================================
+06/02/2025 22:33:12 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/02/2025 22:33:12 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/02/2025 22:33:12 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/02/2025 22:33:15 - INFO - root - Batch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32
+06/02/2025 22:33:20 - INFO - root - Batch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32
+06/02/2025 22:33:25 - INFO - root - Batch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32
+06/02/2025 22:33:28 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/02/2025 22:33:29 - INFO - root - Main Model Parameters: 48.72M
+06/02/2025 22:33:29 - INFO - root - ============ Running training ============
+06/02/2025 22:33:29 - INFO - root -     Num examples = 4684
+06/02/2025 22:33:29 - INFO - root -     Num Epochs = 10
+06/02/2025 22:33:29 - INFO - root -     Instantaneous batch size per GPU = 4
+06/02/2025 22:33:29 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/02/2025 22:33:29 - INFO - root -     Total optimization steps = 46840
+06/02/2025 22:33:29 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/02/2025 22:33:32 - INFO - root - Data Loading Time: 2.715533494949341
+06/02/2025 22:33:32 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/02/2025 22:33:35 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/02/2025 22:33:35 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/02/2025 22:33:36 - INFO - root - Epoch 0/10, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/02/2025 22:33:48 - INFO - root - Epoch 0/10, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 0.3093997836112976}
+06/02/2025 22:34:01 - INFO - root - Epoch 0/10, Step 40/4684::{'lr': 4.1000000000000006e-06, 'total_loss': 0.2628234624862671}
+06/02/2025 22:34:14 - INFO - root - Epoch 0/10, Step 60/4684::{'lr': 6.1e-06, 'total_loss': 0.03621840849518776}
+06/02/2025 22:34:26 - INFO - root - Epoch 0/10, Step 80/4684::{'lr': 8.1e-06, 'total_loss': 0.0709538385272026}
+06/02/2025 22:34:39 - INFO - root - Epoch 0/10, Step 100/4684::{'lr': 1.0100000000000002e-05, 'total_loss': 0.1414959579706192}
+06/02/2025 22:34:52 - INFO - root - Epoch 0/10, Step 120/4684::{'lr': 1.2100000000000001e-05, 'total_loss': 0.16285258531570435}
+06/02/2025 22:35:05 - INFO - root - Epoch 0/10, Step 140/4684::{'lr': 1.4099999999999999e-05, 'total_loss': 0.2007180154323578}
+06/02/2025 22:35:19 - INFO - root - Epoch 0/10, Step 160/4684::{'lr': 1.6100000000000002e-05, 'total_loss': 0.06582444906234741}
+06/02/2025 22:35:31 - INFO - root - Epoch 0/10, Step 180/4684::{'lr': 1.81e-05, 'total_loss': 0.06887129694223404}
+06/02/2025 22:35:45 - INFO - root - Epoch 0/10, Step 200/4684::{'lr': 2.01e-05, 'total_loss': 0.19075705111026764}
+06/02/2025 22:35:58 - INFO - root - Epoch 0/10, Step 220/4684::{'lr': 2.2100000000000002e-05, 'total_loss': 0.15878838300704956}
+06/02/2025 22:36:11 - INFO - root - Epoch 0/10, Step 240/4684::{'lr': 2.41e-05, 'total_loss': 0.036330901086330414}
+06/02/2025 22:36:24 - INFO - root - Epoch 0/10, Step 260/4684::{'lr': 2.61e-05, 'total_loss': 0.03300413861870766}
+06/02/2025 22:36:37 - INFO - root - Epoch 0/10, Step 280/4684::{'lr': 2.8100000000000005e-05, 'total_loss': 0.04322272911667824}
+06/02/2025 22:36:50 - INFO - root - Epoch 0/10, Step 300/4684::{'lr': 3.01e-05, 'total_loss': 0.05687893554568291}
+06/02/2025 22:37:03 - INFO - root - Epoch 0/10, Step 320/4684::{'lr': 3.21e-05, 'total_loss': 0.03235240280628204}
+06/02/2025 22:37:16 - INFO - root - Epoch 0/10, Step 340/4684::{'lr': 3.41e-05, 'total_loss': 0.06742507219314575}
+06/02/2025 22:37:29 - INFO - root - Epoch 0/10, Step 360/4684::{'lr': 3.61e-05, 'total_loss': 0.039852533489465714}
+06/02/2025 22:37:42 - INFO - root - Epoch 0/10, Step 380/4684::{'lr': 3.8100000000000005e-05, 'total_loss': 0.04962160810828209}
+06/02/2025 22:37:55 - INFO - root - Epoch 0/10, Step 400/4684::{'lr': 4.0100000000000006e-05, 'total_loss': 0.00881166197359562}
+06/02/2025 22:38:08 - INFO - root - Epoch 0/10, Step 420/4684::{'lr': 4.21e-05, 'total_loss': 0.07977540791034698}
+06/02/2025 22:38:21 - INFO - root - Epoch 0/10, Step 440/4684::{'lr': 4.41e-05, 'total_loss': 0.052122194319963455}
+06/02/2025 22:38:33 - INFO - root - Epoch 0/10, Step 460/4684::{'lr': 4.61e-05, 'total_loss': 0.04142101854085922}
+06/02/2025 22:38:47 - INFO - root - Epoch 0/10, Step 480/4684::{'lr': 4.8100000000000004e-05, 'total_loss': 0.03727682679891586}
+06/02/2025 22:39:00 - INFO - root - Epoch 0/10, Step 500/4684::{'lr': 5.0100000000000005e-05, 'total_loss': 0.04707881435751915}
+06/02/2025 22:39:13 - INFO - root - Epoch 0/10, Step 520/4684::{'lr': 5.2100000000000006e-05, 'total_loss': 0.012571257539093494}
+06/02/2025 22:39:25 - INFO - root - Epoch 0/10, Step 540/4684::{'lr': 5.410000000000001e-05, 'total_loss': 0.01133627537637949}
+06/02/2025 22:39:38 - INFO - root - Epoch 0/10, Step 560/4684::{'lr': 5.610000000000001e-05, 'total_loss': 0.018740558996796608}
+06/02/2025 22:39:51 - INFO - root - Epoch 0/10, Step 580/4684::{'lr': 5.8099999999999996e-05, 'total_loss': 0.012044963426887989}
+06/02/2025 22:40:04 - INFO - root - Epoch 0/10, Step 600/4684::{'lr': 6.0100000000000004e-05, 'total_loss': 0.03441951423883438}
+06/02/2025 22:40:17 - INFO - root - Epoch 0/10, Step 620/4684::{'lr': 6.21e-05, 'total_loss': 0.018803903833031654}
+06/02/2025 22:40:29 - INFO - root - Epoch 0/10, Step 640/4684::{'lr': 6.41e-05, 'total_loss': 0.017304077744483948}
+06/02/2025 22:40:42 - INFO - root - Epoch 0/10, Step 660/4684::{'lr': 6.610000000000001e-05, 'total_loss': 0.016985274851322174}
+06/02/2025 22:40:55 - INFO - root - Epoch 0/10, Step 680/4684::{'lr': 6.81e-05, 'total_loss': 0.006866909097880125}
+06/02/2025 22:41:08 - INFO - root - Epoch 0/10, Step 700/4684::{'lr': 7.01e-05, 'total_loss': 0.03131277486681938}
+06/02/2025 22:41:21 - INFO - root - Epoch 0/10, Step 720/4684::{'lr': 7.21e-05, 'total_loss': 0.024798119440674782}
+06/02/2025 22:41:33 - INFO - root - Epoch 0/10, Step 740/4684::{'lr': 7.41e-05, 'total_loss': 0.01446558814495802}
+06/02/2025 22:41:46 - INFO - root - Epoch 0/10, Step 760/4684::{'lr': 7.61e-05, 'total_loss': 0.015468619763851166}
+06/02/2025 22:41:59 - INFO - root - Epoch 0/10, Step 780/4684::{'lr': 7.81e-05, 'total_loss': 0.010269255377352238}
+06/02/2025 22:42:12 - INFO - root - Epoch 0/10, Step 800/4684::{'lr': 8.010000000000001e-05, 'total_loss': 0.010187903419137001}
+06/02/2025 22:42:25 - INFO - root - Epoch 0/10, Step 820/4684::{'lr': 8.21e-05, 'total_loss': 0.05227687954902649}
+06/02/2025 22:42:37 - INFO - root - Epoch 0/10, Step 840/4684::{'lr': 8.41e-05, 'total_loss': 0.01231594942510128}
+06/02/2025 22:42:50 - INFO - root - Epoch 0/10, Step 860/4684::{'lr': 8.61e-05, 'total_loss': 0.013309081085026264}
+06/02/2025 22:43:03 - INFO - root - Epoch 0/10, Step 880/4684::{'lr': 8.81e-05, 'total_loss': 0.009582608938217163}
+06/02/2025 22:43:16 - INFO - root - Epoch 0/10, Step 900/4684::{'lr': 9.010000000000001e-05, 'total_loss': 0.022398872300982475}
+06/02/2025 22:43:28 - INFO - root - Epoch 0/10, Step 920/4684::{'lr': 9.21e-05, 'total_loss': 0.016120880842208862}
+06/02/2025 22:43:41 - INFO - root - Epoch 0/10, Step 940/4684::{'lr': 9.41e-05, 'total_loss': 0.009611314162611961}
+06/02/2025 22:43:54 - INFO - root - Epoch 0/10, Step 960/4684::{'lr': 9.61e-05, 'total_loss': 0.004404753912240267}
+06/02/2025 22:44:07 - INFO - root - Epoch 0/10, Step 980/4684::{'lr': 9.81e-05, 'total_loss': 0.008333979174494743}
+06/02/2025 22:44:20 - INFO - root - Epoch 0/10, Step 1000/4684::{'lr': 9.999999988257771e-05, 'total_loss': 0.011010472662746906}
+06/02/2025 22:44:33 - INFO - root - Epoch 0/10, Step 1020/4684::{'lr': 9.99999482167802e-05, 'total_loss': 0.005543072707951069}
+06/02/2025 22:44:45 - INFO - root - Epoch 0/10, Step 1040/4684::{'lr': 9.99998026132648e-05, 'total_loss': 0.013604283332824707}
+06/02/2025 22:44:58 - INFO - root - Epoch 0/10, Step 1060/4684::{'lr': 9.999956307230504e-05, 'total_loss': 0.003853427479043603}
+06/02/2025 22:45:11 - INFO - root - Epoch 0/10, Step 1080/4684::{'lr': 9.999922959435095e-05, 'total_loss': 0.007492182310670614}
+06/02/2025 22:45:24 - INFO - root - Epoch 0/10, Step 1100/4684::{'lr': 9.99988021800291e-05, 'total_loss': 0.008024471811950207}
+06/02/2025 22:45:37 - INFO - root - Epoch 0/10, Step 1120/4684::{'lr': 9.999828083014244e-05, 'total_loss': 0.020056815817952156}
+06/02/2025 22:45:49 - INFO - root - Epoch 0/10, Step 1140/4684::{'lr': 9.999766554567051e-05, 'total_loss': 0.012952009215950966}
+06/02/2025 22:46:02 - INFO - root - Epoch 0/10, Step 1160/4684::{'lr': 9.999695632776924e-05, 'total_loss': 0.01567522995173931}
+06/02/2025 22:46:15 - INFO - root - Epoch 0/10, Step 1180/4684::{'lr': 9.999615317777111e-05, 'total_loss': 0.007031432818621397}
+06/02/2025 22:46:28 - INFO - root - Epoch 0/10, Step 1200/4684::{'lr': 9.999525609718502e-05, 'total_loss': 0.008023746311664581}
+06/02/2025 22:46:40 - INFO - root - Epoch 0/10, Step 1220/4684::{'lr': 9.999426508769639e-05, 'total_loss': 0.018441928550601006}
+06/02/2025 22:46:53 - INFO - root - Epoch 0/10, Step 1240/4684::{'lr': 9.999318015116703e-05, 'total_loss': 0.013901477679610252}
+06/02/2025 22:47:06 - INFO - root - Epoch 0/10, Step 1260/4684::{'lr': 9.999200128963535e-05, 'total_loss': 0.017055073752999306}
+06/02/2025 22:47:18 - INFO - root - Epoch 0/10, Step 1280/4684::{'lr': 9.999072850531607e-05, 'total_loss': 0.003555440343916416}
+06/02/2025 22:47:31 - INFO - root - Epoch 0/10, Step 1300/4684::{'lr': 9.998936180060051e-05, 'total_loss': 0.007616210728883743}
+06/02/2025 22:47:44 - INFO - root - Epoch 0/10, Step 1320/4684::{'lr': 9.998790117805632e-05, 'total_loss': 0.010572724044322968}
+06/02/2025 22:47:57 - INFO - root - Epoch 0/10, Step 1340/4684::{'lr': 9.998634664042768e-05, 'total_loss': 0.007989365607500076}
+06/02/2025 22:48:10 - INFO - root - Epoch 0/10, Step 1360/4684::{'lr': 9.998469819063519e-05, 'total_loss': 0.0073661794885993}
+06/02/2025 22:48:22 - INFO - root - Epoch 0/10, Step 1380/4684::{'lr': 9.998295583177588e-05, 'total_loss': 0.007842249237000942}
+06/02/2025 22:48:35 - INFO - root - Epoch 0/10, Step 1400/4684::{'lr': 9.998111956712319e-05, 'total_loss': 0.00642267893999815}
+06/02/2025 22:48:48 - INFO - root - Epoch 0/10, Step 1420/4684::{'lr': 9.997918940012706e-05, 'total_loss': 0.003748695831745863}
+06/02/2025 22:49:00 - INFO - root - Epoch 0/10, Step 1440/4684::{'lr': 9.997716533441378e-05, 'total_loss': 0.005129675846546888}
+06/02/2025 22:49:13 - INFO - root - Epoch 0/10, Step 1460/4684::{'lr': 9.997504737378606e-05, 'total_loss': 0.005667980760335922}
+06/02/2025 22:49:26 - INFO - root - Epoch 0/10, Step 1480/4684::{'lr': 9.997283552222309e-05, 'total_loss': 0.013039647601544857}
+06/02/2025 22:49:39 - INFO - root - Epoch 0/10, Step 1500/4684::{'lr': 9.997052978388033e-05, 'total_loss': 0.010961086489260197}
+06/02/2025 22:49:52 - INFO - root - Epoch 0/10, Step 1520/4684::{'lr': 9.996813016308974e-05, 'total_loss': 0.013859622180461884}
+06/02/2025 22:50:04 - INFO - root - Epoch 0/10, Step 1540/4684::{'lr': 9.99656366643596e-05, 'total_loss': 0.010520990937948227}
+06/02/2025 22:50:17 - INFO - root - Epoch 0/10, Step 1560/4684::{'lr': 9.996304929237462e-05, 'total_loss': 0.0022868486121296883}
+06/02/2025 22:50:30 - INFO - root - Epoch 0/10, Step 1580/4684::{'lr': 9.996036805199581e-05, 'total_loss': 0.00899079442024231}
+06/02/2025 22:50:43 - INFO - root - Epoch 0/10, Step 1600/4684::{'lr': 9.995759294826059e-05, 'total_loss': 0.011978093534708023}
+06/02/2025 22:50:56 - INFO - root - Epoch 0/10, Step 1620/4684::{'lr': 9.995472398638268e-05, 'total_loss': 0.010977886617183685}
+06/02/2025 22:51:08 - INFO - root - Epoch 0/10, Step 1640/4684::{'lr': 9.995176117175218e-05, 'total_loss': 0.012719589285552502}
+06/02/2025 22:51:21 - INFO - root - Epoch 0/10, Step 1660/4684::{'lr': 9.994870450993548e-05, 'total_loss': 0.00608096132054925}
+06/02/2025 22:51:34 - INFO - root - Epoch 0/10, Step 1680/4684::{'lr': 9.994555400667533e-05, 'total_loss': 0.0054387180134654045}
+06/02/2025 22:51:46 - INFO - root - Epoch 0/10, Step 1700/4684::{'lr': 9.994230966789072e-05, 'total_loss': 0.002303576096892357}
+06/02/2025 22:51:59 - INFO - root - Epoch 0/10, Step 1720/4684::{'lr': 9.9938971499677e-05, 'total_loss': 0.006704810541123152}
+06/02/2025 22:52:12 - INFO - root - Epoch 0/10, Step 1740/4684::{'lr': 9.993553950830576e-05, 'total_loss': 0.006034700199961662}
+06/02/2025 22:52:25 - INFO - root - Epoch 0/10, Step 1760/4684::{'lr': 9.993201370022489e-05, 'total_loss': 0.008188697509467602}
+06/02/2025 22:52:37 - INFO - root - Epoch 0/10, Step 1780/4684::{'lr': 9.992839408205851e-05, 'total_loss': 0.010877925902605057}
+06/02/2025 22:52:50 - INFO - root - Epoch 0/10, Step 1800/4684::{'lr': 9.992468066060703e-05, 'total_loss': 0.001872809836640954}
+06/02/2025 22:53:03 - INFO - root - Epoch 0/10, Step 1820/4684::{'lr': 9.992087344284701e-05, 'total_loss': 0.007292375434190035}
+06/02/2025 22:53:16 - INFO - root - Epoch 0/10, Step 1840/4684::{'lr': 9.991697243593132e-05, 'total_loss': 0.010887638665735722}
+06/02/2025 22:53:29 - INFO - root - Epoch 0/10, Step 1860/4684::{'lr': 9.991297764718901e-05, 'total_loss': 0.005703430622816086}
+06/02/2025 22:53:41 - INFO - root - Epoch 0/10, Step 1880/4684::{'lr': 9.99088890841253e-05, 'total_loss': 0.005117152351886034}
+06/02/2025 22:53:54 - INFO - root - Epoch 0/10, Step 1900/4684::{'lr': 9.990470675442159e-05, 'total_loss': 0.00585805531591177}
+06/02/2025 22:54:07 - INFO - root - Epoch 0/10, Step 1920/4684::{'lr': 9.990043066593548e-05, 'total_loss': 0.012743954546749592}
+06/02/2025 22:54:20 - INFO - root - Epoch 0/10, Step 1940/4684::{'lr': 9.989606082670068e-05, 'total_loss': 0.0050512352026999}
+06/02/2025 22:54:32 - INFO - root - Epoch 0/10, Step 1960/4684::{'lr': 9.989159724492708e-05, 'total_loss': 0.008632825687527657}
+06/02/2025 22:54:45 - INFO - root - Epoch 0/10, Step 1980/4684::{'lr': 9.988703992900063e-05, 'total_loss': 0.004315361846238375}
+06/02/2025 22:54:58 - INFO - root - Epoch 0/10, Step 2000/4684::{'lr': 9.988238888748344e-05, 'total_loss': 0.005754692945629358}
+06/02/2025 22:55:11 - INFO - root - Epoch 0/10, Step 2020/4684::{'lr': 9.987764412911369e-05, 'total_loss': 0.0025874474085867405}
+06/02/2025 22:55:24 - INFO - root - Epoch 0/10, Step 2040/4684::{'lr': 9.98728056628056e-05, 'total_loss': 0.0077088396064937115}
+06/02/2025 22:55:37 - INFO - root - Epoch 0/10, Step 2060/4684::{'lr': 9.986787349764948e-05, 'total_loss': 0.006362818647176027}
+06/02/2025 22:55:49 - INFO - root - Epoch 0/10, Step 2080/4684::{'lr': 9.986284764291166e-05, 'total_loss': 0.011172493919730186}
+06/02/2025 22:56:02 - INFO - root - Epoch 0/10, Step 2100/4684::{'lr': 9.98577281080345e-05, 'total_loss': 0.005896116606891155}
+06/02/2025 22:56:15 - INFO - root - Epoch 0/10, Step 2120/4684::{'lr': 9.985251490263638e-05, 'total_loss': 0.00799811352044344}
+06/02/2025 22:56:28 - INFO - root - Epoch 0/10, Step 2140/4684::{'lr': 9.98472080365116e-05, 'total_loss': 0.005173712037503719}
+06/02/2025 22:56:40 - INFO - root - Epoch 0/10, Step 2160/4684::{'lr': 9.98418075196305e-05, 'total_loss': 0.0033674552105367184}
+06/02/2025 22:56:53 - INFO - root - Epoch 0/10, Step 2180/4684::{'lr': 9.983631336213934e-05, 'total_loss': 0.013089445419609547}
+06/02/2025 22:57:06 - INFO - root - Epoch 0/10, Step 2200/4684::{'lr': 9.983072557436026e-05, 'total_loss': 0.0035337151493877172}
+06/02/2025 22:57:19 - INFO - root - Epoch 0/10, Step 2220/4684::{'lr': 9.98250441667914e-05, 'total_loss': 0.011973073706030846}
+06/02/2025 22:57:32 - INFO - root - Epoch 0/10, Step 2240/4684::{'lr': 9.981926915010673e-05, 'total_loss': 0.0022259324323385954}
+06/02/2025 22:57:45 - INFO - root - Epoch 0/10, Step 2260/4684::{'lr': 9.981340053515607e-05, 'total_loss': 0.005806400440633297}
+06/02/2025 22:57:57 - INFO - root - Epoch 0/10, Step 2280/4684::{'lr': 9.980743833296515e-05, 'total_loss': 0.006590766832232475}
+06/02/2025 22:58:10 - INFO - root - Epoch 0/10, Step 2300/4684::{'lr': 9.980138255473548e-05, 'total_loss': 0.009081406518816948}
+06/02/2025 22:58:23 - INFO - root - Epoch 0/10, Step 2320/4684::{'lr': 9.979523321184438e-05, 'total_loss': 0.009595559909939766}
+06/02/2025 22:58:36 - INFO - root - Epoch 0/10, Step 2340/4684::{'lr': 9.978899031584501e-05, 'total_loss': 0.00579861318692565}
+06/02/2025 22:58:49 - INFO - root - Epoch 0/10, Step 2360/4684::{'lr': 9.97826538784662e-05, 'total_loss': 0.016667433083057404}
+06/02/2025 22:59:01 - INFO - root - Epoch 0/10, Step 2380/4684::{'lr': 9.97762239116126e-05, 'total_loss': 0.006093740463256836}
+06/02/2025 22:59:14 - INFO - root - Epoch 0/10, Step 2400/4684::{'lr': 9.976970042736453e-05, 'total_loss': 0.0036150519736111164}
+06/02/2025 22:59:27 - INFO - root - Epoch 0/10, Step 2420/4684::{'lr': 9.976308343797807e-05, 'total_loss': 0.006201918236911297}
+06/02/2025 22:59:40 - INFO - root - Epoch 0/10, Step 2440/4684::{'lr': 9.975637295588487e-05, 'total_loss': 0.003268642583861947}
+06/02/2025 22:59:53 - INFO - root - Epoch 0/10, Step 2460/4684::{'lr': 9.974956899369234e-05, 'total_loss': 0.004776043817400932}
+06/02/2025 23:00:06 - INFO - root - Epoch 0/10, Step 2480/4684::{'lr': 9.974267156418345e-05, 'total_loss': 0.004319992382079363}
+06/02/2025 23:00:18 - INFO - root - Epoch 0/10, Step 2500/4684::{'lr': 9.973568068031676e-05, 'total_loss': 0.0036284213420003653}
+06/02/2025 23:00:31 - INFO - root - Epoch 0/10, Step 2520/4684::{'lr': 9.972859635522649e-05, 'total_loss': 0.002256686333566904}
+06/02/2025 23:00:44 - INFO - root - Epoch 0/10, Step 2540/4684::{'lr': 9.972141860222233e-05, 'total_loss': 0.0031036967411637306}
+06/02/2025 23:00:56 - INFO - root - Epoch 0/10, Step 2560/4684::{'lr': 9.971414743478954e-05, 'total_loss': 0.0025504992809146643}
+06/02/2025 23:01:09 - INFO - root - Epoch 0/10, Step 2580/4684::{'lr': 9.970678286658885e-05, 'total_loss': 0.0028140638023614883}
+06/02/2025 23:01:22 - INFO - root - Epoch 0/10, Step 2600/4684::{'lr': 9.969932491145653e-05, 'total_loss': 0.0062617352232337}
+06/02/2025 23:01:35 - INFO - root - Epoch 0/10, Step 2620/4684::{'lr': 9.969177358340421e-05, 'total_loss': 0.002872937824577093}
+06/02/2025 23:01:47 - INFO - root - Epoch 0/10, Step 2640/4684::{'lr': 9.968412889661902e-05, 'total_loss': 0.006388203706592321}
+06/02/2025 23:02:00 - INFO - root - Epoch 0/10, Step 2660/4684::{'lr': 9.967639086546348e-05, 'total_loss': 0.0033432382624596357}
+06/02/2025 23:02:13 - INFO - root - Epoch 0/10, Step 2680/4684::{'lr': 9.966855950447545e-05, 'total_loss': 0.011423575691878796}
+06/02/2025 23:02:26 - INFO - root - Epoch 0/10, Step 2700/4684::{'lr': 9.966063482836813e-05, 'total_loss': 0.0035783876664936543}
+06/02/2025 23:02:39 - INFO - root - Epoch 0/10, Step 2720/4684::{'lr': 9.965261685203008e-05, 'total_loss': 0.004828807897865772}
+06/02/2025 23:02:51 - INFO - root - Epoch 0/10, Step 2740/4684::{'lr': 9.964450559052512e-05, 'total_loss': 0.003670015372335911}
+06/02/2025 23:03:04 - INFO - root - Epoch 0/10, Step 2760/4684::{'lr': 9.963630105909232e-05, 'total_loss': 0.01725572906434536}
+06/02/2025 23:03:16 - INFO - root - Epoch 0/10, Step 2780/4684::{'lr': 9.962800327314601e-05, 'total_loss': 0.003436868544667959}
+06/02/2025 23:03:28 - INFO - root - Epoch 0/10, Step 2800/4684::{'lr': 9.96196122482757e-05, 'total_loss': 0.007946138270199299}
+06/02/2025 23:03:40 - INFO - root - Epoch 0/10, Step 2820/4684::{'lr': 9.961112800024608e-05, 'total_loss': 0.002909332048147917}
+06/02/2025 23:03:53 - INFO - root - Epoch 0/10, Step 2840/4684::{'lr': 9.960255054499699e-05, 'total_loss': 0.017449472099542618}
+06/02/2025 23:04:05 - INFO - root - Epoch 0/10, Step 2860/4684::{'lr': 9.959387989864339e-05, 'total_loss': 0.006234410684555769}
+06/02/2025 23:04:17 - INFO - root - Epoch 0/10, Step 2880/4684::{'lr': 9.958511607747527e-05, 'total_loss': 0.008796265348792076}
+06/02/2025 23:04:29 - INFO - root - Epoch 0/10, Step 2900/4684::{'lr': 9.957625909795775e-05, 'total_loss': 0.01097153965383768}
+06/02/2025 23:04:42 - INFO - root - Epoch 0/10, Step 2920/4684::{'lr': 9.956730897673095e-05, 'total_loss': 0.01013215258717537}
+06/02/2025 23:04:54 - INFO - root - Epoch 0/10, Step 2940/4684::{'lr': 9.955826573060993e-05, 'total_loss': 0.004911347758024931}
+06/02/2025 23:05:06 - INFO - root - Epoch 0/10, Step 2960/4684::{'lr': 9.954912937658475e-05, 'total_loss': 0.0032832403667271137}
+06/02/2025 23:05:18 - INFO - root - Epoch 0/10, Step 2980/4684::{'lr': 9.953989993182043e-05, 'total_loss': 0.0027397458907216787}
+06/02/2025 23:05:31 - INFO - root - Epoch 0/10, Step 3000/4684::{'lr': 9.95305774136568e-05, 'total_loss': 0.008844055235385895}
+06/02/2025 23:05:43 - INFO - root - Epoch 0/10, Step 3020/4684::{'lr': 9.952116183960861e-05, 'total_loss': 0.007484351750463247}
+06/02/2025 23:05:55 - INFO - root - Epoch 0/10, Step 3040/4684::{'lr': 9.951165322736545e-05, 'total_loss': 0.006855786312371492}
+06/02/2025 23:06:08 - INFO - root - Epoch 0/10, Step 3060/4684::{'lr': 9.950205159479167e-05, 'total_loss': 0.0029800706543028355}
+06/02/2025 23:06:20 - INFO - root - Epoch 0/10, Step 3080/4684::{'lr': 9.949235695992641e-05, 'total_loss': 0.00340881641022861}
+06/02/2025 23:06:32 - INFO - root - Epoch 0/10, Step 3100/4684::{'lr': 9.948256934098352e-05, 'total_loss': 0.0047115059569478035}
+06/02/2025 23:06:44 - INFO - root - Epoch 0/10, Step 3120/4684::{'lr': 9.947268875635154e-05, 'total_loss': 0.002098100259900093}
+06/02/2025 23:06:56 - INFO - root - Epoch 0/10, Step 3140/4684::{'lr': 9.946271522459369e-05, 'total_loss': 0.00807981751859188}
+06/02/2025 23:07:09 - INFO - root - Epoch 0/10, Step 3160/4684::{'lr': 9.945264876444783e-05, 'total_loss': 0.0019276023376733065}
+06/02/2025 23:07:21 - INFO - root - Epoch 0/10, Step 3180/4684::{'lr': 9.944248939482633e-05, 'total_loss': 0.003633783897385001}
+06/02/2025 23:07:33 - INFO - root - Epoch 0/10, Step 3200/4684::{'lr': 9.94322371348162e-05, 'total_loss': 0.0074534788727760315}
+06/02/2025 23:07:46 - INFO - root - Epoch 0/10, Step 3220/4684::{'lr': 9.942189200367895e-05, 'total_loss': 0.006230889353901148}
+06/02/2025 23:07:58 - INFO - root - Epoch 0/10, Step 3240/4684::{'lr': 9.941145402085055e-05, 'total_loss': 0.007411709520965815}
+06/02/2025 23:08:10 - INFO - root - Epoch 0/10, Step 3260/4684::{'lr': 9.940092320594143e-05, 'total_loss': 0.006006653420627117}
+06/02/2025 23:08:22 - INFO - root - Epoch 0/10, Step 3280/4684::{'lr': 9.93902995787364e-05, 'total_loss': 0.005513496231287718}
+06/02/2025 23:08:35 - INFO - root - Epoch 0/10, Step 3300/4684::{'lr': 9.93795831591947e-05, 'total_loss': 0.004875515587627888}
+06/02/2025 23:08:47 - INFO - root - Epoch 0/10, Step 3320/4684::{'lr': 9.936877396744986e-05, 'total_loss': 0.004601813852787018}
+06/02/2025 23:08:59 - INFO - root - Epoch 0/10, Step 3340/4684::{'lr': 9.935787202380972e-05, 'total_loss': 0.0051813069730997086}
+06/02/2025 23:09:11 - INFO - root - Epoch 0/10, Step 3360/4684::{'lr': 9.934687734875636e-05, 'total_loss': 0.007902022451162338}
+06/02/2025 23:09:24 - INFO - root - Epoch 0/10, Step 3380/4684::{'lr': 9.93357899629461e-05, 'total_loss': 0.003107876982539892}
+06/02/2025 23:09:36 - INFO - root - Epoch 0/10, Step 3400/4684::{'lr': 9.932460988720946e-05, 'total_loss': 0.00231929705478251}
+06/02/2025 23:09:48 - INFO - root - Epoch 0/10, Step 3420/4684::{'lr': 9.931333714255105e-05, 'total_loss': 0.006663097534328699}
+06/02/2025 23:10:00 - INFO - root - Epoch 0/10, Step 3440/4684::{'lr': 9.930197175014962e-05, 'total_loss': 0.008220004849135876}
+06/02/2025 23:10:13 - INFO - root - Epoch 0/10, Step 3460/4684::{'lr': 9.929051373135796e-05, 'total_loss': 0.004498753696680069}
+06/02/2025 23:10:25 - INFO - root - Epoch 0/10, Step 3480/4684::{'lr': 9.92789631077029e-05, 'total_loss': 0.005541020072996616}
+06/02/2025 23:10:37 - INFO - root - Epoch 0/10, Step 3500/4684::{'lr': 9.926731990088527e-05, 'total_loss': 0.0054033063352108}
+06/02/2025 23:10:50 - INFO - root - Epoch 0/10, Step 3520/4684::{'lr': 9.92555841327798e-05, 'total_loss': 0.004161798860877752}
+06/02/2025 23:11:02 - INFO - root - Epoch 0/10, Step 3540/4684::{'lr': 9.924375582543514e-05, 'total_loss': 0.005936228204518557}
+06/02/2025 23:11:14 - INFO - root - Epoch 0/10, Step 3560/4684::{'lr': 9.92318350010738e-05, 'total_loss': 0.007207893766462803}
+06/02/2025 23:11:26 - INFO - root - Epoch 0/10, Step 3580/4684::{'lr': 9.921982168209209e-05, 'total_loss': 0.0080157071352005}
+06/02/2025 23:11:39 - INFO - root - Epoch 0/10, Step 3600/4684::{'lr': 9.920771589106012e-05, 'total_loss': 0.009304352104663849}
+06/02/2025 23:11:51 - INFO - root - Epoch 0/10, Step 3620/4684::{'lr': 9.919551765072173e-05, 'total_loss': 0.006991127505898476}
+06/02/2025 23:12:03 - INFO - root - Epoch 0/10, Step 3640/4684::{'lr': 9.918322698399443e-05, 'total_loss': 0.005263281054794788}
+06/02/2025 23:12:15 - INFO - root - Epoch 0/10, Step 3660/4684::{'lr': 9.917084391396937e-05, 'total_loss': 0.004940458107739687}
+06/02/2025 23:12:27 - INFO - root - Epoch 0/10, Step 3680/4684::{'lr': 9.915836846391137e-05, 'total_loss': 0.005044103600084782}
+06/02/2025 23:12:39 - INFO - root - Epoch 0/10, Step 3700/4684::{'lr': 9.914580065725873e-05, 'total_loss': 0.0030313795432448387}
+06/02/2025 23:12:52 - INFO - root - Epoch 0/10, Step 3720/4684::{'lr': 9.913314051762328e-05, 'total_loss': 0.007382581010460854}
+06/02/2025 23:13:05 - INFO - root - Epoch 0/10, Step 3740/4684::{'lr': 9.912038806879036e-05, 'total_loss': 0.002331620315089822}
+06/02/2025 23:13:18 - INFO - root - Epoch 0/10, Step 3760/4684::{'lr': 9.91075433347187e-05, 'total_loss': 0.0027886037714779377}
+06/02/2025 23:13:30 - INFO - root - Epoch 0/10, Step 3780/4684::{'lr': 9.909460633954044e-05, 'total_loss': 0.003950636833906174}
+06/02/2025 23:13:43 - INFO - root - Epoch 0/10, Step 3800/4684::{'lr': 9.908157710756104e-05, 'total_loss': 0.004570059012621641}
+06/02/2025 23:13:56 - INFO - root - Epoch 0/10, Step 3820/4684::{'lr': 9.906845566325923e-05, 'total_loss': 0.010329960845410824}
+06/02/2025 23:14:09 - INFO - root - Epoch 0/10, Step 3840/4684::{'lr': 9.905524203128703e-05, 'total_loss': 0.006603577174246311}
+06/02/2025 23:14:21 - INFO - root - Epoch 0/10, Step 3860/4684::{'lr': 9.904193623646962e-05, 'total_loss': 0.0020586634054780006}
+06/02/2025 23:14:34 - INFO - root - Epoch 0/10, Step 3880/4684::{'lr': 9.902853830380537e-05, 'total_loss': 0.03325639292597771}
+06/02/2025 23:14:47 - INFO - root - Epoch 0/10, Step 3900/4684::{'lr': 9.901504825846569e-05, 'total_loss': 0.004737939685583115}
+06/02/2025 23:15:00 - INFO - root - Epoch 0/10, Step 3920/4684::{'lr': 9.900146612579513e-05, 'total_loss': 0.0037148031406104565}
+06/02/2025 23:15:12 - INFO - root - Epoch 0/10, Step 3940/4684::{'lr': 9.898779193131117e-05, 'total_loss': 0.0055485675111413}
+06/02/2025 23:15:25 - INFO - root - Epoch 0/10, Step 3960/4684::{'lr': 9.89740257007043e-05, 'total_loss': 0.001942097907885909}
+06/02/2025 23:15:38 - INFO - root - Epoch 0/10, Step 3980/4684::{'lr': 9.896016745983794e-05, 'total_loss': 0.005086937919259071}
+06/02/2025 23:15:51 - INFO - root - Epoch 0/10, Step 4000/4684::{'lr': 9.894621723474834e-05, 'total_loss': 0.005886447615921497}
+06/02/2025 23:16:04 - INFO - root - Epoch 0/10, Step 4020/4684::{'lr': 9.893217505164452e-05, 'total_loss': 0.004589364863932133}
+06/02/2025 23:16:17 - INFO - root - Epoch 0/10, Step 4040/4684::{'lr': 9.891804093690838e-05, 'total_loss': 0.004042407032102346}
+06/02/2025 23:16:30 - INFO - root - Epoch 0/10, Step 4060/4684::{'lr': 9.890381491709446e-05, 'total_loss': 0.0057382164523005486}
+06/02/2025 23:16:43 - INFO - root - Epoch 0/10, Step 4080/4684::{'lr': 9.888949701892998e-05, 'total_loss': 0.0041982573457062244}
+06/02/2025 23:16:56 - INFO - root - Epoch 0/10, Step 4100/4684::{'lr': 9.887508726931479e-05, 'total_loss': 0.00191216089297086}
+06/02/2025 23:17:09 - INFO - root - Epoch 0/10, Step 4120/4684::{'lr': 9.886058569532126e-05, 'total_loss': 0.011184340342879295}
+06/02/2025 23:17:22 - INFO - root - Epoch 0/10, Step 4140/4684::{'lr': 9.884599232419437e-05, 'total_loss': 0.005614961963146925}
+06/02/2025 23:17:34 - INFO - root - Epoch 0/10, Step 4160/4684::{'lr': 9.883130718335147e-05, 'total_loss': 0.0016038320027291775}
+06/02/2025 23:17:47 - INFO - root - Epoch 0/10, Step 4180/4684::{'lr': 9.881653030038238e-05, 'total_loss': 0.003758479841053486}
+06/02/2025 23:18:00 - INFO - root - Epoch 0/10, Step 4200/4684::{'lr': 9.880166170304927e-05, 'total_loss': 0.0036552425008267164}
+06/02/2025 23:18:12 - INFO - root - Epoch 0/10, Step 4220/4684::{'lr': 9.878670141928657e-05, 'total_loss': 0.00791247095912695}
+06/02/2025 23:18:25 - INFO - root - Epoch 0/10, Step 4240/4684::{'lr': 9.877164947720106e-05, 'total_loss': 0.002334612188860774}
+06/03/2025 09:56:25 - INFO - root - ============================================================
+06/03/2025 09:56:25 - INFO - root -                  Experiment Start                           
+06/03/2025 09:56:25 - INFO - root - ============================================================
+06/03/2025 09:56:25 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 09:56:26 - INFO - root - train data: 4684, valid data: 1167, test_data: 1168
+06/03/2025 09:56:26 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 09:56:29 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 09:56:34 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 09:56:39 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 09:56:42 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/03/2025 09:56:44 - INFO - root - Main Model Parameters: 48.72M
+06/03/2025 09:56:44 - INFO - root - ============ Running training ============
+06/03/2025 09:56:44 - INFO - root -     Num examples = 4684
+06/03/2025 09:56:44 - INFO - root -     Num Epochs = 10
+06/03/2025 09:56:44 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 09:56:44 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 09:56:44 - INFO - root -     Total optimization steps = 46840
+06/03/2025 09:56:44 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 09:56:46 - INFO - root - Data Loading Time: 2.724682569503784
+06/03/2025 09:56:46 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 09:56:49 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 09:56:49 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/03/2025 09:56:50 - INFO - root - Epoch 0/10, Step 0/4684::{'lr': 1.0000000000000001e-07, 'total_loss': 0.34668684005737305}
+06/03/2025 09:57:02 - INFO - root - Epoch 0/10, Step 20/4684::{'lr': 2.1000000000000002e-06, 'total_loss': 0.3093973994255066}
+06/03/2025 09:57:15 - INFO - root - Epoch 0/10, Step 40/4684::{'lr': 4.1000000000000006e-06, 'total_loss': 0.2628239691257477}
+06/03/2025 09:57:28 - INFO - root - Epoch 0/10, Step 60/4684::{'lr': 6.1e-06, 'total_loss': 0.03621714562177658}
+06/03/2025 09:57:41 - INFO - root - Epoch 0/10, Step 80/4684::{'lr': 8.1e-06, 'total_loss': 0.07095365226268768}
+06/03/2025 09:57:53 - INFO - root - Epoch 0/10, Step 100/4684::{'lr': 1.0100000000000002e-05, 'total_loss': 0.1414959579706192}
+06/03/2025 09:58:06 - INFO - root - Epoch 0/10, Step 120/4684::{'lr': 1.2100000000000001e-05, 'total_loss': 0.16285258531570435}
+06/03/2025 09:58:19 - INFO - root - Epoch 0/10, Step 140/4684::{'lr': 1.4099999999999999e-05, 'total_loss': 0.20071829855442047}
+06/03/2025 09:58:32 - INFO - root - Epoch 0/10, Step 160/4684::{'lr': 1.6100000000000002e-05, 'total_loss': 0.06582459807395935}
+06/03/2025 09:58:44 - INFO - root - Epoch 0/10, Step 180/4684::{'lr': 1.81e-05, 'total_loss': 0.06887158006429672}
+06/03/2025 10:04:17 - INFO - root - Epoch 0/10, Step 200/4684::{'lr': 2.01e-05, 'total_loss': 0.19075947999954224}
+06/03/2025 10:04:30 - INFO - root - Epoch 0/10, Step 220/4684::{'lr': 2.2100000000000002e-05, 'total_loss': 0.1587902307510376}
+06/03/2025 10:05:01 - INFO - root - ============================================================
+06/03/2025 10:05:01 - INFO - root -                  Experiment Start                           
+06/03/2025 10:05:01 - INFO - root - ============================================================
+06/03/2025 10:05:01 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 10:05:02 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 10:05:02 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 10:05:05 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:05:10 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:05:15 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:05:18 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/03/2025 10:05:20 - INFO - root - Main Model Parameters: 48.72M
+06/03/2025 10:05:20 - INFO - root - ============ Running training ============
+06/03/2025 10:05:20 - INFO - root -     Num examples = 500
+06/03/2025 10:05:20 - INFO - root -     Num Epochs = 10
+06/03/2025 10:05:20 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 10:05:20 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 10:05:20 - INFO - root -     Total optimization steps = 5000
+06/03/2025 10:05:20 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 10:05:22 - INFO - root - Data Loading Time: 2.7203545570373535
+06/03/2025 10:05:22 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 10:05:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 10:05:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/03/2025 10:05:26 - INFO - root - Epoch 0/10, Step 0/500::{'lr': 1.0000000000000001e-07, 'total_loss': 0.3629527688026428}
+06/03/2025 10:05:39 - INFO - root - Epoch 0/10, Step 20/500::{'lr': 2.1000000000000002e-06, 'total_loss': 0.3204784691333771}
+06/03/2025 10:05:51 - INFO - root - Epoch 0/10, Step 40/500::{'lr': 4.1000000000000006e-06, 'total_loss': 0.26488927006721497}
+06/03/2025 10:06:02 - INFO - root - ============================================================
+06/03/2025 10:06:02 - INFO - root -                  Experiment Start                           
+06/03/2025 10:06:02 - INFO - root - ============================================================
+06/03/2025 10:06:02 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 10:06:03 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 10:06:03 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 10:06:06 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:06:11 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:06:16 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:06:19 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/03/2025 10:06:20 - INFO - root - Main Model Parameters: 48.72M
+06/03/2025 10:06:20 - INFO - root - ============ Running training ============
+06/03/2025 10:06:20 - INFO - root -     Num examples = 500
+06/03/2025 10:06:20 - INFO - root -     Num Epochs = 10
+06/03/2025 10:06:20 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 10:06:20 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 10:06:20 - INFO - root -     Total optimization steps = 5000
+06/03/2025 10:06:20 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 10:06:23 - INFO - root - Data Loading Time: 2.8652360439300537
+06/03/2025 10:06:23 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 10:06:25 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 10:06:26 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/03/2025 10:06:27 - INFO - root - Epoch 0/10, Step 0/500::{'lr': 1.0000000000000001e-07, 'total_loss': 0.36744529008865356}
+06/03/2025 10:06:39 - INFO - root - Epoch 0/10, Step 20/500::{'lr': 2.1000000000000002e-06, 'total_loss': 0.32989755272865295}
+06/03/2025 10:06:51 - INFO - root - Epoch 0/10, Step 40/500::{'lr': 4.1000000000000006e-06, 'total_loss': 0.2682141363620758}
+06/03/2025 10:07:04 - INFO - root - Epoch 0/10, Step 60/500::{'lr': 6.1e-06, 'total_loss': 0.03812592104077339}
+06/03/2025 10:07:17 - INFO - root - Epoch 0/10, Step 80/500::{'lr': 8.1e-06, 'total_loss': 0.07822039723396301}
+06/03/2025 10:07:29 - INFO - root - Epoch 0/10, Step 100/500::{'lr': 1.0100000000000002e-05, 'total_loss': 0.1459207832813263}
+06/03/2025 10:07:42 - INFO - root - Epoch 0/10, Step 120/500::{'lr': 1.2100000000000001e-05, 'total_loss': 0.16701118648052216}
+06/03/2025 10:07:55 - INFO - root - Epoch 0/10, Step 140/500::{'lr': 1.4099999999999999e-05, 'total_loss': 0.2104659229516983}
+06/03/2025 10:08:07 - INFO - root - Epoch 0/10, Step 160/500::{'lr': 1.6100000000000002e-05, 'total_loss': 0.06988309323787689}
+06/03/2025 10:08:20 - INFO - root - Epoch 0/10, Step 180/500::{'lr': 1.81e-05, 'total_loss': 0.07591570168733597}
+06/03/2025 10:08:33 - INFO - root - Epoch 0/10, Step 200/500::{'lr': 2.01e-05, 'total_loss': 0.20151792466640472}
+06/03/2025 10:08:45 - INFO - root - Epoch 0/10, Step 220/500::{'lr': 2.2100000000000002e-05, 'total_loss': 0.1856023073196411}
+06/03/2025 10:08:58 - INFO - root - Epoch 0/10, Step 240/500::{'lr': 2.41e-05, 'total_loss': 0.04427647218108177}
+06/03/2025 10:09:10 - INFO - root - Epoch 0/10, Step 260/500::{'lr': 2.61e-05, 'total_loss': 0.03976435959339142}
+06/03/2025 10:09:23 - INFO - root - Epoch 0/10, Step 280/500::{'lr': 2.8100000000000005e-05, 'total_loss': 0.047519296407699585}
+06/03/2025 10:09:35 - INFO - root - Epoch 0/10, Step 300/500::{'lr': 3.01e-05, 'total_loss': 0.06421589851379395}
+06/03/2025 10:09:48 - INFO - root - Epoch 0/10, Step 320/500::{'lr': 3.21e-05, 'total_loss': 0.043450139462947845}
+06/03/2025 10:10:00 - INFO - root - Epoch 0/10, Step 340/500::{'lr': 3.41e-05, 'total_loss': 0.07800018787384033}
+06/03/2025 10:10:13 - INFO - root - Epoch 0/10, Step 360/500::{'lr': 3.61e-05, 'total_loss': 0.04873828962445259}
+06/03/2025 10:10:26 - INFO - root - Epoch 0/10, Step 380/500::{'lr': 3.8100000000000005e-05, 'total_loss': 0.05570874363183975}
+06/03/2025 10:10:38 - INFO - root - Epoch 0/10, Step 400/500::{'lr': 4.0100000000000006e-05, 'total_loss': 0.01179618202149868}
+06/03/2025 10:10:51 - INFO - root - Epoch 0/10, Step 420/500::{'lr': 4.21e-05, 'total_loss': 0.08760774880647659}
+06/03/2025 10:11:03 - INFO - root - Epoch 0/10, Step 440/500::{'lr': 4.41e-05, 'total_loss': 0.05986188352108002}
+06/03/2025 10:11:16 - INFO - root - Epoch 0/10, Step 460/500::{'lr': 4.61e-05, 'total_loss': 0.05396943911910057}
+06/03/2025 10:11:29 - INFO - root - Epoch 0/10, Step 480/500::{'lr': 4.8100000000000004e-05, 'total_loss': 0.0445202961564064}
+06/03/2025 10:11:40 - INFO - root - Save checkpoint 500 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffearthformer_custom_None/checkpoints
+06/03/2025 10:11:40 - INFO - root -  ========= Finisth one Epoch ==========
+06/03/2025 10:11:44 - INFO - root - Epoch 1/10, Step 0/500::{'lr': 5.0100000000000005e-05, 'total_loss': 0.061412107199430466}
+06/03/2025 10:11:57 - INFO - root - Epoch 1/10, Step 20/500::{'lr': 5.2100000000000006e-05, 'total_loss': 0.019133828580379486}
+06/03/2025 10:12:10 - INFO - root - Epoch 1/10, Step 40/500::{'lr': 5.410000000000001e-05, 'total_loss': 0.012983076274394989}
+06/03/2025 10:12:22 - INFO - root - Epoch 1/10, Step 60/500::{'lr': 5.610000000000001e-05, 'total_loss': 0.022571155801415443}
+06/03/2025 10:12:35 - INFO - root - Epoch 1/10, Step 80/500::{'lr': 5.8099999999999996e-05, 'total_loss': 0.018986456096172333}
+06/03/2025 10:12:48 - INFO - root - Epoch 1/10, Step 100/500::{'lr': 6.0100000000000004e-05, 'total_loss': 0.044191062450408936}
+06/03/2025 10:13:01 - INFO - root - Epoch 1/10, Step 120/500::{'lr': 6.21e-05, 'total_loss': 0.018163004890084267}
+06/03/2025 10:13:13 - INFO - root - Epoch 1/10, Step 140/500::{'lr': 6.41e-05, 'total_loss': 0.03311920911073685}
+06/03/2025 10:13:26 - INFO - root - Epoch 1/10, Step 160/500::{'lr': 6.610000000000001e-05, 'total_loss': 0.02593988925218582}
+06/03/2025 10:16:08 - INFO - root - ============================================================
+06/03/2025 10:16:08 - INFO - root -                  Experiment Start                           
+06/03/2025 10:16:08 - INFO - root - ============================================================
+06/03/2025 10:16:08 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 10:16:09 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 10:16:09 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 10:16:12 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:17:17 - INFO - root - ============================================================
+06/03/2025 10:17:17 - INFO - root -                  Experiment Start                           
+06/03/2025 10:17:17 - INFO - root - ============================================================
+06/03/2025 10:17:17 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/03/2025 10:17:18 - INFO - root - train data: 500, valid data: 500, test_data: 500
+06/03/2025 10:17:18 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/03/2025 10:17:21 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:17:26 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:17:31 - INFO - root - [32mBatch Shape: torch.Size([4, 20, 1, 128, 128]), Type: torch.float32[0m
+06/03/2025 10:17:34 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+06/03/2025 10:17:35 - INFO - root - Main Model Parameters: 48.72M
+06/03/2025 10:17:35 - INFO - root - ============ Running training ============
+06/03/2025 10:17:35 - INFO - root -     Num examples = 500
+06/03/2025 10:17:35 - INFO - root -     Num Epochs = 10
+06/03/2025 10:17:35 - INFO - root -     Instantaneous batch size per GPU = 4
+06/03/2025 10:17:35 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/03/2025 10:17:35 - INFO - root -     Total optimization steps = 5000
+06/03/2025 10:17:35 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/03/2025 10:17:38 - INFO - root - Data Loading Time: 2.7396240234375
+06/03/2025 10:17:38 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/03/2025 10:17:41 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/03/2025 10:17:41 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+
+06/03/2025 10:17:42 - INFO - root - Epoch 0/10, Step 0/500::{'lr': 1.0000000000000001e-07, 'total_loss': 0.36744529008865356}
+06/03/2025 10:17:54 - INFO - root - Epoch 0/10, Step 20/500::{'lr': 2.1000000000000002e-06, 'total_loss': 0.32989826798439026}
+06/03/2025 10:18:07 - INFO - root - Epoch 0/10, Step 40/500::{'lr': 4.1000000000000006e-06, 'total_loss': 0.2682156562805176}
+06/03/2025 10:18:20 - INFO - root - Epoch 0/10, Step 60/500::{'lr': 6.1e-06, 'total_loss': 0.03812617436051369}
+06/03/2025 10:18:33 - INFO - root - Epoch 0/10, Step 80/500::{'lr': 8.1e-06, 'total_loss': 0.07822033762931824}
+06/03/2025 10:18:46 - INFO - root - Epoch 0/10, Step 100/500::{'lr': 1.0100000000000002e-05, 'total_loss': 0.1459207385778427}
+06/03/2025 10:18:58 - INFO - root - Epoch 0/10, Step 120/500::{'lr': 1.2100000000000001e-05, 'total_loss': 0.16701120138168335}
+06/03/2025 10:19:11 - INFO - root - Epoch 0/10, Step 140/500::{'lr': 1.4099999999999999e-05, 'total_loss': 0.21046602725982666}
+06/03/2025 10:19:25 - INFO - root - Epoch 0/10, Step 160/500::{'lr': 1.6100000000000002e-05, 'total_loss': 0.06988296657800674}
+06/03/2025 10:19:37 - INFO - root - Epoch 0/10, Step 180/500::{'lr': 1.81e-05, 'total_loss': 0.07591567933559418}
+06/03/2025 10:19:50 - INFO - root - Epoch 0/10, Step 200/500::{'lr': 2.01e-05, 'total_loss': 0.2015170305967331}
+06/03/2025 10:20:03 - INFO - root - Epoch 0/10, Step 220/500::{'lr': 2.2100000000000002e-05, 'total_loss': 0.18560144305229187}
+06/03/2025 10:20:16 - INFO - root - Epoch 0/10, Step 240/500::{'lr': 2.41e-05, 'total_loss': 0.044276557862758636}
+06/03/2025 10:20:29 - INFO - root - Epoch 0/10, Step 260/500::{'lr': 2.61e-05, 'total_loss': 0.039764124900102615}
+06/03/2025 10:20:41 - INFO - root - Epoch 0/10, Step 280/500::{'lr': 2.8100000000000005e-05, 'total_loss': 0.04806595295667648}
+06/03/2025 10:20:54 - INFO - root - Epoch 0/10, Step 300/500::{'lr': 3.01e-05, 'total_loss': 0.0629843920469284}
+06/03/2025 10:21:07 - INFO - root - Epoch 0/10, Step 320/500::{'lr': 3.21e-05, 'total_loss': 0.04413357004523277}
+06/03/2025 10:21:20 - INFO - root - Epoch 0/10, Step 340/500::{'lr': 3.41e-05, 'total_loss': 0.08004719763994217}
+06/03/2025 10:21:33 - INFO - root - Epoch 0/10, Step 360/500::{'lr': 3.61e-05, 'total_loss': 0.04902410879731178}
+06/03/2025 10:21:46 - INFO - root - Epoch 0/10, Step 380/500::{'lr': 3.8100000000000005e-05, 'total_loss': 0.05838768556714058}
+06/03/2025 10:21:58 - INFO - root - Epoch 0/10, Step 400/500::{'lr': 4.0100000000000006e-05, 'total_loss': 0.011795084923505783}
+06/03/2025 10:22:11 - INFO - root - Epoch 0/10, Step 420/500::{'lr': 4.21e-05, 'total_loss': 0.08836213499307632}
+06/03/2025 10:22:24 - INFO - root - Epoch 0/10, Step 440/500::{'lr': 4.41e-05, 'total_loss': 0.06063659489154816}
+06/03/2025 10:22:37 - INFO - root - Epoch 0/10, Step 460/500::{'lr': 4.61e-05, 'total_loss': 0.051483895629644394}
+06/03/2025 10:22:50 - INFO - root - Epoch 0/10, Step 480/500::{'lr': 4.8100000000000004e-05, 'total_loss': 0.04312779754400253}
+06/03/2025 10:23:03 - INFO - root - Save checkpoint 500 to /home/vatsal/NWM/DiffCast/Exps/basic_exps/Diffearthformer_custom_None/checkpoints
+06/03/2025 10:23:03 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+
+06/03/2025 10:23:03 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+
+06/03/2025 10:59:14 - INFO - root - ****************************** < Evaluation Results: > ******************************
+06/03/2025 10:59:14 - INFO - root - Total 2000 samples with 10 seq_len.
+06/03/2025 10:59:14 - INFO - root - ******************************************************************************************
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 16 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.07257022804102735; [0.07537778 0.07471214 0.07289931 0.07269609 0.07184378 0.07125109
+ 0.07201982 0.07168392 0.07184925 0.0713691 ]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.9229545742078897; [0.91859684 0.92014132 0.92116717 0.92341517 0.9223334  0.92554266
+ 0.92450218 0.92536344 0.92358126 0.9249023 ]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.5624638616506654; [0.50454759 0.53688833 0.4920096  0.58876139 0.48934639 0.62329946
+ 0.6098863  0.64438365 0.54578146 0.58973444]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.023435087848731752; [0.0315134  0.02886176 0.026543   0.022829   0.02427467 0.01870311
+ 0.02071087 0.01908337 0.02212354 0.01970817]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.20278029970912528; CSI_POOL 16x16: 0.49345156250000005
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 74 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.030786633820915732; [0.03276569 0.0324918  0.02989371 0.03118572 0.02933342 0.03034803
+ 0.03082897 0.03092182 0.0305147  0.02958247]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.9639764293611244; [0.95875413 0.96103022 0.96422554 0.96409291 0.96490055 0.9659842
+ 0.96511534 0.96521566 0.96382673 0.966619  ]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.1814651483497464; [0.13745944 0.16350324 0.15387114 0.19170673 0.15150755 0.21963698
+ 0.20959384 0.21781511 0.16322885 0.2063286 ]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.019919786283328134; [0.02688319 0.02444815 0.01916792 0.02015362 0.01802153 0.01729651
+ 0.01866972 0.01858791 0.01996574 0.01600357]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.12227567832855091; CSI_POOL 16x16: 0.4098686091697018
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 133 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.014461014638241893; [0.01666128 0.01622129 0.01233441 0.01456989 0.01304356 0.01429009
+ 0.01477014 0.01482626 0.0151108  0.01278243]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.9796834827066249; [0.97047501 0.9761569  0.98279606 0.98037845 0.9817217  0.98195822
+ 0.98090065 0.98058488 0.97779954 0.98406342]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.051435540263556914; [0.03683271 0.04829395 0.04175748 0.05356087 0.04356063 0.0643018
+ 0.06117578 0.05902615 0.04517994 0.06066608]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.02505973742564312; [0.0301082  0.02870156 0.02093146 0.02518472 0.02233431 0.02439839
+ 0.02542611 0.02558149 0.02653378 0.02139736]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.07978030835923883; CSI_POOL 16x16: 0.22826395891653656
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 160 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.008408725407680234; [0.00688508 0.008366   0.00672547 0.00970751 0.00792602 0.00986245
+ 0.00939094 0.00874428 0.00705187 0.00942763]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.9285012641557596; [0.9016031  0.91602335 0.94226219 0.92748143 0.93321997 0.93995111
+ 0.93281089 0.93105429 0.92133643 0.93926987]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.00952069379887385; [0.00734869 0.00920613 0.00755465 0.01108359 0.00891328 0.01166295
+ 0.01079887 0.0099151  0.00768674 0.01103693]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.016324715409813916; [0.01347329 0.01630582 0.0130234  0.0188437  0.01538441 0.01906055
+ 0.01820527 0.01697177 0.01374564 0.0182333 ]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.07536740368065668; CSI_POOL 16x16: 0.22199324634517095
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 181 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+06/03/2025 10:59:14 - INFO - root - ====================Threshold: 219 with melthod 1====================
+06/03/2025 10:59:14 - INFO - root - <CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - <HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+06/03/2025 10:59:14 - INFO - root - < CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+06/03/2025 10:59:14 - INFO - root - ********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+06/03/2025 10:59:14 - INFO - root - [ avg_csi ] : 0.021037766984644202; [ avg_far ] : 0.6325192917385665; [ avg_pod ] : 0.13414754067714044; [ avg_hss] : 0.014123221161252822
+06/03/2025 10:59:14 - INFO - root - [ avg_csi_pool 4x4 ] : 0.08003394834626194; [ avg_csi_pool 16x16 ]: 0.22559622948856825
+06/03/2025 10:59:14 - INFO - root - ====================Losses with 10 seq_len====================
+06/03/2025 10:59:14 - INFO - root - <MSE> : 2045.9232177734375; [1515.0239 1766.1285 1789.0286 2122.529  1801.0039 2464.2202 2321.8562
+ 2411.525  1887.7878 2380.1292]
+06/03/2025 10:59:14 - INFO - root - <MAE> : 28.942514419555664; [23.27924  25.936268 25.194765 30.130337 25.40513  33.68083  32.200172
+ 33.873188 27.586288 32.138927]
+06/03/2025 10:59:14 - INFO - root - <RMSE> : 45.07650375366211; [38.883457 42.00069  42.27403  46.063644 42.416855 49.63443  48.17808
+ 49.099915 43.434425 48.7795  ]
+06/03/2025 10:59:14 - INFO - root - <PSNR> : 15.08238287378631; [16.34398024 15.67060938 15.61386163 14.86498947 15.58426766 14.21626026
+ 14.47516458 14.31047147 15.37690955 14.3673145 ]
+06/03/2025 10:59:14 - INFO - root - <SSIM> : 0.008534571428365825; [0.01313411 0.01026118 0.00906543 0.00742497 0.00979362 0.00624989
+ 0.00725276 0.00666948 0.00930455 0.00618973]
+06/03/2025 10:59:14 - INFO - root - <CRPS> : 0.11350007908268453; [0.09129119 0.10171085 0.09880299 0.11815821 0.09962797 0.13208176
+ 0.12627528 0.13283604 0.10818155 0.12603496]
+06/03/2025 10:59:14 - INFO - root - <LPIPS> : 0.9089164733886719; [0.8852157  0.88192517 0.8898668  0.9223188  0.88995814 0.94070095
+ 0.91027254 0.9392609  0.9000586  0.92958736]
+06/03/2025 10:59:14 - INFO - root - ==========================================================================================
+06/03/2025 10:59:14 - INFO - root - Test Results: {'csi': 0.021037766984644202}
+06/03/2025 10:59:14 - INFO - root - ==============================
+06/03/2025 10:59:14 - INFO - root -  ========= Finisth one Epoch ==========
+06/03/2025 10:59:18 - INFO - root - Epoch 1/10, Step 0/500::{'lr': 5.0100000000000005e-05, 'total_loss': 0.014395685866475105}
+06/03/2025 12:07:19 - INFO - root - Epoch 1/10, Step 20/500::{'lr': 5.2100000000000006e-05, 'total_loss': 0.04040776193141937}
+06/03/2025 12:07:32 - INFO - root - Epoch 1/10, Step 40/500::{'lr': 5.410000000000001e-05, 'total_loss': 0.05455787479877472}

@@ -256,8 +256,7 @@ class CuboidSEVIRPLModule(pl.LightningModule):
             # print("frames_gt shape:", frames_gt.shape if frames_gt is not None else None)
             frames_in = frames_in.permute(0, 1, 3, 4, 2)
         out = self.torch_nn_module(frames_in)
-        out = out.permute(0, 1, 4, 2, 3)  # NTHWC to NTHW
-        out = out.contiguous()
+        out = out.permute(0, 1, 4, 2, 3)  # NTHWC to NTCHW
         loss = None
         if compute_loss and frames_gt is not None:
             if frames_gt.shape != out.shape:
