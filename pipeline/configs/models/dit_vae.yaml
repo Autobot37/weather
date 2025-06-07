@@ -1,0 +1,16 @@
+Model:
+  input_size: 16
+  in_channels: 8
+  mlp_ratio: 4.0
+  learn_sigma: False
+  out_channels: 16
+  split_num: 4
+  num_heads: 16
+  single_heads_num: 4
+  hidden_size: 32
+  enc_hidden_size: 32
+  patch_size: 2
+  enc_depth: 2
+  latent_depth: 12 
+
+timesteps: 250

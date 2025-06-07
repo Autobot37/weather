@@ -1,0 +1,15 @@
+{"time":"2025-06-07T19:11:07.742713239+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/wandb/run-20250607_191107-4film8yp/logs/debug-core.log"}
+{"time":"2025-06-07T19:11:08.154337315+05:30","level":"INFO","msg":"created new stream","id":"4film8yp"}
+{"time":"2025-06-07T19:11:08.154432767+05:30","level":"INFO","msg":"stream: started","id":"4film8yp"}
+{"time":"2025-06-07T19:11:08.154462425+05:30","level":"INFO","msg":"handler: started","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:08.154476854+05:30","level":"INFO","msg":"sender: started","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:08.154510113+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:08.996048446+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-07T19:11:10.524951243+05:30","level":"INFO","msg":"stream: closing","id":"4film8yp"}
+{"time":"2025-06-07T19:11:10.524995259+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-07T19:11:10.525074098+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-07T19:11:11.744696493+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-07T19:11:12.076683184+05:30","level":"INFO","msg":"handler: closed","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:12.076783643+05:30","level":"INFO","msg":"sender: closed","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:12.0767714+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"4film8yp"}
+{"time":"2025-06-07T19:11:12.077001227+05:30","level":"INFO","msg":"stream: closed","id":"4film8yp"}

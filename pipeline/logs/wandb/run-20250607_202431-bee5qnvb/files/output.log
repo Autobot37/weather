@@ -1,0 +1,63 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[34mSample shape: torch.Size([1, 128, 128, 8])[0m
+[34mMin/Max: 0.0, 0.7372549176216125[0m
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/weights/v0.1/alex.pth
+Global seed set to 42
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+[34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | lpips_fn    | LPIPS       | 2.5 M
+1 | diffnet     | DiT         | 294 K
+2 | autoencoder | Autoencoder | 83.6 M
+3 | loss_fn     | MSELoss     | 0
+--------------------------------------------
+293 K     Trainable params
+86.1 M    Non-trainable params
+86.4 M    Total params
+345.660   Total estimated model params size (MB)
+Epoch 9: 100%|█| 20/20 [00:02<00:00,  8.37it/s, loss=0.992, v_num=qnvb, train/loss_step=0.968, train/lpips_step=0.000, train/psnr_step=5.180,                                                                                                                                                                                                                                                                                                                                                                                   
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 36 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 36 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:1933: PossibleUserWarning: The number of training batches (10) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  rank_zero_warn(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/vatsal/NWM/pipeline/models/xx.py", line 125, in <module>
+[rank0]:     trainer.test(model, datamodule=dm)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 938, in test
+[rank0]:     return self._call_and_handle_interrupt(self._test_impl, model, dataloaders, ckpt_path, verbose, datamodule)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 721, in _call_and_handle_interrupt
+[rank0]:     return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 93, in launch
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _test_impl
+[rank0]:     results = self._run(model, ckpt_path=self.ckpt_path)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1160, in _run
+[rank0]:     verify_loop_configurations(self)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/configuration_validator.py", line 46, in verify_loop_configurations
+[rank0]:     __verify_eval_loop_configuration(trainer, model, "test")
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/configuration_validator.py", line 210, in __verify_eval_loop_configuration
+[rank0]:     raise MisconfigurationException(f"No `{step_name}()` method defined to run `Trainer.{trainer_method}`.")
+[rank0]: pytorch_lightning.utilities.exceptions.MisconfigurationException: No `test_step()` method defined to run `Trainer.test`.
