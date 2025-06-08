@@ -95,12 +95,11 @@ if __name__ == "__main__":
     lr_monitor = LearningRateMonitor(logging_interval='step')
 
     trainer = Trainer(
-        max_epochs=2,
+        max_epochs=10,
         gpus = 1 if torch.cuda.is_available() else 0,
         logger=logger,
         val_check_interval=len(dm.train_dataloader()) // 2, 
         callbacks=[checkpoint_callback, lr_monitor],
-        fast_dev_run=True
     )
     from termcolor import colored
     for sample in dm.train_dataloader():

@@ -4,6 +4,7 @@ from omegaconf import OmegaConf
 from pipeline.datasets.dataset_sevir import SEVIRLightningDataModule
 from pipeline.modeldefinitions.dit import CasFormer
 from basemodel import *
+from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping
 
 class DiT(nn.Module):
     def __init__(self, config):
@@ -61,13 +62,27 @@ if __name__ == "__main__":
     dm = SEVIRLightningDataModule()
     dm.prepare_data();dm.setup()
 
-    logger = BaseModel.get_logger(model_name="DiT-VAE", run_name="run1", save_dir="logs")
+    logger = BaseModel.get_logger(model_name="DiT", save_dir="logs")
+    run_id = logger.version 
+    print(f"Logger: {logger.name}, Run ID: {run_id}") 
+    
+    checkpoint_callback = ModelCheckpoint(
+        dirpath=f"logs/DiT/checkpoints/{run_id}",
+        filename="DiT-{epoch:02d}-{step:06d}",
+        monitor="val/loss",
+        mode="min",
+        save_top_k=3,
+        every_n_train_steps=1000,
+        save_last=True,
+    )
+    lr_monitor = LearningRateMonitor(logging_interval='step')
+
     trainer = Trainer(
-        max_epochs=1,
-        gpus=2 if torch.cuda.is_available() else 0,
+        max_epochs=10,
+        gpus = 1 if torch.cuda.is_available() else 0,
         logger=logger,
-        log_every_n_steps=100,
-        strategy= "ddp"
+        val_check_interval=len(dm.train_dataloader()) // 2, 
+        callbacks=[checkpoint_callback, lr_monitor],
     )
     from termcolor import colored
     for sample in dm.train_dataloader():
@@ -77,5 +92,6 @@ if __name__ == "__main__":
         break
 
     model = Diffusion()
+    print(colored("Model initialized!", 'green'))
     trainer.fit(model, dm)
     print(colored("Training complete!", 'green'))
