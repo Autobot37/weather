@@ -1,32 +1,35 @@
 import torch
 import torch.nn as nn
 import pytorch_lightning as pl
-import lpips
 from torchmetrics.functional import (
     structural_similarity_index_measure as ssim_fn,
     peak_signal_noise_ratio          as psnr_fn,
 )
 from pytorch_lightning.loggers import WandbLogger
 from typing import Any, Dict, Tuple
+from omegaconf import OmegaConf
 
 class BaseModel(pl.LightningModule):
     def __init__(
         self,
         model_name: str,
-        csi_thresh: float = 0.5,
     ):
         super().__init__()
         self.save_hyperparameters()
         self.model_name = model_name
-        self.lpips_fn = lpips.LPIPS(net='alex')
     
     @staticmethod
-    def get_logger(model_name : str, run_name: str, save_dir: str = None) -> WandbLogger:
+    def get_logger(model_name : str, run_name: str = None, save_dir: str = None) -> WandbLogger:
+        if run_name is not None:
+            return WandbLogger(
+                project=model_name,
+                name=run_name,
+                save_dir=save_dir,
+            )
         return WandbLogger(
-            project= model_name,
-            name=run_name,
-            save_dir=save_dir,
-        )
+                project= model_name,
+                save_dir=save_dir,
+            )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         raise NotImplementedError("Implement your forward pass in the subclass.")
@@ -38,28 +41,23 @@ class BaseModel(pl.LightningModule):
         B, T, C, H, W = x.shape
         return x.reshape(B * T, C, H, W)
 
-    def _lpips(self, preds: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
-        preds = preds.to(self.device)
-        target = target.to(self.device)
-        return torch.tensor(0.0, device=self.device) 
-
     def _psnr(self, preds: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         return psnr_fn(preds, target, data_range=1.0).mean()
 
     def _ssim(self, preds: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         return ssim_fn(preds, target, data_range=1.0).mean()
 
-    def _csi(self, preds: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
-        p = (preds > self.hparams.csi_thresh).float()
-        t = (target > self.hparams.csi_thresh).float()
+    def _csi(self, preds: torch.Tensor, target: torch.Tensor, csi_thresh = 0.5) -> torch.Tensor:
+        p = (preds > csi_thresh).float()
+        t = (target > csi_thresh).float()
         tp = (p * t).sum(dim=[1,2,3])
         fn = ((1 - p) * t).sum(dim=[1,2,3])
         fp = (p * (1 - t)).sum(dim=[1,2,3])
         return (tp / (tp + fn + fp + 1e-6)).mean()
 
-    def _hss(self, preds: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
-        p  = (preds > self.hparams.csi_thresh).float()
-        t  = (target > self.hparams.csi_thresh).float()
+    def _hss(self, preds: torch.Tensor, target: torch.Tensor, csi_thresh = 0.5) -> torch.Tensor:
+        p  = (preds > csi_thresh).float()
+        t  = (target > csi_thresh).float()
         tp = (p * t).sum()
         fn = ((1 - p) * t).sum()
         fp = (p * (1 - t)).sum()
@@ -85,12 +83,10 @@ class BaseModel(pl.LightningModule):
         tm1 = (t01 * 2 - 1).clamp(-1,1)
 
         metrics: Dict[str, torch.Tensor] = {
-            f"{stage}/lpips": self._lpips(pm1, tm1),
             f"{stage}/psnr" : self._psnr(p01, t01),
             f"{stage}/ssim" : self._ssim(p01, t01),
             f"{stage}/csi"  : self._csi(p01, t01),
             f"{stage}/hss"  : self._hss(p01, t01),
         }
-
         for name, val in metrics.items():
-            self.log(name, val, prog_bar=True, on_epoch=True, sync_dist=True)
+            self.log(name, val, prog_bar=True, on_epoch=True, sync_dist=True, on_step=True)
