@@ -1,0 +1,15 @@
+{"time":"2025-06-10T15:48:49.992131005+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/wandb/run-20250610_154849-tlc521g1/logs/debug-core.log"}
+{"time":"2025-06-10T15:48:50.433893199+05:30","level":"INFO","msg":"created new stream","id":"tlc521g1"}
+{"time":"2025-06-10T15:48:50.433990463+05:30","level":"INFO","msg":"stream: started","id":"tlc521g1"}
+{"time":"2025-06-10T15:48:50.434076399+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:48:50.434112529+05:30","level":"INFO","msg":"handler: started","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:48:50.434180928+05:30","level":"INFO","msg":"sender: started","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:48:51.185766241+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T15:49:15.37671645+05:30","level":"INFO","msg":"stream: closing","id":"tlc521g1"}
+{"time":"2025-06-10T15:49:15.376786131+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T15:49:15.376893809+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T15:49:16.424774338+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T15:49:16.785271762+05:30","level":"INFO","msg":"handler: closed","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:49:16.785329133+05:30","level":"INFO","msg":"sender: closed","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:49:16.785314217+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"tlc521g1"}
+{"time":"2025-06-10T15:49:16.785541862+05:30","level":"INFO","msg":"stream: closed","id":"tlc521g1"}

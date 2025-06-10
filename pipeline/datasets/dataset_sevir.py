@@ -1219,7 +1219,11 @@ class SEVIRLightningDataModule(LightningDataModule):
             if self.dataset_name == "sevir":
                 from termcolor import colored
                 print(colored(f"SEVIR dataset not found at {self.sevir_root_dir}. Downloading...", "red"))
-                download_SEVIR()
+                inp = input("Should i download this?")
+                if inp:
+                    download_SEVIR()
+                else:
+                    print("not be downloaded.")
             else:  # "sevir_lr"
                 raise NotImplementedError
 
@@ -1353,6 +1357,7 @@ class SEVIRLightningDataModule(LightningDataModule):
         """
         Plots every `jump`-th timestep for all variables (denormalizing [0,1]→[0,255]).
         Handles per-key T by padding with empty subplots.
+        #B T H W
         """
         os.makedirs(save_dir, exist_ok=True)
         keys = list(sample.keys())
@@ -1417,7 +1422,7 @@ class SEVIRLightningDataModule(LightningDataModule):
 
         outpath = os.path.join(save_dir, name)
         fig.savefig(outpath, dpi=150, bbox_inches='tight')
-        plt.close(fig)
+        return fig
 
 if __name__ == "__main__":
     dm = SEVIRLightningDataModule()

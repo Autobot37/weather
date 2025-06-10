@@ -1,0 +1,15 @@
+# 1) Ignore everything
+*
+
+# 2) But don’t ignore directory structure (so Git can recurse)
+!*/
+
+# 3) Allow these file types:
+!*.py
+!*.yaml
+!*.yml
+!*.ipynb
+!*.txt
+!*.sh
+!*.log
+!.gitignore

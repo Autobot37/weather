@@ -27,10 +27,26 @@ class DEarthformer(BaseModel):
         timesteps = timesteps.reshape(timesteps.size(0), 1, H, H, 1)
         inp = torch.concat([noisy, cond, timesteps], dim=1)
         return self.transformer(inp)
-
+    
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-4)
-        return optimizer
+        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-4, weight_decay=1e-2)
+        total_steps = self.trainer.estimated_stepping_batches
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, 
+            T_max=total_steps,
+            eta_min=1e-6
+        )
+        return {
+            'optimizer': optimizer,
+            'lr_scheduler': {
+                'scheduler': scheduler,
+                'interval': 'step',
+                'frequency': 1,
+            }
+        }
+
+    def lr_scheduler_step(self, scheduler, optimizer_idx, metric):
+        scheduler.step()
 
     def training_step(self, batch, batch_idx):
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
@@ -49,9 +65,17 @@ class DEarthformer(BaseModel):
             assert tgt.dim() == 5 and tgt.shape[-1] == 1, f"Expected tgt shape (B, T, 1, H, W), got {tgt.shape}"
             pred = pred.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
             tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-            pred = pred.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-            tgt = tgt.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-            self.log_metrics(preds=pred, target=tgt, stage="train")
+            pred = pred.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+            tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+            self.log_metrics(preds=pred, targets=tgt, stage="train")
+            
+            if self.global_step % 2000 == 0:
+                vil0 = vil0.permute(0, 1, 4, 2, 3)
+                pred = (pred + vil0)/2
+                tgt = (tgt + vil0)/2
+                pred = pred.squeeze(2).cpu().numpy()
+                tgt = tgt.squeeze(2).cpu().numpy()
+                self.log_plots(preds = pred, targets=tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Train_{self.current_epoch}_{self.global_step}")
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -68,9 +92,17 @@ class DEarthformer(BaseModel):
         self.log('val/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
         pred = pred.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
         tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-        pred = pred.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        tgt = tgt.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        self.log_metrics(preds=pred, target=tgt, stage="val")
+        pred = pred.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+        tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+        self.log_metrics(preds=pred, targets=tgt, stage="val")
+
+        if self.global_step % 2000 == 0:
+            vil0 = vil0.permute(0, 1, 4, 2, 3)
+            pred = (pred + vil0)/2
+            tgt = (tgt + vil0)/2
+            pred = pred.squeeze(2).cpu().numpy()
+            tgt = tgt.squeeze(2).cpu().numpy()
+            self.log_plots(preds = pred, targets = tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Val_{self.current_epoch}_{self.global_step}")
 
 if __name__ == "__main__":
     seed_everything(42)

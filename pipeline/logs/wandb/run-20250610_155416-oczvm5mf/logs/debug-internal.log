@@ -1,0 +1,15 @@
+{"time":"2025-06-10T15:54:16.93636392+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/wandb/run-20250610_155416-oczvm5mf/logs/debug-core.log"}
+{"time":"2025-06-10T15:54:17.384271355+05:30","level":"INFO","msg":"created new stream","id":"oczvm5mf"}
+{"time":"2025-06-10T15:54:17.384592076+05:30","level":"INFO","msg":"stream: started","id":"oczvm5mf"}
+{"time":"2025-06-10T15:54:17.384638532+05:30","level":"INFO","msg":"handler: started","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:54:17.384663423+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:54:17.384651164+05:30","level":"INFO","msg":"sender: started","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:54:18.167825841+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-10T15:56:42.343527232+05:30","level":"INFO","msg":"stream: closing","id":"oczvm5mf"}
+{"time":"2025-06-10T15:56:42.343603199+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-10T15:56:42.343760352+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-10T15:56:43.405638054+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-10T15:56:44.112825196+05:30","level":"INFO","msg":"handler: closed","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:56:44.112908734+05:30","level":"INFO","msg":"sender: closed","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:56:44.112905225+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"oczvm5mf"}
+{"time":"2025-06-10T15:56:44.11307944+05:30","level":"INFO","msg":"stream: closed","id":"oczvm5mf"}

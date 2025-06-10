@@ -9,7 +9,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 from pipeline.utils import load_checkpoint_cascast
 
 """
-
+B T C H W   
 """
 class DiT(nn.Module):
     def __init__(self, config):
@@ -64,47 +64,83 @@ class Diffusion(BaseModel):
         self.num_timesteps = dit_config.timesteps
         self.loss_fn = nn.MSELoss()
 
-    def forward(self, x):
+    def forward(self, enc):
         # x: (B, T, C, H, W)
-        enc = self.autoencoder.encode(x)
-        enc_all = enc - enc[:, :1]
-        cond = enc_all[:, :self.in_window]
-        target = enc_all[:, self.in_window:]
-        noise = torch.randn_like(target)
+        cond = enc[:, :self.in_window]
+        targets = enc[:, self.in_window:]
+        noise = torch.randn_like(targets)
         B = noise.size(0)
         t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
-        noisy = self.diffnet.scheduler.add_noise(target, noise, t)
+        noisy = self.diffnet.scheduler.add_noise(targets, noise, t)
         pred = self.diffnet(noisy, t, cond)
         loss = self.loss_fn(pred, noise)
-        return pred, target, loss
+        return pred, targets, loss
 
     def training_step(self, batch, batch_idx):
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
-        preds, target, loss = self(x)
+        enc = self.autoencoder.encode(x)
+        vil0 = enc[:, 0:1]  
+        enc = enc - vil0  
+        preds, targets, loss = self(enc)
         self.log("train/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
         if self.global_step % 100 == 0:
             preds = self.autoencoder.decode(preds)
-            target = self.autoencoder.decode(target)
-            preds = preds.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-            target = target.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-            self.log_metrics(preds=preds, target=target, stage="train")
+            targets = self.autoencoder.decode(targets)
+            preds = preds.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+            targets = targets.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+            self.log_metrics(preds=preds, targets=targets, stage="train")
+
+            if self.global_step % 2000 == 0:
+                vil0 = self.autoencoder.decode(vil0)
+                preds = (preds + vil0)/2
+                targets = (targets + vil0)/2
+                preds = preds.squeeze(2).cpu().numpy()
+                targets = targets.squeeze(2).cpu().numpy()
+                self.log_plots(preds = preds, targets=targets, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Train_{self.current_epoch}_{self.global_step}")
         return loss
 
     def validation_step(self, batch, batch_idx):
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
-        preds, target, loss = self(x)
+        enc = self.autoencoder.encode(x)
+        vil0 = enc[:, 0:1]
+        enc = enc - vil0
+        preds, targets, loss = self(enc)
         self.log("val/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
         preds = self.autoencoder.decode(preds)
-        target = self.autoencoder.decode(target)
+        targets = self.autoencoder.decode(targets)
         preds = preds.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        target = target.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        self.log_metrics(preds=preds, target=target, stage="val")
+        targets = targets.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
+        self.log_metrics(preds=preds, targets=targets, stage="val")
+
+        if self.global_step % 1000 == 0:
+            vil0 = self.autoencoder.decode(vil0)
+            preds = (preds + vil0)/2
+            targets = (targets + vil0)/2
+            preds = preds.squeeze(2).cpu().numpy()
+            targets = targets.squeeze(2).cpu().numpy()
+            self.log_plots(preds = preds, targets=targets, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"val_{self.current_epoch}_{self.global_step}")
+
         return loss
 
-
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-4)
-        return optimizer
+        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-4, weight_decay=1e-2)
+        total_steps = self.trainer.estimated_stepping_batches
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, 
+            T_max=total_steps,
+            eta_min=1e-6
+        )
+        return {
+            'optimizer': optimizer,
+            'lr_scheduler': {
+                'scheduler': scheduler,
+                'interval': 'step',
+                'frequency': 10,
+            }
+        }
+
+    def lr_scheduler_step(self, scheduler, optimizer_idx, metric):
+        scheduler.step()
 
 if __name__ == "__main__":
     seed_everything(42)
@@ -130,11 +166,10 @@ if __name__ == "__main__":
     trainer = Trainer(
         max_epochs=10,
         accelerator="gpu",
-        devices=[0],
+        devices=[1],
         logger=logger,
         val_check_interval=len(dm.train_dataloader()), 
         callbacks=[checkpoint_callback, lr_monitor],
-        precision=16,
     )
     
     from termcolor import colored

@@ -1,0 +1,72 @@
+[34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
+Logger: DEarthformer, Run ID: p3574qvq
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[34mSample shape: torch.Size([8, 192, 192, 20])[0m
+[34mMin/Max: 0.0, 0.9960784912109375[0m
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/weights/v0.1/alex.pth
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[32mModel initialized![0m
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+Loading `train_dataloader` to estimate number of stepping batches.
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 20 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+  | Name               | Type                   | Params
+--------------------------------------------------------------
+0 | lpips_fn           | LPIPS                  | 2.5 M
+1 | transformer        | CuboidTransformerModel | 22.5 M
+2 | mse_loss           | MSELoss                | 0
+3 | timestep_embedding | Embedding              | 9.2 M
+--------------------------------------------------------------
+31.7 M    Trainable params
+2.5 M     Non-trainable params
+34.2 M    Total params
+136.614   Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                   | 0/6212 [00:00<?, ?it/s]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 20 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_ef.py", line 142, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 214, in advance
+    self.update_lr_schedulers("step", update_plateau_schedulers=False)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 432, in update_lr_schedulers
+    self._update_learning_rates(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 493, in _update_learning_rates
+    self.trainer._call_lightning_module_hook(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1595, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+TypeError: lr_scheduler_step() takes 3 positional arguments but 4 were given

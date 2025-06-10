@@ -6,7 +6,6 @@ import torch.optim as optim
 from pipeline.modeldefinitions.unet2d import CustomUNet3D
 from basemodel import *
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping
-from pipeline.datasets.dataset_dummy import DummySEVIRDataModule
 from pipeline.utils import load_checkpoint_cascast
 from CasCast.networks.prediff.taming.autoencoder_kl import AutoencoderKL
 
