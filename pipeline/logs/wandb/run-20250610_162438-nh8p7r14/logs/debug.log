@@ -21,3 +21,4 @@ config: {'_wandb': {}}
 2025-06-10 16:24:39,906 INFO    MainThread:115123 [wandb_run.py:_redirect():2513] Redirects installed.
 2025-06-10 16:24:39,909 INFO    MainThread:115123 [wandb_init.py:init():1150] run started, returning control to user process
 2025-06-10 16:25:11,966 INFO    MainThread:115123 [wandb_run.py:_config_callback():1436] config_cb None None {'model_name': 'DiT'}
+2025-06-10 16:28:13,255 INFO    MsgRouterThr:115123 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

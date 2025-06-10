@@ -1,5 +1,5 @@
 [34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
-Logger: DiT, Run ID: nh8p7r14
+Logger: DiT, Run ID: 7s466vvi
 GPU available: True, used: True
 TPU available: False, using: 0 TPU cores
 IPU available: False, using: 0 IPUs
@@ -31,12 +31,10 @@ Loading `train_dataloader` to estimate number of stepping batches.
 86.2 M    Non-trainable params
 394 M     Total params
 1,579.105 Total estimated model params size (MB)
-Epoch 0:   2%| | 120/5338 [02:47<2:01:08,  1.39s/it, loss=nan, v_num=7r14, train/loss_step=nan.0, train/psnr_step=nan.0, train/ssim_step=nan.0, train/hss_step=0.000, train/lpips_step=nan.0, train/psd_st[32mTraining complete![0m
+Epoch 0:  12%| | 614/5338 [14:25<1:51:02,  1.41s/it, loss=0.281, v_num=6vvi, train/loss_step=0.394, train/psnr_step=14.70, train/ssim_step=0.238, train/hss_step=0.0674, train/lpips_step=0.387, train/psd
 /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 20 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
   rank_zero_warn(
 /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
   _future_warning(
 /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
   _future_warning(
-/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
-  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")

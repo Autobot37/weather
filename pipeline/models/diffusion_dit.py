@@ -123,7 +123,7 @@ class Diffusion(BaseModel):
         return loss
 
     def configure_optimizers(self):
-        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-4, weight_decay=1e-2)
+        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-5, weight_decay=1e-2)
         total_steps = self.trainer.estimated_stepping_batches
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, 
