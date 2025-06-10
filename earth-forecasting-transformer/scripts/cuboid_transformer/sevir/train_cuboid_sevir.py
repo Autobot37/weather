@@ -837,7 +837,6 @@ def main():
     print(dm.start_date, dm.train_val_split_date, dm.train_test_split_date, dm.end_date)
     dm.prepare_data()
     dm.setup()
- 
     accumulate_grad_batches = total_batch_size // (micro_batch_size * args.gpus)
     total_num_steps = CuboidSEVIRPLModule.get_total_num_steps(
         epoch=max_epochs,
@@ -849,6 +848,7 @@ def main():
         save_dir=args.save,
         oc_file=args.cfg)
     print(pl_module.in_len, pl_module.out_len)
+    
     print("#"*100)
     trainer_kwargs = pl_module.set_trainer_kwargs(
         devices=args.gpus,

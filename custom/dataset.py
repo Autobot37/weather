@@ -12,6 +12,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 _ts_pattern = re.compile(r"(\d{2}[A-Z]{3}\d{4}_\d{6})")
+
 def _parse_ts(fp: str) -> datetime:
     name = os.path.basename(fp).split(".")[0]
     m = _ts_pattern.search(name)
