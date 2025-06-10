@@ -8,6 +8,9 @@ from torchmetrics.functional import (
 from pytorch_lightning.loggers import WandbLogger
 from typing import Any, Dict, Tuple
 from omegaconf import OmegaConf
+from einops import rearrange
+import torch.nn.functional as F
+import numpy as np
 
 class BaseModel(pl.LightningModule):
     def __init__(
@@ -65,6 +68,41 @@ class BaseModel(pl.LightningModule):
         num = 2 * (tp*tn - fn*fp)
         den = ( (tp+fn)*(fn+tn) + (tp+fp)*(fp+tn) ) + 1e-6
         return (num / den).clamp(-1, 1)
+
+    def cal_CRPS(self, pred: torch.Tensor,target: torch.Tensor , type='avg', scale=4, mode='mean', eps=1e-10):
+        """
+        gt: (b, t, c, h, w)
+        pred: (b, n, t, c, h, w)
+        """
+        assert mode in ['mean', 'raw'], 'CRPS mode should be mean or raw'
+        _normal_dist = torch.distributions.Normal(0, 1)
+        _frac_sqrt_pi = 1 / torch.sqrt(np.pi)
+
+        b, n, t, _, _, _ = pred.shape
+        gt = rearrange(gt, 'b t c h w -> (b t) c h w')
+        pred = rearrange(pred, 'b n t c h w -> (b n t) c h w')
+        if type == 'avg':
+            pred = F.avg_pool2d(pred, scale, stride=scale)
+            gt = F.avg_pool2d(gt, scale, stride=scale)
+        elif type == 'max':
+            pred = F.max_pool2d(pred, scale, stride=scale)
+            gt = F.max_pool2d(gt, scale, stride=scale)
+        else:
+            gt = gt
+            pred = pred
+        gt = rearrange(gt, '(b t) c h w -> b t c h w', b=b)
+        pred = rearrange(pred, '(b n t) c h w -> b n t c h w', b=b, n=n)
+
+        pred_mean = torch.mean(pred, dim=1)
+        pred_std = torch.std(pred, dim=1) if n > 1 else torch.zeros_like(pred_mean)
+        normed_diff = (pred_mean - gt + eps) / (pred_std + eps)
+        cdf = _normal_dist.cdf(normed_diff)
+        pdf = _normal_dist.log_prob(normed_diff).exp()
+
+        crps = (pred_std + eps) * (normed_diff * (2 * cdf - 1) + 2 * pdf - _frac_sqrt_pi)
+        if mode == "mean":
+            return torch.mean(crps).item()
+        return crps.item()
 
     def log_metrics(
         self,

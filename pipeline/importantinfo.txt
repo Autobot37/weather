@@ -1,2 +1,3 @@
-paths are all relative to pipeline or you should run script beign in pipeline
+paths are all relative to pipeline or you should run script being in pipeline
 relative import are all absolute imports like pipeline.xx
+export path = parent of pipeline directory.

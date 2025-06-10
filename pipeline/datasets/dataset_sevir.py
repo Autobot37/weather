@@ -11,8 +11,25 @@ from torch.nn.functional import avg_pool2d
 from omegaconf import OmegaConf
 from torch.utils.data import Dataset as TorchDataset, DataLoader
 from pytorch_lightning import LightningDataModule
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap, BoundaryNorm
+from copy import deepcopy
 
-cfg = OmegaConf.load("/home/vatsal/NWM/pipeline/configs/datasets/sevir.yaml")
+cfg = OmegaConf.load("configs/datasets/sevir.yaml")
+
+VIL_COLORS = [[0, 0, 0],
+              [0.30196078431372547, 0.30196078431372547, 0.30196078431372547],
+              [0.1568627450980392, 0.7450980392156863, 0.1568627450980392],
+              [0.09803921568627451, 0.5882352941176471, 0.09803921568627451],
+              [0.0392156862745098, 0.4117647058823529, 0.0392156862745098],
+              [0.0392156862745098, 0.29411764705882354, 0.0392156862745098],
+              [0.9607843137254902, 0.9607843137254902, 0.0],
+              [0.9294117647058824, 0.6745098039215687, 0.0],
+              [0.9411764705882353, 0.43137254901960786, 0.0],
+              [0.6274509803921569, 0.0, 0.0],
+              [0.9058823529411765, 0.0, 1.0]]
+
+VIL_LEVELS = [0.0, 16.0, 31.0, 59.0, 74.0, 100.0, 133.0, 160.0, 181.0, 219.0, 255.0]
 
 def change_layout_np(data,
                      in_layout='NHWT', out_layout='NHWT',
@@ -1308,10 +1325,104 @@ class SEVIRLightningDataModule(LightningDataModule):
     def num_test_samples(self):
         return len(self.sevir_test)
 
+    @staticmethod
+    def vil_cmap(encoded=True):
+        cols = deepcopy(VIL_COLORS)
+        lev = deepcopy(VIL_LEVELS)
+        nil = cols.pop(0)
+        under = cols[0]
+        over = cols[-1]
+        cmap = ListedColormap(cols)
+        cmap.set_bad(nil)
+        cmap.set_under(under)
+        cmap.set_over(over)
+        norm = BoundaryNorm(lev, cmap.N)
+        return cmap, norm
+
+    @staticmethod
+    def plot_sample(sample: dict,
+                    batch_idx: int = 0,
+                    save_dir: str = "plots/sevir/",
+                    name: str = "sample_plot.png",
+                    label: str = None,
+                    jump: int = 1,
+                    wspace: float = 0.1,
+                    hspace: float = 0.2,
+                    cell_size: tuple[float, float] = (2.5, 2.5),
+                    cmaps: dict[str, tuple] = None):
+        """
+        Plots every `jump`-th timestep for all variables (denormalizing [0,1]→[0,255]).
+        Handles per-key T by padding with empty subplots.
+        """
+        os.makedirs(save_dir, exist_ok=True)
+        keys = list(sample.keys())
+        num_vars = len(keys)
+
+        if cmaps is None:
+            cmap_norm = SEVIRLightningDataModule.vil_cmap()
+            cmaps = {k: cmap_norm for k in keys}
+
+        t_indices = {}
+        max_cols = 0
+        for k in keys:
+            T_k = sample[k].shape[1]
+            idxs = list(range(0, T_k, jump))
+            # if idxs[-1] != T_k - 1:
+            #     idxs.append(T_k - 1)
+            t_indices[k] = idxs
+            max_cols = max(max_cols, len(idxs))
+
+        fig_w = max_cols * cell_size[0]
+        fig_h = num_vars * cell_size[1]
+        fig, axes = plt.subplots(num_vars, max_cols,
+                                 figsize=(fig_w, fig_h),
+                                 squeeze=False)
+        fig.subplots_adjust(wspace=wspace, hspace=hspace)
+
+        for i, key in enumerate(keys):
+            data = sample[key][batch_idx] * 255.0
+            cmap, norm = cmaps[key]
+            idxs = t_indices[key]
+
+            for j in range(max_cols):
+                ax = axes[i, j]
+                if j < len(idxs):
+                    t = idxs[j]
+                    im = ax.imshow(data[t], aspect='auto', cmap=cmap, norm=norm)
+                    if i == 0:
+                        ax.set_title(f"t={t}", fontsize=9)
+                else:
+                    ax.axis('off')
+
+                ax.set_xticks([])
+                ax.set_yticks([])
+
+            axes[i, 0].set_ylabel(f"[{key}]",
+                                  rotation=0,
+                                  labelpad=35,
+                                  va='center',
+                                  fontsize=11)
+
+            # real-value ticks for BoundaryNorm
+            ticks = norm.boundaries if hasattr(norm, 'boundaries') else None
+            fig.colorbar(im,
+                         ax=axes[i, :],
+                         orientation='vertical',
+                         fraction=0.02,
+                         pad=0.02,
+                         ticks=ticks)
+
+        if label:
+            fig.suptitle(label, fontsize=14, y=1.02)
+
+        outpath = os.path.join(save_dir, name)
+        fig.savefig(outpath, dpi=150, bbox_inches='tight')
+        plt.close(fig)
+
 if __name__ == "__main__":
     dm = SEVIRLightningDataModule()
     dm.prepare_data()
-    dm.setup()
+    dm.setup() #[B, H, W, T] tensors
     train_loader = dm.train_dataloader()
     val_loader = dm.val_dataloader()
     test_loader = dm.test_dataloader()
@@ -1334,4 +1445,13 @@ if __name__ == "__main__":
             print(f"Max values: {max_value}")
             print(f"Min values: {min_value}")
             break
-
+    
+    it = iter(train_loader)
+    sample = next(it)
+    sample2 = next(it)
+    print(f"Sample shape: {sample['vil'].shape}, dtype: {sample['vil'].dtype}")
+    dm.plot_sample(sample = {
+        'vil1' : torch.cat([sample['vil'].permute(0, 3, 1, 2), sample['vil'].permute(0, 3, 1, 2)], dim = 1),
+        'vil2' : sample2['vil'].permute(0, 3, 1, 2),
+    }, label = "Sample Plot", jump = 7)
+    

@@ -56,23 +56,21 @@ class DEarthformer(BaseModel):
 
     def validation_step(self, batch, batch_idx):
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
-        vil0 = vil[:,0:1]; vil = vil - vil0
+        vil0 = vil[:,0:1]
+        vil = vil - vil0
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
+        noise = torch.randn_like(tgt)
         B = tgt.size(0)
-        gen = torch.randn_like(tgt, device=self.device)
-        self.scheduler.set_timesteps(self.num_train_timesteps)
-        for t in self.scheduler.timesteps:
-            tb = torch.full((B,), t, device=self.device, dtype=torch.long)
-            eps = self(gen, tb, cond)
-            gen = self.scheduler.step(eps, t, gen).prev_sample
-        gen = gen.clamp(-1,1).add(1).div(2)
-        tgt = tgt.clamp(-1,1).add(1).div(2)
-        gen = gen.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-        tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-        loss = self.mse_loss(gen, tgt)
+        T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device)
+        noisy = self.scheduler.add_noise(tgt, noise, T)
+        pred = self(noisy, T, cond)
+        loss = self.mse_loss(pred, noise)
         self.log('val/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
-        self.log_metrics(preds=gen, target=tgt, stage="val")
-        return loss
+        pred = pred.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
+        tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
+        pred = pred.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
+        tgt = tgt.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
+        self.log_metrics(preds=pred, target=tgt, stage="val")
 
 if __name__ == "__main__":
     seed_everything(42)
