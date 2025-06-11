@@ -5,3 +5,16 @@
 {"time":"2025-06-10T16:00:12.968924054+05:30","level":"INFO","msg":"stream: started","id":"4thxfe4z"}
 {"time":"2025-06-10T16:00:12.968984825+05:30","level":"INFO","msg":"sender: started","stream_id":"4thxfe4z"}
 {"time":"2025-06-10T16:00:13.780793911+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-11T01:01:29.527519715+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-06-11T01:07:38.706792237+05:30","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/shivasinghbagri/DEarthformer/4thxfe4z/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-06-11T01:07:46.012581511+05:30","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/shivasinghbagri/DEarthformer/4thxfe4z/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-06-11T01:07:56.781370256+05:30","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/shivasinghbagri/DEarthformer/4thxfe4z/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-06-11T01:17:44.539685356+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-06-11T02:50:35.879777692+05:30","level":"INFO","msg":"stream: closing","id":"4thxfe4z"}
+{"time":"2025-06-11T02:50:35.880706711+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-11T02:50:35.882275152+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-11T02:50:38.143968372+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-11T02:50:38.85968954+05:30","level":"INFO","msg":"handler: closed","stream_id":"4thxfe4z"}
+{"time":"2025-06-11T02:50:38.85978229+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"4thxfe4z"}
+{"time":"2025-06-11T02:50:38.860186968+05:30","level":"INFO","msg":"sender: closed","stream_id":"4thxfe4z"}
+{"time":"2025-06-11T02:50:38.860279601+05:30","level":"INFO","msg":"stream: closed","id":"4thxfe4z"}

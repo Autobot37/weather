@@ -1,0 +1,43 @@
+[34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
+Logger: DFNO, Run ID: advffhqa
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[34mSample shape: torch.Size([8, 192, 192, 20])[0m
+[34mMin/Max: 0.0, 0.9960784912109375[0m
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_fno.py", line 106, in <module>
+    model = DFNO()
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_fno.py", line 11, in __init__
+    super().__init__(model_name="DiT_VAE")
+  File "/home/vatsal/NWM/weather/pipeline/models/basemodel.py", line 27, in __init__
+    self.lpips_fn = lpips('alex')
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/lpips.py", line 84, in __init__
+    self.net = net_type(pretrained=not self.pnet_rand, requires_grad=self.pnet_tune)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/pretrained_networks.py", line 59, in __init__
+    alexnet_pretrained_features = tv.alexnet(pretrained=pretrained).features
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/alexnet.py", line 114, in alexnet
+    model.load_state_dict(weights.get_state_dict(progress=progress))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_api.py", line 63, in get_state_dict
+    return load_state_dict_from_url(self.url, progress=progress)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/hub.py", line 875, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location, weights_only=weights_only)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/serialization.py", line 1525, in load
+    return _load(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/serialization.py", line 2114, in _load
+    result = unpickler.load()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/serialization.py", line 2078, in persistent_load
+    typed_storage = load_tensor(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/serialization.py", line 2031, in load_tensor
+    zip_file.get_storage_from_record(name, numel, torch.UntypedStorage)
+KeyboardInterrupt

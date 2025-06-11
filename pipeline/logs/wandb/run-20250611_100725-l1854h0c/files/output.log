@@ -1,0 +1,47 @@
+[34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
+Logger: DFNO, Run ID: l1854h0c
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[34mSample shape: torch.Size([8, 192, 192, 20])[0m
+[34mMin/Max: 0.0, 0.9960784912109375[0m
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/weights/v0.1/alex.pth
+Logging code from /home/vatsal/NWM/weather/pipeline
+Global seed set to 42
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_fno.py", line 107, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 721, in _call_and_handle_interrupt
+    return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 93, in launch
+    return function(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1171, in _run
+    self.strategy.setup_environment()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/ddp.py", line 152, in setup_environment
+    self.setup_distributed()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/ddp.py", line 205, in setup_distributed
+    init_dist_connection(self.cluster_environment, self._process_group_backend)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/distributed.py", line 355, in init_dist_connection
+    torch.distributed.init_process_group(torch_distributed_backend, rank=global_rank, world_size=world_size, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1710, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/rendezvous.py", line 278, in _env_rendezvous_handler
+    store = _create_c10d_store(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/rendezvous.py", line 198, in _create_c10d_store
+    return TCPStore(
+torch.distributed.DistStoreError: Timed out after 601 seconds waiting for clients. 1/2 clients joined.

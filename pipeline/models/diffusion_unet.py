@@ -62,19 +62,36 @@ class DUNet2D(BaseModel):
         return sample.permute(0, 2, 1, 3, 4)  # (B, T, out_channels, H, W)
 
     def configure_optimizers(self):
-        return optim.Adam(self.parameters(), lr=1e-4)
+        optimizer = torch.optim.AdamW(self.parameters(), lr=5e-5, weight_decay=1e-2)
+        total_steps = self.trainer.estimated_stepping_batches
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, 
+            T_max=total_steps,
+            eta_min=1e-6
+        )
+        return {
+            'optimizer': optimizer,
+            'lr_scheduler': {
+                'scheduler': scheduler,
+                'interval': 'step',
+                'frequency': 1,
+            }
+        }
+
+    def lr_scheduler_step(self, scheduler, optimizer_idx, metric):
+        scheduler.step()
 
     def training_step(self, batch, batch_idx):
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(2).float() # (B, T, C, H, W)
         vil = self.autoencoder.encode(vil)  # (B, T, C, H, W)
-        vil0 = vil[:,0:1]
+        vil0 = vil[:,0:1] # (B, 1, C, H, W)
         vil = vil - vil0
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
         noise = torch.randn_like(tgt)
         B = tgt.size(0)
         T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device)
         noisy = self.scheduler.add_noise(tgt, noise, T)
-        pred = self(noisy, T, cond)
+        pred = self(noisy, T, cond) # [B, T, C, H, W]
         loss = self.loss_fn(pred, noise)
         self.log('train/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
         if self.global_step % 100 == 0:
@@ -83,6 +100,14 @@ class DUNet2D(BaseModel):
             pred = self.autoencoder.decode(pred)
             tgt = self.autoencoder.decode(tgt)
             self.log_metrics(preds=pred, target=tgt, stage="train")
+
+            if self.global_step % 2000 == 0:
+                pred = (pred + vil0)/2
+                tgt = (tgt + vil0)/2
+                pred = pred.squeeze(2).cpu().numpy()
+                tgt = tgt.squeeze(2).cpu().numpy()
+                self.log_plots(preds = pred, targets=tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Train_{self.current_epoch}_{self.global_step}")
+
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -103,6 +128,15 @@ class DUNet2D(BaseModel):
         pred = self.autoencoder.decode(pred)
         tgt = self.autoencoder.decode(tgt)
         self.log_metrics(preds=pred, target=tgt, stage="val")
+
+        if self.global_step % 2000 == 0:
+            vil0 = vil0.permute(0, 1, 4, 2, 3)
+            pred = (pred + vil0)/2
+            tgt = (tgt + vil0)/2
+            pred = pred.squeeze(2).cpu().numpy()
+            tgt = tgt.squeeze(2).cpu().numpy()
+            self.log_plots(preds = pred, targets = tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Val_{self.current_epoch}_{self.global_step}")
+            
         return loss
 
 if __name__ == "__main__":
@@ -111,7 +145,7 @@ if __name__ == "__main__":
     dm.prepare_data();dm.setup()
     dm.setup()
 
-    logger = BaseModel.get_logger(model_name="DUNet2d", save_dir="logs")
+    logger = WandbLogger(project="DUnet", save_dir="logs/DUNet")
     run_id = logger.version 
     print(f"Logger: {logger.name}, Run ID: {run_id}") 
     
@@ -132,7 +166,7 @@ if __name__ == "__main__":
         accelerator="gpu",
         devices=[1],
         logger=logger,
-        callbacks=[checkpoint_callback, lr_monitor],
+        callbacks=[checkpoint_callback, lr_monitor, CodeLogger()],
         precision=16
     )
     from termcolor import colored

@@ -84,13 +84,14 @@ class Diffusion(BaseModel):
         preds, targets, loss = self(enc)
         self.log("train/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
         if self.global_step % 100 == 0:
-            preds = self.autoencoder.decode(preds)
-            targets = self.autoencoder.decode(targets)
-            preds = preds.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
-            targets = targets.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
+            preds = preds.clamp(-1, 1).add(1).div(2) # Normalize to [0, 1]
+            targets = targets.clamp(-1, 1).add(1).div(2) # Normalize to [0, 1]
+
+            preds = self.autoencoder.decode(preds).detach() 
+            targets = self.autoencoder.decode(targets).detach() 
             self.log_metrics(preds=preds, targets=targets, stage="train")
 
-            if self.global_step % 2000 == 0:
+            if self.global_step % 100 == 0:
                 vil0 = self.autoencoder.decode(vil0)
                 preds = (preds + vil0)/2
                 targets = (targets + vil0)/2
@@ -112,7 +113,7 @@ class Diffusion(BaseModel):
         targets = targets.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
         self.log_metrics(preds=preds, targets=targets, stage="val")
 
-        if self.global_step % 1000 == 0:
+        if self.global_step % 100 == 0:
             vil0 = self.autoencoder.decode(vil0)
             preds = (preds + vil0)/2
             targets = (targets + vil0)/2
@@ -123,7 +124,7 @@ class Diffusion(BaseModel):
         return loss
 
     def configure_optimizers(self):
-        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-5, weight_decay=1e-2)
+        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-4, weight_decay=1e-2)
         total_steps = self.trainer.estimated_stepping_batches
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, 
@@ -147,10 +148,10 @@ if __name__ == "__main__":
     dm = SEVIRLightningDataModule()
     dm.prepare_data();dm.setup()
 
-    logger = BaseModel.get_logger(model_name="DiT", save_dir="logs")
+    logger = WandbLogger(project="DiT", save_dir="logs/DiT")
     run_id = logger.version 
     print(f"Logger: {logger.name}, Run ID: {run_id}") 
-    
+
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"logs/DiT/checkpoints/{run_id}",
         filename="DiT-{epoch:02d}-{step:06d}",
@@ -169,7 +170,7 @@ if __name__ == "__main__":
         devices=[1],
         logger=logger,
         val_check_interval=len(dm.train_dataloader()), 
-        callbacks=[checkpoint_callback, lr_monitor],
+        callbacks=[checkpoint_callback, lr_monitor, CodeLogger()],
     )
     
     from termcolor import colored

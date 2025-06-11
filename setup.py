@@ -6,5 +6,4 @@ setup(
     packages=find_packages(),
     author="Bagri",
     description="Prediction to know when you can go to the hills.",
-    },
 )

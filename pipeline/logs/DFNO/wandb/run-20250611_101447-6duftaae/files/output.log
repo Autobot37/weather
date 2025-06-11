@@ -1,0 +1,34 @@
+[34m[1mwandb[0m: [33mWARNING[0m The project_name method is deprecated and will be removed in a future release. Please use `run.project` instead.
+Logger: DFNO, Run ID: 6duftaae
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[34mSample shape: torch.Size([8, 192, 192, 20])[0m
+[34mMin/Max: 0.0, 0.9960784912109375[0m
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lpips/weights/v0.1/alex.pth
+Global seed set to 42
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name     | Type    | Params
+-------------------------------------
+0 | lpips_fn | LPIPS   | 2.5 M
+1 | fno      | FNO     | 2.2 M
+2 | loss_fn  | MSELoss | 0
+-------------------------------------
+2.2 M     Trainable params
+2.5 M     Non-trainable params
+4.7 M     Total params
+18.856    Total estimated model params size (MB)
+Logging code from /home/vatsal/NWM/weather/pipeline

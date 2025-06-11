@@ -71,7 +71,7 @@ if __name__ == "__main__":
     dm = SEVIRLightningDataModule()
     dm.prepare_data();dm.setup()
 
-    logger = BaseModel.get_logger(model_name="DFNO", save_dir="logs")
+    logger = WandbLogger(project="DFNO", save_dir="logs/DFNO")
     run_id = logger.version 
     print(f"Logger: {logger.name}, Run ID: {run_id}") 
     
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         limit_train_batches=2000,
         limit_val_batches=100,
         val_check_interval=1000, 
-        callbacks=[checkpoint_callback, lr_monitor],
+        callbacks=[checkpoint_callback, lr_monitor, CodeLogger()],
     )
     from termcolor import colored
     for sample in dm.train_dataloader():

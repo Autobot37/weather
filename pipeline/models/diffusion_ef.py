@@ -29,8 +29,9 @@ class DEarthformer(BaseModel):
         return self.transformer(inp)
     
     def configure_optimizers(self):
-        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-4, weight_decay=1e-2)
+        optimizer = torch.optim.AdamW(self.parameters(), lr=5e-5, weight_decay=1e-2)
         total_steps = self.trainer.estimated_stepping_batches
+        assert total_steps > 0, "Estimated stepping batches must be greater than 0."
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, 
             T_max=total_steps,
@@ -69,7 +70,7 @@ class DEarthformer(BaseModel):
             tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
             self.log_metrics(preds=pred, targets=tgt, stage="train")
             
-            if self.global_step % 2000 == 0:
+            if self.global_step % 100 == 0:
                 vil0 = vil0.permute(0, 1, 4, 2, 3)
                 pred = (pred + vil0)/2
                 tgt = (tgt + vil0)/2
@@ -85,7 +86,7 @@ class DEarthformer(BaseModel):
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
         noise = torch.randn_like(tgt)
         B = tgt.size(0)
-        T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device)
+        T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device, dtype=torch.long)
         noisy = self.scheduler.add_noise(tgt, noise, T)
         pred = self(noisy, T, cond)
         loss = self.mse_loss(pred, noise)
@@ -96,7 +97,7 @@ class DEarthformer(BaseModel):
         tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
         self.log_metrics(preds=pred, targets=tgt, stage="val")
 
-        if self.global_step % 2000 == 0:
+        if self.global_step % 100 == 0:
             vil0 = vil0.permute(0, 1, 4, 2, 3)
             pred = (pred + vil0)/2
             tgt = (tgt + vil0)/2
@@ -109,10 +110,10 @@ if __name__ == "__main__":
     dm = SEVIRLightningDataModule()
     dm.prepare_data();dm.setup()
 
-    logger = BaseModel.get_logger(model_name="DEarthformer", save_dir="logs")
+    logger = WandbLogger(project="DEarthformer", save_dir="logs/DEarthformer")
     run_id = logger.version 
     print(f"Logger: {logger.name}, Run ID: {run_id}") 
-    
+
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"logs/DEarthformer/checkpoints/{run_id}",
         filename="DEarthformer-{epoch:02d}-{step:06d}",
@@ -121,6 +122,7 @@ if __name__ == "__main__":
         save_top_k=3,
         every_n_train_steps=1000,
         save_last=True,
+        save_on_train_epoch_end=True
     )
     lr_monitor = LearningRateMonitor(logging_interval='step')
 
@@ -129,7 +131,7 @@ if __name__ == "__main__":
         gpus = 1 if torch.cuda.is_available() else 0,
         logger=logger,
         val_check_interval=len(dm.train_dataloader()) // 2, 
-        callbacks=[checkpoint_callback, lr_monitor],
+        callbacks=[checkpoint_callback, lr_monitor], CodeLogger(),
     )
     from termcolor import colored
     for sample in dm.train_dataloader():

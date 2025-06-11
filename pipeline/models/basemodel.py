@@ -13,7 +13,21 @@ import torch.nn.functional as F
 import numpy as np
 from lpips import LPIPS as lpips
 import wandb
+from pathlib import Path
 import matplotlib.pyplot as plt
+from pytorch_lightning.callbacks import Callback
+from pytorch_lightning.utilities.rank_zero import rank_zero_only
+
+class CodeLogger(Callback):
+    @rank_zero_only
+    def on_fit_start(self, trainer, pl_module):
+        run = trainer.logger.experiment
+        code_dir = Path(__file__).resolve().parents[1]  # pipeline/
+        artifact = wandb.Artifact("pipeline_code", type="code")
+        for f in code_dir.rglob("*"):
+            if f.suffix in {".py", ".yaml", ".yml", ".ipynb"} and f.is_file():
+                artifact.add_file(str(f), name=str(f.relative_to(code_dir)))
+        run.log_artifact(artifact)
 
 class BaseModel(pl.LightningModule):
     def __init__(
@@ -24,19 +38,6 @@ class BaseModel(pl.LightningModule):
         self.save_hyperparameters()
         self.model_name = model_name
         self.lpips_fn = lpips('alex')
-    
-    @staticmethod
-    def get_logger(model_name : str, run_name: str = None, save_dir: str = None) -> WandbLogger:
-        if run_name is not None:
-            return WandbLogger(
-                project=model_name,
-                name=run_name,
-                save_dir=save_dir,
-            )
-        return WandbLogger(
-                project= model_name,
-                save_dir=save_dir,
-            )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         raise NotImplementedError("Implement your forward pass in the subclass.")

@@ -21,3 +21,4 @@ config: {'_wandb': {}}
 2025-06-10 16:00:13,935 INFO    MainThread:99479 [wandb_run.py:_redirect():2513] Redirects installed.
 2025-06-10 16:00:13,939 INFO    MainThread:99479 [wandb_init.py:init():1150] run started, returning control to user process
 2025-06-10 16:00:36,195 INFO    MainThread:99479 [wandb_run.py:_config_callback():1436] config_cb None None {'model_name': 'Diffusion_Earthformer', 'data_config': 'configs/datasets/sevir.yaml'}
+2025-06-11 02:50:35,872 INFO    MsgRouterThr:99479 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.
