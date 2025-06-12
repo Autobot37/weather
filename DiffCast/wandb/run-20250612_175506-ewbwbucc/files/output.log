@@ -1,0 +1,38 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+train data: 14882, valid data: 20, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+[32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+Building model
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 122, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 252, in _build_model
+    from models.phydnet import get_model
+ModuleNotFoundError: No module named 'models.phydnet'
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 122, in __init__
+    self._build_model()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 252, in _build_model
+    from models.phydnet import get_model
+ModuleNotFoundError: No module named 'models.phydnet'

@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/purediff.py", line 134, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 721, in _call_and_handle_interrupt
+    return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/launchers/spawn.py", line 78, in launch
+    mp.spawn(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 340, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 280, in start_processes
+    idx, process, tf_name = start_process(i)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 275, in start_process
+    process.start()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/context.py", line 284, in _Popen
+    return Popen(process_obj)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 32, in __init__
+    super().__init__(process_obj)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 47, in _launch
+    reduction.dump(process_obj, fp)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/multiprocessing/reduction.py", line 60, in dump
+    ForkingPickler(file, protocol).dump(obj)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/h5py/_hl/base.py", line 370, in __getnewargs__
+    raise TypeError("h5py objects cannot be pickled")
+TypeError: h5py objects cannot be pickled

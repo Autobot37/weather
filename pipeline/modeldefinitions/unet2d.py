@@ -1,97 +1,71 @@
+from diffusers import UNet2DModel
 import torch
 import torch.nn as nn
-from diffusers import UNet3DConditionModel
-"""
-8 hrs per epoch on A6000 48 GB
-"""
-class CondEncoder(nn.Module):
-    """
-    Encodes a conditional tensor of shape (B, T2, C, H, W)
-    into encoder hidden states (B, seq_len, feature_dim).
-    """
-    def __init__(self, in_channels=4, feature_dim=512):
-        super().__init__()
-        self.conv_blocks = nn.Sequential(
-            nn.Conv3d(in_channels, feature_dim, kernel_size=3, padding=1),
-            nn.SiLU(),
-            nn.Conv3d(feature_dim, feature_dim, kernel_size=3, padding=1),
-            nn.SiLU(),
-        )
 
-    def forward(self, cond):
-        # cond: (B, T2, C, H, W) -> (B, C, T2, H, W)
-        x = cond.permute(0, 2, 1, 3, 4)
-        x = self.conv_blocks(x)  # (B, feature_dim, T2, H, W)
-        b, f, t2, h, w = x.shape
-        seq = x.flatten(2).permute(0, 2, 1)  # (B, T2*H*W, feature_dim)
-        return seq
-
-class CustomUNet3D(nn.Module):
+class WrappedUNet2D(nn.Module):
     """
-    UNet3D with reduced memory footprint:
-      - smaller block sizes
-      - gradient checkpointing & forward‐chunking
+    Simplified wrapper for diffusers.UNet2DModel:
+      - Main init params: sample_size, in_channels, out_channels, num_train_timesteps
+      - All other architectural choices defaulted for a robust U-Net with attention
     """
     def __init__(
         self,
-        sample_size: int = 48,
-        in_channels: int = 4,
-        out_channels: int = 4,
-        encoder_feature_dim: int = 512,
-        cross_attention_dim: int = 512,
-        attention_head_dim: int = 64,
+        sample_size: int,
+        in_channels: int,
+        out_channels: int,
+        num_train_timesteps: int,
     ):
         super().__init__()
+        self.sample_size = sample_size
+        self.in_channels = in_channels
+        self.out_channels = out_channels
+        self.num_train_timesteps = num_train_timesteps
 
-        # 3D UNet backbone
-        self.unet = UNet3DConditionModel(
+        # Default U-Net configuration
+        default_channels = (64, 128, 128, 256)
+        default_down = ("DownBlock2D", "AttnDownBlock2D", "AttnDownBlock2D", "DownBlock2D")
+        default_up =("UpBlock2D", "AttnUpBlock2D", "AttnUpBlock2D", "UpBlock2D")
+
+        self.unet = UNet2DModel(
             sample_size=sample_size,
-            in_channels=in_channels,
+            in_channels=in_channels * 2,
             out_channels=out_channels,
-            down_block_types=[
-                "DownBlock3D",
-                "CrossAttnDownBlock3D",
-                "CrossAttnDownBlock3D",
-                "DownBlock3D",
-            ],
-            up_block_types=[
-                "UpBlock3D",
-                "CrossAttnUpBlock3D",
-                "CrossAttnUpBlock3D",
-                "UpBlock3D",
-            ],
-            block_out_channels=[64, 128, 256, 256],
-            layers_per_block=1,
-            mid_block_scale_factor=1.0,
+            center_input_sample=False,
+            time_embedding_type="positional",
+            down_block_types=default_down,
+            mid_block_type="UNetMidBlock2D",
+            up_block_types=default_up,
+            block_out_channels=default_channels,
+            layers_per_block=2,
+            downsample_type="conv",
+            upsample_type="conv",
             act_fn="silu",
-            norm_num_groups=16,
-            cross_attention_dim=cross_attention_dim,
-            attention_head_dim=attention_head_dim,
-        )
-        # conditional encoder
-        self.cond_encoder = CondEncoder(
-            in_channels=in_channels,
-            feature_dim=encoder_feature_dim,
+            norm_num_groups=32,
+            attention_head_dim=8,
+            dropout=0.1,
+            resnet_time_scale_shift="default",
+            num_train_timesteps=num_train_timesteps,
         )
 
-    def forward(self, noisy, timesteps, cond, **kwargs):
-        # noisy: (B, T, C, H, W) -> (B, C, T, H, W)
-        noisy_in = noisy.permute(0, 2, 1, 3, 4)
-        # encode cond -> (B, seq_len, feature_dim)
-        encoder_hidden_states = self.cond_encoder(cond)
-        return self.unet(
-            sample=noisy_in,
-            timestep=timesteps,
-            encoder_hidden_states=encoder_hidden_states,
-            **kwargs,
-        )
+    def forward(self, x: torch.Tensor, t: torch.Tensor, cond: torch.Tensor = None) -> torch.Tensor:
+        """
+        Args:
+            x    -- noisy input [B, C, H, W]
+            t    -- timestep [B] or int
+            cond -- optional condition [B, C, H, W]
+        Returns:
+            predicted noise of shape [B, out_channels, H, W]
+        """
+        if cond is None:
+            cond = torch.zeros_like(x)
+        inp = torch.cat((cond, x), dim=1)
+        return self.unet(inp, timestep=t).sample
 
-# Example usage
-if __name__ == "__main__":
-    B, Tn, Tc, H, W = 1, 13, 4, 48, 48
-    noisy = torch.randn(B, Tn, Tc, H, W).cuda()
-    cond  = torch.randn(B, 12, Tc, H, W).cuda()
-    timesteps = torch.tensor([10] * B).cuda()
-    model = CustomUNet3D().cuda()
-    out = model(noisy, timesteps, cond)
-    print(out.sample.shape)  # (B, out_channels, Tn, H, W)
+model = WrappedUNet2D(sample_size=128, in_channels=10, out_channels=10, num_train_timesteps=1000)
+model = model.to("cuda" if torch.cuda.is_available() else "cpu")
+for i in range(10):
+    x = torch.randn(4, 10, 128, 128).to('cuda')  # [B, C, H, W]
+    t = torch.randint(0, 1000, (4,)).to('cuda')  # Random timesteps
+    cond = torch.randn(4, 10, 128, 128).to('cuda')  # Optional condition
+    out = model(x, t, cond)
+    print(f"Output shape: {out.shape}")  # Should be [B, out_channels, H, W]

@@ -1,0 +1,111 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+train data: 9921, valid data: 20, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+[32mBatch Shape: torch.Size([6, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+Building model
+Main Model Parameters: 2.42M
+============ Running training ============
+    Num examples = 9921
+    Num Epochs = 21
+    Instantaneous batch size per GPU = 6
+    Total train batch size (w. parallel, distributed & accumulation) = 6
+    Total optimization steps = 208341
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 1e-05
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 1e-05
+Data Loading Time: 0.36046338081359863
+True
+gpu_nums: 1, gpu_id: 0
+Training Now
+Epoch 0/21, Step 6485/9921:   3%|██▌                                                                                 | 6486/208341 [13:45<18:42:23,  3.00it/s, lr=9.98e-6, total_loss=0.0176]Traceback (most recent call last):
+ ========= Running Sanity Check ==========
+[34mSanity Check: (6, 20, 1, 128, 128), (6, 20, 1, 128, 128)[0m
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 591, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 580, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 457, in train
+    pbar.update(1)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1243, in update
+    self.refresh(lock_args=self.lock_args)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1348, in refresh
+    self.display()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1496, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 462, in print_status
+    fp_write('\r' + s + (' ' * max(last_len[0] - len_s, 0)))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 455, in fp_write
+    fp.write(str(s))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/utils.py", line 195, in inner
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/lib/console_capture.py", line 155, in write_with_callbacks
+    cb(s, n)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2500, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/contextlib.py", line 123, in __exit__
+    def __exit__(self, typ, value, traceback):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 591, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 580, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 457, in train
+    pbar.update(1)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1243, in update
+    self.refresh(lock_args=self.lock_args)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1348, in refresh
+    self.display()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 1496, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 462, in print_status
+    fp_write('\r' + s + (' ' * max(last_len[0] - len_s, 0)))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/std.py", line 455, in fp_write
+    fp.write(str(s))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/tqdm/utils.py", line 195, in inner
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/lib/console_capture.py", line 155, in write_with_callbacks
+    cb(s, n)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2500, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/contextlib.py", line 123, in __exit__
+    def __exit__(self, typ, value, traceback):
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

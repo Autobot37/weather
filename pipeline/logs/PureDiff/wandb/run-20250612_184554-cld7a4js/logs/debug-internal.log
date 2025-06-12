@@ -1,0 +1,15 @@
+{"time":"2025-06-12T18:45:54.327739917+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/PureDiff/wandb/run-20250612_184554-cld7a4js/logs/debug-core.log"}
+{"time":"2025-06-12T18:45:54.74648273+05:30","level":"INFO","msg":"created new stream","id":"cld7a4js"}
+{"time":"2025-06-12T18:45:54.7465525+05:30","level":"INFO","msg":"stream: started","id":"cld7a4js"}
+{"time":"2025-06-12T18:45:54.746587906+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:45:54.746653977+05:30","level":"INFO","msg":"sender: started","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:45:54.746674417+05:30","level":"INFO","msg":"handler: started","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:45:55.459819045+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-12T18:45:58.293811692+05:30","level":"INFO","msg":"stream: closing","id":"cld7a4js"}
+{"time":"2025-06-12T18:45:58.293875607+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-12T18:45:58.293916242+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-12T18:46:00.819701372+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-12T18:46:01.184701125+05:30","level":"INFO","msg":"handler: closed","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:46:01.184769056+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:46:01.184771934+05:30","level":"INFO","msg":"sender: closed","stream_id":"cld7a4js"}
+{"time":"2025-06-12T18:46:01.184938964+05:30","level":"INFO","msg":"stream: closed","id":"cld7a4js"}

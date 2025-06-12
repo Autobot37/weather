@@ -146,9 +146,9 @@ class CuboidSEVIRPLModule(pl.LightningModule):
         oc.dataset_name = "sevir"
         oc.img_height = 128
         oc.img_width = 128
-        oc.in_len = 10
-        oc.out_len = 10
-        oc.seq_len = 20
+        oc.in_len = 5
+        oc.out_len = 20
+        oc.seq_len = 25
         oc.plot_stride = 1
         oc.interval_real_time = 5
         oc.sample_mode = "sequent"

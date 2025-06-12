@@ -1,0 +1,7 @@
+{"time":"2025-06-11T13:39:51.455504933+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250611_133951-71xoghol/logs/debug-core.log"}
+{"time":"2025-06-11T13:39:51.88784901+05:30","level":"INFO","msg":"created new stream","id":"71xoghol"}
+{"time":"2025-06-11T13:39:51.88794345+05:30","level":"INFO","msg":"stream: started","id":"71xoghol"}
+{"time":"2025-06-11T13:39:51.888028176+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"71xoghol"}
+{"time":"2025-06-11T13:39:51.888044875+05:30","level":"INFO","msg":"sender: started","stream_id":"71xoghol"}
+{"time":"2025-06-11T13:39:51.888086253+05:30","level":"INFO","msg":"handler: started","stream_id":"71xoghol"}
+{"time":"2025-06-11T13:39:52.669766268+05:30","level":"INFO","msg":"Starting system monitor"}

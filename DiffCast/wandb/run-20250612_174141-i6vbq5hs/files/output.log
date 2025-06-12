@@ -1,0 +1,64 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 120, in __init__
+    self._load_data()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 198, in _load_data
+    train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 144, in get_dataset
+    train = SEVIRTorchDataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 968, in __init__
+    self.sevir_dataloader = SEVIRDataLoader(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 308, in __init__
+    self.catalog = pd.read_csv(sevir_catalog, parse_dates=['time_utc'], low_memory=False)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/vatsal/NWM/earth-forecasting-transformer/datasets/sevir/CATALOG.csv'
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 120, in __init__
+    self._load_data()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 198, in _load_data
+    train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 144, in get_dataset
+    train = SEVIRTorchDataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 968, in __init__
+    self.sevir_dataloader = SEVIRDataLoader(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 308, in __init__
+    self.catalog = pd.read_csv(sevir_catalog, parse_dates=['time_utc'], low_memory=False)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/vatsal/NWM/earth-forecasting-transformer/datasets/sevir/CATALOG.csv'

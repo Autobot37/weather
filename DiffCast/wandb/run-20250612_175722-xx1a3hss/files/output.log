@@ -1,0 +1,109 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+train data: 14882, valid data: 20, test_data: 20
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+[32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+Building model
+layer  0 input dim  64  hidden dim  128
+layer  1 input dim  128  hidden dim  128
+layer  2 input dim  128  hidden dim  64
+Main Model Parameters: 3.09M
+============ Running training ============
+    Num examples = 14882
+    Num Epochs = 10
+    Instantaneous batch size per GPU = 4
+    Total train batch size (w. parallel, distributed & accumulation) = 4
+    Total optimization steps = 148820
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+Data Loading Time: 0.2638740539550781
+True
+gpu_nums: 1, gpu_id: 0
+Epoch 0/10, Step 27/14882:   0%|                                                                                           | 28/148820 [00:08<9:20:33,  4.42it/s, lr=2.8e-6, total_loss=10.9]Traceback (most recent call last):
+ ========= Running Sanity Check ==========
+[34mSanity Check: (4, 20, 1, 128, 128), (4, 20, 1, 128, 128)[0m
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 578, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 419, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 498, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 554, in predict
+    loss, pred = self(frames_in, frames_gt, constrains)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 513, in forward
+    m = self.k2m(filters.double()).float()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 414, in forward
+    k = _apply_axis_left_dot(k, self.M)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 316, in _apply_axis_left_dot
+    x = tensordot(mats[k-i-1], x, dim=[1,k])
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 461, in tensordot
+    c = a@b
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 578, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 419, in train
+    loss_dict = self._train_batch(batch)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 498, in _train_batch
+    _, loss = self.model.predict(frames_in=frames_in, frames_gt=frames_out, compute_loss=True)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 554, in predict
+    loss, pred = self(frames_in, frames_gt, constrains)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 513, in forward
+    m = self.k2m(filters.double()).float()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 414, in forward
+    k = _apply_axis_left_dot(k, self.M)
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 316, in _apply_axis_left_dot
+    x = tensordot(mats[k-i-1], x, dim=[1,k])
+  File "/home/vatsal/NWM/weather/DiffCast/models/phydnet/phydnet.py", line 461, in tensordot
+    c = a@b
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

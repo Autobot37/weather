@@ -1,0 +1,100 @@
+Epoch 0:   0%| | 18/5432 [00:57<4:48:23,  3.20s/it, loss=0.78, v_num=77td, train/loss_step=0.721, train/psnr_step=3.760, train/ssim_st
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 20 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+DDIM sampling: 100%|████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:03<00:00,  2.24it/s]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+DDIM sampling: 100%|████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:04<00:00,  1.96it/s]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 20 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+DDIM sampling: 100%|████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:04<00:00,  1.96it/s]
+Traceback (most recent call last):██████████████████████████████████████████████████████████████████████| 8/8 [00:04<00:00,  1.84it/s]
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 171, in advance
+    batch = next(data_fetcher)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/fetching.py", line 184, in __next__
+    return self.fetching_function()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/fetching.py", line 259, in fetching_function
+    self._fetch_next_batch(self.dataloader_iter)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/fetching.py", line 273, in _fetch_next_batch
+    batch = next(iterator)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/supporters.py", line 558, in __next__
+    return self.request_next_batch(self.loader_iters)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/supporters.py", line 570, in request_next_batch
+    return apply_to_collection(loader_iters, Iterator, next)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/apply_func.py", line 99, in apply_to_collection
+    return function(data, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/vatsal/NWM/weather/pipeline/datasets/dataset_sevir.py", line 1085, in __getitem__
+    data_dict = self.sevir_dataloader._idx_sample(index=index)
+  File "/home/vatsal/NWM/weather/pipeline/datasets/dataset_sevir.py", line 1001, in _idx_sample
+    event_batch = self._load_event_batch(event_idx=start_event_idx,
+  File "/home/vatsal/NWM/weather/pipeline/datasets/dataset_sevir.py", line 698, in _load_event_batch
+    data = self._read_data(row, data)
+  File "/home/vatsal/NWM/weather/pipeline/datasets/dataset_sevir.py", line 472, in _read_data
+    data_i = self._hdf_files[fname][t][idx:idx + 1, :, :, t_slice]
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/h5py/_hl/dataset.py", line 758, in __getitem__
+    return self._fast_reader.read(args)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/purediff.py", line 133, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 726, in _call_and_handle_interrupt
+    rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/rank_zero.py", line 32, in wrapped_fn
+    return fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/rank_zero.py", line 92, in rank_zero_warn
+    _warn(message, stacklevel=stacklevel, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/utilities/rank_zero.py", line 86, in _warn
+    warnings.warn(message, stacklevel=stacklevel, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/warnings.py", line 112, in _showwarnmsg
+    _showwarnmsg_impl(msg)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/warnings.py", line 28, in _showwarnmsg_impl
+    text = _formatwarnmsg(msg)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/warnings.py", line 126, in _formatwarnmsg
+    return fw(msg.message, msg.category,
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/fabric/utilities/warnings.py", line 44, in _custom_format_warning
+    if _is_path_in_lightning(Path(filename)):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/pathlib.py", line 1082, in __new__
+    self = cls._from_parts(args, init=False)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/pathlib.py", line 707, in _from_parts
+    drv, root, parts = self._parse_args(args)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/pathlib.py", line 700, in _parse_args
+    return cls._flavour.parse_parts(parts)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/pathlib.py", line 79, in parse_parts
+    parsed.append(sys.intern(x))
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

@@ -1,0 +1,1 @@
+python ./scripts/prediff/sevirlr/train_sevirlr_prediff.py --gpus  1 --pretrained --save tmp_sevirlr_prediff_jun12

@@ -1,0 +1,84 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 120, in __init__
+    self._load_data()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 198, in _load_data
+    train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 144, in get_dataset
+    train = SEVIRTorchDataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 968, in __init__
+    self.sevir_dataloader = SEVIRDataLoader(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 336, in __init__
+    self._compute_samples()
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 352, in _compute_samples
+    filtcat = filtcat.groupby('id').filter(lambda x: x.shape[0]==len(imgt))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/generic.py", line 1736, in filter
+    for name, group in gen:
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 727, in get_iterator
+    yield from zip(keys, splitter)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 1239, in __iter__
+    yield self._chop(sdata, slice(start, end))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 1264, in _chop
+    mgr = sdata._mgr.get_slice(slice_obj, axis=1 - self.axis)
+  File "pandas/_libs/internals.pyx", line 861, in pandas._libs.internals.BlockManager.get_slice
+  File "pandas/_libs/internals.pyx", line 842, in pandas._libs.internals.BlockManager._get_index_slice
+  File "pandas/_libs/internals.pyx", line 682, in pandas._libs.internals.NDArrayBackedBlock.getitem_block_index
+  File "pandas/_libs/internals.pyx", line 688, in pandas._libs.internals.NDArrayBackedBlock.getitem_block_index
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/arrays/datetimelike.py", line 377, in __getitem__
+    result._freq = self._get_getitem_freq(key)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/arrays/datetimelike.py", line 384, in _get_getitem_freq
+    is_period = is_period_dtype(self.dtype)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/dtypes/common.py", line 419, in is_period_dtype
+    return PeriodDtype.is_dtype(arr_or_dtype)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 589, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 576, in main
+    exp = Runner(args)
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 120, in __init__
+    self._load_data()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 198, in _load_data
+    train_data, valid_data, test_data, color_save_fn, PIXEL_SCALE, THRESHOLDS = get_dataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 144, in get_dataset
+    train = SEVIRTorchDataset(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 968, in __init__
+    self.sevir_dataloader = SEVIRDataLoader(
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 336, in __init__
+    self._compute_samples()
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/dataset_sevir.py", line 352, in _compute_samples
+    filtcat = filtcat.groupby('id').filter(lambda x: x.shape[0]==len(imgt))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/generic.py", line 1736, in filter
+    for name, group in gen:
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 727, in get_iterator
+    yield from zip(keys, splitter)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 1239, in __iter__
+    yield self._chop(sdata, slice(start, end))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/groupby/ops.py", line 1264, in _chop
+    mgr = sdata._mgr.get_slice(slice_obj, axis=1 - self.axis)
+  File "pandas/_libs/internals.pyx", line 861, in pandas._libs.internals.BlockManager.get_slice
+  File "pandas/_libs/internals.pyx", line 842, in pandas._libs.internals.BlockManager._get_index_slice
+  File "pandas/_libs/internals.pyx", line 682, in pandas._libs.internals.NDArrayBackedBlock.getitem_block_index
+  File "pandas/_libs/internals.pyx", line 688, in pandas._libs.internals.NDArrayBackedBlock.getitem_block_index
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/arrays/datetimelike.py", line 377, in __getitem__
+    result._freq = self._get_getitem_freq(key)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/arrays/datetimelike.py", line 384, in _get_getitem_freq
+    is_period = is_period_dtype(self.dtype)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pandas/core/dtypes/common.py", line 419, in is_period_dtype
+    return PeriodDtype.is_dtype(arr_or_dtype)
+KeyboardInterrupt

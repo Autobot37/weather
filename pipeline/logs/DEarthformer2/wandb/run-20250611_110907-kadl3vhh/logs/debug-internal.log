@@ -1,0 +1,7 @@
+{"time":"2025-06-11T11:09:07.30699732+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer2/wandb/run-20250611_110907-kadl3vhh/logs/debug-core.log"}
+{"time":"2025-06-11T11:09:07.739550106+05:30","level":"INFO","msg":"created new stream","id":"kadl3vhh"}
+{"time":"2025-06-11T11:09:07.739600714+05:30","level":"INFO","msg":"stream: started","id":"kadl3vhh"}
+{"time":"2025-06-11T11:09:07.739654128+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"kadl3vhh"}
+{"time":"2025-06-11T11:09:07.739740517+05:30","level":"INFO","msg":"sender: started","stream_id":"kadl3vhh"}
+{"time":"2025-06-11T11:09:07.739672577+05:30","level":"INFO","msg":"handler: started","stream_id":"kadl3vhh"}
+{"time":"2025-06-11T11:09:08.46449679+05:30","level":"INFO","msg":"Starting system monitor"}

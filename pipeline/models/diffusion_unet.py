@@ -3,7 +3,7 @@ from omegaconf import OmegaConf
 from pipeline.datasets.dataset_sevir import SEVIRLightningDataModule
 from diffusers import DDIMScheduler
 import torch.optim as optim
-from pipeline.modeldefinitions.unet2d import CustomUNet3D
+from weather.pipeline.modeldefinitions.unet3d import CustomUNet3D
 from basemodel import *
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping
 from pipeline.utils import load_checkpoint_cascast

@@ -1210,6 +1210,14 @@ class SEVIRLightningDataModule(LightningDataModule):
         self.end_date = datetime.datetime(*end_date) \
             if end_date is not None else None
 
+        self.catalog_filter = cfg.get("catalog_filter", None)
+        print(f"Using catalog filter: {self.catalog_filter}")
+
+        if self.catalog_filter == 'S':
+            self.catalog_filter = lambda row: [s[0]=='S' for s in row.id]
+        elif self.catalog_filter == 'R':
+            self.catalog_filter = lambda row: [s[0]=='R' for s in row.id]
+
     def prepare_data(self) -> None:
         if os.path.exists(self.sevir_root_dir):
             # Further check
@@ -1246,7 +1254,9 @@ class SEVIRLightningDataModule(LightningDataModule):
             preprocess=self.preprocess,
             rescale_method=self.rescale_method,
             downsample_dict=self.downsample_dict, # Pass downsample_dict
-            verbose=self.verbose,)
+            verbose=self.verbose,
+            catalog_filter=self.catalog_filter,
+        )
         self.sevir_val = SEVIRTorchDataset(
             sevir_catalog=self.catalog_path,
             sevir_data_dir=self.raw_data_dir,
@@ -1265,7 +1275,7 @@ class SEVIRLightningDataModule(LightningDataModule):
             preprocess=self.preprocess,
             rescale_method=self.rescale_method,
             downsample_dict=self.downsample_dict, # Pass downsample_dict
-            verbose=self.verbose, )
+            verbose=self.verbose, catalog_filter=self.catalog_filter)
         self.sevir_test = SEVIRTorchDataset(
             sevir_catalog=self.catalog_path,
             sevir_data_dir=self.raw_data_dir,
@@ -1284,7 +1294,7 @@ class SEVIRLightningDataModule(LightningDataModule):
             preprocess=self.preprocess,
             rescale_method=self.rescale_method,
             downsample_dict=self.downsample_dict, # Pass downsample_dict
-            verbose=self.verbose,)
+            verbose=self.verbose,catalog_filter=self.catalog_filter)
         self.sevir_predict = SEVIRTorchDataset(
             sevir_catalog=self.catalog_path,
             sevir_data_dir=self.raw_data_dir,
@@ -1303,7 +1313,9 @@ class SEVIRLightningDataModule(LightningDataModule):
             preprocess=self.preprocess,
             rescale_method=self.rescale_method,
             downsample_dict=self.downsample_dict, # Pass downsample_dict
-            verbose=self.verbose,)
+            verbose=self.verbose,
+            catalog_filter=self.catalog_filter
+            )
         
     def train_dataloader(self):
         return self.sevir_train.get_torch_dataloader(num_workers=self.num_workers)

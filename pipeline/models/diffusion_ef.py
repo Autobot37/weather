@@ -5,27 +5,58 @@ from pipeline.datasets.dataset_sevir import SEVIRLightningDataModule
 from pipeline.modeldefinitions.ef import get_earthformer
 from basemodel import *
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping
-"""
-Earthformer takes B T H W C
-"""
+import torch
+import torch.nn as nn
+from lightning.pytorch.loggers import WandbLogger
+
+class DiffusionUtils:
+    def __init__(self, scheduler, num_inference_steps=5):
+        self.scheduler = scheduler
+        self.num_inference_steps = num_inference_steps
+        
+    def add_noise(self, clean_images, noise, timesteps):
+        return self.scheduler.add_noise(clean_images, noise, timesteps)
+    
+    @torch.no_grad()
+    def sample(self, model, shape, cond, device):
+        # shape: (B, T, H, W, C)
+        self.scheduler.set_timesteps(self.num_inference_steps, device=device)
+        
+        # Start with random noise
+        sample = torch.randn(shape, device=device)
+        
+        for timestep in self.scheduler.timesteps:
+            timestep_batch = timestep.expand(shape[0]).to(device)
+            
+            # Predict noise
+            noise_pred = model(sample, timestep_batch, cond)
+            # Denoise step
+            sample = self.scheduler.step(noise_pred, timestep, sample).prev_sample
+            
+        return sample
+
 class DEarthformer(BaseModel):
     def __init__(self, data_config):
         super().__init__(model_name="Diffusion_Earthformer")
         config = OmegaConf.load("configs/models/earthformer.yaml")
         self.transformer, self.scheduler = get_earthformer(config["Model"]), DDIMScheduler(num_train_timesteps=config["timesteps"])
+        self.diffusion_utils = DiffusionUtils(self.scheduler, num_inference_steps=10)
         self.mse_loss = nn.MSELoss()
+        
         data_config = OmegaConf.load(data_config)
         self.in_window = data_config.in_window
         self.out_window = data_config.out_window
         self.num_train_timesteps = config["timesteps"]
-        self.image_size = data_config.image_size; self.image_size = int(self.image_size)
+        self.image_size = data_config.image_size
+        self.image_size = int(self.image_size)
         self.timestep_embedding = nn.Embedding(self.num_train_timesteps, self.image_size * self.image_size)
         
     def forward(self, noisy, timesteps, cond):
+        # noisy: (B, T, H, W, C), cond: (B, T, H, W, C), timesteps: (B,)
         H = self.image_size
-        timesteps = self.timestep_embedding(timesteps) #[B, H * W]
-        timesteps = timesteps.reshape(timesteps.size(0), 1, H, H, 1)
-        inp = torch.concat([noisy, cond, timesteps], dim=1)
+        timesteps = self.timestep_embedding(timesteps)  # (B, H*W)
+        timesteps = timesteps.reshape(timesteps.size(0), 1, H, H, 1)  # (B, 1, H, H, 1)
+        inp = torch.concat([noisy, cond, timesteps], dim=1)  # (B, T+T+1, H, W, C)
         return self.transformer(inp)
     
     def configure_optimizers(self):
@@ -50,65 +81,73 @@ class DEarthformer(BaseModel):
         scheduler.step()
 
     def training_step(self, batch, batch_idx):
+        # Process input: (B, H, W, T) -> (B, T, H, W, 1)
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
-        vil0 = vil[:,0:1]
-        vil = vil - vil0
+        vil0 = vil[:,0:1]  # First frame reference
+        vil = vil - vil0   # Subtract first frame
+        
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
         noise = torch.randn_like(tgt)
         B = tgt.size(0)
         T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device)
-        noisy = self.scheduler.add_noise(tgt, noise, T)
+        
+        noisy = self.diffusion_utils.add_noise(tgt, noise, T)
         pred = self(noisy, T, cond)
         loss = self.mse_loss(pred, noise)
+        
         self.log('train/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
-        if self.global_step % 100 == 0:
-            assert pred.dim() == 5 and pred.shape[-1] == 1, f"Expected pred shape (B, T, 1, H, W), got {pred.shape}"
-            assert tgt.dim() == 5 and tgt.shape[-1] == 1, f"Expected tgt shape (B, T, 1, H, W), got {tgt.shape}"
-            pred = pred.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-            tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-            pred = pred.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
-            tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
-            self.log_metrics(preds=pred, targets=tgt, stage="train")
-            
-            if self.global_step % 100 == 0:
-                vil0 = vil0.permute(0, 1, 4, 2, 3)
-                pred = (pred + vil0)/2
-                tgt = (tgt + vil0)/2
-                pred = pred.squeeze(2).cpu().numpy()
-                tgt = tgt.squeeze(2).cpu().numpy()
-                self.log_plots(preds = pred, targets=tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Train_{self.current_epoch}_{self.global_step}")
         return loss
 
     def validation_step(self, batch, batch_idx):
+        # Process input: (B, H, W, T) -> (B, T, H, W, 1)
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
-        vil0 = vil[:,0:1]
-        vil = vil - vil0
+        vil0 = vil[:,0:1]  # First frame reference
+        vil = vil - vil0   # Subtract first frame
+        
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
+        
+        # Training loss computation
         noise = torch.randn_like(tgt)
         B = tgt.size(0)
         T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device, dtype=torch.long)
-        noisy = self.scheduler.add_noise(tgt, noise, T)
+        noisy = self.diffusion_utils.add_noise(tgt, noise, T)
         pred = self(noisy, T, cond)
         loss = self.mse_loss(pred, noise)
         self.log('val/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
-        pred = pred.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-        tgt = tgt.permute(0, 1, 4, 2, 3)  # (B, T, 1, H, W)
-        pred = pred.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
-        tgt = tgt.clamp(-1, 1).add(1).div(2).detach()  # Normalize to [0, 1]
-        self.log_metrics(preds=pred, targets=tgt, stage="val")
-
-        if self.global_step % 100 == 0:
-            vil0 = vil0.permute(0, 1, 4, 2, 3)
-            pred = (pred + vil0)/2
-            tgt = (tgt + vil0)/2
-            pred = pred.squeeze(2).cpu().numpy()
-            tgt = tgt.squeeze(2).cpu().numpy()
-            self.log_plots(preds = pred, targets = tgt, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Val_{self.current_epoch}_{self.global_step}")
+        
+        # Sample for metrics and plotting
+        sampled = self.diffusion_utils.sample(self, tgt.shape, cond, self.device)
+        
+        # Convert for metrics: (B, T, H, W, 1) -> (B, T, 1, H, W)
+        sampled = sampled.permute(0, 1, 4, 2, 3)
+        tgt = tgt.permute(0, 1, 4, 2, 3)
+        vil0 = vil0.permute(0, 1, 4, 2, 3)
+        
+        # Normalization step seems wrong.
+        
+        sampled = sampled.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
+        tgt = tgt.clamp(-1, 1).add(1).div(2)          # Normalize to [0, 1]
+        # Add back first frame and normalize
+        sampled = (sampled + vil0) / 2
+        tgt = (tgt + vil0) / 2
+        sampled = sampled.clamp(0, 1).detach()
+        tgt = tgt.clamp(0, 1).detach()
+        
+        self.log_metrics(preds=sampled, targets=tgt, stage="val")
+        
+        if self.global_step % 10 == 0:
+            # Plot: (B, T, 1, H, W) -> (B, T, H, W)
+            sampled_plot = sampled.squeeze(2).cpu().numpy()
+            tgt_plot = tgt.squeeze(2).cpu().numpy()
+            self.log_plots(preds=sampled_plot, targets=tgt_plot, 
+                            plot_fn=SEVIRLightningDataModule.plot_sample, 
+                            label=f"Val_{self.current_epoch}_{self.global_step}")
 
 if __name__ == "__main__":
     seed_everything(42)
     dm = SEVIRLightningDataModule()
-    dm.prepare_data();dm.setup()
+    dm.prepare_data()
+    dm.setup()
 
     logger = WandbLogger(project="DEarthformer", save_dir="logs/DEarthformer")
     run_id = logger.version 
@@ -117,10 +156,7 @@ if __name__ == "__main__":
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"logs/DEarthformer/checkpoints/{run_id}",
         filename="DEarthformer-{epoch:02d}-{step:06d}",
-        monitor="val/loss",
-        mode="min",
-        save_top_k=3,
-        every_n_train_steps=1000,
+        save_top_k=-1,
         save_last=True,
         save_on_train_epoch_end=True
     )
@@ -128,11 +164,13 @@ if __name__ == "__main__":
 
     trainer = Trainer(
         max_epochs=10,
-        gpus = 1 if torch.cuda.is_available() else 0,
+        accelerator="gpu",
+        devices=[1],
         logger=logger,
         val_check_interval=len(dm.train_dataloader()) // 2, 
-        callbacks=[checkpoint_callback, lr_monitor], CodeLogger(),
+        callbacks=[checkpoint_callback, lr_monitor, CodeLogger()]
     )
+    
     from termcolor import colored
     for sample in dm.train_dataloader():
         data = sample['vil']

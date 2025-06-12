@@ -9,7 +9,8 @@ import yaml
 import cProfile
 from tqdm import tqdm
 from datetime import timedelta
-
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import torch
 from accelerate import Accelerator
 from accelerate.utils import set_seed
@@ -34,7 +35,7 @@ def create_parser():
     # --------------- Basic ---------------
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('--backbone', default='phydnet',  type=str,                 help='backbone model for deterministic prediction')
+    parser.add_argument('--backbone', default='earthformer',  type=str,                 help='backbone model for deterministic prediction')
     parser.add_argument('--use_diff', action="store_true", default=False,        help='Weather use diff framework, as for ablation study')
     
     parser.add_argument("--seed",           type=int,   default=0,              help='Experiment seed')
@@ -52,7 +53,7 @@ def create_parser():
     parser.add_argument("--num_workers",    type=int,   default=4,              help="number of workers for data loader")
     
     # --------------- Optimizer ---------------
-    parser.add_argument("--lr",             type=float, default=1e-4,            help="learning rate")
+    parser.add_argument("--lr",             type=float, default=1e-5,            help="learning rate")
     parser.add_argument("--lr-beta1",       type=float, default=0.90,            help="learning rate beta 1")
     parser.add_argument("--lr-beta2",       type=float, default=0.95,            help="learning rate beta 2")
     parser.add_argument("--l2-norm",        type=float, default=0.0,             help="l2 norm weight decay")
@@ -63,9 +64,9 @@ def create_parser():
     parser.add_argument("--grad_acc_step",  type=int,   default=1,               help="gradient accumulation step")
     
     # --------------- Training ---------------
-    parser.add_argument("--batch_size",     type=int,   default=4,              help="batch size")
-    parser.add_argument("--epochs",         type=int,   default=10,              help="number of epochs")
-    parser.add_argument("--training_steps", type=int,   default=20,          help="number of training steps")
+    parser.add_argument("--batch_size",     type=int,   default=6,              help="batch size")
+    parser.add_argument("--epochs",         type=int,   default=20,              help="number of epochs")
+    parser.add_argument("--training_steps", type=int,   default=200000,          help="number of training steps")
     parser.add_argument("--early_stop",     type=int,   default=10,              help="early stopping steps")
     parser.add_argument("--ckpt_milestone", type=str,   default=None,            help="resumed checkpoint milestone")
     
@@ -75,6 +76,7 @@ def create_parser():
 
     args = parser.parse_args()
     return args
+
 
 
 class Runner(object):
@@ -115,8 +117,9 @@ class Runner(object):
         print_log('============================================================', self.is_main)
     
         print_log(self.accelerator.state, self.is_main)
-        
+        print("Loading data")
         self._load_data()
+        print("Building model")
         self._build_model()
         self._build_optimizer()
         
@@ -399,6 +402,7 @@ class Runner(object):
         
     
     def train(self):
+        print("Training Now")
         # set global step as traing process
         pbar = tqdm(
             initial=self.cur_step,

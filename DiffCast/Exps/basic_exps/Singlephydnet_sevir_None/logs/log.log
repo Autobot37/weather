@@ -40,3 +40,88 @@ Parameter Group 0
 
 06/02/2025 19:41:21 - INFO - root - Epoch 0/1, Step 0/14882::{'lr': 1.0000000000000001e-07, 'total_loss': 8.688136100769043}
 06/02/2025 19:41:21 - INFO - root -  ========= Running Sanity Check ==========
+06/12/2025 17:41:42 - INFO - root - ============================================================
+06/12/2025 17:41:42 - INFO - root -                  Experiment Start                           
+06/12/2025 17:41:42 - INFO - root - ============================================================
+06/12/2025 17:41:42 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/12/2025 17:51:13 - INFO - root - ============================================================
+06/12/2025 17:51:13 - INFO - root -                  Experiment Start                           
+06/12/2025 17:51:13 - INFO - root - ============================================================
+06/12/2025 17:51:13 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/12/2025 17:55:07 - INFO - root - ============================================================
+06/12/2025 17:55:07 - INFO - root -                  Experiment Start                           
+06/12/2025 17:55:07 - INFO - root - ============================================================
+06/12/2025 17:55:07 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/12/2025 17:55:25 - INFO - root - train data: 14882, valid data: 20, test_data: 20
+06/12/2025 17:55:25 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/12/2025 17:55:25 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:55:26 - INFO - root - [32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:55:28 - INFO - root - [32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:57:23 - INFO - root - ============================================================
+06/12/2025 17:57:23 - INFO - root -                  Experiment Start                           
+06/12/2025 17:57:23 - INFO - root - ============================================================
+06/12/2025 17:57:23 - INFO - root - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/12/2025 17:57:39 - INFO - root - train data: 14882, valid data: 20, test_data: 20
+06/12/2025 17:57:39 - INFO - root - Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+06/12/2025 17:57:39 - INFO - root - [32mBatch Shape: torch.Size([4, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:57:40 - INFO - root - [32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:57:42 - INFO - root - [32mBatch Shape: torch.Size([8, 25, 1, 128, 128]), Type: torch.float32[0m
+06/12/2025 17:57:42 - INFO - root - Main Model Parameters: 3.09M
+06/12/2025 17:57:42 - INFO - root - ============ Running training ============
+06/12/2025 17:57:42 - INFO - root -     Num examples = 14882
+06/12/2025 17:57:42 - INFO - root -     Num Epochs = 10
+06/12/2025 17:57:42 - INFO - root -     Instantaneous batch size per GPU = 4
+06/12/2025 17:57:42 - INFO - root -     Total train batch size (w. parallel, distributed & accumulation) = 4
+06/12/2025 17:57:42 - INFO - root -     Total optimization steps = 148820
+06/12/2025 17:57:42 - INFO - root - optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 0.0001
+06/12/2025 17:57:43 - INFO - root - Data Loading Time: 0.2638740539550781
+06/12/2025 17:57:43 - INFO - root - gpu_nums: 1, gpu_id: 0
+06/12/2025 17:57:43 - WARNING - py.warnings - /home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/accelerate/accelerator.py:3173: FutureWarning: Passing `cache_enabled=True` to `accelerator.autocast` is deprecated and will be removed in v0.23.0. Please use the `AutocastKwargs` class instead and pass it to the `Accelerator` as a `kwarg_handler`.
+  warnings.warn(
+
+06/12/2025 17:57:44 - INFO - root - Epoch 0/10, Step 0/14882::{'lr': 1.0000000000000001e-07, 'total_loss': 10.921969413757324}
+06/12/2025 17:57:44 - INFO - root -  ========= Running Sanity Check ==========
+06/12/2025 17:57:44 - INFO - root - [34mSanity Check: (4, 20, 1, 128, 128), (4, 20, 1, 128, 128)[0m
+06/12/2025 17:57:49 - INFO - root - Epoch 0/10, Step 20/14882::{'lr': 2.1000000000000002e-06, 'total_loss': 12.919178009033203}

@@ -7,10 +7,33 @@ from pipeline.modeldefinitions.dit import CasFormer
 from basemodel import *
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping
 from pipeline.utils import load_checkpoint_cascast
+import torch
+import torch.nn as nn
+from lightning.pytorch.loggers import WandbLogger
 
-"""
-B T C H W   
-"""
+class DiffusionUtils:
+    def __init__(self, scheduler, num_inference_steps=50):
+        self.scheduler = scheduler
+        self.num_inference_steps = num_inference_steps
+        
+    def add_noise(self, clean_images, noise, timesteps):
+        return self.scheduler.add_noise(clean_images, noise, timesteps)
+    
+    @torch.no_grad()
+    def sample(self, model, shape, cond, device):
+        # shape: (B, T, C, H, W)
+        self.scheduler.set_timesteps(self.num_inference_steps, device=device)
+        
+        # Start with random noise
+        sample = torch.randn(shape, device=device)
+        
+        for timestep in self.scheduler.timesteps:
+            timestep_batch = timestep.expand(shape[0]).to(device)
+            noise_pred = model(sample, timestep_batch, cond)
+            sample = self.scheduler.step(noise_pred, timestep, sample).prev_sample
+            
+        return sample
+
 class DiT(nn.Module):
     def __init__(self, config):
         super().__init__()
@@ -36,7 +59,7 @@ class Autoencoder(nn.Module):
         B, T, _, H, W = x.shape
         out = []
         for i in range(T):
-            frame = x[:, i]  # [B, C, H, W]
+            frame = x[:, i]  # (B, C, H, W)
             z = self.autoencoder.encode(frame).sample()
             out.append(z.unsqueeze(1))
         return torch.cat(out, dim=1)
@@ -58,69 +81,79 @@ class Diffusion(BaseModel):
         dit_config = OmegaConf.load("configs/models/dit.yaml")
         vae_config = OmegaConf.load("configs/models/vae.yaml")
         self.diffnet = DiT(dit_config)
+        self.diffusion_utils = DiffusionUtils(self.diffnet.scheduler, num_inference_steps=50)
         self.autoencoder = Autoencoder(vae_config)
         data_config = OmegaConf.load("configs/datasets/sevir.yaml")
         self.in_window = data_config.in_window
         self.num_timesteps = dit_config.timesteps
         self.loss_fn = nn.MSELoss()
 
-    def forward(self, enc):
-        # x: (B, T, C, H, W)
+    def forward(self, noisy, timesteps, cond):
+        return self.diffnet(noisy, timesteps, cond)
+
+    def training_step(self, batch, batch_idx):
+        # Process input: (B, H, W, T) -> (B, T, C, H, W)
+        x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
+        enc = self.autoencoder.encode(x)
+        vil0 = enc[:, 0:1]  # First frame reference
+        enc = enc - vil0    # Subtract first frame
+        
         cond = enc[:, :self.in_window]
         targets = enc[:, self.in_window:]
         noise = torch.randn_like(targets)
         B = noise.size(0)
         t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
-        noisy = self.diffnet.scheduler.add_noise(targets, noise, t)
-        pred = self.diffnet(noisy, t, cond)
+        
+        noisy = self.diffusion_utils.add_noise(targets, noise, t)
+        pred = self(noisy, t, cond)
         loss = self.loss_fn(pred, noise)
-        return pred, targets, loss
-
-    def training_step(self, batch, batch_idx):
-        x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
-        enc = self.autoencoder.encode(x)
-        vil0 = enc[:, 0:1]  
-        enc = enc - vil0  
-        preds, targets, loss = self(enc)
+        
         self.log("train/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
-        if self.global_step % 100 == 0:
-            preds = preds.clamp(-1, 1).add(1).div(2) # Normalize to [0, 1]
-            targets = targets.clamp(-1, 1).add(1).div(2) # Normalize to [0, 1]
-
-            preds = self.autoencoder.decode(preds).detach() 
-            targets = self.autoencoder.decode(targets).detach() 
-            self.log_metrics(preds=preds, targets=targets, stage="train")
-
-            if self.global_step % 100 == 0:
-                vil0 = self.autoencoder.decode(vil0)
-                preds = (preds + vil0)/2
-                targets = (targets + vil0)/2
-                preds = preds.squeeze(2).cpu().numpy()
-                targets = targets.squeeze(2).cpu().numpy()
-                self.log_plots(preds = preds, targets=targets, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"Train_{self.current_epoch}_{self.global_step}")
         return loss
 
     def validation_step(self, batch, batch_idx):
+        # Process input: (B, H, W, T) -> (B, T, C, H, W)
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
         enc = self.autoencoder.encode(x)
-        vil0 = enc[:, 0:1]
-        enc = enc - vil0
-        preds, targets, loss = self(enc)
+        vil0 = enc[:, 0:1]  # First frame reference
+        enc = enc - vil0    # Subtract first frame
+        
+        cond = enc[:, :self.in_window]
+        targets = enc[:, self.in_window:]
+        
+        # Training loss computation
+        noise = torch.randn_like(targets)
+        B = noise.size(0)
+        t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
+        noisy = self.diffusion_utils.add_noise(targets, noise, t)
+        pred = self(noisy, t, cond)
+        loss = self.loss_fn(pred, noise)
         self.log("val/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
-        preds = self.autoencoder.decode(preds)
-        targets = self.autoencoder.decode(targets)
-        preds = preds.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        targets = targets.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        self.log_metrics(preds=preds, targets=targets, stage="val")
-
+        
+        # Sample for metrics and plotting
         if self.global_step % 100 == 0:
-            vil0 = self.autoencoder.decode(vil0)
-            preds = (preds + vil0)/2
-            targets = (targets + vil0)/2
-            preds = preds.squeeze(2).cpu().numpy()
-            targets = targets.squeeze(2).cpu().numpy()
-            self.log_plots(preds = preds, targets=targets, plot_fn = SEVIRLightningDataModule.plot_sample, label = f"val_{self.current_epoch}_{self.global_step}")
-
+            sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
+            
+            # Decode from latent space
+            sampled_decoded = self.autoencoder.decode(sampled).detach()
+            targets_decoded = self.autoencoder.decode(targets).detach()
+            vil0_decoded = self.autoencoder.decode(vil0)
+            
+            # Add back first frame and normalize
+            sampled_final = (sampled_decoded + vil0_decoded) / 2
+            targets_final = (targets_decoded + vil0_decoded) / 2
+            sampled_final = sampled_final.clamp(0, 1)
+            targets_final = targets_final.clamp(0, 1)
+            
+            self.log_metrics(preds=sampled_final, targets=targets_final, stage="val")
+            
+            # Plot: (B, T, C, H, W) -> (B, T, H, W)
+            sampled_plot = sampled_final.squeeze(2).cpu().numpy()
+            targets_plot = targets_final.squeeze(2).cpu().numpy()
+            self.log_plots(preds=sampled_plot, targets=targets_plot, 
+                         plot_fn=SEVIRLightningDataModule.plot_sample, 
+                         label=f"val_{self.current_epoch}_{self.global_step}")
+        
         return loss
 
     def configure_optimizers(self):
@@ -146,7 +179,8 @@ class Diffusion(BaseModel):
 if __name__ == "__main__":
     seed_everything(42)
     dm = SEVIRLightningDataModule()
-    dm.prepare_data();dm.setup()
+    dm.prepare_data()
+    dm.setup()
 
     logger = WandbLogger(project="DiT", save_dir="logs/DiT")
     run_id = logger.version 
@@ -160,7 +194,7 @@ if __name__ == "__main__":
         save_top_k=3,
         every_n_train_steps=1000,
         save_last=True,
-        verbose = True
+        verbose=True
     )
     lr_monitor = LearningRateMonitor(logging_interval='step')
 

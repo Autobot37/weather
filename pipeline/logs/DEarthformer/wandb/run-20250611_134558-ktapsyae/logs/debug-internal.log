@@ -1,0 +1,15 @@
+{"time":"2025-06-11T13:45:58.894935318+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250611_134558-ktapsyae/logs/debug-core.log"}
+{"time":"2025-06-11T13:45:59.317222433+05:30","level":"INFO","msg":"created new stream","id":"ktapsyae"}
+{"time":"2025-06-11T13:45:59.317277877+05:30","level":"INFO","msg":"stream: started","id":"ktapsyae"}
+{"time":"2025-06-11T13:45:59.31730436+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"ktapsyae"}
+{"time":"2025-06-11T13:45:59.317303805+05:30","level":"INFO","msg":"sender: started","stream_id":"ktapsyae"}
+{"time":"2025-06-11T13:45:59.317329671+05:30","level":"INFO","msg":"handler: started","stream_id":"ktapsyae"}
+{"time":"2025-06-11T13:46:00.050720509+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-11T14:58:50.101068034+05:30","level":"INFO","msg":"stream: closing","id":"ktapsyae"}
+{"time":"2025-06-11T14:58:50.101113224+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-11T14:58:50.101158342+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-11T14:58:51.398557994+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-11T14:58:52.189088676+05:30","level":"INFO","msg":"handler: closed","stream_id":"ktapsyae"}
+{"time":"2025-06-11T14:58:52.189161232+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"ktapsyae"}
+{"time":"2025-06-11T14:58:52.189175888+05:30","level":"INFO","msg":"sender: closed","stream_id":"ktapsyae"}
+{"time":"2025-06-11T14:58:52.189311897+05:30","level":"INFO","msg":"stream: closed","id":"ktapsyae"}
