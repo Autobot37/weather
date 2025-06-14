@@ -175,4 +175,4 @@ Test Results: {'csi': 0.0}
 ==============================
 Checkpoint saved
 Save checkpoint 19842 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
-Test Samples:   7%|███████▏                                                                                                  | 158/2345 [06:00<1:23:21,  2.29s/it]
+Test Samples:  32%|███████████████████████████████████                                                                         | 762/2345 [28:32<59:29,  2.25s/it]
