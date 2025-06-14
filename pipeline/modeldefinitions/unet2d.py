@@ -21,8 +21,7 @@ class WrappedUNet2D(nn.Module):
         self.out_channels = out_channels
         self.num_train_timesteps = num_train_timesteps
 
-        # Default U-Net configuration
-        default_channels = (64, 128, 128, 256)
+        default_channels = (128, 256, 256, 512)
         default_down = ("DownBlock2D", "AttnDownBlock2D", "AttnDownBlock2D", "DownBlock2D")
         default_up =("UpBlock2D", "AttnUpBlock2D", "AttnUpBlock2D", "UpBlock2D")
 
@@ -36,12 +35,12 @@ class WrappedUNet2D(nn.Module):
             mid_block_type="UNetMidBlock2D",
             up_block_types=default_up,
             block_out_channels=default_channels,
-            layers_per_block=2,
+            layers_per_block=4,
             downsample_type="conv",
             upsample_type="conv",
             act_fn="silu",
-            norm_num_groups=32,
-            attention_head_dim=8,
+            norm_num_groups=64,
+            attention_head_dim=32,
             dropout=0.1,
             resnet_time_scale_shift="default",
             num_train_timesteps=num_train_timesteps,
@@ -57,7 +56,7 @@ class WrappedUNet2D(nn.Module):
             predicted noise of shape [B, out_channels, H, W]
         """
         if cond is None:
-            cond = torch.zeros_like(x)
+            raise ValueError("Conditioning tensor 'cond' must be provided")
         inp = torch.cat((cond, x), dim=1)
         return self.unet(inp, timestep=t).sample
 

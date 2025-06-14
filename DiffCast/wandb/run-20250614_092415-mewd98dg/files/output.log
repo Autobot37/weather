@@ -1,0 +1,178 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+train data: 9921, valid data: 2345, test_data: 601
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+[32mBatch Shape: torch.Size([6, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+Building model
+Main Model Parameters: 2.42M
+============ Running training ============
+    Num examples = 9921
+    Num Epochs = 21
+    Instantaneous batch size per GPU = 6
+    Total train batch size (w. parallel, distributed & accumulation) = 6
+    Total optimization steps = 208341
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 1e-05
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 1e-05
+Data Loading Time: 0.4004330635070801
+True
+gpu_nums: 1, gpu_id: 0
+Training Now
+Test Samples: 100%|█████████████████████████████████████████████████| 2345/2345 [1:30:10<00:00,  2.31s/it]
+Checkpoint saved
+Save checkpoint 9921 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
+Test Samples: 100%|█████████████████████████████████████████████████| 2345/2345 [1:30:10<00:00,  2.30s/it]
+****************************** < Evaluation Results: > ******************************
+Total 28140 samples with 20 seq_len.
+******************************************************************************************
+====================Threshold: 16 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 74 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 133 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 160 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.05; [0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : -3.4703579207555e-09; [ 0.00000000e+00  0.00000000e+00 -6.94071584e-08  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 181 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 219 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+[ avg_csi ] : 0.0; [ avg_far ] : 0.008333333333333333; [ avg_pod ] : 0.0; [ avg_hss] : -5.783929867925833e-10
+[ avg_csi_pool 4x4 ] : 0.0; [ avg_csi_pool 16x16 ]: 0.0
+====================Losses with 20 seq_len====================
+<MSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<MAE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<RMSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<PSNR> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<SSIM> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<CRPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<LPIPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+==========================================================================================
+Test Results: {'csi': 0.0}
+==============================
+ ========= Finisth one Epoch ==========
+ ========= Running Test at Step 10000 ==========
+Test Samples: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 2345/2345 [1:29:15<00:00,  2.36s/it]
+****************************** < Evaluation Results: > ******************************
+Total 28140 samples with 20 seq_len.
+******************************************************************************************
+====================Threshold: 16 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 74 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 133 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 160 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 181 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 219 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+[ avg_csi ] : 0.0; [ avg_far ] : 0.0; [ avg_pod ] : 0.0; [ avg_hss] : 0.0
+[ avg_csi_pool 4x4 ] : 0.0; [ avg_csi_pool 16x16 ]: 0.0
+====================Losses with 20 seq_len====================
+<MSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<MAE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<RMSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<PSNR> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<SSIM> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<CRPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<LPIPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+==========================================================================================
+Test Results: {'csi': 0.0}
+==============================
+Checkpoint saved
+Save checkpoint 19842 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
+Test Samples:   7%|███████▏                                                                                                  | 158/2345 [06:00<1:23:21,  2.29s/it]

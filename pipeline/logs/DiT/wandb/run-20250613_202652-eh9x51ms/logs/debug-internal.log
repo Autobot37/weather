@@ -1,0 +1,15 @@
+{"time":"2025-06-13T20:26:52.679843286+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DiT/wandb/run-20250613_202652-eh9x51ms/logs/debug-core.log"}
+{"time":"2025-06-13T20:26:53.102762413+05:30","level":"INFO","msg":"created new stream","id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.102816414+05:30","level":"INFO","msg":"stream: started","id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.102867592+05:30","level":"INFO","msg":"sender: started","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.102869438+05:30","level":"INFO","msg":"handler: started","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.103199551+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.105654479+05:30","level":"INFO","msg":"stream: closing","id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.105859638+05:30","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-06-13T20:26:53.420981928+05:30","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-06-13T20:26:53.421159838+05:30","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"project /DiT not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-06-13T20:26:53.422406229+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-13T20:26:53.422494944+05:30","level":"INFO","msg":"handler: closed","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.422512853+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.422534+05:30","level":"INFO","msg":"sender: closed","stream_id":"eh9x51ms"}
+{"time":"2025-06-13T20:26:53.422605082+05:30","level":"INFO","msg":"stream: closed","id":"eh9x51ms"}

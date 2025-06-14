@@ -1,0 +1,22 @@
+
+  | Name               | Type                   | Params
+--------------------------------------------------------------
+0 | lpips_fn           | LPIPS                  | 2.5 M
+1 | transformer        | CuboidTransformerModel | 22.4 M
+2 | mse_loss           | MSELoss                | 0
+3 | timestep_embedding | Embedding              | 16.4 M
+--------------------------------------------------------------
+38.8 M    Trainable params
+2.5 M     Non-trainable params
+41.3 M    Total params
+165.116   Total estimated model params size (MB)
+Epoch 0:  35%|▎| 2248/6348 [14:11<25:53,  2.64it/s, loss=1, v_num=sunj, train/loss_step=0.999, train/psnr_step=6.420, train/ssim_step=0.0013, train/hss_step=-.000706, train/lpips_step=1.150, train/psd_s[32mTraining complete![0m
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py:838: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: Detected KeyboardInterrupt, attempting graceful shutdown...

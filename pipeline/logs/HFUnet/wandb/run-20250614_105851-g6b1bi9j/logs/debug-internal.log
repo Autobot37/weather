@@ -1,0 +1,7 @@
+{"time":"2025-06-14T10:58:51.630048035+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/HFUnet/wandb/run-20250614_105851-g6b1bi9j/logs/debug-core.log"}
+{"time":"2025-06-14T10:58:52.062949431+05:30","level":"INFO","msg":"created new stream","id":"g6b1bi9j"}
+{"time":"2025-06-14T10:58:52.063012447+05:30","level":"INFO","msg":"stream: started","id":"g6b1bi9j"}
+{"time":"2025-06-14T10:58:52.063059447+05:30","level":"INFO","msg":"sender: started","stream_id":"g6b1bi9j"}
+{"time":"2025-06-14T10:58:52.063050563+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"g6b1bi9j"}
+{"time":"2025-06-14T10:58:52.063116057+05:30","level":"INFO","msg":"handler: started","stream_id":"g6b1bi9j"}
+{"time":"2025-06-14T10:58:52.794933598+05:30","level":"INFO","msg":"Starting system monitor"}

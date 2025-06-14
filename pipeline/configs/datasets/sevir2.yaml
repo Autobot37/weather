@@ -1,0 +1,22 @@
+datasets_dir : /home/vatsal/Dataserver/NWM/datasets
+seq_len: 20
+sample_mode: "sequent"
+stride: 10
+batch_size: 2
+layout: "NHWT"
+preprocess: true
+rescale_method: "01"
+verbose: false
+in_window : 10
+out_window : 10
+# datamodule_only
+dataset_name: "sevir"
+start_date: [2017, 1, 1]  # or [YYYY, MM, DD] if known
+train_val_split_date: [2019, 1, 1]
+train_test_split_date: [2019, 5, 1]
+end_date: null  # or [YYYY, MM, DD] if known
+num_workers: 4
+downsample_dict : {
+  'vil' : [1, 3, 3]
+}
+image_size : 128

@@ -1,0 +1,7 @@
+{"time":"2025-06-13T17:18:19.105042521+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/HFUnet/wandb/run-20250613_171819-icx33yn5/logs/debug-core.log"}
+{"time":"2025-06-13T17:18:19.528231431+05:30","level":"INFO","msg":"created new stream","id":"icx33yn5"}
+{"time":"2025-06-13T17:18:19.528301143+05:30","level":"INFO","msg":"stream: started","id":"icx33yn5"}
+{"time":"2025-06-13T17:18:19.528389773+05:30","level":"INFO","msg":"handler: started","stream_id":"icx33yn5"}
+{"time":"2025-06-13T17:18:19.528413365+05:30","level":"INFO","msg":"sender: started","stream_id":"icx33yn5"}
+{"time":"2025-06-13T17:18:19.528416251+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"icx33yn5"}
+{"time":"2025-06-13T17:18:20.254272705+05:30","level":"INFO","msg":"Starting system monitor"}

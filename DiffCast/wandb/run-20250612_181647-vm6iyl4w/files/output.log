@@ -1278,3 +1278,129 @@ Total 240 samples with 20 seq_len.
 ==========================================================================================
 Test Results: {'csi': 0.20163749465996075}
 ==============================
+Save checkpoint 59526 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
+Test Samples: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:48<00:00,  2.48s/it]
+****************************** < Evaluation Results: > ******************************
+Total 240 samples with 20 seq_len.
+******************************************************************************************
+====================Threshold: 16 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 74 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 133 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 160 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 181 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 219 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+[ avg_csi ] : 0.0; [ avg_far ] : 0.0; [ avg_pod ] : 0.0; [ avg_hss] : 0.0
+[ avg_csi_pool 4x4 ] : 0.0; [ avg_csi_pool 16x16 ]: 0.0
+====================Losses with 20 seq_len====================
+<MSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<MAE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<RMSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<PSNR> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<SSIM> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<CRPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<LPIPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+==========================================================================================
+Test Results: {'csi': 0.0}
+==============================
+ ========= Finisth one Epoch ==========
+ ========= Running Test at Step 60000 ==========
+Save checkpoint 60000 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
+Test Samples: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:49<00:00,  2.47s/it]
+****************************** < Evaluation Results: > ******************************
+Total 240 samples with 20 seq_len.
+******************************************************************************************
+====================Threshold: 16 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 74 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 133 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 160 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 181 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+====================Threshold: 219 with melthod 1====================
+<CSI> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<FAR> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<POD> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+<HSS> : 0.0; [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+< CSI_POOL 4x4 > : 0.0; CSI_POOL 16x16: 0.0
+********************Overall Avg Metrics on Thresholds (16, 74, 133, 160, 181, 219)********************
+[ avg_csi ] : 0.0; [ avg_far ] : 0.0; [ avg_pod ] : 0.0; [ avg_hss] : 0.0
+[ avg_csi_pool 4x4 ] : 0.0; [ avg_csi_pool 16x16 ]: 0.0
+====================Losses with 20 seq_len====================
+<MSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<MAE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<RMSE> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<PSNR> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<SSIM> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<CRPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+<LPIPS> : nan; [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan]
+==========================================================================================
+Test Results: {'csi': 0.0}
+==============================

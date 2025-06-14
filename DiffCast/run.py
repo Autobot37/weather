@@ -234,7 +234,7 @@ class Runner(object):
                 from termcolor import colored
                 print_log(colored(f"Batch Shape: {batch.shape}, Type: {batch.dtype}", 'green'), self.is_main)
                 break
-        
+    
     def _build_model(self):
         # =================================
         # import and create different models given model config
@@ -372,6 +372,7 @@ class Runner(object):
         }
         
         torch.save(data, osp.join(self.ckpt_path, f"ckpt-{self.cur_step}.pt"))
+        print("Checkpoint saved")
         print_log(f"Save checkpoint {self.cur_step} to {self.ckpt_path}", self.is_main)
         
         
@@ -459,7 +460,6 @@ class Runner(object):
                 # test and log metrics every 10000 steps
                 if self.cur_step % 10000 == 0:
                     print_log(f" ========= Running Test at Step {self.cur_step} ==========", self.is_main)
-                    self.save()  # Save checkpoint before testing
                     self.test_samples(self.cur_step, do_test=False)  # Run validation test
                     self.model.train()  # Set back to training mode
                 
@@ -482,9 +482,11 @@ class Runner(object):
                             print_log("Sanity Check Failed", self.is_main)
 
             # save checkpoint and do test every epoch
-            self.save()
-            self.test_samples(self.cur_step, do_test=False)  # Run validation test
-            self.model.train()  # Set back to training mode
+            if epoch%2==0:
+                self.save()
+                self.test_samples(self.cur_step, do_test=False)  # Run validation test
+                self.model.train()  # Set back to training mode
+                
             print_log(f" ========= Finisth one Epoch ==========", self.is_main)
 
         self.accelerator.end_training()

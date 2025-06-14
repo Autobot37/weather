@@ -1,6 +1,6 @@
 Model:
- input_shape: [21, 192, 192, 1]
- target_shape: [10, 192, 192, 1]
+ input_shape: [21, 128, 128, 1]
+ target_shape: [10, 128, 128, 1]
  base_units: 128
  block_units: null
  scale_alpha: 1.0
@@ -59,4 +59,4 @@ Model:
  down_up_linear_init_mode: "0"
  norm_init_mode: "0"
    
-timesteps: 250
+timesteps: 1000

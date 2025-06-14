@@ -1,0 +1,19 @@
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | lpips_fn    | LPIPS       | 2.5 M
+1 | diffnet     | DiT         | 308 M
+2 | autoencoder | Autoencoder | 83.6 M
+3 | loss_fn     | MSELoss     | 0
+--------------------------------------------
+308 M     Trainable params
+86.1 M    Non-trainable params
+394 M     Total params
+1,579.023 Total estimated model params size (MB)
+Epoch 1:   1%| | 44/5432 [00:32<1:05:19,  1.37it/s, loss=0.0699, v_num=769l, train/loss_step=0.0372, train/psnr_step=10.40, train/ssim_step=0.143, train/hss_step=0.132, train/lpips_step=0.397, train/psd[32mTraining complete![0m                
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+                                                                                                                                                                                                          
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: Detected KeyboardInterrupt, attempting graceful shutdown...

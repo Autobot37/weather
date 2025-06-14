@@ -1,7 +1,0 @@
-{"time":"2025-06-12T20:26:01.565318992+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/purediff_res/wandb/run-20250612_202601-0q58o46n/logs/debug-core.log"}
-{"time":"2025-06-12T20:26:02.002793842+05:30","level":"INFO","msg":"created new stream","id":"0q58o46n"}
-{"time":"2025-06-12T20:26:02.002832549+05:30","level":"INFO","msg":"stream: started","id":"0q58o46n"}
-{"time":"2025-06-12T20:26:02.002856698+05:30","level":"INFO","msg":"sender: started","stream_id":"0q58o46n"}
-{"time":"2025-06-12T20:26:02.002859765+05:30","level":"INFO","msg":"handler: started","stream_id":"0q58o46n"}
-{"time":"2025-06-12T20:26:02.002868215+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"0q58o46n"}
-{"time":"2025-06-12T20:26:02.812257649+05:30","level":"INFO","msg":"Starting system monitor"}

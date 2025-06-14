@@ -1,0 +1,126 @@
+
+  | Name     | Type    | Params
+-------------------------------------
+0 | lpips_fn | LPIPS   | 2.5 M
+1 | diffnet  | DiT     | 309 M
+2 | loss_fn  | MSELoss | 0
+-------------------------------------
+308 M     Trainable params
+3.5 M     Non-trainable params
+311 M     Total params
+1,247.977 Total estimated model params size (MB)
+Epoch 0:   0%|                                                | 0/5432 [00:00<?, ?it/s]                                                                                                                   
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/dit2.py", line 178, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1595, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/core/lightning.py", line 1646, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 124, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 485, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/optimizer.py", line 79, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/optim/adam.py", line 225, in step
+    loss = closure()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1765, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 333, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/dit2.py", line 71, in training_step
+    pred = self(noisy, t, cond)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/dit2.py", line 58, in forward
+    return self.diffnet(noisy, timesteps, cond)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/dit2.py", line 44, in forward
+    return self.model(noisy, timesteps, cond)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/modeldefinitions/dit.py", line 440, in forward
+    out = self.model(x=inp, t=timesteps)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/modeldefinitions/dit.py", line 345, in forward
+    enc_x = block(enc_x, sub_t)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/modeldefinitions/dit.py", line 161, in forward
+    x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/timm/layers/mlp.py", line 45, in forward
+    x = self.act(x)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 734, in forward
+    return F.gelu(input, approximate=self.approximate)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.25 GiB. GPU 0 has a total capacity of 23.58 GiB of which 668.88 MiB is free. Process 32490 has 1.08 GiB memory in use. Process 142394 has 2.77 GiB memory in use. Including non-PyTorch memory, this process has 19.05 GiB memory in use. Of the allocated memory 18.44 GiB is allocated by PyTorch, and 363.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

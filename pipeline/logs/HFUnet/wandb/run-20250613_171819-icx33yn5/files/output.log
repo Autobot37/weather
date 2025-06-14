@@ -1,0 +1,17 @@
+
+  | Name     | Type          | Params
+-------------------------------------------
+0 | lpips_fn | LPIPS         | 2.5 M
+1 | mse_loss | MSELoss       | 0
+2 | unet     | WrappedUNet2D | 7.0 M
+-------------------------------------------
+7.0 M     Trainable params
+2.5 M     Non-trainable params
+9.5 M     Total params
+37.883    Total estimated model params size (MB)
+Epoch 2:  99%|▉| 4649/4716 [49:59<00:43,  1.55it/s, loss=0.0176, v_num=3yn5, train/lo                                                                                                                     
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+Validation DataLoader 0:  33%|███████▎              | 33/100 [03:10<06:26,  5.77s/it]                                                                                                                     

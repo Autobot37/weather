@@ -1,0 +1,47 @@
+2025-06-13 20:26:52,560 INFO    MainThread:210542 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_setup.py:_flush():70] Configure stats pid to 210542
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/.config/wandb/settings
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_setup.py:_flush():70] Loading settings from /home/vatsal/NWM/weather/pipeline/wandb/settings
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:setup_run_log_directory():724] Logging user logs to logs/DiT/wandb/run-20250613_202652-eh9x51ms/logs/debug.log
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to logs/DiT/wandb/run-20250613_202652-eh9x51ms/logs/debug-internal.log
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:init():852] calling init triggers
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:init():893] starting backend
+2025-06-13 20:26:52,561 INFO    MainThread:210542 [wandb_init.py:init():897] sending inform_init request
+2025-06-13 20:26:52,677 INFO    MainThread:210542 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-06-13 20:26:52,677 INFO    MainThread:210542 [wandb_init.py:init():907] backend started and connected
+2025-06-13 20:26:52,683 INFO    MainThread:210542 [wandb_init.py:init():1005] updated telemetry
+2025-06-13 20:26:52,738 WARNING MainThread:210542 [wandb_init.py:init():1681] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 1677, in init
+    return wi.init(run_settings, run_config, run_printer)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 1018, in init
+    run._populate_git_info()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1738, in _populate_git_info
+    self._settings.git_commit = repo.last_commit
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/wandb/sdk/lib/gitlib.py", line 119, in last_commit
+    if not self.repo.head or not self.repo.head.is_valid():
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/refs/symbolic.py", line 514, in is_valid
+    self.object  # noqa: B018
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/refs/symbolic.py", line 288, in _get_object
+    return Object.new_from_sha(self.repo, hex_to_bin(self.dereference_recursive(self.repo, self.path)))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/objects/base.py", line 149, in new_from_sha
+    oinfo = repo.odb.info(sha1)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/db.py", line 41, in info
+    hexsha, typename, size = self._git.get_object_header(bin_to_hex(binsha))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/cmd.py", line 1678, in get_object_header
+    cmd = self._get_persistent_cmd("cat_file_header", "cat_file", batch_check=True)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/cmd.py", line 1654, in _get_persistent_cmd
+    cmd = self._call_process(cmd_name, *args, **options)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/cmd.py", line 1599, in _call_process
+    return self.execute(call, **exec_kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/git/cmd.py", line 1262, in execute
+    proc = safer_popen(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1770, in _execute_child
+    self.pid = _posixsubprocess.fork_exec(
+KeyboardInterrupt
+2025-06-13 20:26:52,952 INFO    MsgRouterThr:210542 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 0 handles.

@@ -1,0 +1,15 @@
+{"time":"2025-06-13T18:38:11.371531084+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/PureDiff/wandb/run-20250613_183811-gmuc2m3p/logs/debug-core.log"}
+{"time":"2025-06-13T18:38:11.82275385+05:30","level":"INFO","msg":"created new stream","id":"gmuc2m3p"}
+{"time":"2025-06-13T18:38:11.822837898+05:30","level":"INFO","msg":"stream: started","id":"gmuc2m3p"}
+{"time":"2025-06-13T18:38:11.822864153+05:30","level":"INFO","msg":"sender: started","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:38:11.822862947+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:38:11.822866309+05:30","level":"INFO","msg":"handler: started","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:38:12.541074703+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-13T18:56:33.70955922+05:30","level":"INFO","msg":"stream: closing","id":"gmuc2m3p"}
+{"time":"2025-06-13T18:56:33.709638985+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-13T18:56:33.709731188+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-13T18:56:34.835211126+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-13T18:56:35.513713533+05:30","level":"INFO","msg":"handler: closed","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:56:35.513807187+05:30","level":"INFO","msg":"sender: closed","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:56:35.513792108+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"gmuc2m3p"}
+{"time":"2025-06-13T18:56:35.513987209+05:30","level":"INFO","msg":"stream: closed","id":"gmuc2m3p"}

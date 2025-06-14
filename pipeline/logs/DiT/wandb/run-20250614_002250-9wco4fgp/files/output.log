@@ -1,0 +1,49 @@
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | lpips_fn    | LPIPS       | 2.5 M
+1 | diffnet     | DiT         | 308 M
+2 | autoencoder | Autoencoder | 83.6 M
+3 | loss_fn     | MSELoss     | 0
+--------------------------------------------
+308 M     Trainable params
+86.1 M    Non-trainable params
+394 M     Total params
+1,579.023 Total estimated model params size (MB)
+Sanity Checking DataLoader 0:   0%|                                                                                                                                    | 0/2 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_dit.py", line 225, in <module>
+    trainer.fit(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1345, in _run_train
+    self._run_sanity_check()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1413, in _run_sanity_check
+    val_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 155, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 128, in advance
+    output = self._evaluation_step(**kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 226, in _evaluation_step
+    output = self.trainer._call_strategy_hook("validation_step", *kwargs.values())
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1765, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 344, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/diffusion_dit.py", line 135, in validation_step
+    enc *= self.autoencoder.scaling_factor
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1940, in __getattr__
+    raise AttributeError(
+AttributeError: 'Autoencoder' object has no attribute 'scaling_factor'

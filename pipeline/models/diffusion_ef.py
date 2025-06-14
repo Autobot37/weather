@@ -40,7 +40,7 @@ class DEarthformer(BaseModel):
         super().__init__(model_name="Diffusion_Earthformer")
         config = OmegaConf.load("configs/models/earthformer.yaml")
         self.transformer, self.scheduler = get_earthformer(config["Model"]), DDIMScheduler(num_train_timesteps=config["timesteps"])
-        self.diffusion_utils = DiffusionUtils(self.scheduler, num_inference_steps=10)
+        self.diffusion_utils = DiffusionUtils(self.scheduler, num_inference_steps=50)
         self.mse_loss = nn.MSELoss()
         
         data_config = OmegaConf.load(data_config)
@@ -83,8 +83,6 @@ class DEarthformer(BaseModel):
     def training_step(self, batch, batch_idx):
         # Process input: (B, H, W, T) -> (B, T, H, W, 1)
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
-        vil0 = vil[:,0:1]  # First frame reference
-        vil = vil - vil0   # Subtract first frame
         
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
         noise = torch.randn_like(tgt)
@@ -96,17 +94,33 @@ class DEarthformer(BaseModel):
         loss = self.mse_loss(pred, noise)
         
         self.log('train/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
+
+        if batch_idx % 500 == 0:
+            sampled = self.diffusion_utils.sample(self, tgt.shape, cond, self.device)
+            #(B, T, H, W, 1) -> (B, T, 1, H, W)
+            sampled = sampled.permute(0, 1, 4, 2, 3)
+            tgt = tgt.permute(0, 1, 4, 2, 3)
+            
+            sampled = sampled.detach()
+            tgt = tgt.detach()
+            
+            self.log_metrics(preds=sampled, targets=tgt, stage="train")
+            
+            # Plot: (B, T, 1, H, W) -> (B, T, H, W)
+            sampled_plot = sampled.squeeze(2).cpu().numpy()
+            tgt_plot = tgt.squeeze(2).cpu().numpy()
+            self.log_plots(preds=sampled_plot, targets=tgt_plot, 
+                            plot_fn=SEVIRLightningDataModule.plot_sample, 
+                            label=f"train_{self.current_epoch}_{self.global_step}")
+
         return loss
 
     def validation_step(self, batch, batch_idx):
         # Process input: (B, H, W, T) -> (B, T, H, W, 1)
         vil = batch['vil'].permute(0,3,1,2).unsqueeze(4).float()
-        vil0 = vil[:,0:1]  # First frame reference
-        vil = vil - vil0   # Subtract first frame
         
         cond, tgt = vil[:,:self.in_window], vil[:,self.in_window:]
         
-        # Training loss computation
         noise = torch.randn_like(tgt)
         B = tgt.size(0)
         T = torch.randint(0, self.num_train_timesteps, (B,), device=self.device, dtype=torch.long)
@@ -115,27 +129,18 @@ class DEarthformer(BaseModel):
         loss = self.mse_loss(pred, noise)
         self.log('val/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
         
-        # Sample for metrics and plotting
         sampled = self.diffusion_utils.sample(self, tgt.shape, cond, self.device)
         
-        # Convert for metrics: (B, T, H, W, 1) -> (B, T, 1, H, W)
+        #(B, T, H, W, 1) -> (B, T, 1, H, W)
         sampled = sampled.permute(0, 1, 4, 2, 3)
         tgt = tgt.permute(0, 1, 4, 2, 3)
-        vil0 = vil0.permute(0, 1, 4, 2, 3)
         
-        # Normalization step seems wrong.
-        
-        sampled = sampled.clamp(-1, 1).add(1).div(2)  # Normalize to [0, 1]
-        tgt = tgt.clamp(-1, 1).add(1).div(2)          # Normalize to [0, 1]
-        # Add back first frame and normalize
-        sampled = (sampled + vil0) / 2
-        tgt = (tgt + vil0) / 2
-        sampled = sampled.clamp(0, 1).detach()
-        tgt = tgt.clamp(0, 1).detach()
+        sampled = sampled.detach()
+        tgt = tgt.detach()
         
         self.log_metrics(preds=sampled, targets=tgt, stage="val")
         
-        if self.global_step % 10 == 0:
+        if batch_idx % 25 == 0:
             # Plot: (B, T, 1, H, W) -> (B, T, H, W)
             sampled_plot = sampled.squeeze(2).cpu().numpy()
             tgt_plot = tgt.squeeze(2).cpu().numpy()
@@ -165,7 +170,7 @@ if __name__ == "__main__":
     trainer = Trainer(
         max_epochs=10,
         accelerator="gpu",
-        devices=[1],
+        devices=[0],
         logger=logger,
         val_check_interval=len(dm.train_dataloader()) // 2, 
         callbacks=[checkpoint_callback, lr_monitor, CodeLogger()]

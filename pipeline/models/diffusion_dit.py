@@ -38,7 +38,7 @@ class DiT(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.model = CasFormer(arch='DiT-custom', config=config.Model)
-        self.scheduler = DDIMScheduler(num_train_timesteps=config.timesteps)
+        self.scheduler = DDIMScheduler(num_train_timesteps=1000, beta_schedule='squaredcos_cap_v2', prediction_type='epsilon')
 
     def forward(self, noisy: torch.Tensor, timesteps: torch.Tensor, cond: torch.Tensor):
         return self.model(noisy, timesteps, cond)
@@ -48,6 +48,7 @@ class Autoencoder(nn.Module):
         super().__init__()
         self.autoencoder = AutoencoderKL(**config)
         self.autoencoder.eval() 
+        self.scaling, self.shift = (0.0259326533906051, 0.30854346410703587)
         load_checkpoint_cascast("autoencoder_ckpt.pth", self.autoencoder)
         for param in self.autoencoder.parameters():
             param.requires_grad = False
@@ -83,7 +84,7 @@ class Diffusion(BaseModel):
         self.diffnet = DiT(dit_config)
         self.diffusion_utils = DiffusionUtils(self.diffnet.scheduler, num_inference_steps=50)
         self.autoencoder = Autoencoder(vae_config)
-        data_config = OmegaConf.load("configs/datasets/sevir.yaml")
+        data_config = OmegaConf.load("configs/datasets/sevir2.yaml")
         self.in_window = data_config.in_window
         self.num_timesteps = dit_config.timesteps
         self.loss_fn = nn.MSELoss()
@@ -95,9 +96,8 @@ class Diffusion(BaseModel):
         # Process input: (B, H, W, T) -> (B, T, C, H, W)
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
         enc = self.autoencoder.encode(x)
-        vil0 = enc[:, 0:1]  # First frame reference
-        enc = enc - vil0    # Subtract first frame
-        
+        enc = enc * self.autoencoder.scaling + self.autoencoder.shift  
+
         cond = enc[:, :self.in_window]
         targets = enc[:, self.in_window:]
         noise = torch.randn_like(targets)
@@ -109,19 +109,35 @@ class Diffusion(BaseModel):
         loss = self.loss_fn(pred, noise)
         
         self.log("train/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
+
+        if batch_idx % 500 == 0:
+            sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
+            sampled = sampled / self.autoencoder.scaling - self.autoencoder.shift
+            targets = targets / self.autoencoder.scaling - self.autoencoder.shift
+
+            sampled_decoded = self.autoencoder.decode(sampled).detach().clamp(0, 1)
+            targets_decoded = self.autoencoder.decode(targets).detach().clamp(0, 1)
+            self.log_metrics(preds=sampled_decoded, targets=targets_decoded, stage="train")
+
+            # Plot: (B, T, C, H, W) -> (B, T, H, W)
+            sampled_plot = sampled_decoded.squeeze(2).cpu().numpy()
+            targets_plot = targets_decoded.squeeze(2).cpu().numpy()
+            self.log_plots(preds=sampled_plot, targets=targets_plot, 
+                            plot_fn=SEVIRLightningDataModule.plot_sample, 
+                            label=f"train_{self.current_epoch}_{self.global_step}")
+
         return loss
 
     def validation_step(self, batch, batch_idx):
         # Process input: (B, H, W, T) -> (B, T, C, H, W)
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
         enc = self.autoencoder.encode(x)
-        vil0 = enc[:, 0:1]  # First frame reference
-        enc = enc - vil0    # Subtract first frame
-        
+        enc *= self.autoencoder.scaling_factor  
+        enc = enc.clamp(0, 1)
+
         cond = enc[:, :self.in_window]
         targets = enc[:, self.in_window:]
         
-        # Training loss computation
         noise = torch.randn_like(targets)
         B = noise.size(0)
         t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
@@ -130,29 +146,23 @@ class Diffusion(BaseModel):
         loss = self.loss_fn(pred, noise)
         self.log("val/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
         
-        # Sample for metrics and plotting
-        if self.global_step % 100 == 0:
-            sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
-            
-            # Decode from latent space
-            sampled_decoded = self.autoencoder.decode(sampled).detach()
-            targets_decoded = self.autoencoder.decode(targets).detach()
-            vil0_decoded = self.autoencoder.decode(vil0)
-            
-            # Add back first frame and normalize
-            sampled_final = (sampled_decoded + vil0_decoded) / 2
-            targets_final = (targets_decoded + vil0_decoded) / 2
-            sampled_final = sampled_final.clamp(0, 1)
-            targets_final = targets_final.clamp(0, 1)
-            
-            self.log_metrics(preds=sampled_final, targets=targets_final, stage="val")
-            
-            # Plot: (B, T, C, H, W) -> (B, T, H, W)
-            sampled_plot = sampled_final.squeeze(2).cpu().numpy()
-            targets_plot = targets_final.squeeze(2).cpu().numpy()
+        sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
+        
+        sampled /= self.autoencoder.scaling_factor
+        targets /= self.autoencoder.scaling_factor
+
+        sampled_decoded = self.autoencoder.decode(sampled).detach().clamp(0, 1)
+        targets_decoded = self.autoencoder.decode(targets).detach().clamp(0, 1)
+        
+        self.log_metrics(preds=sampled_decoded, targets=targets_decoded, stage="val")
+        
+        # Plot: (B, T, C, H, W) -> (B, T, H, W)
+        if batch_idx % 50 == 0:
+            sampled_plot = sampled_decoded.squeeze(2).cpu().numpy()
+            targets_plot = targets_decoded.squeeze(2).cpu().numpy()
             self.log_plots(preds=sampled_plot, targets=targets_plot, 
-                         plot_fn=SEVIRLightningDataModule.plot_sample, 
-                         label=f"val_{self.current_epoch}_{self.global_step}")
+                            plot_fn=SEVIRLightningDataModule.plot_sample, 
+                            label=f"val_{self.current_epoch}_{self.global_step}")
         
         return loss
 
@@ -169,7 +179,6 @@ class Diffusion(BaseModel):
             'lr_scheduler': {
                 'scheduler': scheduler,
                 'interval': 'step',
-                'frequency': 10,
             }
         }
 
@@ -182,29 +191,26 @@ if __name__ == "__main__":
     dm.prepare_data()
     dm.setup()
 
-    logger = WandbLogger(project="DiT", save_dir="logs/DiT")
-    run_id = logger.version 
+    logger = WandbLogger(project="DiT", save_dir="logs/DiT", name = "scaleshift")
+    run_id = "scaleshift" 
     print(f"Logger: {logger.name}, Run ID: {run_id}") 
 
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"logs/DiT/checkpoints/{run_id}",
         filename="DiT-{epoch:02d}-{step:06d}",
-        monitor="val/loss",
-        mode="min",
-        save_top_k=3,
-        every_n_train_steps=1000,
         save_last=True,
-        verbose=True
+        save_on_train_epoch_end=True,
     )
     lr_monitor = LearningRateMonitor(logging_interval='step')
 
     trainer = Trainer(
         max_epochs=10,
         accelerator="gpu",
-        devices=[1],
+        devices=[0],
         logger=logger,
         val_check_interval=len(dm.train_dataloader()), 
         callbacks=[checkpoint_callback, lr_monitor, CodeLogger()],
+        limit_val_batches=100,
     )
     
     from termcolor import colored

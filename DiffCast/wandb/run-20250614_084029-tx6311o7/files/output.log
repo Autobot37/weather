@@ -1,0 +1,88 @@
+============================================================
+                 Experiment Start
+============================================================
+Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Loading data
+train data: 9921, valid data: 2345, test_data: 601
+Pixel Scale: 255.0, Threshold: (16, 74, 133, 160, 181, 219)
+[32mBatch Shape: torch.Size([6, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+[32mBatch Shape: torch.Size([12, 25, 1, 128, 128]), Type: torch.float32[0m
+Building model
+Main Model Parameters: 2.42M
+============ Running training ============
+    Num examples = 9921
+    Num Epochs = 21
+    Instantaneous batch size per GPU = 6
+    Total train batch size (w. parallel, distributed & accumulation) = 6
+    Total optimization steps = 208341
+optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 1e-05
+    lr: 0.0
+    maximize: False
+    weight_decay: 0.0
+) with init lr: 1e-05
+Data Loading Time: 0.37711286544799805
+True
+gpu_nums: 1, gpu_id: 0
+Training Now
+Test Samples:  24%|████████████                                      | 564/2345 [22:43<1:11:47,  2.42s/it]
+Checkpoint saved
+Save checkpoint 9921 to /home/vatsal/NWM/weather/DiffCast/Exps/basic_exps/Singleearthformer_sevir_None/checkpoints
+Traceback (most recent call last):                                   | 564/2345 [22:42<1:12:46,  2.45s/it]
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 591, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 580, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 486, in train
+    self.test_samples(self.cur_step, do_test=False)  # Run validation test
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 546, in test_samples
+    self.visiual_save_fn(radar_recon[i], radar_ori[i], osp.join(save_dir, f"{batch_idx}-{i}/vil"),data_type='vil')
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 71, in vis_res
+    plt.imsave(osp.join(save_path, 'all.png'), grid_concat)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/pyplot.py", line 2200, in imsave
+    return matplotlib.image.imsave(fname, arr, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/image.py", line 1652, in imsave
+    rgba = sm.to_rgba(arr, bytes=True)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/cm.py", line 478, in to_rgba
+    xx = (xx * 255).astype(np.uint8)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 591, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 580, in main
+    exp.train()
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 486, in train
+    self.test_samples(self.cur_step, do_test=False)  # Run validation test
+  File "/home/vatsal/NWM/weather/DiffCast/run.py", line 546, in test_samples
+    self.visiual_save_fn(radar_recon[i], radar_ori[i], osp.join(save_dir, f"{batch_idx}-{i}/vil"),data_type='vil')
+  File "/home/vatsal/NWM/weather/DiffCast/datasets/get_datasets.py", line 71, in vis_res
+    plt.imsave(osp.join(save_path, 'all.png'), grid_concat)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/pyplot.py", line 2200, in imsave
+    return matplotlib.image.imsave(fname, arr, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/image.py", line 1652, in imsave
+    rgba = sm.to_rgba(arr, bytes=True)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/matplotlib/cm.py", line 478, in to_rgba
+    xx = (xx * 255).astype(np.uint8)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

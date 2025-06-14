@@ -1,5 +1,5 @@
 Model:
-  input_size: 24
+  input_size: 16
   in_channels: 8
   mlp_ratio: 4.0
   learn_sigma: False

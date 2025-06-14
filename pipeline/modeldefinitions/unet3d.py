@@ -34,7 +34,7 @@ class CustomUNet3D(nn.Module):
     """
     def __init__(
         self,
-        sample_size: int = 48,
+        sample_size: int = 16,
         in_channels: int = 4,
         out_channels: int = 4,
         encoder_feature_dim: int = 512,
@@ -60,7 +60,7 @@ class CustomUNet3D(nn.Module):
                 "CrossAttnUpBlock3D",
                 "UpBlock3D",
             ],
-            block_out_channels=[64, 128, 256, 256],
+            block_out_channels=[64, 128, 128, 256],
             layers_per_block=1,
             mid_block_scale_factor=1.0,
             act_fn="silu",
@@ -75,23 +75,26 @@ class CustomUNet3D(nn.Module):
         )
 
     def forward(self, noisy, timesteps, cond, **kwargs):
-        # noisy: (B, T, C, H, W) -> (B, C, T, H, W)
-        noisy_in = noisy.permute(0, 2, 1, 3, 4)
         # encode cond -> (B, seq_len, feature_dim)
         encoder_hidden_states = self.cond_encoder(cond)
-        return self.unet(
-            sample=noisy_in,
+        # (B, T, C, H, W) -> (B, C, T, H, W)
+        noisy = noisy.permute(0, 2, 1, 3, 4) 
+        out = self.unet(
+            sample=noisy,
             timestep=timesteps,
             encoder_hidden_states=encoder_hidden_states,
             **kwargs,
         )
+        out = out.sample.permute(0, 2, 1, 3, 4)
+        # (B, C, T, H, W) -> (B, T, C, H, W)
+        return out
 
 # Example usage
 if __name__ == "__main__":
-    B, Tn, Tc, H, W = 1, 13, 4, 48, 48
-    noisy = torch.randn(B, Tn, Tc, H, W).cuda()
-    cond  = torch.randn(B, 12, Tc, H, W).cuda()
-    timesteps = torch.tensor([10] * B).cuda()
-    model = CustomUNet3D().cuda()
-    out = model(noisy, timesteps, cond)
-    print(out.sample.shape)  # (B, out_channels, Tn, H, W)
+    B, T, C, H, W = 2, 10, 4, 64, 64
+    model = CustomUNet3D(sample_size=H, in_channels=C, out_channels=C)
+    noisy = torch.randn(B, C, T, H, W)  # (B, C, T, H, W)
+    timesteps = torch.randint(0, 1000, (B,))  # Random timesteps
+    cond = torch.randn(B, T, C, H, W)  # (B, T, C, H, W)
+    output = model(noisy, timesteps, cond)
+    print(output.shape)  # Should be (B, C, T, H, W)

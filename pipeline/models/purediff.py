@@ -18,7 +18,7 @@ class Model(BaseModel):
         self.in_window = cfg.in_window
         self.out_window = cfg.out_window
         self.image_size = int(cfg.image_size)
-        self.model = create_diffusion_model(image_size=128, in_channels=self.in_window, timesteps=1000, sampling_timesteps=8, objective='pred_noise')
+        self.model = create_diffusion_model(image_size=128, in_channels=self.in_window, timesteps=1000, sampling_timesteps=50, objective='pred_noise')
         
     def forward(self, target, cond):
         return self.model(target, cond=cond)
@@ -46,7 +46,7 @@ class Model(BaseModel):
         loss = self(tgt, cond)
         self.log('train/loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
 
-        if batch_idx % 100 == 0:
+        if batch_idx % 500 == 0:
             with torch.no_grad():
                 B, T, H, W = tgt.shape
                 sampled = self.model.sample(shape=(B, T, H, W), cond=cond)
@@ -119,7 +119,8 @@ if __name__ == "__main__":
         devices=[0],  # ensure GPU with free memory
         logger=logger,
         val_check_interval=len(dm.train_dataloader()),
-        callbacks=[checkpoint_callback, lr_monitor]
+        callbacks=[checkpoint_callback, lr_monitor],
+        limit_val_batches=200
     )
 
     from termcolor import colored

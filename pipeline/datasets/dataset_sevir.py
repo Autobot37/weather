@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from copy import deepcopy
 
-cfg = OmegaConf.load("configs/datasets/sevir.yaml")
+cfg = OmegaConf.load("/home/vatsal/NWM/weather/pipeline/configs/datasets/sevir.yaml")
 
 VIL_COLORS = [[0, 0, 0],
               [0.30196078431372547, 0.30196078431372547, 0.30196078431372547],

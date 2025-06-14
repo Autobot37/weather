@@ -1,0 +1,15 @@
+{"time":"2025-06-13T21:35:58.300975238+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/HFUnet3d/wandb/run-20250613_213558-lu0b4oxm/logs/debug-core.log"}
+{"time":"2025-06-13T21:35:58.729454817+05:30","level":"INFO","msg":"created new stream","id":"lu0b4oxm"}
+{"time":"2025-06-13T21:35:58.729547197+05:30","level":"INFO","msg":"stream: started","id":"lu0b4oxm"}
+{"time":"2025-06-13T21:35:58.729621037+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:35:58.729719154+05:30","level":"INFO","msg":"sender: started","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:35:58.729731059+05:30","level":"INFO","msg":"handler: started","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:35:59.385979865+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-13T21:36:04.649787918+05:30","level":"INFO","msg":"stream: closing","id":"lu0b4oxm"}
+{"time":"2025-06-13T21:36:04.649928254+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-13T21:36:04.650172086+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-13T21:36:05.630402419+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-13T21:36:05.975223793+05:30","level":"INFO","msg":"handler: closed","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:36:05.97531379+05:30","level":"INFO","msg":"sender: closed","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:36:05.975294443+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"lu0b4oxm"}
+{"time":"2025-06-13T21:36:05.975438314+05:30","level":"INFO","msg":"stream: closed","id":"lu0b4oxm"}

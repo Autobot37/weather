@@ -1009,16 +1009,16 @@ class SEVIRTorchDataset(TorchDataset):
         return data
 
     def __len__(self):
-        total = self.sevir_dataloader.__len__()
-        if self.split == "train":
-            return total
-        elif self.split == "valid":
-            return min(total, 20)
-        elif self.split == "test":
-            return min(total, 20)
-        else:
-            return total
-
+        # total = self.sevir_dataloader.__len__()
+        # if self.split == "train":
+        #     return total
+        # elif self.split == "valid":
+        #     return min(total, 20)
+        # elif self.split == "test":
+        #     return min(total, 20)
+        # else:
+        #     return total
+        return self.sevir_dataloader.__len__()
 
     def collate_fn(self, data_dict_list):
         r"""
