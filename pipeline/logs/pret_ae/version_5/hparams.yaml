@@ -1,0 +1,5 @@
+input_frames: 10
+pred_frames: 10
+hidden_dim: 512
+num_layers: 3
+lr: 0.001

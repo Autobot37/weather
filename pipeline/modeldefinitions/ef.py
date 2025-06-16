@@ -1,5 +1,6 @@
 from omegaconf import OmegaConf
-from earthformer.cuboid_transformer.cuboid_transformer import CuboidTransformerModel
+from pipeline.modeldefinitions.ef_adalnzero import CuboidTransformerModel as CuboidTransformerModelAdalnZero
+
 def get_earthformer(model_cfg):
     def to_list(x): return ([x] * len(model_cfg.enc_depth)) if isinstance(x, str) else OmegaConf.to_container(x)
 
@@ -7,7 +8,7 @@ def get_earthformer(model_cfg):
     dec_self_patterns = to_list(model_cfg.cross_self_pattern)
     dec_cross_patterns = to_list(model_cfg.cross_pattern)
 
-    transformer = CuboidTransformerModel(
+    transformer = CuboidTransformerModelAdalnZero(
         input_shape=model_cfg.input_shape,
         target_shape=model_cfg.target_shape,
         base_units=model_cfg.base_units,
@@ -59,4 +60,18 @@ def get_earthformer(model_cfg):
         down_up_linear_init_mode=model_cfg.down_up_linear_init_mode,
         norm_init_mode=model_cfg.norm_init_mode
     )
+    
     return transformer
+
+# from omegaconf import OmegaConf
+# cfg = OmegaConf.load("/home/vatsal/NWM/weather/pipeline/configs/models/earthformer.yaml")["Model"]
+# model = get_earthformer(cfg).to("cuda")
+# B, T, H, W, C = 2, 10, 128, 128, 1
+# import torch
+# x = torch.randn((B, T, H, W, C)).to("cuda")
+# timesteps = torch.randint(0, 1000, (B,)).to("cuda")
+# cond = torch.randn((B, T, H, W, C)).to("cuda")  
+# inp = torch.cat((x, cond), dim=-1)
+# print(f"Input shape: {inp.shape}, Timesteps shape: {timesteps.shape}")  
+# out = model(inp, timesteps)
+# print(f"Output shape: {out.shape}") 

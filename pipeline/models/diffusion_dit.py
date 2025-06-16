@@ -1,4 +1,4 @@
-from diffusers import DDIMScheduler
+from diffusers import DPMSolverMultistepScheduler as DDIMScheduler
 from pytorch_lightning import Trainer, seed_everything
 from omegaconf import OmegaConf
 from pipeline.datasets.dataset_sevir import SEVIRLightningDataModule
@@ -10,6 +10,7 @@ from pipeline.utils import load_checkpoint_cascast
 import torch
 import torch.nn as nn
 from lightning.pytorch.loggers import WandbLogger
+import os
 
 class DiffusionUtils:
     def __init__(self, scheduler, num_inference_steps=50):
@@ -48,7 +49,7 @@ class Autoencoder(nn.Module):
         super().__init__()
         self.autoencoder = AutoencoderKL(**config)
         self.autoencoder.eval() 
-        self.scaling, self.shift = (0.0259326533906051, 0.30854346410703587)
+        self.scaling_factor = 0.18125
         load_checkpoint_cascast("autoencoder_ckpt.pth", self.autoencoder)
         for param in self.autoencoder.parameters():
             param.requires_grad = False
@@ -82,7 +83,7 @@ class Diffusion(BaseModel):
         dit_config = OmegaConf.load("configs/models/dit.yaml")
         vae_config = OmegaConf.load("configs/models/vae.yaml")
         self.diffnet = DiT(dit_config)
-        self.diffusion_utils = DiffusionUtils(self.diffnet.scheduler, num_inference_steps=50)
+        self.diffusion_utils = DiffusionUtils(self.diffnet.scheduler, num_inference_steps=25)
         self.autoencoder = Autoencoder(vae_config)
         data_config = OmegaConf.load("configs/datasets/sevir2.yaml")
         self.in_window = data_config.in_window
@@ -96,10 +97,15 @@ class Diffusion(BaseModel):
         # Process input: (B, H, W, T) -> (B, T, C, H, W)
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
         enc = self.autoencoder.encode(x)
-        enc = enc * self.autoencoder.scaling + self.autoencoder.shift  
+        enc = enc * self.autoencoder.scaling_factor
 
         cond = enc[:, :self.in_window]
         targets = enc[:, self.in_window:]
+
+        cond_t = cond[:, -1].unsqueeze(1) 
+        cond = cond - cond_t
+        targets = targets - cond_t
+
         noise = torch.randn_like(targets)
         B = noise.size(0)
         t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
@@ -112,11 +118,15 @@ class Diffusion(BaseModel):
 
         if batch_idx % 500 == 0:
             sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
-            sampled = sampled / self.autoencoder.scaling - self.autoencoder.shift
-            targets = targets / self.autoencoder.scaling - self.autoencoder.shift
 
-            sampled_decoded = self.autoencoder.decode(sampled).detach().clamp(0, 1)
-            targets_decoded = self.autoencoder.decode(targets).detach().clamp(0, 1)
+            sampled = sampled + cond_t
+            targets = targets + cond_t
+
+            sampled = sampled / self.autoencoder.scaling_factor
+            targets = targets / self.autoencoder.scaling_factor
+
+            sampled_decoded = self.autoencoder.decode(sampled).detach()
+            targets_decoded = self.autoencoder.decode(targets).detach()
             self.log_metrics(preds=sampled_decoded, targets=targets_decoded, stage="train")
 
             # Plot: (B, T, C, H, W) -> (B, T, H, W)
@@ -132,38 +142,46 @@ class Diffusion(BaseModel):
         # Process input: (B, H, W, T) -> (B, T, C, H, W)
         x = batch['vil'].permute(0,3,1,2).unsqueeze(2).float()
         enc = self.autoencoder.encode(x)
-        enc *= self.autoencoder.scaling_factor  
-        enc = enc.clamp(0, 1)
+        enc = enc * self.autoencoder.scaling_factor
 
         cond = enc[:, :self.in_window]
         targets = enc[:, self.in_window:]
-        
+
+        cond_t = cond[:, -1].unsqueeze(1) 
+        cond = cond - cond_t
+        targets = targets - cond_t
+
         noise = torch.randn_like(targets)
         B = noise.size(0)
         t = torch.randint(0, self.num_timesteps, (B,), device=self.device)
+        
         noisy = self.diffusion_utils.add_noise(targets, noise, t)
         pred = self(noisy, t, cond)
         loss = self.loss_fn(pred, noise)
+        
         self.log("val/loss", loss, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
-        
-        sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
-        
-        sampled /= self.autoencoder.scaling_factor
-        targets /= self.autoencoder.scaling_factor
 
-        sampled_decoded = self.autoencoder.decode(sampled).detach().clamp(0, 1)
-        targets_decoded = self.autoencoder.decode(targets).detach().clamp(0, 1)
+        sampled = self.diffusion_utils.sample(self, targets.shape, cond, self.device)
+
+        sampled = sampled + cond_t
+        targets = targets + cond_t
+
+        sampled = sampled / self.autoencoder.scaling_factor
+        targets = targets / self.autoencoder.scaling_factor
         
+        sampled_decoded = self.autoencoder.decode(sampled).detach()
+        targets_decoded = self.autoencoder.decode(targets).detach()
         self.log_metrics(preds=sampled_decoded, targets=targets_decoded, stage="val")
-        
-        # Plot: (B, T, C, H, W) -> (B, T, H, W)
-        if batch_idx % 50 == 0:
+
+        if batch_idx % 500 == 0:
+
+            # Plot: (B, T, C, H, W) -> (B, T, H, W)
             sampled_plot = sampled_decoded.squeeze(2).cpu().numpy()
             targets_plot = targets_decoded.squeeze(2).cpu().numpy()
             self.log_plots(preds=sampled_plot, targets=targets_plot, 
                             plot_fn=SEVIRLightningDataModule.plot_sample, 
                             label=f"val_{self.current_epoch}_{self.global_step}")
-        
+
         return loss
 
     def configure_optimizers(self):
@@ -211,6 +229,7 @@ if __name__ == "__main__":
         val_check_interval=len(dm.train_dataloader()), 
         callbacks=[checkpoint_callback, lr_monitor, CodeLogger()],
         limit_val_batches=100,
+        gradient_clip_val= 1.0,
     )
     
     from termcolor import colored

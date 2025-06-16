@@ -61,7 +61,7 @@ model:
   input_shape: [13, 384, 384, 1]
   target_shape: [12, 384, 384, 1]
   base_units: 128
-  # block_units: null
+  block_units: null
   scale_alpha: 1.0
 
   enc_depth: [1, 1]

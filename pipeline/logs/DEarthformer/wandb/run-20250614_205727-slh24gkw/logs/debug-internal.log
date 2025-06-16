@@ -1,0 +1,11 @@
+{"time":"2025-06-14T20:57:27.159608843+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250614_205727-slh24gkw/logs/debug-core.log"}
+{"time":"2025-06-14T20:57:27.628174481+05:30","level":"INFO","msg":"created new stream","id":"slh24gkw"}
+{"time":"2025-06-14T20:57:27.628266352+05:30","level":"INFO","msg":"stream: started","id":"slh24gkw"}
+{"time":"2025-06-14T20:57:27.628332149+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"slh24gkw"}
+{"time":"2025-06-14T20:57:27.628366379+05:30","level":"INFO","msg":"sender: started","stream_id":"slh24gkw"}
+{"time":"2025-06-14T20:57:27.628472645+05:30","level":"INFO","msg":"handler: started","stream_id":"slh24gkw"}
+{"time":"2025-06-14T20:57:28.377058841+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-14T20:57:57.554774566+05:30","level":"INFO","msg":"stream: closing","id":"slh24gkw"}
+{"time":"2025-06-14T20:57:57.554827283+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-14T20:57:57.554913493+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-14T20:57:58.876960641+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}

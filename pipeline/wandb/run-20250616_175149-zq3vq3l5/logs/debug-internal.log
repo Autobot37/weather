@@ -1,0 +1,7 @@
+{"time":"2025-06-16T17:51:49.391049869+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/weather/pipeline/wandb/run-20250616_175149-zq3vq3l5/logs/debug-core.log"}
+{"time":"2025-06-16T17:51:49.844189516+05:30","level":"INFO","msg":"created new stream","id":"zq3vq3l5"}
+{"time":"2025-06-16T17:51:49.844265567+05:30","level":"INFO","msg":"stream: started","id":"zq3vq3l5"}
+{"time":"2025-06-16T17:51:49.844299353+05:30","level":"INFO","msg":"handler: started","stream_id":"zq3vq3l5"}
+{"time":"2025-06-16T17:51:49.844323264+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"zq3vq3l5"}
+{"time":"2025-06-16T17:51:49.844324573+05:30","level":"INFO","msg":"sender: started","stream_id":"zq3vq3l5"}
+{"time":"2025-06-16T17:51:50.741818036+05:30","level":"INFO","msg":"Starting system monitor"}

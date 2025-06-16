@@ -1,0 +1,50 @@
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Using catalog filter: None
+Data shape: torch.Size([8, 384, 384, 25])
+Data shape: torch.Size([8, 384, 384, 25])
+[34mTotal trainable parameters: 104,292[0m
+[33mInput frames: 13, Predicted frames: 12[0m
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | autoencoder | Autoencoder | 83.6 M
+1 | encoder     | ConvEncoder | 52.4 K
+2 | decoder     | ConvDecoder | 51.8 K
+3 | predictor   | SimpleLayer | 168
+--------------------------------------------
+104 K     Trainable params
+83.6 M    Non-trainable params
+83.8 M    Total params
+335.014   Total estimated model params size (MB)
+Sanity Checking DataLoader 0:   0%|                                                                                                                                                      | 0/2 [00:00<?, ?it/s][32mEncoded shape: torch.Size([104, 8, 6, 6])[0m
+Sanity Checking DataLoader 0:  50%|███████████████████████████████████████████████████████████████████████                                                                       | 1/2 [00:11<00:11, 11.25s/it]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1189, in wait
+    return self._wait(timeout=timeout)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1927, in _wait
+    time.sleep(delay)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 239, in shutdown
+    self.process.wait(300)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1202, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/subprocess.py", line 1927, in _wait
+    time.sleep(delay)
+KeyboardInterrupt

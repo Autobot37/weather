@@ -1,0 +1,23 @@
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | lpips_fn    | LPIPS       | 2.5 M
+1 | diffnet     | DiT         | 308 M
+2 | autoencoder | Autoencoder | 83.6 M
+3 | loss_fn     | MSELoss     | 0
+--------------------------------------------
+308 M     Trainable params
+86.1 M    Non-trainable params
+394 M     Total params
+1,579.023 Total estimated model params size (MB)
+Epoch 0:   4%| | 169/4616 [01:48<47:40,  1.55it/s, loss=0.247, v_num=btiv, train/loss_step=0.245, train/psnr_step=6.800, train/ssim_step=0.0981, train/hss_step=0.00584, train/lpips_step=0.484, train/psd_step[32mTraining complete![0m
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `peak_signal_noise_ratio` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `peak_signal_noise_ratio` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:70: FutureWarning: Importing `spectral_angle_mapper` from `torchmetrics.functional` was deprecated and will be removed in 2.0. Import `spectral_angle_mapper` from `torchmetrics.image` instead.
+  _future_warning(
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: Detected KeyboardInterrupt, attempting graceful shutdown...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

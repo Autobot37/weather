@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch
 
 class FNOModel:
-    def __init__(self, in_channels = 10, out_channels = 10):
-        self.model = FNO(n_modes=(32, 32), hidden_channels=64,
-                in_channels=in_channels, out_channels=out_channels).to("cuda" if torch.cuda.is_available() else "cpu")
+    def __init__(self,n_modes, hidden_channels, in_channels = 10, out_channels = 10, device = "cuda"):
+        self.model = FNO(n_modes=(n_modes, n_modes), hidden_channels=hidden_channels,
+                in_channels=in_channels, out_channels=out_channels).to(device)
     def predict(self, frames_in, frames_gt = None, compute_loss = False):
         if frames_in.shape[2] == 1:
             frames_in = frames_in.squeeze(2)

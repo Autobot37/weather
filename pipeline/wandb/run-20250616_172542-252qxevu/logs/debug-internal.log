@@ -1,0 +1,15 @@
+{"time":"2025-06-16T17:25:42.394576503+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/weather/pipeline/wandb/run-20250616_172542-252qxevu/logs/debug-core.log"}
+{"time":"2025-06-16T17:25:42.866608947+05:30","level":"INFO","msg":"created new stream","id":"252qxevu"}
+{"time":"2025-06-16T17:25:42.866663479+05:30","level":"INFO","msg":"stream: started","id":"252qxevu"}
+{"time":"2025-06-16T17:25:42.86669681+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:25:42.866712484+05:30","level":"INFO","msg":"sender: started","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:25:42.866718153+05:30","level":"INFO","msg":"handler: started","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:25:43.533717351+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-16T17:26:37.046181954+05:30","level":"INFO","msg":"stream: closing","id":"252qxevu"}
+{"time":"2025-06-16T17:26:37.046255033+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-16T17:26:37.04629685+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-16T17:26:38.06108387+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-16T17:26:38.427615402+05:30","level":"INFO","msg":"handler: closed","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:26:38.427664089+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:26:38.427683404+05:30","level":"INFO","msg":"sender: closed","stream_id":"252qxevu"}
+{"time":"2025-06-16T17:26:38.427798745+05:30","level":"INFO","msg":"stream: closed","id":"252qxevu"}

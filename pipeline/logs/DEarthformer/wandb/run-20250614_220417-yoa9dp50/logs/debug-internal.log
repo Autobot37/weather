@@ -1,0 +1,15 @@
+{"time":"2025-06-14T22:04:17.477377876+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250614_220417-yoa9dp50/logs/debug-core.log"}
+{"time":"2025-06-14T22:04:17.901347754+05:30","level":"INFO","msg":"created new stream","id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:17.901400257+05:30","level":"INFO","msg":"stream: started","id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:17.901461044+05:30","level":"INFO","msg":"sender: started","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:17.901463608+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:17.901534929+05:30","level":"INFO","msg":"handler: started","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:18.576217682+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-14T22:04:23.104480061+05:30","level":"INFO","msg":"stream: closing","id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:23.104553333+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-14T22:04:23.104606655+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-14T22:04:24.95882231+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-14T22:04:25.56270445+05:30","level":"INFO","msg":"handler: closed","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:25.562780543+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:25.562808312+05:30","level":"INFO","msg":"sender: closed","stream_id":"yoa9dp50"}
+{"time":"2025-06-14T22:04:25.562942745+05:30","level":"INFO","msg":"stream: closed","id":"yoa9dp50"}

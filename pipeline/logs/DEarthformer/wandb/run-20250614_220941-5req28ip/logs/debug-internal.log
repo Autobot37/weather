@@ -1,0 +1,7 @@
+{"time":"2025-06-14T22:09:41.679145132+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250614_220941-5req28ip/logs/debug-core.log"}
+{"time":"2025-06-14T22:09:42.113232564+05:30","level":"INFO","msg":"created new stream","id":"5req28ip"}
+{"time":"2025-06-14T22:09:42.113321125+05:30","level":"INFO","msg":"stream: started","id":"5req28ip"}
+{"time":"2025-06-14T22:09:42.113353934+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"5req28ip"}
+{"time":"2025-06-14T22:09:42.113389047+05:30","level":"INFO","msg":"sender: started","stream_id":"5req28ip"}
+{"time":"2025-06-14T22:09:42.113471648+05:30","level":"INFO","msg":"handler: started","stream_id":"5req28ip"}
+{"time":"2025-06-14T22:09:42.915122527+05:30","level":"INFO","msg":"Starting system monitor"}

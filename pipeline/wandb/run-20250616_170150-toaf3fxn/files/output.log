@@ -1,0 +1,16 @@
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Using catalog filter: None
+Data shape: torch.Size([8, 384, 384, 25])
+Data shape: torch.Size([8, 384, 384, 25])
+[34mTotal trainable parameters: 104,292[0m
+[33mInput frames: 13, Predicted frames: 12[0m
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 289, in <module>
+    model = Model(autoencoder=vae)
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 167, in __init__
+    print(colored(f"Encoder input shape: (B*T, {C}, {H}, {W})", 'cyan'))
+NameError: name 'C' is not defined

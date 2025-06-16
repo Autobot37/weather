@@ -1,0 +1,15 @@
+{"time":"2025-06-14T20:40:31.321509467+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250614_204031-jo85yszm/logs/debug-core.log"}
+{"time":"2025-06-14T20:40:31.763317258+05:30","level":"INFO","msg":"created new stream","id":"jo85yszm"}
+{"time":"2025-06-14T20:40:31.76336956+05:30","level":"INFO","msg":"stream: started","id":"jo85yszm"}
+{"time":"2025-06-14T20:40:31.76339553+05:30","level":"INFO","msg":"sender: started","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:40:31.763400661+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:40:31.763436113+05:30","level":"INFO","msg":"handler: started","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:40:32.533063284+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-14T20:41:04.02397143+05:30","level":"INFO","msg":"stream: closing","id":"jo85yszm"}
+{"time":"2025-06-14T20:41:04.024038722+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-14T20:41:04.024176323+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-14T20:41:05.029580437+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-14T20:41:05.392145049+05:30","level":"INFO","msg":"handler: closed","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:41:05.392242532+05:30","level":"INFO","msg":"sender: closed","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:41:05.392223991+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"jo85yszm"}
+{"time":"2025-06-14T20:41:05.392358889+05:30","level":"INFO","msg":"stream: closed","id":"jo85yszm"}

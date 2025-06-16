@@ -1,0 +1,26 @@
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Using catalog filter: None
+Data shape: torch.Size([2, 384, 384, 25])
+Data shape: torch.Size([2, 384, 384, 25])
+[34mTotal trainable parameters: 104,292[0m
+[33mInput frames: 13, Predicted frames: 12[0m
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name        | Type        | Params
+--------------------------------------------
+0 | autoencoder | Autoencoder | 83.6 M
+1 | encoder     | ConvEncoder | 52.4 K
+2 | decoder     | ConvDecoder | 51.8 K
+3 | predictor   | SimpleLayer | 168
+--------------------------------------------
+104 K     Trainable params
+83.6 M    Non-trainable params
+83.8 M    Total params
+335.014   Total estimated model params size (MB)
+Epoch 0:   0%|                                                   | 43/21732 [00:38<5:26:13,  1.11it/s, loss=0.022, v_num=izmx, train_loss=0.0055, min_inp=-.842, max_inp=0.673, min_pred=-.243, max_pred=0.266]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")

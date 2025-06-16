@@ -1,0 +1,7 @@
+{"time":"2025-06-14T20:49:57.643236739+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"logs/DEarthformer/wandb/run-20250614_204957-tdm8kapb/logs/debug-core.log"}
+{"time":"2025-06-14T20:49:58.073095521+05:30","level":"INFO","msg":"created new stream","id":"tdm8kapb"}
+{"time":"2025-06-14T20:49:58.073180089+05:30","level":"INFO","msg":"stream: started","id":"tdm8kapb"}
+{"time":"2025-06-14T20:49:58.073219335+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"tdm8kapb"}
+{"time":"2025-06-14T20:49:58.073225586+05:30","level":"INFO","msg":"handler: started","stream_id":"tdm8kapb"}
+{"time":"2025-06-14T20:49:58.07333013+05:30","level":"INFO","msg":"sender: started","stream_id":"tdm8kapb"}
+{"time":"2025-06-14T20:49:58.831966674+05:30","level":"INFO","msg":"Starting system monitor"}

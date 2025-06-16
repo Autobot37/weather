@@ -1,0 +1,4 @@
+lr: 0.001
+base_channels: 16
+latent_dim: 256
+thresh: 0.1

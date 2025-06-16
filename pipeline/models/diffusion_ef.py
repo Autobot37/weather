@@ -1,4 +1,4 @@
-from diffusers import DDIMScheduler
+from diffusers import DPMSolverMultistepScheduler as DDIMScheduler
 from pytorch_lightning import Trainer, seed_everything
 from omegaconf import OmegaConf
 from pipeline.datasets.dataset_sevir import SEVIRLightningDataModule
@@ -40,7 +40,7 @@ class DEarthformer(BaseModel):
         super().__init__(model_name="Diffusion_Earthformer")
         config = OmegaConf.load("configs/models/earthformer.yaml")
         self.transformer, self.scheduler = get_earthformer(config["Model"]), DDIMScheduler(num_train_timesteps=config["timesteps"])
-        self.diffusion_utils = DiffusionUtils(self.scheduler, num_inference_steps=50)
+        self.diffusion_utils = DiffusionUtils(self.scheduler, num_inference_steps=25)
         self.mse_loss = nn.MSELoss()
         
         data_config = OmegaConf.load(data_config)
@@ -49,15 +49,11 @@ class DEarthformer(BaseModel):
         self.num_train_timesteps = config["timesteps"]
         self.image_size = data_config.image_size
         self.image_size = int(self.image_size)
-        self.timestep_embedding = nn.Embedding(self.num_train_timesteps, self.image_size * self.image_size)
         
     def forward(self, noisy, timesteps, cond):
         # noisy: (B, T, H, W, C), cond: (B, T, H, W, C), timesteps: (B,)
-        H = self.image_size
-        timesteps = self.timestep_embedding(timesteps)  # (B, H*W)
-        timesteps = timesteps.reshape(timesteps.size(0), 1, H, H, 1)  # (B, 1, H, H, 1)
-        inp = torch.concat([noisy, cond, timesteps], dim=1)  # (B, T+T+1, H, W, C)
-        return self.transformer(inp)
+        inp = torch.cat((noisy, cond), dim=-1) 
+        return self.transformer(inp, timesteps)
     
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.parameters(), lr=5e-5, weight_decay=1e-2)
@@ -73,7 +69,6 @@ class DEarthformer(BaseModel):
             'lr_scheduler': {
                 'scheduler': scheduler,
                 'interval': 'step',
-                'frequency': 1,
             }
         }
 
@@ -140,7 +135,7 @@ class DEarthformer(BaseModel):
         
         self.log_metrics(preds=sampled, targets=tgt, stage="val")
         
-        if batch_idx % 25 == 0:
+        if batch_idx % 20 == 0:
             # Plot: (B, T, 1, H, W) -> (B, T, H, W)
             sampled_plot = sampled.squeeze(2).cpu().numpy()
             tgt_plot = tgt.squeeze(2).cpu().numpy()

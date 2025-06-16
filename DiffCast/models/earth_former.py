@@ -28,7 +28,7 @@ from earthformer.visualization.sevir.sevir_vis_seq import save_example_vis_resul
 from earthformer.metrics.sevir import SEVIRSkillScore
 from earthformer.cuboid_transformer.cuboid_transformer import CuboidTransformerModel
 from earthformer.datasets.sevir.sevir_torch_wrap import SEVIRLightningDataModule
-from earthformer.utils.apex_ddp import ApexDDPStrategy
+from torch.nn.parallel import DistributedDataParallel as ApexDDPStrategy
 from omegaconf.dictconfig import DictConfig
 torch.serialization.add_safe_globals([DictConfig])
 
@@ -144,11 +144,11 @@ class CuboidSEVIRPLModule(pl.LightningModule):
     def get_dataset_config():
         oc = OmegaConf.create()
         oc.dataset_name = "sevir"
-        oc.img_height = 128
-        oc.img_width = 128
-        oc.in_len = 5
-        oc.out_len = 20
-        oc.seq_len = 25
+        oc.img_height = 256
+        oc.img_width = 256
+        oc.in_len = 10
+        oc.out_len = 10
+        oc.seq_len = 20
         oc.plot_stride = 1
         oc.interval_real_time = 5
         oc.sample_mode = "sequent"
@@ -251,12 +251,13 @@ class CuboidSEVIRPLModule(pl.LightningModule):
     def predict(self, frames_in, frames_gt=None, compute_loss=False, **kwargs):
         # print("Predicting with frames_in shape:", frames_in.shape)
         # print("Frames_gt shape:", frames_gt.shape if frames_gt is not None else None)
-        if frames_in.shape[2] == 1:
+        # if frames_in.shape[2] == 1:
             # print("frames_in shape:", frames_in.shape)
             # print("frames_gt shape:", frames_gt.shape if frames_gt is not None else None)
-            frames_in = frames_in.permute(0, 1, 3, 4, 2)
+            # frames_in = frames_in.permute(0, 1, 3, 4, 2)
         out = self.torch_nn_module(frames_in)
-        out = out.permute(0, 1, 4, 2, 3)  # NTHWC to NTCHW
+        out = out  # BTHWC to BTCHW
+        out = out.contiguous()
         loss = None
         if compute_loss and frames_gt is not None:
             if frames_gt.shape != out.shape:
@@ -264,16 +265,17 @@ class CuboidSEVIRPLModule(pl.LightningModule):
             loss = F.mse_loss(out, frames_gt)
         return out, loss
 
-def get_model(in_shape = None, T_in = None, T_out = None):
-    pl_module = CuboidSEVIRPLModule()
+def get_model(in_shape = None, T_in = None, T_out = None, device= "cuda"):
+    pl_module = CuboidSEVIRPLModule().to(device)
     return pl_module
 
 def main():
     pl_module = CuboidSEVIRPLModule()
-    frames_in = torch.randn(2, 5, 128, 128, 1)
-    frames_gt = torch.randn(2, 20, 128, 128, 1)
+    frames_in = torch.randn(2, 10, 276, 276, 1)
+    frames_gt = torch.randn(2, 20, 276, 276, 1)
 
     out = pl_module(frames_in, frames_gt)
     print("Output shape:", out[0].shape)
+    
 if __name__ == "__main__":
     main()
