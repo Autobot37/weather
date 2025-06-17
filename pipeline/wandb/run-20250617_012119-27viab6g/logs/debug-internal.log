@@ -1,0 +1,17 @@
+{"time":"2025-06-17T01:21:19.927611206+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/vatsal/NWM/weather/pipeline/wandb/run-20250617_012119-27viab6g/logs/debug-core.log"}
+{"time":"2025-06-17T01:21:20.401733336+05:30","level":"INFO","msg":"created new stream","id":"27viab6g"}
+{"time":"2025-06-17T01:21:20.401793806+05:30","level":"INFO","msg":"stream: started","id":"27viab6g"}
+{"time":"2025-06-17T01:21:20.401833696+05:30","level":"INFO","msg":"sender: started","stream_id":"27viab6g"}
+{"time":"2025-06-17T01:21:20.401828181+05:30","level":"INFO","msg":"handler: started","stream_id":"27viab6g"}
+{"time":"2025-06-17T01:21:20.40185147+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"27viab6g"}
+{"time":"2025-06-17T01:21:21.163088378+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-17T02:51:37.271258418+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/shivasinghbagri/pae_ae/27viab6g/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-06-17T04:15:12.063833788+05:30","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/shivasinghbagri/pae_ae/27viab6g/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-06-17T13:10:58.457740853+05:30","level":"INFO","msg":"stream: closing","id":"27viab6g"}
+{"time":"2025-06-17T13:10:58.457789631+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-17T13:10:58.457943+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-17T13:10:59.439367812+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-17T13:11:00.181953933+05:30","level":"INFO","msg":"handler: closed","stream_id":"27viab6g"}
+{"time":"2025-06-17T13:11:00.182004853+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"27viab6g"}
+{"time":"2025-06-17T13:11:00.182039831+05:30","level":"INFO","msg":"sender: closed","stream_id":"27viab6g"}
+{"time":"2025-06-17T13:11:00.182162494+05:30","level":"INFO","msg":"stream: closed","id":"27viab6g"}

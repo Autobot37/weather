@@ -101,7 +101,9 @@ class LPIPSWithDiscriminator(nn.Module):
         rec_loss = torch.abs(inputs - reconstructions)
         if self.perceptual_weight > 0:
             # Only RGB channels
-            p_loss = self.perceptual_loss(inputs[:, :3, ...], reconstructions[:, :3, ...])
+            inputs_rgb = inputs.repeat(1, 3, 1, 1)
+            reconstructions_rgb = reconstructions.repeat(1, 3, 1, 1)
+            p_loss = self.perceptual_loss(inputs_rgb[:, :3, ...], reconstructions_rgb[:, :3, ...])
             rec_loss = rec_loss + self.perceptual_weight * p_loss
 
         nll_loss = rec_loss / torch.exp(self.logvar) + self.logvar
@@ -127,7 +129,7 @@ class LPIPSWithDiscriminator(nn.Module):
             if self.disc_factor > 0.0:
                 try:
                     d_weight = self.calculate_adaptive_weight(nll_loss, g_loss, last_layer=last_layer)
-                except RuntimeError:
+                except RuntimeError as e:
                     assert not self.training
                     d_weight = torch.tensor(0.0)
             else:

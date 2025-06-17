@@ -80,6 +80,7 @@ class vgg16(torch.nn.Module):
         super(vgg16, self).__init__()
         # vgg_pretrained_features = models.vgg16(pretrained=True).features  # deprecated since 0.13
         vgg_pretrained_features = models.vgg16(weights=VGG16_Weights.IMAGENET1K_V1).features
+        vgg_pretrained_features.eval()
         self.slice1 = torch.nn.Sequential()
         self.slice2 = torch.nn.Sequential()
         self.slice3 = torch.nn.Sequential()

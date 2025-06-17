@@ -19,7 +19,7 @@ os.environ['WANDB_API_KEY'] = '041eda3850f131617ee1d1c9714e6230c6ac4772'
 """
 ##
 class ConvEncoder(nn.Module):
-    def __init__(self, in_channels=4, bottleneck_channels=8):
+    def __init__(self, in_channels=4, bottleneck_channels=16):
         super().__init__()
         # conv reduce channels then downsample 3×
         self.conv0 = nn.Sequential(
@@ -52,7 +52,7 @@ class ConvEncoder(nn.Module):
 
 # Separate convolutional decoder to expand back (6→48 spatial via 3 upsamples)
 class ConvDecoder(nn.Module):
-    def __init__(self, bottleneck_channels=8, out_channels=4):
+    def __init__(self, bottleneck_channels=16, out_channels=4):
         super().__init__()
         self.up1 = nn.Sequential(
             nn.ConvTranspose2d(bottleneck_channels, bottleneck_channels, kernel_size=4, stride=2, padding=1),
@@ -96,7 +96,7 @@ class Autoencoder(nn.Module):
         B, T, C, H, W = x.shape
         out = []
         for i in range(T):
-            z = self.autoencoder.encode(x[:, i]).sample()
+            z = self.autoencoder.encode(x[:, i]).mode()
             out.append(z.unsqueeze(1))
         return torch.cat(out, dim=1)
 
@@ -108,39 +108,6 @@ class Autoencoder(nn.Module):
             dec = self.autoencoder.decode(z[:, i])
             out.append(dec.unsqueeze(1))
         return torch.cat(out, dim=1)
-
-class SimpleAttnModel(nn.Module):
-    def __init__(self, in_dim=512, hidden_dim=1024, in_len=13, out_len=12):
-        super().__init__()
-        self.norm = nn.LayerNorm(in_dim)
-        self.ff = nn.Linear(in_dim, hidden_dim)
-
-        self.query = nn.Parameter(torch.randn(out_len, hidden_dim))  # (T_out, D_hidden)
-        self.out_len = out_len
-        self.in_len = in_len
-        self.hidden_dim = hidden_dim
-
-    def forward(self, x):
-        # x: (B, T=13, D=512)
-        x = self.norm(x)                       # (B, 13, 512)
-        x = self.ff(x)                         # (B, 13, 1024)
-
-        # attention score: (B, 12, 13)
-        attn = torch.einsum('qd,btd->bqt', self.query, x) / self.hidden_dim ** 0.5
-        weights = F.softmax(attn, dim=-1)      # softmax over time (13)
-
-        # weighted sum over input: (B, 12, 1024)
-        out = torch.einsum('bqt,btd->bqd', weights, x)
-        return out  # (B, 12, 1024)
-
-class SimpleLayer(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.Layer = nn.Linear(13, 12)
-
-    def forward(self, x):
-        x = self.Layer(x)
-        return x 
     
 class Model(pl.LightningModule):
     def __init__(self, autoencoder, input_frames=13, pred_frames=12, lr=1e-3):
@@ -154,79 +121,57 @@ class Model(pl.LightningModule):
         self.encoder = ConvEncoder()
         self.decoder = ConvDecoder()
 
-        self.predictor = SimpleLayer()
+        self.to_bottleneck = nn.Linear(16 * 6 * 6, 512)  # 16 channels, 6x6 spatial
+        self.from_bottleneck = nn.Linear(512, 16 * 6 * 6)
+        
         total_params = sum(p.numel() for p in self.parameters() if p.requires_grad)
         print(colored(f"Total trainable parameters: {total_params:,}", 'blue'))
         print(colored(f"Input frames: {input_frames}, Predicted frames: {pred_frames}", 'yellow'))
     
     def forward(self, x):
-        B, T, LC, LH, LW = x.shape
-        x = x.reshape(B*T, LC, LH, LW)  # (B*T, C, H, W)
-        b = self.encoder(x)  # (B*T, bC, H/8, W/8)
-        from termcolor import colored
-        print(colored(f"Encoded shape: {b.shape}", 'green'))
-        flat = b.reshape(B, T, -1).permute(0, 2, 1) #[B, D, T]
-        out = self.predictor(flat).permute(0, 2, 1) #[B, T, D]
-        out = out.reshape(B*self.pred_frames, b.size(1), b.size(2), b.size(3))
-        dec = self.decoder(out)
-        return dec.reshape(B, self.pred_frames, LC, LH, LW)
+        B, LC, LH, LW = x.shape
+        b = self.encoder(x)  # (B, bC, H/8, W/8)
+        flat = b.reshape(B, -1)
+        bottleneck = self.to_bottleneck(flat)  # (B, 512)
+
+        from_bottleneck = self.from_bottleneck(bottleneck)  # (B, 16*6*6)
+        from_bottleneck = from_bottleneck.reshape(B, 16, 6, 6)  # (B, 16, 6, 6)
+        dec = self.decoder(from_bottleneck)
+        return dec.reshape(B, LC, LH, LW)
 
     def training_step(self, batch, batch_idx):
         v = batch['vil'].permute(0,3,1,2).unsqueeze(2)
-        v = self.autoencoder.encode(v)  # (B, T, LC, LH, LW)
-        v *= self.autoencoder.scaling_factor  
-
-        inp, tgt = v[:, :self.input_frames], v[:, self.input_frames:]
-        inp_t = inp[:, -1, :, :, :].unsqueeze(1)
-        inp = inp - inp_t
-        tgt = tgt - inp_t
-
+        v = self.autoencoder.encode(v)
+        v = v * self.autoencoder.scaling_factor  # (B, T, LC, LH, LW)
+        inp = v[:, 0] # (B, LC, LH, LW)
         pred = self(inp)
-        loss = F.mse_loss(pred, tgt)
-        self.log('train_loss', loss, prog_bar=True)
-        self.log('min_inp', inp.min(), prog_bar=True)
-        self.log('max_inp', inp.max(), prog_bar=True)
-        self.log('min_pred', pred.min(), prog_bar=True)
-        self.log('max_pred', pred.max(), prog_bar=True)
+        loss = F.mse_loss(pred, inp)
+        self.log('train_loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
         return loss
 
     def validation_step(self, batch, batch_idx):
         v = batch['vil'].permute(0,3,1,2).unsqueeze(2)
         v = self.autoencoder.encode(v)
-        v*
-        inp, tgt = v[:, :self.input_frames], v[:, self.input_frames:]
-        inp_t = inp[:, -1, :, :, :].unsqueeze(1)
-        from termcolor import colored
-        print(colored(f"Input shape: {inp.shape}, Target shape: {tgt.shape}, inpt shape {inp_t.shape}", 'green'))
-        inp = inp - inp_t
-        tgt = tgt - inp_t
-
+        v = v * self.autoencoder.scaling_factor  # (B, T, LC, LH, LW)
+        inp = v[:, 0]
         pred = self(inp)
-        loss = F.mse_loss(pred, tgt)
-        self.log('val_loss', loss, prog_bar=True)
-        self.log('min_inp', inp.min(), prog_bar=True)
-        self.log('max_inp', inp.max(), prog_bar=True)
-        self.log('min_pred', pred.min(), prog_bar=True)
-        self.log('max_pred', pred.max(), prog_bar=True)
+        loss = F.mse_loss(pred, inp)
+        self.log('val_loss', loss, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
         return loss
 
     def test_step(self, batch, batch_idx):
         v = batch['vil'].permute(0,3,1,2).unsqueeze(2)
+        inp = v[:, 0].unsqueeze(1)  #[B, 1, LC, LH, LW]
+        encoded = self.autoencoder.encode(inp).squeeze(1)  # (B, LC, LH, LW)
+        encoded = encoded * self.autoencoder.scaling_factor
+        pred = self(encoded) # (B, LC, LH, LW)
 
-        inp, target = v[:, :self.input_frames], v[:, self.input_frames:]
-        inp = self.autoencoder.encode(inp)
-        inp_t = inp[:, -1, :, :, :].unsqueeze(1)
-        inp = inp - inp_t
+        pred /= self.autoencoder.scaling_factor 
+        decoded_pred = self.autoencoder.decode(pred.unsqueeze(1)) # (B, 1, LC, LH, LW)
 
-        pred = self(inp)
-        pred += inp_t
-        pred /= self.autoencoder.scaling_factor
+        metrics = calc_metrics(decoded_pred, inp)
+        self.log_dict(metrics, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
 
-        decoded_pred = self.autoencoder.decode(pred)  # [b, T, C, H, W]
-
-        metrics = calc_metrics(decoded_pred, target)
-        for key, value in metrics.items():
-            self.log(f'test_{key}', value, prog_bar=True, on_step=True, on_epoch=True, sync_dist=True)
 
     def configure_optimizers(self):
         opt = Adam(self.parameters(), lr=self.lr)
@@ -248,11 +193,11 @@ if __name__ == "__main__":
     
     from pytorch_lightning.callbacks import ModelCheckpoint
 
-    name = "pae_linear"
+    name = "pae_ae"
 
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"logs/{name}/checkpoints/",
-        filename="{pae_linear}-{epoch:02d}-{step:06d}",
+        filename="{pae_ae}-{epoch:02d}-{step:06d}",
         save_top_k=-1,
         save_last=True,
         every_n_train_steps=1000,
@@ -278,5 +223,5 @@ if __name__ == "__main__":
             print(f"Data shape: {data.shape}")
             break
     
-    model = Model(autoencoder=vae)
-    trainer.fit(model, dm)
+    model = Model.load_from_checkpoint("/home/vatsal/NWM/weather/pipeline/logs/pae_ae/checkpoints/pae_ae=0-epoch=01-step=045000.ckpt", autoencoder=vae)
+    trainer.test(model, dm)

@@ -1,0 +1,73 @@
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Using catalog filter: None
+Data shape: torch.Size([16, 384, 384, 2])
+Data shape: torch.Size([16, 384, 384, 2])
+[34mTotal trainable parameters: 811,444[0m
+[33mInput frames: 13, Predicted frames: 12[0m
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name            | Type        | Params
+------------------------------------------------
+0 | autoencoder     | Autoencoder | 83.6 M
+1 | encoder         | ConvEncoder | 110 K
+2 | decoder         | ConvDecoder | 109 K
+3 | to_bottleneck   | Linear      | 295 K
+4 | from_bottleneck | Linear      | 295 K
+------------------------------------------------
+811 K     Trainable params
+83.6 M    Non-trainable params
+84.5 M    Total params
+337.843   Total estimated model params size (MB)
+Epoch 0:   0%|▎                                                                                                  | 144/43464 [01:24<7:05:07,  1.70it/s, loss=0.0315, v_num=x686, train_loss_step=0.0234]
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py:726: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 231, in advance
+    self.trainer._call_callback_hooks("on_train_batch_end", batch_end_outputs, batch, batch_idx, **extra_kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1630, in _call_callback_hooks
+    self._on_train_batch_end(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1662, in _on_train_batch_end
+    callback.on_train_batch_end(self, self.lightning_module, outputs, batch, batch_idx)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/callbacks/progress/tqdm_progress.py", line 272, in on_train_batch_end
+    self.main_progress_bar.set_postfix(self.get_metrics(trainer, pl_module))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/callbacks/progress/base.py", line 223, in get_metrics
+    standard_metrics = pl_module.get_progress_bar_dict()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/core/lightning.py", line 1807, in get_progress_bar_dict
+    return progress_base.get_standard_metrics(self.trainer, self)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/callbacks/progress/base.py", line 252, in get_standard_metrics
+    avg_training_loss = running_train_loss.cpu().item()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 231, in <module>
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 730, in _call_and_handle_interrupt
+    self._call_callback_hooks("on_keyboard_interrupt")
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1619, in _call_callback_hooks
+    pl_module = self.lightning_module
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 2148, in lightning_module
+    @property
+KeyboardInterrupt

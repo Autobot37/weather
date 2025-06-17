@@ -107,6 +107,9 @@ def psnr(pred, target):
     return float(total / p.shape[0])
 
 def calc_metrics(pred, target):
+    """
+    pred and target shape == (b, t, c, h, w) 
+    """
     single = pred.mean(dim=1) if pred.ndim == 6 else pred
     results = {}
     

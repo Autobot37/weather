@@ -1,0 +1,30 @@
+[rank: 0] Seed set to 0
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name            | Type                   | Params | Mode
+-------------------------------------------------------------------
+0 | torch_nn_module | AutoencoderKL          | 123 M  | train
+1 | loss            | LPIPSWithDiscriminator | 17.5 M | train
+2 | valid_mse       | MeanSquaredError       | 0      | train
+3 | valid_mae       | MeanAbsoluteError      | 0      | train
+4 | test_mse        | MeanSquaredError       | 0      | train
+5 | test_mae        | MeanAbsoluteError      | 0      | train
+-------------------------------------------------------------------
+126 M     Trainable params
+14.7 M    Non-trainable params
+141 M     Total params
+565.031   Total estimated model params size (MB)
+303       Modules in train mode
+58        Modules in eval mode
+Epoch 0:   0%|▎                                                                                                    | 220/83959 [03:00<19:03:38,  1.22it/s, v_num=oc7b, aeloss_step=4.57e+4, discloss_step=0.000]                        
+/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/autograd/graph.py:824: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [128, 256, 1, 1], strides() = [256, 1, 256, 256]
+bucket_view.sizes() = [128, 256, 1, 1], strides() = [256, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:328.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

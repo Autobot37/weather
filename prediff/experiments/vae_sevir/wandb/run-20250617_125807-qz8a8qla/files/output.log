@@ -1,0 +1,26 @@
+Seed set to 0
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name            | Type                   | Params | Mode
+-------------------------------------------------------------------
+0 | torch_nn_module | AutoencoderKL          | 123 M  | train
+1 | loss            | LPIPSWithDiscriminator | 17.5 M | train
+2 | valid_mse       | MeanSquaredError       | 0      | train
+3 | valid_mae       | MeanAbsoluteError      | 0      | train
+4 | test_mse        | MeanSquaredError       | 0      | train
+5 | test_mae        | MeanAbsoluteError      | 0      | train
+-------------------------------------------------------------------
+126 M     Trainable params
+14.7 M    Non-trainable params
+141 M     Total params
+565.031   Total estimated model params size (MB)
+303       Modules in train mode
+58        Modules in eval mode
+Epoch 0:   0%|         | 71/167918 [00:46<30:21:30,  1.54it/s, v_num=8qla, aeloss_step=7.91e+4, discloss_step=0.000]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

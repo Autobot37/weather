@@ -50,7 +50,7 @@ class DiagonalGaussianDistribution(object):
                                        + self.var
                                        - 1.0
                                        - self.logvar,
-                                       dim=[1, 2, 3], )
+                                       dim=[1], )
             else:
                 return 0.5 * torch.sum(
                     torch.pow(self.mean - other.mean, 2) / other.var
@@ -58,7 +58,7 @@ class DiagonalGaussianDistribution(object):
                     - 1.0
                     - self.logvar
                     + other.logvar,
-                    dim=[1, 2, 3], )
+                    dim=[1], )
 
     def nll(self, sample, dims=[1, 2, 3]):
         if self.deterministic:

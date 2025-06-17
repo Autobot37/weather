@@ -1,0 +1,119 @@
+[rank: 0] Seed set to 0
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name            | Type                   | Params | Mode
+-------------------------------------------------------------------
+0 | torch_nn_module | AutoencoderKL          | 123 M  | train
+1 | loss            | LPIPSWithDiscriminator | 17.5 M | train
+2 | valid_mse       | MeanSquaredError       | 0      | train
+3 | valid_mae       | MeanAbsoluteError      | 0      | train
+4 | test_mse        | MeanSquaredError       | 0      | train
+5 | test_mae        | MeanAbsoluteError      | 0      | train
+-------------------------------------------------------------------
+126 M     Trainable params
+14.7 M    Non-trainable params
+141 M     Total params
+565.031   Total estimated model params size (MB)
+303       Modules in train mode
+58        Modules in eval mode
+Sanity Checking DataLoader 0: 100%|███████████████████████████████████████████████████| 2/2 [00:02<00:00,  0.99it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/prediff/scripts/vae/sevirlr/train_vae_sevirlr.py", line 678, in <module>
+    main()
+  File "/home/vatsal/NWM/weather/prediff/scripts/vae/sevirlr/train_vae_sevirlr.py", line 651, in main
+    trainer.fit(model=pl_module,
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1012, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1054, in _run_stage
+    self._run_sanity_check()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1083, in _run_sanity_check
+    val_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 152, in run
+    return self.on_run_end()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 295, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 377, in _on_evaluation_epoch_end
+    trainer._logger_connector.on_epoch_end()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/logger_connector.py", line 196, in on_epoch_end
+    metrics = self.metrics
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/logger_connector.py", line 235, in metrics
+    return self.trainer._results.metrics(on_step)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 476, in metrics
+    value = self._get_cache(result_metric, on_step)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 440, in _get_cache
+    result_metric.compute()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 289, in wrapped_func
+    self._computed = compute(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 249, in compute
+    value = self.meta.sync(self.value.clone())  # `clone` because `sync` is in-place
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/strategies/ddp.py", line 342, in reduce
+    return _sync_ddp_if_available(tensor, group, reduce_op=reduce_op)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/fabric/utilities/distributed.py", line 179, in _sync_ddp_if_available
+    return _sync_ddp(result, group=group, reduce_op=reduce_op)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/fabric/utilities/distributed.py", line 229, in _sync_ddp
+    torch.distributed.all_reduce(result, op=op, group=group, async_op=False)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2810, in all_reduce
+    work = group.allreduce([tensor], opts)
+RuntimeError: No backend type associated with device type cpu
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/vatsal/NWM/weather/prediff/scripts/vae/sevirlr/train_vae_sevirlr.py", line 678, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/vatsal/NWM/weather/prediff/scripts/vae/sevirlr/train_vae_sevirlr.py", line 651, in main
+[rank0]:     trainer.fit(model=pl_module,
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 561, in fit
+[rank0]:     call._call_and_handle_interrupt(
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+[rank0]:     return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 599, in _fit_impl
+[rank0]:     self._run(model, ckpt_path=ckpt_path)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1012, in _run
+[rank0]:     results = self._run_stage()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1054, in _run_stage
+[rank0]:     self._run_sanity_check()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1083, in _run_sanity_check
+[rank0]:     val_loop.run()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/utilities.py", line 179, in _decorator
+[rank0]:     return loop_run(self, *args, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 152, in run
+[rank0]:     return self.on_run_end()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 295, in on_run_end
+[rank0]:     self._on_evaluation_epoch_end()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/loops/evaluation_loop.py", line 377, in _on_evaluation_epoch_end
+[rank0]:     trainer._logger_connector.on_epoch_end()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/logger_connector.py", line 196, in on_epoch_end
+[rank0]:     metrics = self.metrics
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/logger_connector.py", line 235, in metrics
+[rank0]:     return self.trainer._results.metrics(on_step)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 476, in metrics
+[rank0]:     value = self._get_cache(result_metric, on_step)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 440, in _get_cache
+[rank0]:     result_metric.compute()
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 289, in wrapped_func
+[rank0]:     self._computed = compute(*args, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py", line 249, in compute
+[rank0]:     value = self.meta.sync(self.value.clone())  # `clone` because `sync` is in-place
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/pytorch/strategies/ddp.py", line 342, in reduce
+[rank0]:     return _sync_ddp_if_available(tensor, group, reduce_op=reduce_op)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/fabric/utilities/distributed.py", line 179, in _sync_ddp_if_available
+[rank0]:     return _sync_ddp(result, group=group, reduce_op=reduce_op)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/lightning/fabric/utilities/distributed.py", line 229, in _sync_ddp
+[rank0]:     torch.distributed.all_reduce(result, op=op, group=group, async_op=False)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 2810, in all_reduce
+[rank0]:     work = group.allreduce([tensor], opts)
+[rank0]: RuntimeError: No backend type associated with device type cpu

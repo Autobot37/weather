@@ -47,6 +47,7 @@ class AutoencoderKL(nn.Module):
         norm_num_groups: int = 32,
         sample_size: int = 32,
         scaling_factor: float = 0.18215,
+        bottleneck_dim: int = 1024,
     ):
         super().__init__()
 
@@ -72,19 +73,29 @@ class AutoencoderKL(nn.Module):
             norm_num_groups=norm_num_groups,
             act_fn=act_fn,
         )
-
-        self.quant_conv = nn.Conv2d(2 * latent_channels, 2 * latent_channels, 1)
-        self.post_quant_conv = nn.Conv2d(latent_channels, latent_channels, 1)
+        self.encoder_flat_size = 24 * 24 * latent_channels * 2 # 4609
+        self.bottleneck_dim = bottleneck_dim
+        from termcolor import colored
+        print(colored(f"Encoder flat size: {self.encoder_flat_size}", "green"))
+        self.to_bottleneck = nn.Linear(self.encoder_flat_size, 2 * bottleneck_dim) #4608, 2048
+        self.from_bottleneck = nn.Linear(bottleneck_dim, self.encoder_flat_size // 2) # 1024, 2304
+        # self.quant_conv = nn.Conv2d(2 * latent_channels, 2 * latent_channels, 1) 
+        # self.post_quant_conv = nn.Conv2d(latent_channels, latent_channels, 1)
         self.use_slicing = False
 
     def encode(self, x: torch.FloatTensor) -> DiagonalGaussianDistribution:
         h = self.encoder(x)
-        moments = self.quant_conv(h)
+        flatten_h = h.reshape(x.size(0), -1)
+        bottleneck = self.to_bottleneck(flatten_h)
+        # moments = self.quant_conv(h)
+        moments = bottleneck
         posterior = DiagonalGaussianDistribution(moments)
         return posterior
 
     def _decode(self, z: torch.FloatTensor) -> torch.Tensor:
-        z = self.post_quant_conv(z)
+        z = self.from_bottleneck(z)
+        z = z.reshape(z.size(0), -1,24, 24)
+        # z = self.post_quant_conv(z)
         dec = self.decoder(z)
         return dec
 
@@ -129,6 +140,7 @@ class AutoencoderKL(nn.Module):
         """
         x = sample
         posterior = self.encode(x)
+        
         if sample_posterior:
             z = posterior.sample(generator=generator)
         else:
@@ -138,3 +150,18 @@ class AutoencoderKL(nn.Module):
             return dec, posterior
         else:
             return dec
+  
+
+from omegaconf import OmegaConf
+cfg = OmegaConf.load("/home/vatsal/NWM/weather/pipeline/configs/models/vae.yaml")
+vae = AutoencoderKL(**cfg).to("cuda")
+total_params = sum(p.numel() for p in vae.parameters() if p.requires_grad)
+print(f"Total trainable parameters in AutoencoderKL: {total_params / 1e6:.2f}M")
+
+if __name__ == "__main__":
+    import torch
+    x = torch.randn(2, 1, 384, 384).to("cuda")
+    z = vae.encode(x).sample()
+    print(z.shape) 
+    dec = vae.decode(z)
+    print(dec.shape) 

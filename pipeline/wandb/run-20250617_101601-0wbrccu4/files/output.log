@@ -1,0 +1,48 @@
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Using catalog filter: None
+Data shape: torch.Size([16, 384, 384, 2])
+Data shape: torch.Size([16, 384, 384, 2])
+[34mTotal trainable parameters: 811,444[0m
+[33mInput frames: 13, Predicted frames: 12[0m
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+Testing DataLoader 0:   0%|                                                                                                                                                                                   | 0/100 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 227, in <module>
+    trainer.test(model, dm)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 938, in test
+    return self._call_and_handle_interrupt(self._test_impl, model, dataloaders, ckpt_path, verbose, datamodule)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _test_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1320, in _run_stage
+    return self._run_evaluate()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1365, in _run_evaluate
+    eval_loop_results = self._evaluation_loop.run()
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 155, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 128, in advance
+    output = self._evaluation_step(**kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 224, in _evaluation_step
+    output = self.trainer._call_strategy_hook("test_step", *kwargs.values())
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1765, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 352, in test_step
+    return self.model.test_step(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 170, in test_step
+    decoded_pred = self.autoencoder.decode(pred.unsqueeze(1))
+  File "/home/vatsal/miniconda3/envs/earthformer/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/vatsal/NWM/weather/pipeline/models/pret_ae.py", line 105, in decode
+    B, T, C, H, W = z.shape
+ValueError: not enough values to unpack (expected 5, got 4)

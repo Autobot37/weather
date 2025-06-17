@@ -29,24 +29,18 @@ from prediff.utils.download import (
 from prediff.utils.path import default_pretrained_vae_dir
 from prediff.utils.path import default_exps_dir
 
-
-pytorch_state_dict_name = "sevirlr_vae.pt"
-pytorch_loss_state_dict_name = "sevirlr_vae_loss.pt"
-
+pytorch_state_dict_name = "sevir_vae.pt"
+pytorch_loss_state_dict_name = "sevir_vae_loss.pt"
 
 class VAESEVIRPLModule(pl.LightningModule):
 
     def __init__(self,
                  total_num_steps: int,
                  accumulate_grad_batches: int = 1,
-                 oc_file: str = None,
                  save_dir: str = None):
         super(VAESEVIRPLModule, self).__init__()
-        if oc_file is not None:
-            oc_from_file = OmegaConf.load(open(oc_file, "r"))
-        else:
-            oc_from_file = None
-        oc = self.get_base_config(oc_from_file=oc_from_file)
+
+        oc = self.get_base_config()
         model_cfg = OmegaConf.to_object(oc.model)
 
         self.torch_nn_module = AutoencoderKL(
@@ -69,11 +63,7 @@ class VAESEVIRPLModule(pl.LightningModule):
             disc_in_channels=loss_cfg["disc_in_channels"],)
 
         self.total_num_steps = total_num_steps
-        if oc_file is not None:
-            oc_from_file = OmegaConf.load(open(oc_file, "r"))
-        else:
-            oc_from_file = None
-        oc = self.get_base_config(oc_from_file=oc_from_file)
+ 
         self.save_hyperparameters(oc)
         self.oc = oc
         # layout
@@ -107,7 +97,7 @@ class VAESEVIRPLModule(pl.LightningModule):
         self.test_mse = torchmetrics.MeanSquaredError()
         self.test_mae = torchmetrics.MeanAbsoluteError()
 
-        self.configure_save(cfg_file_path=oc_file)
+        self.configure_save()
 
     def configure_save(self, cfg_file_path=None):
         self.save_dir = os.path.join(default_exps_dir, self.save_dir)
@@ -122,7 +112,7 @@ class VAESEVIRPLModule(pl.LightningModule):
         self.example_save_dir = os.path.join(self.save_dir, "examples")
         os.makedirs(self.example_save_dir, exist_ok=True)
 
-    def get_base_config(self, oc_from_file=None):
+    def get_base_config(self):
         oc = OmegaConf.create()
         oc.layout = self.get_layout_config()
         oc.optim = self.get_optim_config()
@@ -131,31 +121,28 @@ class VAESEVIRPLModule(pl.LightningModule):
         oc.eval = self.get_eval_config()
         oc.model = self.get_model_config()
         oc.dataset = self.get_dataset_config()
-        if oc_from_file is not None:
-            # oc = apply_omegaconf_overrides(oc, oc_from_file)
-            oc = OmegaConf.merge(oc, oc_from_file)
         return oc
 
     @staticmethod
     def get_layout_config():
         cfg = OmegaConf.create()
-        cfg.img_height = 128
-        cfg.img_width = 128
+        cfg.img_height = 384
+        cfg.img_width = 384
         cfg.layout = "NHWC"
         return cfg
 
     @classmethod
     def get_model_config(cls):
         cfg = OmegaConf.create()
-        cfg.data_channels = 4
+        cfg.data_channels = 1
         # from stable-diffusion-v1-5
-        cfg.down_block_types = ['DownEncoderBlock2D', 'DownEncoderBlock2D', 'DownEncoderBlock2D', 'DownEncoderBlock2D']
+        cfg.down_block_types = ['DownEncoderBlock2D', 'DownEncoderBlock2D', 'DownEncoderBlock2D', 'DownEncoderBlock2D', 'DownEncoderBlock2D']
         cfg.in_channels = cfg.data_channels
-        cfg.sample_size = 512  # not used
-        cfg.block_out_channels = [128, 256, 512, 512]
+        cfg.sample_size = 384  # not used
+        cfg.block_out_channels = [128, 256, 512, 512, 512]
         cfg.act_fn = 'silu'
         cfg.latent_channels = 4
-        cfg.up_block_types = ['UpDecoderBlock2D', 'UpDecoderBlock2D', 'UpDecoderBlock2D', 'UpDecoderBlock2D']
+        cfg.up_block_types = ['UpDecoderBlock2D', 'UpDecoderBlock2D', 'UpDecoderBlock2D', 'UpDecoderBlock2D', 'UpDecoderBlock2D']
         cfg.norm_num_groups = 32
         cfg.layers_per_block = 2
         cfg.out_channels = cfg.data_channels
@@ -172,13 +159,12 @@ class VAESEVIRPLModule(pl.LightningModule):
     def get_dataset_config(cls):
         cfg = OmegaConf.create()
         cfg.dataset_name = "sevirlr"
-        cfg.img_height = 128
-        cfg.img_width = 128
+        cfg.img_height = 384
+        cfg.img_width = 384
         cfg.in_len = 0
         cfg.out_len = 1
         cfg.seq_len = 1
         cfg.plot_stride = 1
-        cfg.interval_real_time = 10
         cfg.sample_mode = "sequent"
         cfg.stride = cfg.out_len
         cfg.layout = "NTHWC"
@@ -186,10 +172,8 @@ class VAESEVIRPLModule(pl.LightningModule):
         cfg.train_val_split_date = (2019, 1, 1)
         cfg.train_test_split_date = (2019, 6, 1)
         cfg.end_date = None
-        cfg.metrics_mode = "0"
-        cfg.metrics_list = ('csi', 'pod', 'sucr', 'bias')
-        cfg.threshold_list = (16, 74, 133, 160, 181, 219)
         cfg.aug_mode = "1"
+        cfg.val_ratio = 0.1
         return cfg
 
     @staticmethod
@@ -222,11 +206,12 @@ class VAESEVIRPLModule(pl.LightningModule):
     @staticmethod
     def get_logging_config():
         cfg = OmegaConf.create()
-        cfg.logging_prefix = "SEVIRLR"
+        cfg.logging_prefix = "SEVIR"
         cfg.monitor_lr = True
         cfg.monitor_device = False
         cfg.track_grad_norm = -1
-        cfg.use_wandb = False
+        cfg.use_wandb = True
+        cfg.wandb_project = "prediff"
         return cfg
 
     @staticmethod
@@ -247,6 +232,7 @@ class VAESEVIRPLModule(pl.LightningModule):
         cfg.test_example_data_idx_list = [0, ]
         cfg.eval_example_only = False
         cfg.num_vis = 10
+        cfg.vis_frequency = 1000
         return cfg
 
     def configure_optimizers(self):
@@ -255,8 +241,8 @@ class VAESEVIRPLModule(pl.LightningModule):
         betas = optim_cfg.betas
         opt_ae = torch.optim.Adam(list(self.torch_nn_module.encoder.parameters()) +
                                   list(self.torch_nn_module.decoder.parameters()) +
-                                  list(self.torch_nn_module.quant_conv.parameters()) +
-                                  list(self.torch_nn_module.post_quant_conv.parameters()),
+                                  list(self.torch_nn_module.from_bottleneck.parameters()) +
+                                  list(self.torch_nn_module.to_bottleneck.parameters()),
                                   lr=lr, betas=betas)
         opt_disc = torch.optim.Adam(self.loss.discriminator.parameters(),
                                     lr=lr, betas=betas)
@@ -314,11 +300,12 @@ class VAESEVIRPLModule(pl.LightningModule):
         checkpoint_callback = ModelCheckpoint(
             monitor=self.oc.optim.monitor,
             dirpath=os.path.join(self.save_dir, "checkpoints"),
-            filename="{epoch:03d}",
+            filename="{epoch:03d}-{step}",
             auto_insert_metric_name=False,
             save_top_k=self.oc.optim.save_top_k,
             save_last=True,
             mode="min",
+            every_n_train_steps = 5000
         )
         callbacks = kwargs.pop("callbacks", [])
         assert isinstance(callbacks, list)
@@ -358,7 +345,7 @@ class VAESEVIRPLModule(pl.LightningModule):
             # ddp
             accelerator="gpu",
             # strategy="ddp",
-            strategy=DDPStrategy(find_unused_parameters=self.oc.trainer.find_unused_parameters),
+            strategy= "ddp_find_unused_parameters_true",
             # optimization
             max_epochs=self.oc.optim.max_epochs,
             check_val_every_n_epoch=self.oc.trainer.check_val_every_n_epoch,
@@ -395,6 +382,7 @@ class VAESEVIRPLModule(pl.LightningModule):
                              micro_batch_size: int = 1,
                              num_workers: int = 8):
         dm = SEVIRLightningDataModule(
+            sevir_dir = "/home/vatsal/Dataserver/NWM/datasets/sevir",
             seq_len=dataset_cfg["seq_len"],
             sample_mode=dataset_cfg["sample_mode"],
             stride=dataset_cfg["stride"],
@@ -421,6 +409,8 @@ class VAESEVIRPLModule(pl.LightningModule):
     def get_input(self, batch):
         target_bchw = rearrange(batch, "b 1 h w c -> b c h w").contiguous()
         mask = None
+        assert target_bchw.shape[1:] == (1, 384, 384), \
+            f"Input shape {target_bchw.shape} does not match expected shape (b, 1, 384, 384)."
         return target_bchw, mask
 
     def forward(self, target_bchw, sample_posterior=True):
@@ -445,6 +435,12 @@ class VAESEVIRPLModule(pl.LightningModule):
                 target=target_bchw.detach().float().cpu().numpy(),
                 pred=pred_bchw.detach().float().cpu().numpy(),
                 mode="train", )
+        if batch_idx % self.oc.eval.vis_frequency == 0 and self.local_rank == 0:
+            self.save_vis_step_end(
+                data_idx=data_idx,
+                target=target_bchw.detach().float().cpu().numpy(),
+                pred=pred_bchw.detach().float().cpu().numpy(),
+                mode="train")
 
         # train encoder+decoder+logvar
         aeloss, log_dict_ae = self.loss(target_bchw, pred_bchw, posterior, optimizer_idx=0, global_step=self.global_step,
@@ -477,7 +473,7 @@ class VAESEVIRPLModule(pl.LightningModule):
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
         micro_batch_size = batch.shape[self.batch_axis]
         data_idx = int(batch_idx * micro_batch_size)
-        if not self.eval_example_only or data_idx in self.val_example_data_idx_list:
+        if not self.eval_example_only or data_idx in self.val_example_data_idx_list or batch_idx % self.oc.eval.vis_frequency == 0:
             target_bchw, _ = self.get_input(batch=batch)
             pred_bchw, posterior = self(target_bchw)
             target_bchw = target_bchw.contiguous()
@@ -492,6 +488,10 @@ class VAESEVIRPLModule(pl.LightningModule):
                                             mask=None, last_layer=self.get_last_layer(), split="val")
             discloss, log_dict_disc = self.loss(target_bchw, pred_bchw, posterior, 1, self.global_step,
                                                 mask=None, last_layer=self.get_last_layer(), split="val")
+            
+            log_dict_ae = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in log_dict_ae.items()}
+            log_dict_disc = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in log_dict_disc.items()}
+
             self.log("val/rec_loss", log_dict_ae["val/rec_loss"], prog_bar=False, logger=True, on_step=False, on_epoch=True, sync_dist=True)
             self.log_dict(log_dict_ae, prog_bar=False, logger=True, on_step=False, on_epoch=True, sync_dist=True)
             self.log_dict(log_dict_disc, prog_bar=False, logger=True, on_step=False, on_epoch=True, sync_dist=True)
@@ -501,6 +501,8 @@ class VAESEVIRPLModule(pl.LightningModule):
     def on_validation_epoch_end(self):
         valid_mse = self.valid_mse.compute()
         valid_mae = self.valid_mae.compute()
+        valid_mae = valid_mae.to(self.device)
+        valid_mse = valid_mse.to(self.device)
 
         self.log('valid_mse_epoch', valid_mse, prog_bar=True, on_step=False, on_epoch=True, sync_dist=True)
         self.log('valid_mae_epoch', valid_mae, prog_bar=True, on_step=False, on_epoch=True, sync_dist=True)
@@ -525,6 +527,10 @@ class VAESEVIRPLModule(pl.LightningModule):
                                             mask=None, last_layer=self.get_last_layer(), split="test")
             discloss, log_dict_disc = self.loss(target_bchw, pred_bchw, posterior, 1, self.global_step,
                                                 mask=None, last_layer=self.get_last_layer(), split="test")
+            
+            log_dict_ae = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in log_dict_ae.items()}
+            log_dict_disc = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v for k, v in log_dict_disc.items()}
+
             self.log("test/rec_loss", log_dict_ae["test/rec_loss"],
                      prog_bar=False, logger=True, on_step=False, on_epoch=True, sync_dist=True)
             self.log_dict(log_dict_ae, prog_bar=False, logger=True, on_step=False, on_epoch=True, sync_dist=True)
@@ -535,6 +541,8 @@ class VAESEVIRPLModule(pl.LightningModule):
     def on_test_epoch_end(self):
         test_mse = self.test_mse.compute()
         test_mae = self.test_mae.compute()
+        test_mae = test_mae.to(self.device)
+        test_mse = test_mse.to(self.device)
 
         self.log('test_mse_epoch', test_mse, prog_bar=True, on_step=False, on_epoch=True, sync_dist=True)
         self.log('test_mae_epoch', test_mae, prog_bar=True, on_step=False, on_epoch=True, sync_dist=True)
@@ -591,44 +599,18 @@ class VAESEVIRPLModule(pl.LightningModule):
             norms = grad_norm(self.torch_nn_module, norm_type=self.oc.logging.track_grad_norm)
             self.log_dict(norms)
 
-
-def get_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--save', default='tmp_sevirlr', type=str)
-    parser.add_argument('--gpus', default=1, type=int)
-    parser.add_argument('--cfg', default=None, type=str)
-    parser.add_argument('--test', action='store_true')
-    parser.add_argument('--ckpt_name', default=None, type=str,
-                        help='The model checkpoint trained on SEVIR-LR.')
-    parser.add_argument('--pretrained', action='store_true',
-                        help='Load pretrained checkpoints for test.')
-    return parser
-
-
 def main():
-    parser = get_parser()
-    args = parser.parse_args()
-    if args.pretrained:
-        args.cfg = os.path.abspath(os.path.join(os.path.dirname(__file__), "vae_sevirlr_v1.yaml"))
-        download_pretrained_weights(ckpt_name=pretrained_sevirlr_vae_name,
-                                    save_dir=default_pretrained_vae_dir,
-                                    exist_ok=False)
-    if args.cfg is not None:
-        oc_from_file = OmegaConf.load(open(args.cfg, "r"))
-        dataset_cfg = OmegaConf.to_object(oc_from_file.dataset)
-        total_batch_size = oc_from_file.optim.total_batch_size
-        micro_batch_size = oc_from_file.optim.micro_batch_size
-        max_epochs = oc_from_file.optim.max_epochs
-        seed = oc_from_file.optim.seed
-        float32_matmul_precision = oc_from_file.optim.float32_matmul_precision
-    else:
-        dataset_cfg = OmegaConf.to_object(VAESEVIRPLModule.get_dataset_config())
-        micro_batch_size = 1
-        total_batch_size = int(micro_batch_size * args.gpus)
-        max_epochs = None
-        seed = 0
-        float32_matmul_precision = "high"
+
+    dataset_cfg = OmegaConf.to_object(VAESEVIRPLModule.get_dataset_config())
+    micro_batch_size = 2
+    gpus = 2
+    total_batch_size = int(micro_batch_size * gpus)
+    max_epochs = 10
+    seed = 0
+    float32_matmul_precision = "high"
     torch.set_float32_matmul_precision(float32_matmul_precision)
+    save_dir = "vae_sevir"
+
     seed_everything(seed, workers=True)
     dm = VAESEVIRPLModule.get_sevir_datamodule(
         dataset_cfg=dataset_cfg,
@@ -636,7 +618,12 @@ def main():
         num_workers=8,)
     dm.prepare_data()
     dm.setup()
-    accumulate_grad_batches = total_batch_size // (micro_batch_size * args.gpus)
+    train_loader = dm.train_dataloader()
+    for batch in train_loader:
+        print(f"Batch shape: {batch.shape}")
+        break
+
+    accumulate_grad_batches = total_batch_size // (micro_batch_size * gpus)
     total_num_steps = VAESEVIRPLModule.get_total_num_steps(
         epoch=max_epochs,
         num_samples=dm.num_train_samples,
@@ -645,59 +632,58 @@ def main():
     pl_module = VAESEVIRPLModule(
         total_num_steps=total_num_steps,
         accumulate_grad_batches=accumulate_grad_batches,
-        save_dir=args.save,
-        oc_file=args.cfg)
-    trainer_kwargs = pl_module.set_trainer_kwargs(devices=args.gpus)
+        save_dir=save_dir)
+    state_dict = torch.load("/home/vatsal/NWM/weather/pipeline/autoencoder_ckpt.pth", map_location="cpu")
+
+    new_state_dict = {}
+    for key, value in state_dict["model"]["autoencoder_kl"].items():
+        if not "decoder.up_blocks" in key:
+            new_state_dict[key[4:]] = value
+        else:
+            parts = key.split(".")
+            block_index = int(parts[3])
+            new_block_index = block_index + 1
+            parts[3] = str(new_block_index)
+            new_key = ".".join(parts)
+            new_state_dict[new_key[4:]] = value
+            # print(f"Renamed {key} to {new_key}")
+
+    missing_keys, unexpected_keys = pl_module.torch_nn_module.load_state_dict(
+        new_state_dict, strict=False)
+    
+    # from termcolor import colored
+    # for key in missing_keys:
+    #     print(colored(f"Missing key: {key}", "red"))
+    # for key in unexpected_keys:
+    #     print(colored(f"Unexpected key: {key}", "yellow"))
+
+    trainer_kwargs = pl_module.set_trainer_kwargs(devices=[0, 1])
     trainer = Trainer(**trainer_kwargs)
-    if args.pretrained:
-        vae_ckpt_path = os.path.join(default_pretrained_vae_dir,
-                                     pretrained_sevirlr_vae_name)
-        state_dict = torch.load(vae_ckpt_path,
-                                map_location=torch.device("cpu"))
-        pl_module.torch_nn_module.load_state_dict(state_dict=state_dict)
-        trainer.test(model=pl_module,
-                     datamodule=dm)
-    elif args.test:
-        if args.ckpt_name is not None:
-            ckpt_path = os.path.join(pl_module.save_dir, "checkpoints", args.ckpt_name)
+
+    trainer.fit(model=pl_module,
+                datamodule=dm)
+    # save state_dict of VAE and discriminator
+    pl_ckpt = pl_load(path_or_url=trainer.checkpoint_callback.best_model_path,
+                        map_location=torch.device("cpu"))
+    # state_dict = pl_ckpt["state_dict"]  # pl 1.x
+    state_dict = pl_ckpt
+    vae_key = "torch_nn_module."
+    vae_state_dict = OrderedDict()
+    loss_key = "loss."
+    loss_state_dict = OrderedDict()
+    unexpected_dict = OrderedDict()
+    for key, val in state_dict.items():
+        if key.startswith(vae_key):
+            vae_state_dict[key[len(vae_key):]] = val
+        elif key.startswith(loss_key):
+            loss_state_dict[key[len(loss_key):]] = val
         else:
-            ckpt_path = None
-        trainer.test(model=pl_module,
-                     datamodule=dm,
-                     ckpt_path=ckpt_path)
-    else:
-        if args.ckpt_name is not None:
-            ckpt_path = os.path.join(pl_module.save_dir, "checkpoints", args.ckpt_name)
-            if not os.path.exists(ckpt_path):
-                warnings.warn(f"ckpt {ckpt_path} not exists! Start training from epoch 0.")
-                ckpt_path = None
-        else:
-            ckpt_path = None
-        trainer.fit(model=pl_module,
-                    datamodule=dm,
-                    ckpt_path=ckpt_path)
-        # save state_dict of VAE and discriminator
-        pl_ckpt = pl_load(path_or_url=trainer.checkpoint_callback.best_model_path,
-                          map_location=torch.device("cpu"))
-        # state_dict = pl_ckpt["state_dict"]  # pl 1.x
-        state_dict = pl_ckpt
-        vae_key = "torch_nn_module."
-        vae_state_dict = OrderedDict()
-        loss_key = "loss."
-        loss_state_dict = OrderedDict()
-        unexpected_dict = OrderedDict()
-        for key, val in state_dict.items():
-            if key.startswith(vae_key):
-                vae_state_dict[key[len(vae_key):]] = val
-            elif key.startswith(loss_key):
-                loss_state_dict[key[len(loss_key):]] = val
-            else:
-                unexpected_dict[key] = val
-        torch.save(vae_state_dict, os.path.join(pl_module.save_dir, "checkpoints", pytorch_state_dict_name))
-        torch.save(loss_state_dict, os.path.join(pl_module.save_dir, "checkpoints", pytorch_loss_state_dict_name))
-        # test
-        trainer.test(ckpt_path="best",
-                     datamodule=dm)
+            unexpected_dict[key] = val
+    torch.save(vae_state_dict, os.path.join(pl_module.save_dir, "checkpoints", pytorch_state_dict_name))
+    torch.save(loss_state_dict, os.path.join(pl_module.save_dir, "checkpoints", pytorch_loss_state_dict_name))
+    # test
+    trainer.test(ckpt_path="best",
+                    datamodule=dm)
 
 
 if __name__ == "__main__":
